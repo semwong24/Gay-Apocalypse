@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwu0q1tqremo5"]
 
-[ext_resource type="Script" uid="uid://dv1f876l4croc" path="res://InkSetup.cs" id="1_0tq1f"]
+[ext_resource type="Script" uid="uid://bhclyt5e4lfme" path="res://Inktest.cs" id="1_0tq1f"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 offset_right = 40.0
