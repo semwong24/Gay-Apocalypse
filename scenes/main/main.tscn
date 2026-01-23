@@ -1,7 +1,16 @@
-[gd_scene load_steps=42 format=3 uid="uid://dxl6nusgtwlbr"]
+[gd_scene load_steps=51 format=3 uid="uid://dxl6nusgtwlbr"]
 
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://cctvtm8eh2sad" path="res://assets/Building 1/Building 1.glb" id="2_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://bpmd3q5apbetx" path="res://assets/Building 2/Building 2.glb" id="3_6q06x"]
+[ext_resource type="PackedScene" uid="uid://dxi8astn4is2i" path="res://assets/Building 3/Building 3.glb" id="4_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://blp6lti7hsg32" path="res://assets/med office build/medium office building.glb" id="5_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://dilnnsod10ky1" path="res://assets/short office build/short office building.glb" id="6_a8run"]
+[ext_resource type="PackedScene" uid="uid://bud67ah5d8vok" path="res://assets/Building 4/Building 4.glb" id="6_hujxm"]
+[ext_resource type="PackedScene" uid="uid://de0fsvr2raexi" path="res://assets/reg tall build/regular tall building.glb" id="7_ouso4"]
+[ext_resource type="PackedScene" uid="uid://dcs0p6fao7d" path="res://assets/office build/office building.glb" id="8_blune"]
 [ext_resource type="PackedScene" uid="uid://c33k5nq8qyjq0" path="res://assets/light pole/light pole.glb" id="9_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://cw2h5yu12g8r6" path="res://assets/reg build/regular building.glb" id="11_ouso4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(10, 10)
@@ -367,3 +376,36 @@ shape = SubResource("ConcavePolygonShape3D_os81g")
 
 [node name="light pole" parent="." instance=ExtResource("9_b1x3f")]
 transform = Transform3D(-0.15934704, 0, -0.9872226, 0, 0.45409572, 0, 0.9872226, 0, -0.15934704, -57.69615, 7.6253824, -236.51086)
+
+[node name="Building 1" parent="." instance=ExtResource("2_l3cfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.74563, 0, -169.3176)
+
+[node name="Building 2" parent="." instance=ExtResource("2_l3cfh")]
+transform = Transform3D(0.9975226, 0, -0.07034844, 0, 1, 0, 0.07034844, 0, 0.9975226, -29.35453, 0, -223.71704)
+
+[node name="Building 3" parent="." instance=ExtResource("3_6q06x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2345, 0, -158.51668)
+
+[node name="Building 4" parent="." instance=ExtResource("4_yyfjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.66991, 0, -196.41931)
+
+[node name="Building 5" parent="." instance=ExtResource("6_hujxm")]
+transform = Transform3D(0.9935679, 0, -0.113237895, 0, 1, 0, 0.113237895, 0, 0.9935679, -48.169727, 0, -223.0318)
+
+[node name="short office building" parent="." instance=ExtResource("6_a8run")]
+transform = Transform3D(0.99230176, 0, -0.12384394, 0, 1, 0, 0.12384394, 0, 0.99230176, -75.99188, 0, -228.67688)
+
+[node name="regular tall building" parent="." instance=ExtResource("7_ouso4")]
+transform = Transform3D(-0.04590636, 0, -0.56550026, 0, 0.5673605, 0, 0.56550026, 0, -0.04590636, -29.508606, 0, -212.6469)
+
+[node name="office building" parent="." instance=ExtResource("8_blune")]
+transform = Transform3D(0.9991598, 0, -0.040986303, 0, 1, 0, 0.040986303, 0, 0.9991598, -4.516487, 0, -189.86752)
+
+[node name="medium office building" parent="." instance=ExtResource("5_b1x3f")]
+transform = Transform3D(0.9989459, 0, -0.045903478, 0, 1, 0, 0.045903478, 0, 0.9989459, -5.026907, 0, -216.56519)
+
+[node name="Building 6" parent="." instance=ExtResource("6_hujxm")]
+transform = Transform3D(0.99745446, 0, -0.071305946, 0, 1, 0, 0.071305946, 0, 0.99745446, -1.5430946, 0, -240.3532)
+
+[node name="regular building" parent="." instance=ExtResource("11_ouso4")]
+transform = Transform3D(0.110566914, 0, 0.99386865, 0, 1, 0, -0.99386865, 0, 0.110566914, -30.190886, 0, -248.63847)
