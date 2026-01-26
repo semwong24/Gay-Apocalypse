@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://fdqn61h0citp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ouso4"]
+sky_top_color = Color(0.13377759, 0.09529803, 0.06031262, 1)
+sky_horizon_color = Color(0.24127993, 0.1616691, 0.13825226, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_blune"]
+sky_material = SubResource("ProceduralSkyMaterial_ouso4")
+
+[sub_resource type="Environment" id="Environment_th5th"]
+background_mode = 2
+sky = SubResource("Sky_blune")
+tonemap_mode = 3
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.23921569, 0.07450981, 0.05882353, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_length = 128.0
+adjustment_enabled = true
+adjustment_brightness = 1.3
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_th5th")
