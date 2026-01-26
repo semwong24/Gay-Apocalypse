@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=3 uid="uid://dxl6nusgtwlbr"]
+[gd_scene load_steps=168 format=3 uid="uid://dxl6nusgtwlbr"]
 
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://cctvtm8eh2sad" path="res://assets/Building 1/Building 1.glb" id="2_l3cfh"]
@@ -11,6 +11,27 @@
 [ext_resource type="PackedScene" uid="uid://dcs0p6fao7d" path="res://assets/office build/office building.glb" id="8_blune"]
 [ext_resource type="PackedScene" uid="uid://c33k5nq8qyjq0" path="res://assets/light pole/light pole.glb" id="9_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://cw2h5yu12g8r6" path="res://assets/reg build/regular building.glb" id="11_ouso4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ouso4"]
+sky_top_color = Color(0.13377759, 0.09529803, 0.06031262, 1)
+sky_horizon_color = Color(0.24127993, 0.1616691, 0.13825226, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_blune"]
+sky_material = SubResource("ProceduralSkyMaterial_ouso4")
+
+[sub_resource type="Environment" id="Environment_th5th"]
+background_mode = 2
+sky = SubResource("Sky_blune")
+tonemap_mode = 3
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_emission = Color(0.23921569, 0.07450981, 0.05882353, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_length = 128.0
+adjustment_enabled = true
+adjustment_brightness = 1.3
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(10, 10)
@@ -508,6 +529,9 @@ data = PackedVector3Array(-5, 1.5, 0.5, 5, 1.5, 0.5, -5, -1.5, 0.5, 5, 1.5, 0.5,
 data = PackedVector3Array(-5, 1.5, 0.5, 5, 1.5, 0.5, -5, -1.5, 0.5, 5, 1.5, 0.5, 5, -1.5, 0.5, -5, -1.5, 0.5, 5, 1.5, -0.5, -5, 1.5, -0.5, 5, -1.5, -0.5, -5, 1.5, -0.5, -5, -1.5, -0.5, 5, -1.5, -0.5, 5, 1.5, 0.5, 5, 1.5, -0.5, 5, -1.5, 0.5, 5, 1.5, -0.5, 5, -1.5, -0.5, 5, -1.5, 0.5, -5, 1.5, -0.5, -5, 1.5, 0.5, -5, -1.5, -0.5, -5, 1.5, 0.5, -5, -1.5, 0.5, -5, -1.5, -0.5, 5, 1.5, 0.5, -5, 1.5, 0.5, 5, 1.5, -0.5, -5, 1.5, 0.5, -5, 1.5, -0.5, 5, 1.5, -0.5, -5, -1.5, 0.5, 5, -1.5, 0.5, -5, -1.5, -0.5, 5, -1.5, 0.5, 5, -1.5, -0.5, -5, -1.5, -0.5)
 
 [node name="Main3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_th5th")
 
 [node name="Player3D" parent="." instance=ExtResource("1_hyk8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1097591, 0)

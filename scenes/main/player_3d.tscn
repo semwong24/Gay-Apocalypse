@@ -12,3 +12,12 @@ shape = SubResource("CapsuleShape3D_5wjm4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32314867, 0)
+
+[node name="Flashlight" type="Node3D" parent="Camera3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D/Flashlight"]
+light_color = Color(0.9484095, 0.92518455, 0.6111116, 1)
+light_energy = 4.0
+light_volumetric_fog_energy = 0.1
+spot_range = 80.0
+spot_angle_attenuation = 3.0
