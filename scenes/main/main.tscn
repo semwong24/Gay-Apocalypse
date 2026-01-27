@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=3 uid="uid://dxl6nusgtwlbr"]
+[gd_scene load_steps=166 format=3 uid="uid://dxl6nusgtwlbr"]
 
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://cctvtm8eh2sad" path="res://assets/Building 1/Building 1.glb" id="2_l3cfh"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dcs0p6fao7d" path="res://assets/office build/office building.glb" id="8_blune"]
 [ext_resource type="PackedScene" uid="uid://c33k5nq8qyjq0" path="res://assets/light pole/light pole.glb" id="9_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://cw2h5yu12g8r6" path="res://assets/reg build/regular building.glb" id="11_ouso4"]
+[ext_resource type="Texture2D" uid="uid://iyikwc4ssabr" path="res://materials/concrete.jpg" id="12_blune"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(10, 10)
@@ -150,14 +151,16 @@ size = Vector3(9, 9, 9)
 data = PackedVector3Array(-4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, -4.5, -4.5, -4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, -4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, -4.5, 4.5, 4.5, -4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, 4.5, 4.5, -4.5, 4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, 4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, -4.5, -4.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvumn"]
-albedo_color = Color(0.02924907, 0.02924907, 0.02924907, 1)
+albedo_color = Color(0.19793725, 0.19793722, 0.19793728, 1)
+albedo_texture = ExtResource("12_blune")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_necax"]
 material = SubResource("StandardMaterial3D_nvumn")
 size = Vector2(10, 70)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th5th"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+albedo_texture = ExtResource("12_blune")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_raeie"]
 material = SubResource("StandardMaterial3D_th5th")
