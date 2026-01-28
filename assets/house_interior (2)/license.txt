@@ -1,0 +1,11 @@
+Model Information:
+* title:	House interior
+* source:	https://sketchfab.com/3d-models/house-interior-e910b8395ddc4b9886d87caffdbacc69
+* author:	katydid (https://sketchfab.com/Katydid.)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "House interior" (https://sketchfab.com/3d-models/house-interior-e910b8395ddc4b9886d87caffdbacc69) by katydid (https://sketchfab.com/Katydid.) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

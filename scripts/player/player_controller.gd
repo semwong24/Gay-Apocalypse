@@ -9,8 +9,22 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
 var headbob_time := 0.0
+
+@onready var flashlight = $Camera3D/SpotLight3D
+var flashlight_on = false
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	flashlight.visible = false
+	
+func _input(event):
+	if event.is_action_pressed ("toggle_flashlight"):
+		toggle_flashlight()
+		
+func toggle_flashlight():
+	flashlight_on = !flashlight_on
+	flashlight.visible = flashlight_on
+	
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
