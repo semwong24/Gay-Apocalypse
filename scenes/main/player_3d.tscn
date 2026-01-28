@@ -6,23 +6,23 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5wjm4"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.4449077, -0.2620511)
 script = ExtResource("1_5wjm4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8765642, 0.1793794)
 shape = SubResource("CapsuleShape3D_5wjm4")
 
+[node name="character" parent="." instance=ExtResource("2_jkn4j")]
+transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, 0, -1.529272, 0.19268423)
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.32314867, 0)
+transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, 0, 0.8876165, -0.09591651)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08029318, 0)
 light_color = Color(0.9484095, 0.92518455, 0.6111116, 1)
 light_energy = 4.0
 light_volumetric_fog_energy = 0.1
 spot_range = 80.0
 spot_angle_attenuation = 3.0
-
-[node name="character" parent="." instance=ExtResource("2_jkn4j")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -1, 0)

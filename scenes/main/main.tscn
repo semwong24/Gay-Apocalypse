@@ -4688,10 +4688,10 @@ data = PackedVector3Array(-174.4455, -551.91437, 120.595795, -176.0541, -551.324
 [node name="Main3D" type="Node3D"]
 
 [node name="Player3D" parent="." instance=ExtResource("1_hyk8p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.991308, 1.1097591, 18.37353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.815971, 1.731999, 102.296326)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.991308, 0.8737789, 18.37353)
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.815971, 2.6887403, 102.296326)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.06984, 0)
@@ -5702,10 +5702,10 @@ shape = SubResource("ConcavePolygonShape3D_6g32y")
 shape = SubResource("ConcavePolygonShape3D_5nwjq")
 
 [node name="Sketchfab_Scene" type="Node3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -11.118549, 0.029721498, 14.703297)
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -11.118549, 0.08428836, 96.11221)
 
 [node name="Sketchfab_model" type="Node3D" parent="Sketchfab_Scene"]
-transform = Transform3D(1, 0, 0, 0, 2.220446e-16, 1, 0, -1, 2.220446e-16, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
 [node name="Collada visual scene group" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model"]
 
