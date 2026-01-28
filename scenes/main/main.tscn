@@ -5716,7 +5716,6 @@ skeleton = NodePath("")
 
 [node name="Material3" type="MeshInstance3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048184395, 0.1639843, 0.10005832)
-visible = false
 mesh = SubResource("ArrayMesh_fh88r")
 skeleton = NodePath("")
 
@@ -6605,3 +6604,53 @@ shape = SubResource("ConcavePolygonShape3D_mx05e")
 transform = Transform3D(-0.9982342, 0.03923751, -0.04459662, -0.05940068, -0.6593903, 0.7494505, 0, 0.7507762, 0.6605567, -211.8165, 184.9327, 453.9802)
 
 [node name="ID1" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/SketchUp/skp_camera_Last_Saved_SketchUp_View"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Sketchfab_Scene"]
+transform = Transform3D(33.333336, 0, 0, 0, -1.4570478e-06, 33.333336, 0, -33.333336, -1.4570478e-06, 35.375305, 134.79596, 196.73267)
+light_color = Color(0.97284085, 0.9709138, 0.8915657, 1)
+light_energy = 4.0
+light_volumetric_fog_energy = 0.0
+spot_range = 18.069
+spot_attenuation = 0.41
+spot_angle = 180.0
+spot_angle_attenuation = 2.8284235
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Sketchfab_Scene"]
+transform = Transform3D(33.333336, 0, 0, 0, -1.4570477e-06, 33.333336, 0, -33.333336, -1.4570477e-06, -342.76178, 116.47693, 196.73267)
+light_color = Color(0.97284085, 0.9709138, 0.8915657, 1)
+light_energy = 4.0
+light_volumetric_fog_energy = 0.0
+spot_range = 10.827
+spot_attenuation = 1.25
+spot_angle = 180.0
+spot_angle_attenuation = 2.8284235
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Sketchfab_Scene"]
+transform = Transform3D(33.333336, 0, 0, 0, -1.4570481e-06, 33.333336, 0, -33.333336, -1.4570481e-06, 51.31906, 103.013504, 396.24878)
+light_color = Color(0.97284085, 0.9709138, 0.8915657, 1)
+light_energy = 4.0
+light_volumetric_fog_energy = 0.0
+spot_range = 4.061
+spot_attenuation = -0.07
+spot_angle = 180.0
+spot_angle_attenuation = 2.8284235
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Sketchfab_Scene"]
+transform = Transform3D(33.333336, 0, 0, 0, -1.4570481e-06, 33.333336, 0, -33.333336, -1.4570481e-06, -182.59698, 116.47693, 555.11914)
+light_color = Color(0.97284085, 0.9709138, 0.8915657, 1)
+light_energy = 4.0
+light_volumetric_fog_energy = 0.0
+spot_range = 5.176
+spot_attenuation = 0.26
+spot_angle = 180.0
+spot_angle_attenuation = 2.8284235
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Sketchfab_Scene"]
+transform = Transform3D(33.333336, 0, 0, 0, -1.4570481e-06, 33.333336, 0, -33.333336, -1.4570481e-06, -283.8161, 116.47693, 422.0193)
+light_color = Color(0.97284085, 0.9709138, 0.8915657, 1)
+light_energy = 4.0
+light_volumetric_fog_energy = 0.0
+spot_range = 15.691
+spot_attenuation = 1.26
+spot_angle = 180.0
+spot_angle_attenuation = 2.8284235
