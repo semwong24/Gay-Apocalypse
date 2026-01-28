@@ -31,6 +31,7 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity * 0.01)
 		cam.rotate_x(-event.relative.y * mouse_sensitivity * 0.01)
 		cam.rotation_degrees.x = clamp(cam.rotation_degrees.x, -89, 89)
+		flashlight.rotation = cam.rotation
 		
 func _physics_process(delta):
 	var direction = Vector3.ZERO

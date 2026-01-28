@@ -18,6 +18,8 @@ transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, 0, 0.8876165, -0.09591651)
+v_offset = 1.2
+current = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08029318, 0)
@@ -25,4 +27,5 @@ light_color = Color(0.9484095, 0.92518455, 0.6111116, 1)
 light_energy = 4.0
 light_volumetric_fog_energy = 0.1
 spot_range = 80.0
+spot_angle = 69.12
 spot_angle_attenuation = 3.0
