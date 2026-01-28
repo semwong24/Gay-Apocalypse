@@ -6613,7 +6613,7 @@ light_energy = 4.0
 light_volumetric_fog_energy = 0.0
 spot_range = 18.069
 spot_attenuation = 0.41
-spot_angle = 180.0
+spot_angle = 88.0
 spot_angle_attenuation = 2.8284235
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Sketchfab_Scene"]
@@ -6623,7 +6623,7 @@ light_energy = 4.0
 light_volumetric_fog_energy = 0.0
 spot_range = 10.827
 spot_attenuation = 1.25
-spot_angle = 180.0
+spot_angle = 88.0
 spot_angle_attenuation = 2.8284235
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Sketchfab_Scene"]
@@ -6633,7 +6633,7 @@ light_energy = 4.0
 light_volumetric_fog_energy = 0.0
 spot_range = 4.061
 spot_attenuation = -0.07
-spot_angle = 180.0
+spot_angle = 88.0
 spot_angle_attenuation = 2.8284235
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Sketchfab_Scene"]
@@ -6643,7 +6643,7 @@ light_energy = 4.0
 light_volumetric_fog_energy = 0.0
 spot_range = 5.176
 spot_attenuation = 0.26
-spot_angle = 180.0
+spot_angle = 88.0
 spot_angle_attenuation = 2.8284235
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="Sketchfab_Scene"]
@@ -6653,5 +6653,5 @@ light_energy = 4.0
 light_volumetric_fog_energy = 0.0
 spot_range = 15.691
 spot_attenuation = 1.26
-spot_angle = 180.0
+spot_angle = 88.0
 spot_angle_attenuation = 2.8284235
