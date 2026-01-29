@@ -21,8 +21,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"Jessie": "res://docs/dialogic/characters/Jessie.dch",
+"Rose": "res://docs/dialogic/characters/Rose.dch"
+}
+directories/dtl_directory={
+"opening": "res://docs/dialogic/opening.dtl"
+}
 layout/style_directory={}
 
 [dotnet]
