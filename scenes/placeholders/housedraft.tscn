@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmi208r5jlkkg"]
+[gd_scene load_steps=13 format=3 uid="uid://dmi208r5jlkkg"]
 
 [ext_resource type="Texture2D" uid="uid://b684n6jgx0dh3" path="res://materials/planktexture.jpg" id="1_tiyrl"]
 
@@ -36,6 +36,9 @@ uv1_scale = Vector3(3, 3, 3)
 [sub_resource type="PrismMesh" id="PrismMesh_tiyrl"]
 material = SubResource("StandardMaterial3D_gk5y0")
 size = Vector3(6.5, 2.5, 6.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tiyrl"]
+size = Vector3(6.5, 8, 6.5)
 
 [node name="Housedraft" type="Node3D"]
 
@@ -126,3 +129,9 @@ material = SubResource("StandardMaterial3D_aetnq")
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.40805, 0)
 mesh = SubResource("PrismMesh_tiyrl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3529043, 0)
+shape = SubResource("BoxShape3D_tiyrl")
