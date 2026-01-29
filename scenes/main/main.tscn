@@ -1,4 +1,4 @@
-[gd_scene load_steps=666 format=4 uid="uid://dxl6nusgtwlbr"]
+[gd_scene load_steps=667 format=4 uid="uid://dxl6nusgtwlbr"]
 
 [ext_resource type="Script" uid="uid://ck8wdo5oor1k2" path="res://scripts/main.gd" id="1_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cu36gotyq1l82" path="res://assets/house_interior (2)/textures/auto_10_baseColor.png" id="14_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://dmi208r5jlkkg" path="res://scenes/placeholders/housedraft.tscn" id="14_hoc2b"]
 [ext_resource type="Texture2D" uid="uid://uwffsl8wi058" path="res://assets/house_interior (2)/textures/auto_17_baseColor.png" id="15_hoc2b"]
+[ext_resource type="PackedScene" uid="uid://d3o36s8edu5je" path="res://scenes/placeholders/housedraft_2.tscn" id="15_w6p3v"]
 [ext_resource type="Texture2D" uid="uid://dmsh7fndq2kit" path="res://assets/house_interior (2)/textures/auto_28_baseColor.png" id="16_w6p3v"]
 [ext_resource type="Texture2D" uid="uid://d2ulcyqr8x7ma" path="res://assets/house_interior (2)/textures/auto_29_baseColor.png" id="17_pjhg1"]
 [ext_resource type="Texture2D" uid="uid://doashaa08c3pl" path="res://assets/house_interior (2)/textures/auto_37_baseColor.png" id="18_eg1d4"]
@@ -5235,6 +5236,7 @@ shape = SubResource("ConcavePolygonShape3D_6llfj")
 
 [node name="House2" type="MeshInstance3D" parent="BlockPath/Houses"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.623974, -0.121981144, 0.40055585)
+visible = false
 mesh = SubResource("BoxMesh_37hlw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BlockPath/Houses/House2"]
@@ -5244,6 +5246,7 @@ shape = SubResource("ConcavePolygonShape3D_6llfj")
 
 [node name="House3" type="MeshInstance3D" parent="BlockPath/Houses"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0368538, 0.3847971, -29.989613)
+visible = false
 mesh = SubResource("BoxMesh_37hlw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BlockPath/Houses/House3"]
@@ -5253,6 +5256,7 @@ shape = SubResource("ConcavePolygonShape3D_62atk")
 
 [node name="House4" type="MeshInstance3D" parent="BlockPath/Houses"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3176937, 0.37038612, -47.897137)
+visible = false
 mesh = SubResource("BoxMesh_37hlw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BlockPath/Houses/House4"]
@@ -5261,7 +5265,7 @@ mesh = SubResource("BoxMesh_37hlw")
 shape = SubResource("ConcavePolygonShape3D_62atk")
 
 [node name="Housedraft" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 31.523064, -3.9940128, -31.6517)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 31.523064, -3.9940128, -26.928373)
 
 [node name="Housedraft2" parent="BlockPath/Houses/Housedraft" instance=ExtResource("14_hoc2b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.746428, 0, 0)
@@ -5292,6 +5296,489 @@ transform = Transform3D(1, 0, 4.2632564e-14, 0, 1, 0, -4.2632564e-14, 0, 1, 42.6
 
 [node name="Housedraft5" parent="BlockPath/Houses/Housedraft2" instance=ExtResource("14_hoc2b")]
 transform = Transform3D(1, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1, 12.522207, 0, 1.9073486e-06)
+
+[node name="Housedraft14" parent="BlockPath/Houses/Housedraft2" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 62.768112, 0.04069741, 9.995373)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft2" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 4.2632564e-14, 0, 1, 0, -4.2632564e-14, 0, 1, 53.990692, 0, 8.34465e-06)
+
+[node name="Housedraft4" parent="BlockPath/Houses" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -18.683235, -3.978757, -29.70571)
+
+[node name="Housedraft3" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.257107, 0, 0)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5183, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.188038, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0.10995865, 0.040697414, -12.809568)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0.10996246, 0.040697414, -23.8916)
+
+[node name="Housedraft8" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.5403595, 0.040697414, -12.809568)
+
+[node name="Housedraft9" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.086082, 0.040697414, -33.800797)
+
+[node name="Housedraft10" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.567291, 0.040697414, -33.800797)
+
+[node name="Housedraft11" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.791756, 0.040697414, -33.800797)
+
+[node name="Housedraft12" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -19.805984, 0.040697414, -16.282389)
+
+[node name="Housedraft13" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -31.287193, 0.040697414, -16.282389)
+
+[node name="Housedraft14" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -44.511665, 0.040697414, -23.722914)
+
+[node name="Housedraft15" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.799644, 0, 0)
+
+[node name="Housedraft16" parent="BlockPath/Houses/Housedraft4" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.540361, 0.040697414, -24.194223)
+
+[node name="Housedraft3" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 144.16373, -3.9940128, -40.946964)
+
+[node name="Housedraft2" parent="BlockPath/Houses/Housedraft3" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.746428, 0, 0)
+
+[node name="Housedraft3" parent="BlockPath/Houses/Housedraft3" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.217178, 0, 0)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft3" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.251606, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft3" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.235344, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft3" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.915234, 0, 0)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft3" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6874, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 156.1951, -3.9940128, -1.8138313)
+
+[node name="Housedraft2" parent="BlockPath/Houses/Housedraft5" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.746428, 0, 0)
+
+[node name="Housedraft3" parent="BlockPath/Houses/Housedraft5" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.217178, 0, 0)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft5" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.251606, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft5" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.235344, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft5" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.915234, 0, 0)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft5" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6874, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -20.604858, -3.9765348, 18.795431)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft6" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.641245, 0, 0)
+
+[node name="Housedraft8" parent="BlockPath/Houses/Housedraft6" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.906969, 0, 16.53321)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft6/Housedraft8" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.641245, 0, 0)
+
+[node name="Housedraft7" parent="BlockPath/Houses" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 44.35623, -3.9765348, 21.211866)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft7" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.641245, 0, 0)
+
+[node name="Housedraft8" parent="BlockPath/Houses/Housedraft7" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.906969, 0, 16.53321)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft7/Housedraft8" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.641245, 0, 0)
+
+[node name="Housedraft8" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 90.40699, 0, -63.925426)
+
+[node name="Housedraft9" parent="BlockPath/Houses/Housedraft8" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.994862, 0, 0)
+
+[node name="Housedraft10" parent="BlockPath/Houses/Housedraft8" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.47454, 0, 0)
+
+[node name="Housedraft11" parent="BlockPath/Houses/Housedraft8" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.765358, 0, 0)
+
+[node name="Housedraft12" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 31.523064, -3.9940128, -194.77449)
+
+[node name="Housedraft2" parent="BlockPath/Houses/Housedraft12" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.746428, 0, 0)
+
+[node name="Housedraft3" parent="BlockPath/Houses/Housedraft12" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.217178, 0, 0)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft12" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.251606, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft12" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.235344, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft12" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.915234, 0, 0)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft12" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6874, 0, 0)
+
+[node name="Housedraft13" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 142.02368, -3.9940128, -164.68037)
+
+[node name="Housedraft2" parent="BlockPath/Houses/Housedraft13" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.746428, 0, 0)
+
+[node name="Housedraft3" parent="BlockPath/Houses/Housedraft13" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.217178, 0, 0)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft13" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.251606, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft13" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.235344, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft13" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.915234, 0, 0)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft13" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6874, 0, 0)
+
+[node name="Housedraft14" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 3.5297394, -3.9940128, -109.5264)
+
+[node name="Housedraft2" parent="BlockPath/Houses/Housedraft14" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.746428, 0, 0)
+
+[node name="Housedraft3" parent="BlockPath/Houses/Housedraft14" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.217178, 0, 0)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft14" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.251606, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft14" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.235344, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft14" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.915234, 0, 0)
+
+[node name="Housedraft9" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 31.424713, -3.9940128, -215.50475)
+
+[node name="Housedraft10" parent="BlockPath/Houses/Housedraft9" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.12468, 0, 5.9604645e-07)
+
+[node name="Housedraft11" parent="BlockPath/Houses/Housedraft9" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.893387, 0, 1.1920929e-06)
+
+[node name="Housedraft15" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, -18.120663, -3.9940128, -205.97203)
+
+[node name="Housedraft2" parent="BlockPath/Houses/Housedraft15" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.746428, 0, 0)
+
+[node name="Housedraft3" parent="BlockPath/Houses/Housedraft15" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.217178, 0, 0)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft15" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.251606, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft15" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.235344, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft15" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.915234, 0, 0)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft15" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6874, 0, 0)
+
+[node name="Housedraft10" parent="BlockPath/Houses" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 144.65707, -3.978757, -258.00558)
+
+[node name="Housedraft3" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.084122, 0, 0)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.115944, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.996033, 0, 0)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-0.85716736, 0, -0.515038, 0, 1, 0, 0.515038, 0, -0.85716736, -7.2427216, 0.040697414, -25.958664)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-0.40034902, 0, -0.9163627, 0, 1, 0, 0.9163627, 0, -0.40034902, 2.6324234, 0.040697414, -36.35771)
+
+[node name="Housedraft8" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.541588, 0.040697414, -50.719833)
+
+[node name="Housedraft25" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.559494, 0.08139484, -75.277756)
+
+[node name="Housedraft9" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(0.9602937, 0, -0.2789911, 0, 1, 0, 0.2789911, 0, 0.9602937, -7.6741943, 0.040697414, -74.70514)
+
+[node name="Housedraft10" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -21.567299, 0.040697414, -23.909088)
+
+[node name="Housedraft11" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(0.86427486, 0, 0.5030199, 0, 1, 0, -0.5030199, 0, 0.86427486, -32.27527, 0.040697414, -75.65532)
+
+[node name="Housedraft12" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -32.028954, 0.040697414, -23.522247)
+
+[node name="Housedraft13" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -32.805016, 0.040697414, -12.812363)
+
+[node name="Housedraft14" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -50.987984, 0.040697414, -18.589767)
+
+[node name="Housedraft15" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.193733, 0, 0)
+
+[node name="Housedraft16" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(0.6211478, 0, -0.78369343, 0, 1, 0, 0.78369343, 0, 0.6211478, 2.6147385, 0.040697414, -65.29393)
+
+[node name="Housedraft17" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -16.707645, 0, 19.159576)
+
+[node name="Housedraft18" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -27.969196, 0, 19.159576)
+
+[node name="Housedraft19" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -38.82708, 0, 19.159576)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft10/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.28138, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft10/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.161476, 0, -1.5258789e-05)
+
+[node name="Housedraft15" parent="BlockPath/Houses/Housedraft10/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -55.35917, 0, 8.769485)
+
+[node name="Housedraft20" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -49.682285, 0, -1.2525635)
+
+[node name="Housedraft21" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -49.68229, 0, 9.303299)
+
+[node name="Housedraft22" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -61.885815, 0, -1.2525635)
+
+[node name="Housedraft23" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.88582, 0, -17.599182)
+
+[node name="Housedraft24" parent="BlockPath/Houses/Housedraft10" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.27154, 0, -17.599182)
+
+[node name="Housedraft11" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 31.424713, -3.9940128, -313.22766)
+
+[node name="Housedraft10" parent="BlockPath/Houses/Housedraft11" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.12468, 0, 5.9604645e-07)
+
+[node name="Housedraft11" parent="BlockPath/Houses/Housedraft11" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.893387, 0, 1.1920929e-06)
+
+[node name="Housedraft16" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 31.424713, -3.9940128, -372.023)
+
+[node name="Housedraft10" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.12468, 0, 5.9604645e-07)
+
+[node name="Housedraft11" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22.168762, 0, 12.214327)
+
+[node name="Housedraft12" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22.168762, 0, 23.454638)
+
+[node name="Housedraft13" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22.168762, 0, 34.13266)
+
+[node name="Housedraft14" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.626007, 0, 34.13266)
+
+[node name="Housedraft15" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.703735, 0, 34.13266)
+
+[node name="Housedraft16" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 17.988699)
+
+[node name="Housedraft17" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 30.250555)
+
+[node name="Housedraft18" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 42.68123)
+
+[node name="Housedraft19" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 54.29325)
+
+[node name="Housedraft20" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 66.567505)
+
+[node name="Housedraft21" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 78.277084)
+
+[node name="Housedraft22" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 90.96252)
+
+[node name="Housedraft23" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 104.014885)
+
+[node name="Housedraft24" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 116.58666)
+
+[node name="Housedraft25" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1093903, 0, 130.62413)
+
+[node name="Housedraft26" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.651154, 0, 146.05174)
+
+[node name="Housedraft27" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.1924881e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924881e-08, -22.024323, 0, 78.27709)
+
+[node name="Housedraft28" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.1924881e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924881e-08, -22.024323, 0, 90.962524)
+
+[node name="Housedraft29" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.1924881e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924881e-08, -22.024323, 0, 104.01489)
+
+[node name="Housedraft30" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.1924881e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924881e-08, -22.024323, 0, 116.58667)
+
+[node name="Housedraft31" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.1924881e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924881e-08, -22.024323, 0, 130.62413)
+
+[node name="Housedraft33" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.1924875e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924875e-08, -22.024323, 0, 55.35463)
+
+[node name="Housedraft32" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.1924875e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924875e-08, -22.024323, 0, 67.348305)
+
+[node name="Housedraft38" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -97.187225, 0, 54.264275)
+
+[node name="Housedraft37" parent="BlockPath/Houses/Housedraft16/Housedraft38" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.298431, 0, -0.47496414)
+
+[node name="Housedraft39" parent="BlockPath/Houses/Housedraft16/Housedraft38" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.746674, 0, -0.6185188)
+
+[node name="Housedraft36" parent="BlockPath/Houses/Housedraft16/Housedraft38" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.51648, 0, -0.39126587)
+
+[node name="Housedraft35" parent="BlockPath/Houses/Housedraft16/Housedraft38" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.443207, 0, -0.8070488)
+
+[node name="Housedraft34" parent="BlockPath/Houses/Housedraft16/Housedraft38" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.28418, 0, -1.0035744)
+
+[node name="Housedraft39" parent="BlockPath/Houses/Housedraft16" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -171.71066, 0, 54.264275)
+
+[node name="Housedraft37" parent="BlockPath/Houses/Housedraft16/Housedraft39" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.298431, 0, -0.47496414)
+
+[node name="Housedraft39" parent="BlockPath/Houses/Housedraft16/Housedraft39" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.746674, 0, -0.6185188)
+
+[node name="Housedraft36" parent="BlockPath/Houses/Housedraft16/Housedraft39" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.51648, 0, -0.39126587)
+
+[node name="Housedraft35" parent="BlockPath/Houses/Housedraft16/Housedraft39" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.443207, 0, -0.8070488)
+
+[node name="Housedraft34" parent="BlockPath/Houses/Housedraft16/Housedraft39" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.28418, 0, -1.0035744)
+
+[node name="Housedraft17" parent="BlockPath/Houses" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 67.868225, -3.9940128, -362.05087)
+
+[node name="Housedraft10" parent="BlockPath/Houses/Housedraft17" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.12468, 0, 5.9604645e-07)
+
+[node name="Housedraft11" parent="BlockPath/Houses/Housedraft17" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.893387, 0, 1.1920929e-06)
+
+[node name="Housedraft12" parent="BlockPath/Houses/Housedraft17" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(0.51503813, 0, 0.85716736, 0, 1, 0, -0.85716736, 0, 0.51503813, 12.003464, 0, -3.186201)
+
+[node name="Housedraft13" parent="BlockPath/Houses/Housedraft17" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-0.64144963, 0, -0.76716536, 0, 1, 0, 0.76716536, 0, -0.64144963, 21.618774, 0, 15.455784)
+
+[node name="Housedraft14" parent="BlockPath/Houses/Housedraft17" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(-0.64144963, 0, -0.76716536, 0, 1, 0, 0.76716536, 0, -0.64144963, 28.648254, 0, 7.051098)
+
+[node name="Housedraft15" parent="BlockPath/Houses/Housedraft17" instance=ExtResource("14_hoc2b")]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 30.261566, 0, -12.580426)
+
+[node name="Housedraft19" parent="BlockPath/Houses" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 75.60683, -3.847454, -468.2757)
+
+[node name="Housedraft4" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.28138, 0, 0)
+
+[node name="Housedraft5" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.161476, 0, -1.5258789e-05)
+
+[node name="Housedraft15" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -55.35917, 0, 8.769485)
+
+[node name="Housedraft6" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.067719, 0, 0)
+
+[node name="Housedraft7" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.547852, 0, -1.9073486e-06)
+
+[node name="Housedraft8" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2341, 0, -1.9073486e-06)
+
+[node name="Housedraft9" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.186646, 0, -1.9073486e-06)
+
+[node name="Housedraft10" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -33.281403, 0, 17.675295)
+
+[node name="Housedraft11" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -46.48355, 0, 17.675297)
+
+[node name="Housedraft12" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -20.437592, 0, 17.675297)
+
+[node name="Housedraft13" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -7.467621, 0, 17.675297)
+
+[node name="Housedraft14" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 3.677887, 0, 17.675295)
+
+[node name="Housedraft16" parent="BlockPath/Houses/Housedraft19" instance=ExtResource("15_w6p3v")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 14.964539, 0, 17.675295)
 
 [node name="LiquorStore" type="MeshInstance3D" parent="BlockPath"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.303047, 4.903017, -78.14749)
@@ -5336,6 +5823,7 @@ mesh = SubResource("BoxMesh_yisfj")
 
 [node name="Houses2" type="MeshInstance3D" parent="BlockPath"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.828346, 4.082489, -67.229385)
+visible = false
 mesh = SubResource("BoxMesh_pd34m")
 skeleton = NodePath("../..")
 
