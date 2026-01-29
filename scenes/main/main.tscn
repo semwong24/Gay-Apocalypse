@@ -1,4 +1,4 @@
-[gd_scene load_steps=671 format=4 uid="uid://dxl6nusgtwlbr"]
+[gd_scene load_steps=668 format=4 uid="uid://dxl6nusgtwlbr"]
 
 [ext_resource type="Script" uid="uid://ck8wdo5oor1k2" path="res://scripts/main.gd" id="1_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
@@ -245,30 +245,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
-
-[sub_resource type="BoxMesh" id="BoxMesh_bs763"]
-
-[sub_resource type="GDScript" id="GDScript_pjhg1"]
-script/source = "extends StaticBody3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func interact():
-	print(\"Item picked up!\")
-	queue_free()
-"
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e7c2j"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouso4"]
 albedo_color = Color(0, 0.22745098, 0, 1)
@@ -5012,20 +4988,6 @@ transform = Transform3D(0.110566914, 0, 0.99386865, 0, 1, 0, -0.99386865, 0, 0.1
 [node name="walkie talkie" parent="." instance=ExtResource("13_w6p3v")]
 transform = Transform3D(-0.05, 0, -4.371139e-09, 0, 0.05, 0, 4.371139e-09, 0, -0.05, -9.254222, 2.2388282, 104.212135)
 script = SubResource("GDScript_w6p3v")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="walkie talkie"]
-transform = Transform3D(8, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
-visible = false
-layers = 2
-mesh = SubResource("BoxMesh_bs763")
-
-[node name="WalkieTalkie" type="StaticBody3D" parent="walkie talkie/MeshInstance3D"]
-collision_layer = 2
-collision_mask = 2
-script = SubResource("GDScript_pjhg1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walkie talkie/MeshInstance3D/WalkieTalkie"]
-shape = SubResource("ConcavePolygonShape3D_e7c2j")
 
 [node name="BlockPath" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056465626, 0.024589539, -0.07095528)
