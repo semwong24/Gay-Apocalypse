@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://coykx8w6ol25f"]
 
-[ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
-[ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
+[ext_resource type="Script" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
+[ext_resource type="Script" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
