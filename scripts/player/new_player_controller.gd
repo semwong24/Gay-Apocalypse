@@ -13,10 +13,8 @@ var headbob_time := 0.0
 var flashlight_on = false
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	flashlight.visible = false
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	flashlight.visible = false
 	
 func _input(event):
 	if event.is_action_pressed ("toggle_flashlight"):
@@ -35,12 +33,13 @@ func toggle_flashlight():
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		$Head.rotate_y(-event.relative.x * mouse_sensitivity * 0.01)
-		cam.rotate_x(-event.relative.y * mouse_sensitivity * 0.01)
-		cam.rotation_degrees.x = clamp(cam.rotation_degrees.x, -89, 89)
+		rotate_y(-event.relative.x * mouse_sensitivity * 0.01)
+		$Head.rotate_x(-event.relative.y * mouse_sensitivity * 0.01)
+		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -89, 89)
 		flashlight.rotation = cam.rotation
 		
 func _physics_process(delta):
+
 	var direction = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
 		direction -= transform.basis.z
