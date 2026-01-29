@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Gay Apocalypse"
 run/main_scene="uid://dxl6nusgtwlbr"
-config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
