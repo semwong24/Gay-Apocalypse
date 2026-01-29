@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3o36s8edu5je"]
+
+[ext_resource type="Texture2D" uid="uid://b684n6jgx0dh3" path="res://materials/planktexture.jpg" id="1_pv3ta"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ureg"]
+size = Vector2(9, 9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i26jx"]
+albedo_color = Color(0.48570347, 0.48570353, 0.48570347, 1)
+albedo_texture = ExtResource("1_pv3ta")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dv5h"]
+albedo_color = Color(0.478953, 0.72780716, 0.96359724, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7awlx"]
+albedo_color = Color(0.47843137, 0.7294118, 0.9647059, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7pen"]
+albedo_color = Color(0.47843137, 0.7294118, 0.9647059, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5f0yf"]
+albedo_color = Color(0.47843137, 0.7294118, 0.9647059, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_istko"]
+albedo_color = Color(0.47843137, 0.7294118, 0.9647059, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ft3j"]
+albedo_color = Color(0.41182742, 0.15067774, 0.0682702, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gk5y0"]
+albedo_color = Color(0.4862745, 0.4862745, 0.4862745, 1)
+albedo_texture = ExtResource("1_pv3ta")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="PrismMesh" id="PrismMesh_pv3ta"]
+material = SubResource("StandardMaterial3D_gk5y0")
+size = Vector3(6.5, 2.5, 6.5)
+
+[node name="Housedraft2" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_1ureg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005859375, 0.014186621, 0)
+size = Vector3(7, 0.1862793, 7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005859375, 2.1048489, 0)
+size = Vector3(6.5, 4.1064453, 6.5)
+material = SubResource("StandardMaterial3D_i26jx")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.020584, 0.21622276, -3.2225382)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_6dv5h")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.021, 0.216, 3.223)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_7awlx")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.021, 0.216, -3.223)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_t7pen")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.021, 0.216, 3.223)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_5f0yf")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.216, -3.223)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_istko")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6151023, 3.223)
+operation = 2
+size = Vector3(1.5, 2.75, 0.213)
+material = SubResource("StandardMaterial3D_5ft3j")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.19698, 0.21600008, -2.2176533)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_istko")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.197, 0.216, 2.218)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_istko")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.197, 0.216, 0)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_istko")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.197, 0.21600008, -2.2176533)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_istko")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.197, 0.216, 2.218)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_istko")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.197, 0.216, 0)
+operation = 2
+size = Vector3(1, 2.5, 0.213)
+material = SubResource("StandardMaterial3D_istko")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.40805, 0)
+mesh = SubResource("PrismMesh_pv3ta")
