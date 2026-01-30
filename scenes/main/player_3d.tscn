@@ -61,6 +61,7 @@ spot_range = 80.0
 spot_angle_attenuation = 3.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
+process_mode = 4
 layer = 0
 
 [node name="ComicManager" parent="Head/Camera3D/CanvasLayer" instance=ExtResource("4_773k5")]
