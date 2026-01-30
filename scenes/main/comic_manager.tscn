@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://7cbsoiciba4a"]
+
+[ext_resource type="Texture2D" uid="uid://baqylfqrbt2d8" path="res://assets/comic/intro_comic/IMG_1059.PNG" id="1_0064o"]
+[ext_resource type="Texture2D" uid="uid://dkpvxeg3s4ane" path="res://assets/comic/intro_comic/IMG_1064.PNG" id="2_neygj"]
+[ext_resource type="Texture2D" uid="uid://k4sb2kjugboc" path="res://assets/comic/intro_comic/IMG_1062.PNG" id="3_dm6xa"]
+[ext_resource type="Texture2D" uid="uid://doytlf08lm4tw" path="res://assets/comic/intro_comic/IMG_1065.PNG" id="4_npnwg"]
+[ext_resource type="Texture2D" uid="uid://bj857mv8xqu1w" path="res://assets/comic/intro_comic/IMG_1066.PNG" id="5_2m8d5"]
+[ext_resource type="Texture2D" uid="uid://t2srxgq3qrff" path="res://assets/comic/intro_comic/IMG_1067.PNG" id="6_vxejb"]
+[ext_resource type="Texture2D" uid="uid://bc2ls3mnvoqa" path="res://assets/comic/intro_comic/IMG_1068.PNG" id="7_kxjlw"]
+[ext_resource type="Texture2D" uid="uid://qa8n1mcgxqlu" path="res://assets/comic/intro_comic/IMG_1072.PNG" id="8_46b22"]
+
+[node name="ComicManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="panel 1" type="Sprite2D" parent="."]
+scale = Vector2(0.281, 0.281)
+texture = ExtResource("1_0064o")
+centered = false
+
+[node name="panel 2" type="Sprite2D" parent="."]
+scale = Vector2(0.281, 0.281)
+texture = ExtResource("2_neygj")
+centered = false
+
+[node name="panel 3" type="Sprite2D" parent="."]
+scale = Vector2(0.281, 0.281)
+texture = ExtResource("3_dm6xa")
+centered = false
+
+[node name="panel 4" type="Sprite2D" parent="."]
+scale = Vector2(0.281, 0.281)
+texture = ExtResource("4_npnwg")
+centered = false
+
+[node name="panel 5" type="Sprite2D" parent="."]
+scale = Vector2(0.281, 0.281)
+texture = ExtResource("5_2m8d5")
+centered = false
+
+[node name="panel 6" type="Sprite2D" parent="."]
+scale = Vector2(0.281, 0.281)
+texture = ExtResource("6_vxejb")
+centered = false
+
+[node name="panel 7" type="Sprite2D" parent="."]
+scale = Vector2(0.281, 0.281)
+texture = ExtResource("7_kxjlw")
+centered = false
+
+[node name="panel 8" type="Sprite2D" parent="."]
+scale = Vector2(0.281, 0.281)
+texture = ExtResource("8_46b22")
+centered = false
