@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s02it3ucdrr5"
-path="res://.godot/imported/IMG_1073.PNG-55251948e3fe7cdfa0752b7c0da70972.ctex"
+uid="uid://bc2ls3mnvoqa"
+path="res://.godot/imported/IMG_1068.PNG-27292e4b3334873d97454c6fd3c99d82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/comic/intro_comic/IMG_1073.PNG"
-dest_files=["res://.godot/imported/IMG_1073.PNG-55251948e3fe7cdfa0752b7c0da70972.ctex"]
+source_file="res://assets/comic/intro_comic/page_1/IMG_1068.PNG"
+dest_files=["res://.godot/imported/IMG_1068.PNG-27292e4b3334873d97454c6fd3c99d82.ctex"]
 
 [params]
 
