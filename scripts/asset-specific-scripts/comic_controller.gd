@@ -4,6 +4,7 @@ var comics = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_comic("intro_comic")
+	load_page_full("intro_comic",0)
 	pass # Replace with function body.
 
 func load_comic(name:String):
@@ -27,7 +28,9 @@ func load_comic(name:String):
 		comic.append(page_panels)
 	comics[name] = comic
 	return comic
-
+func load_page_full(comic_name:String,page:int):
+	for panel in comics[comic_name][page]:
+		panel.visible = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
