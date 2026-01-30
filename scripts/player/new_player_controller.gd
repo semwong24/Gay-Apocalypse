@@ -8,14 +8,14 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export_group("headbob")
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
-@export var sprite: Sprite3D
+#@export var sprite: Sprite3D
 var headbob_time := 0.0
 
 var flashlight_on = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	sprite.position.y = cam.position.y
+	#sprite.position.y = cam.position.y
 	flashlight.visible = false
 	
 func _input(event):
