@@ -1,4 +1,4 @@
-[gd_scene load_steps=669 format=4 uid="uid://dxl6nusgtwlbr"]
+[gd_scene load_steps=668 format=4 uid="uid://dxl6nusgtwlbr"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cw2h5yu12g8r6" path="res://assets/buildings/reg build/regular building.glb" id="11_ouso4"]
 [ext_resource type="Texture2D" uid="uid://iyikwc4ssabr" path="res://materials/concrete.jpg" id="12_blune"]
 [ext_resource type="Texture2D" uid="uid://citecdue6sll0" path="res://assets/house_interior (2)/textures/material_1_baseColor.png" id="13_rsy6c"]
-[ext_resource type="PackedScene" uid="uid://dswv5r06du4tb" path="res://assets/walkie talkie/walkie talkie.glb" id="13_w6p3v"]
 [ext_resource type="Texture2D" uid="uid://cu36gotyq1l82" path="res://assets/house_interior (2)/textures/auto_10_baseColor.png" id="14_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://dmi208r5jlkkg" path="res://scenes/placeholders/housedraft.tscn" id="14_hoc2b"]
 [ext_resource type="Texture2D" uid="uid://uwffsl8wi058" path="res://assets/house_interior (2)/textures/auto_17_baseColor.png" id="15_hoc2b"]
@@ -115,6 +114,7 @@
 [ext_resource type="Texture2D" uid="uid://y7xpmd0o7uao" path="res://assets/house_interior (2)/textures/auto_129_baseColor.png" id="109_7vau1"]
 [ext_resource type="Texture2D" uid="uid://d3yo1tbiahpm7" path="res://assets/house_interior (2)/textures/auto_132_baseColor.png" id="110_804gn"]
 [ext_resource type="Texture2D" uid="uid://deav0q0edqr7h" path="res://assets/house_interior (2)/textures/auto_133_baseColor.png" id="111_ny07x"]
+[ext_resource type="PackedScene" uid="uid://duuiohbw6l7d7" path="res://scenes/placeholders/flashlight.tscn" id="116_61xge"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(10, 10)
@@ -232,20 +232,6 @@ size = Vector2(35, 7)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_os81g"]
 data = PackedVector3Array(17.5, 0, 3.5, -17.5, 0, 3.5, 17.5, 0, -3.5, -17.5, 0, 3.5, -17.5, 0, -3.5, 17.5, 0, -3.5)
-
-[sub_resource type="GDScript" id="GDScript_w6p3v"]
-script/source = "extends Node3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouso4"]
 albedo_color = Color(0, 0.22745098, 0, 1)
@@ -4709,6 +4695,12 @@ script = ExtResource("1_cy6g1")
 [node name="Player3D" parent="." instance=ExtResource("1_hyk8p")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.815971, 0.36304247, 100.34712)
 
+[node name="Flashlight" parent="." instance=ExtResource("116_61xge")]
+transform = Transform3D(1.9689362, 0.9780718, 0.08164012, 0.0043501267, -0.19169343, 2.1916285, 0.9814634, -1.9612827, -0.17349404, -13.725, 1.05, 110.611)
+prompt_input = "interact"
+item_name = "flashlight"
+unlocks_action = "toggle_flashlight"
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.06984, 0)
 visible = false
@@ -4985,10 +4977,6 @@ transform = Transform3D(0.99745446, 0, -0.071305946, 0, 1, 0, 0.071305946, 0, 0.
 
 [node name="regular building" parent="." instance=ExtResource("11_ouso4")]
 transform = Transform3D(0.110566914, 0, 0.99386865, 0, 1, 0, -0.99386865, 0, 0.110566914, -30.190886, 0, -1109.3633)
-
-[node name="walkie talkie" parent="." instance=ExtResource("13_w6p3v")]
-transform = Transform3D(-0.05, 0, -4.371139e-09, 0, 0.05, 0, 4.371139e-09, 0, -0.05, -9.254222, 2.2388282, 104.212135)
-script = SubResource("GDScript_w6p3v")
 
 [node name="BlockPath" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056465626, 0.024589539, -0.07095528)
@@ -6260,13 +6248,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048184395, 0.1639843, 0.10
 mesh = SubResource("ArrayMesh_fh88r")
 skeleton = NodePath("")
 
-[node name="Material22" type="MeshInstance3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group"]
+[node name="Floor" type="MeshInstance3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group"]
 mesh = SubResource("ArrayMesh_p58tk")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Material22"]
+[node name="Floor" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Material22/StaticBody3D"]
+[node name="Floor" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Floor/Floor"]
 shape = SubResource("ConcavePolygonShape3D_swdml")
 
 [node name="Material23" type="MeshInstance3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group"]
