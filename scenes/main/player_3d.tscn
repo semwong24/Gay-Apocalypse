@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=6 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
-[ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
+[ext_resource type="Script" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
+[ext_resource type="PackedScene" uid="uid://7cbsoiciba4a" path="res://scenes/main/comic_manager.tscn" id="4_773k5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -58,3 +59,9 @@ light_energy = 4.0
 light_volumetric_fog_energy = 0.1
 spot_range = 80.0
 spot_angle_attenuation = 3.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
+process_mode = 4
+layer = 0
+
+[node name="ComicManager" parent="Head/Camera3D/CanvasLayer" instance=ExtResource("4_773k5")]
