@@ -17,18 +17,12 @@ func _ready():
 	flashlight.visible = false
 	
 func _input(event):
-	if event.is_action_pressed ("toggle_flashlight"):
-		toggle_flashlight()
 		
 	if event.is_action_pressed("toggle_mouse"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
-func toggle_flashlight():
-	flashlight_on = !flashlight_on
-	flashlight.visible = flashlight_on
 	
 	
 func _unhandled_input(event):
@@ -39,6 +33,9 @@ func _unhandled_input(event):
 		flashlight.rotation = cam.rotation
 		
 func _physics_process(delta):
+	if Input.is_action_just_pressed("toggle_flashlight") and PlayerInventory.has_flashlight:
+		flashlight_on = !flashlight_on
+		flashlight.visible = flashlight_on
 
 	var direction = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -68,7 +65,6 @@ func headbob(headbob_time):
 	return headbob_pos
 func _on_area_3d_area_entered(_area: Area3D) -> void:
 	pass # Replace with function body.
-
 
 func _on_ok_button_pressed() -> void:
 	pass # Replace with function body.

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=6 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
+[ext_resource type="PackedScene" uid="uid://br2bk5t6kirxt" path="res://scenes/interact/interact_ray.tscn" id="2_sibu1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -27,13 +28,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2938614, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(-0.64278764, 0.49240384, 0.58682406, 0, 0.76604444, -0.6427876, -0.76604444, -0.4131759, -0.4924039, 0, 0, 0)
-target_position = Vector3(1, 1, 1)
-collision_mask = 2
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
+light_color = Color(0.9490196, 0.9254902, 0.6117647, 1)
+light_energy = 4.0
+light_volumetric_fog_energy = 0.1
+spot_range = 80.0
+spot_angle_attenuation = 3.0
+
+[node name="InteractRay" parent="Head" instance=ExtResource("2_sibu1")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.05, 0)
 script = ExtResource("2_jkn4j")
 
-[node name="interact_prompt" type="Label" parent="Head/Camera3D/RayCast3D"]
+[node name="Prompt" type="Label" parent="Head/InteractRay"]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -51,10 +57,3 @@ theme_override_font_sizes/font_size = 25
 text = "Press E to interact"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
-light_color = Color(0.9490196, 0.9254902, 0.6117647, 1)
-light_energy = 4.0
-light_volumetric_fog_energy = 0.1
-spot_range = 80.0
-spot_angle_attenuation = 3.0
