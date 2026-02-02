@@ -30,10 +30,12 @@ directories/dch_directory={
 directories/dtl_directory={
 "opening": "res://docs/dialogic/opening.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"DialogueStyle": "res://DialogueStyle.tres"
+}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://DialogueStyle.tres"]
+layout/default_style=""
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

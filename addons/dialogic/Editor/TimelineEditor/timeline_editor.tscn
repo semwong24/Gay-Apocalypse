@@ -54,7 +54,7 @@ corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 0.407843)
 shadow_size = 15
 
-[node name="Timeline" type="Control" unique_id=1399625419]
+[node name="Timeline" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4aceh")
 
-[node name="VBox" type="VBoxContainer" parent="." unique_id=2012771665]
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,16 +71,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBox" type="HBoxContainer" parent="VBox" unique_id=1260141226]
+[node name="HBox" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
 
-[node name="TimelineName" type="Label" parent="VBox/HBox" unique_id=622508015]
+[node name="TimelineName" type="Label" parent="VBox/HBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"DialogicTitle"
 text = "Cool Name"
 
-[node name="NameTooltip" parent="VBox/HBox" unique_id=1349061077 instance=ExtResource("2_yqd26")]
+[node name="NameTooltip" parent="VBox/HBox" instance=ExtResource("2_yqd26")]
 layout_mode = 2
 tooltip_text = "This unique identifier is based on the file name. You can change it in the Reference Manager.
 This is what you should use in a jump event to reference this timeline.
@@ -92,7 +92,7 @@ This is what you should use in a jump event to reference this timeline.
 
 You can also use this name in Dialogic.start()."
 
-[node name="SwitchEditorMode" type="Button" parent="VBox/HBox" unique_id=603937071]
+[node name="SwitchEditorMode" type="Button" parent="VBox/HBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -101,13 +101,13 @@ size_flags_vertical = 4
 tooltip_text = "Switch between Text Editor and Visual Editor"
 text = "Text editor"
 
-[node name="Shortcuts" type="Button" parent="VBox/HBox" unique_id=2100210955]
+[node name="Shortcuts" type="Button" parent="VBox/HBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Shortcuts"
 
-[node name="VisualEditor" parent="VBox" unique_id=180379404 instance=ExtResource("2_qs7vc")]
+[node name="VisualEditor" parent="VBox" instance=ExtResource("2_qs7vc")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -116,102 +116,102 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="TextEditor" parent="VBox" unique_id=549665443 instance=ExtResource("3_up2bn")]
+[node name="TextEditor" parent="VBox" instance=ExtResource("3_up2bn")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SearchReplaceSection" type="PanelContainer" parent="VBox" unique_id=1281623941]
+[node name="SearchReplaceSection" type="PanelContainer" parent="VBox"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_boacm")
 
-[node name="VBox" type="VBoxContainer" parent="VBox/SearchReplaceSection" unique_id=1959572677]
+[node name="VBox" type="VBoxContainer" parent="VBox/SearchReplaceSection"]
 layout_mode = 2
 
-[node name="SearchSection" type="HBoxContainer" parent="VBox/SearchReplaceSection/VBox" unique_id=1478521663]
+[node name="SearchSection" type="HBoxContainer" parent="VBox/SearchReplaceSection/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Search" type="LineEdit" parent="VBox/SearchReplaceSection/VBox/SearchSection" unique_id=1400332039]
+[node name="Search" type="LineEdit" parent="VBox/SearchReplaceSection/VBox/SearchSection"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Search"
 
-[node name="SearchLabel" type="Label" parent="VBox/SearchReplaceSection/VBox/SearchSection" unique_id=572772626]
+[node name="SearchLabel" type="Label" parent="VBox/SearchReplaceSection/VBox/SearchSection"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="SearchUp" type="Button" parent="VBox/SearchReplaceSection/VBox/SearchSection" unique_id=1514288672]
+[node name="SearchUp" type="Button" parent="VBox/SearchReplaceSection/VBox/SearchSection"]
 unique_name_in_owner = true
 layout_mode = 2
 flat = true
 
-[node name="SearchDown" type="Button" parent="VBox/SearchReplaceSection/VBox/SearchSection" unique_id=551668884]
+[node name="SearchDown" type="Button" parent="VBox/SearchReplaceSection/VBox/SearchSection"]
 unique_name_in_owner = true
 layout_mode = 2
 flat = true
 
-[node name="MatchCase" type="CheckBox" parent="VBox/SearchReplaceSection/VBox/SearchSection" unique_id=1325822471]
+[node name="MatchCase" type="CheckBox" parent="VBox/SearchReplaceSection/VBox/SearchSection"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Match Case"
 
-[node name="WholeWords" type="CheckBox" parent="VBox/SearchReplaceSection/VBox/SearchSection" unique_id=1151656282]
+[node name="WholeWords" type="CheckBox" parent="VBox/SearchReplaceSection/VBox/SearchSection"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Whole Words"
 
-[node name="SearchClose" type="Button" parent="VBox/SearchReplaceSection/VBox/SearchSection" unique_id=1436416108]
+[node name="SearchClose" type="Button" parent="VBox/SearchReplaceSection/VBox/SearchSection"]
 unique_name_in_owner = true
 layout_mode = 2
 flat = true
 
-[node name="ReplaceSection" type="HBoxContainer" parent="VBox/SearchReplaceSection/VBox" unique_id=1564699628]
+[node name="ReplaceSection" type="HBoxContainer" parent="VBox/SearchReplaceSection/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ReplaceText" type="LineEdit" parent="VBox/SearchReplaceSection/VBox/ReplaceSection" unique_id=541694051]
+[node name="ReplaceText" type="LineEdit" parent="VBox/SearchReplaceSection/VBox/ReplaceSection"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Replace"
 
-[node name="ReplaceButton" type="Button" parent="VBox/SearchReplaceSection/VBox/ReplaceSection" unique_id=1020319160]
+[node name="ReplaceButton" type="Button" parent="VBox/SearchReplaceSection/VBox/ReplaceSection"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Replace"
 
-[node name="ReplaceAllButton" type="Button" parent="VBox/SearchReplaceSection/VBox/ReplaceSection" unique_id=930344677]
+[node name="ReplaceAllButton" type="Button" parent="VBox/SearchReplaceSection/VBox/ReplaceSection"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Replace All"
 
-[node name="ReplaceGlobal" type="Button" parent="VBox/SearchReplaceSection/VBox/ReplaceSection" unique_id=1607571003]
+[node name="ReplaceGlobal" type="Button" parent="VBox/SearchReplaceSection/VBox/ReplaceSection"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Replace in all timelines"
 
-[node name="ProgressSection" type="HBoxContainer" parent="VBox" unique_id=1180293206]
+[node name="ProgressSection" type="HBoxContainer" parent="VBox"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="VBox/ProgressSection" unique_id=438257383]
+[node name="ProgressBar" type="ProgressBar" parent="VBox/ProgressSection"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.001
 
-[node name="ProgressLabel" type="Label" parent="VBox/ProgressSection" unique_id=47735292]
+[node name="ProgressLabel" type="Label" parent="VBox/ProgressSection"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="NoTimelineScreen" type="PanelContainer" parent="." unique_id=946023967]
+[node name="NoTimelineScreen" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,27 +219,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="NoTimelineScreen" unique_id=1698409400]
+[node name="CenterContainer" type="CenterContainer" parent="NoTimelineScreen"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NoTimelineScreen/CenterContainer" unique_id=924805915]
+[node name="VBoxContainer" type="VBoxContainer" parent="NoTimelineScreen/CenterContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NoTimelineScreen/CenterContainer/VBoxContainer" unique_id=1176427325]
+[node name="Label" type="Label" parent="NoTimelineScreen/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "No timeline opened. 
 Create a timeline or double-click one in the file system dock."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="CreateTimelineButton" type="Button" parent="NoTimelineScreen/CenterContainer/VBoxContainer" unique_id=1761424501]
+[node name="CreateTimelineButton" type="Button" parent="NoTimelineScreen/CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Create New Timeline"
 icon = ExtResource("5_u2118")
 
-[node name="ShortcutsPanel" type="PanelContainer" parent="." unique_id=1337371675]
+[node name="ShortcutsPanel" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -251,28 +251,28 @@ theme = SubResource("Theme_feml8")
 theme_override_styles/panel = SubResource("StyleBoxFlat_j85ew")
 script = ExtResource("6_rfuk0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ShortcutsPanel" unique_id=188461459]
+[node name="VBoxContainer" type="VBoxContainer" parent="ShortcutsPanel"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ShortcutsPanel/VBoxContainer" unique_id=597036390]
+[node name="HBoxContainer" type="HBoxContainer" parent="ShortcutsPanel/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ShortcutsPanel/VBoxContainer/HBoxContainer" unique_id=1369839077]
+[node name="Label" type="Label" parent="ShortcutsPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"DialogicSectionBig"
 text = "Shortcuts "
 
-[node name="CloseShortcutPanel" type="Button" parent="ShortcutsPanel/VBoxContainer/HBoxContainer" unique_id=1545322699]
+[node name="CloseShortcutPanel" type="Button" parent="ShortcutsPanel/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 flat = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ShortcutsPanel/VBoxContainer" unique_id=1111362694]
+[node name="ScrollContainer" type="ScrollContainer" parent="ShortcutsPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ShortcutList" type="GridContainer" parent="ShortcutsPanel/VBoxContainer/ScrollContainer" unique_id=1630519120]
+[node name="ShortcutList" type="GridContainer" parent="ShortcutsPanel/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 11
