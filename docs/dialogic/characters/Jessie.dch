@@ -7,7 +7,7 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "",
+"style": "DialogueStyle",
 "suffix": ""
 },
 &"default_portrait": "",

@@ -4,7 +4,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e7ajs"]
 
-[node name="TimelineTextEditor" type="CodeEdit" unique_id=249524425]
+[node name="TimelineTextEditor" type="CodeEdit"]
 offset_top = 592.0
 offset_right = 1024.0
 offset_bottom = 600.0
@@ -25,7 +25,7 @@ auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true
 script = ExtResource("1_1kbx2")
 
-[node name="UpdateTimer" type="Timer" parent="." unique_id=2015408251]
+[node name="UpdateTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="code_completion_requested" from="." to="." method="_on_code_completion_requested"]
