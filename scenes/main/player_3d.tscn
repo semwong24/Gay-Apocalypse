@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=7 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
 [ext_resource type="PackedScene" uid="uid://br2bk5t6kirxt" path="res://scenes/interact/interact_ray.tscn" id="2_sibu1"]
+[ext_resource type="PackedScene" uid="uid://dsa0wv7vttamm" path="res://scenes/anim_rigs/mod_arms_walkie_talkie_rig.tscn" id="4_773k5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -57,3 +58,21 @@ theme_override_font_sizes/font_size = 25
 text = "Press E to interact"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="arms walkie talkie rig" parent="Head" instance=ExtResource("4_773k5")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.01, -1, -0.02)
+
+[node name="Skeleton3D" parent="Head/arms walkie talkie rig/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.16187313, -0.014925263, 0.98452866, -0.065404)
+bones/2/rotation = Quaternion(0.70755684, -0.0598338, -0.00064866623, 0.70411855)
+bones/3/rotation = Quaternion(0.037788305, 0.00064471905, -0.016316073, 0.99915236)
+bones/19/rotation = Quaternion(-0.02559875, -0.5338306, 0.82898253, 0.1647957)
+bones/20/rotation = Quaternion(0.699522, 0.060507268, 0.0006410032, 0.7120446)
+bones/21/rotation = Quaternion(0.037788365, -0.00064470316, 0.016316114, 0.99915236)
+bones/38/position = Vector3(0.11476472, -0.25324365, 0.22092876)
+bones/40/position = Vector3(-0.25158468, -0.31474835, -0.06420711)
+
+[node name="Palm_r" parent="Head/arms walkie talkie rig/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.94880056, -0.25813332, 0.18205366, 0.31387928, -0.8351345, 0.4516963, 0.035441387, 0.48571312, 0.87339926, -0.25275117, 0.13887835, -0.04749634)
+
+[editable path="Head/arms walkie talkie rig"]
