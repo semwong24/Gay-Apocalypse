@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=8 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
 [ext_resource type="PackedScene" uid="uid://br2bk5t6kirxt" path="res://scenes/interact/interact_ray.tscn" id="2_sibu1"]
+[ext_resource type="PackedScene" uid="uid://dsa0wv7vttamm" path="res://scenes/anim_rigs/mod_arms_walkie_talkie_rig.tscn" id="4_773k5"]
+[ext_resource type="PackedScene" uid="uid://7cbsoiciba4a" path="res://scenes/main/comic_manager.tscn" id="5_t8qhm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -57,3 +59,11 @@ theme_override_font_sizes/font_size = 25
 text = "Press E to interact"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="arms walkie talkie rig" parent="Head" instance=ExtResource("4_773k5")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.01, -1, 0.04)
+
+[node name="ComicManager" parent="." instance=ExtResource("5_t8qhm")]
+panelscale = 0.28
+
+[editable path="Head/arms walkie talkie rig"]

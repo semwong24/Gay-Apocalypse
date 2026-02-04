@@ -8,12 +8,13 @@ var current_page = -1
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	load_comic("intro_comic")
-	load_page_full("intro_comic",1)
+	load_page_full("intro_comic",0)
 	pass # Replace with function body.
 
 func _on_dialogic_signal(argument:String):
 	if argument == "nextpage":
 		advance_page()
+
 func load_comic(name:String):
 	var path = DirAccess.open("res://assets/comic/"+name+"/")
 	assert(path)
@@ -35,11 +36,13 @@ func load_comic(name:String):
 		comic.append(page_panels)
 	comics[name] = comic
 	return comic
+	
 func load_page_full(comic_name:String,page:int):
 	current_comic = comic_name
 	current_page = page
 	for panel in comics[comic_name][page]:
 		panel.visible = true
+		
 func unload_page():
 	for panel in comics[current_comic][current_page]:
 		panel.visible = false
