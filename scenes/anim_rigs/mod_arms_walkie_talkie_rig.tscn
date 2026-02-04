@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsa0wv7vttamm"]
+
+[ext_resource type="PackedScene" uid="uid://d2u6fe6i2bker" path="res://assets/player/arms walkie talkie rig.glb" id="1_t0jjb"]
+
+[node name="arms walkie talkie rig" instance=ExtResource("1_t0jjb")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/rotation = Quaternion(-0.17769414, 0.16063647, 0.97053534, -0.02611509)
+bones/2/rotation = Quaternion(0.5941651, -0.06810512, -0.0005447306, 0.8014544)
+bones/3/rotation = Quaternion(0.038215708, -0.34498242, -0.11103058, 0.9312352)
+bones/19/rotation = Quaternion(-0.01848386, -0.0034299868, 0.92506284, 0.3793486)
+bones/20/rotation = Quaternion(0.48567244, 0.074014984, 0.0004450166, 0.8710016)
+bones/21/rotation = Quaternion(0.115572006, 0.3708026, 0.23775996, 0.89029145)
+bones/37/rotation = Quaternion(0.097523324, -0.5650869, 0.80701363, -0.14104961)
+bones/38/position = Vector3(0.08331582, -0.23418674, 0.28116202)
+bones/38/rotation = Quaternion(-0.06546797, 0.39573637, 0.8650031, -0.30145702)
+bones/40/position = Vector3(-0.37009594, -0.26357263, 0.18899557)
+
+[node name="Palm_r" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.98133856, 0.048432082, -0.18608776, -0.19223812, -0.22526279, 0.9551445, 0.0043409467, 0.9730933, 0.23036963, -0.3702352, 0.19221652, 0.2045698)
