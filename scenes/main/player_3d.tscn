@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=8 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
 [ext_resource type="PackedScene" uid="uid://br2bk5t6kirxt" path="res://scenes/interact/interact_ray.tscn" id="2_sibu1"]
 [ext_resource type="PackedScene" uid="uid://dsa0wv7vttamm" path="res://scenes/anim_rigs/mod_arms_walkie_talkie_rig.tscn" id="4_773k5"]
+[ext_resource type="PackedScene" uid="uid://7cbsoiciba4a" path="res://scenes/main/comic_manager.tscn" id="5_t8qhm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -62,15 +63,7 @@ metadata/_edit_use_anchors_ = true
 [node name="arms walkie talkie rig" parent="Head" instance=ExtResource("4_773k5")]
 transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.01, -1, 0.04)
 
-[node name="Skeleton3D" parent="Head/arms walkie talkie rig/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.10019442, -0.3148833, 0.9360606, -0.12083177)
-bones/2/rotation = Quaternion(0.77754956, -0.053243384, -0.0007128381, 0.6265632)
-bones/19/rotation = Quaternion(0.035676897, -0.49327102, 0.8575373, 0.14156501)
-bones/20/rotation = Quaternion(0.78284866, 0.052683696, 0.0007173829, 0.6199773)
-bones/38/position = Vector3(0.17539775, -0.29567742, 0.10178054)
-bones/40/position = Vector3(-0.21278857, -0.301652, 0.00788942)
-
-[node name="Palm_r" parent="Head/arms walkie talkie rig/Armature/Skeleton3D" index="0"]
-transform = Transform3D(-0.9720945, -0.042625364, 0.23068295, 0.20049432, -0.6614976, 0.7226494, 0.12179301, 0.74873465, 0.65158457, -0.21323615, 0.1529057, 0.024165794)
+[node name="ComicManager" parent="." instance=ExtResource("5_t8qhm")]
+panelscale = 0.28
 
 [editable path="Head/arms walkie talkie rig"]
