@@ -1,4 +1,4 @@
-[gd_scene load_steps=674 format=4 uid="uid://cid2pxxqmnfx2"]
+[gd_scene load_steps=677 format=4 uid="uid://cid2pxxqmnfx2"]
 
 [ext_resource type="Script" uid="uid://ck8wdo5oor1k2" path="res://scripts/main.gd" id="1_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
@@ -116,7 +116,12 @@
 [ext_resource type="Texture2D" uid="uid://deav0q0edqr7h" path="res://assets/house_interior (2)/textures/auto_133_baseColor.png" id="111_ny07x"]
 [ext_resource type="Script" uid="uid://d0tvnfpok8qu7" path="res://scenes/main/sbu_main.gd" id="114_pjhg1"]
 [ext_resource type="Texture2D" uid="uid://dmh1bx2x0kf0t" path="res://assets/ui/sbu.png" id="114_w6p3v"]
-[ext_resource type="PackedScene" uid="uid://duuiohbw6l7d7" path="res://scenes/placeholders/flashlight.tscn" id="116_61xge"]
+[ext_resource type="PackedScene" uid="uid://duuiohbw6l7d7" path="res://scenes/main/flashlight.tscn" id="116_61xge"]
+[ext_resource type="Script" uid="uid://sih6s1jsk7cj" path="res://scripts/interactable.gd" id="118_bs763"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7c2j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai87l"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(10, 10)
@@ -4702,7 +4707,7 @@ data = PackedVector3Array(-174.4455, -551.91437, 120.595795, -176.0541, -551.324
 [node name="Main3D" type="Node3D"]
 script = ExtResource("1_cy6g1")
 
-[node name="Player3D" parent="." instance=ExtResource("1_hyk8p")]
+[node name="Player3D" parent="." groups=["player"] instance=ExtResource("1_hyk8p")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.815971, 0.36304247, 100.34712)
 
 [node name="Flashlight" parent="." instance=ExtResource("116_61xge")]
@@ -4710,6 +4715,29 @@ transform = Transform3D(1.9689362, 0.9780718, 0.08164012, 0.0043501267, -0.19169
 prompt_input = "interact"
 item_name = "flashlight"
 unlocks_action = "toggle_flashlight"
+
+[node name="Doorknob" type="StaticBody3D" parent="." node_paths=PackedStringArray("teleport_marker")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -24.178724, 1.2945606, 106.69251)
+script = ExtResource("118_bs763")
+prompt_message = "Open Door"
+item_name = "Doorknob"
+disappears_on_pickup = false
+requires_item = true
+required_item_name = "flashlight"
+locked_message = "Find Flashlight First"
+teleports_player = true
+teleport_position = Vector3(5, 5, 5)
+teleport_marker = NodePath("intro_teleport")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Doorknob"]
+visible = false
+mesh = SubResource("BoxMesh_e7c2j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doorknob"]
+shape = SubResource("BoxShape3D_ai87l")
+
+[node name="intro_teleport" type="Marker3D" parent="Doorknob"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 118.439705, -2.4482608, -542.32526)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.06984, 0)

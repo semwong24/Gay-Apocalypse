@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://di568qtht6vs4"]
+
+[ext_resource type="Script" uid="uid://sih6s1jsk7cj" path="res://scripts/interactable.gd" id="1_w6a84"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qkp47"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vblt"]
+
+[node name="Doorknob" type="StaticBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("1_w6a84")
+prompt_message = "Open Door"
+item_name = "Doorknob"
+disappears_on_pickup = false
+teleports_player = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_qkp47")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1vblt")
