@@ -1,6 +1,24 @@
-Narrator: [A woman's voice breaks through the static.]
-Rose: -llo?
-Rose: Helloooo~?
+[signal arg_type="dict" arg="{"comic_name":"intro_comic","purpose":"start"}"]
+set {comic_complete} = false
+label keeploading
+if {comic_complete} == false:
+	if {page} == 0.0:
+		if {panel} == 5.0:
+			Narrator: [A woman's voice breaks through the static.]
+			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
+			jump keeploading
+	elif {page} == 1.0:
+		if {panel} == 0.0:
+			Rose: -llo?
+			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
+			jump keeploading
+		elif {panel} == 2.0:
+			Rose: Helloooo~?
+			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
+			jump keeploading
+	[wait_input]
+	[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
+	jump keeploading
 Jessie: H-hello? Is someone there?!
 Rose: Hello? Oh my god, it worked? It actually worked?! Thank God!
 Jessie: W-who is this? How did you…the radio tower, I thought it was down?
