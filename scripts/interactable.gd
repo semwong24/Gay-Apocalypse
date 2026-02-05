@@ -13,6 +13,8 @@ signal interacted(body)
 @export_group("Requirements")
 @export var requires_item = false
 @export var required_item_name = ""
+@export var requires_dialogue_finished = false
+@export var required_dialogue_name = ""
 @export var locked_message = "Locked"
 
 # teleport settings
@@ -22,6 +24,11 @@ signal interacted(body)
 @export var teleport_marker: Marker3D
 
 func get_prompt():
+	if requires_dialogue_finished:
+		var dialogue_finished = Dialogic.VAR.get(required_dialogue_name) if Dialogic.VAR.has(required_dialogue_name) else false
+		if not dialogue_finished:
+			return locked_message
+			
 	if requires_item and not PlayerInventory.has_item(required_item_name):
 		return locked_message
 		
@@ -34,6 +41,11 @@ func get_prompt():
 	return prompt_message + "\n[" + key_name + "]"
 
 func interact(body):
+	if requires_dialogue_finished:
+		var dialogue_finished = Dialogic.VAR.get(required_dialogue_name) if Dialogic.VAR.has(required_dialogue_name) else false
+		if not dialogue_finished:
+			print("Need to finish dialogue: ", required_dialogue_name)
+			return
 	if requires_item and not PlayerInventory.has_item(required_item_name):
 		print("Need item: ", required_item_name)
 		return 
@@ -58,7 +70,6 @@ func _ready():
 
 func _on_interacted(_body):
 	if disappears_on_pickup:
-		# Make it invisible and stop collision
 		visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED
 	
