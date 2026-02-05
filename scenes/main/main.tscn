@@ -4715,9 +4715,6 @@ transform = Transform3D(1.9689362, 0.9780718, 0.08164012, 0.0043501267, -0.19169
 prompt_input = "interact"
 item_name = "flashlight"
 unlocks_action = "toggle_flashlight"
-requires_dialogue_finished = true
-required_dialogue_name = "opening_finished"
-locked_message = "[Wait for Dialogue to End]"
 
 [node name="Doorknob" type="StaticBody3D" parent="." node_paths=PackedStringArray("teleport_marker")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -24.178724, 1.2945606, 106.69251)
@@ -4727,7 +4724,7 @@ item_name = "Doorknob"
 disappears_on_pickup = false
 requires_item = true
 required_item_name = "flashlight"
-locked_message = "Grab Flashlight"
+locked_message = "Find Flashlight First"
 teleports_player = true
 teleport_position = Vector3(5, 5, 5)
 teleport_marker = NodePath("intro_teleport")
