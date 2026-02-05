@@ -64,6 +64,7 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.01, -1, 0.04)
 
 [node name="ComicManager" parent="." instance=ExtResource("5_t8qhm")]
+visible = false
 panelscale = 0.28
 
 [editable path="Head/arms walkie talkie rig"]

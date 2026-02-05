@@ -28,7 +28,8 @@ directories/dch_directory={
 "Rose": "res://docs/dialogic/characters/Rose.dch"
 }
 directories/dtl_directory={
-"opening": "res://docs/dialogic/opening.dtl"
+"opening": "res://docs/dialogic/opening.dtl",
+"test_timeline": "res://docs/dialogic/test_timeline.dtl"
 }
 layout/style_directory={
 "DialogueStyle": "res://DialogueStyle.tres"
@@ -36,7 +37,12 @@ layout/style_directory={
 glossary/default_case_sensitive=true
 layout/style_list=["res://DialogueStyle.tres"]
 layout/default_style=""
-variables={}
+variables={
+"comic": "",
+"comic_complete": false,
+"page": -1,
+"panel": -1
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
