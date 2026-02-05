@@ -1,3 +1,4 @@
+if {} == "":
 join Rose center
 Rose: This is an example of what the normal dialogue would look like.
 Jessie: Cool! [b][i]This[/i][/b] is an example of some [i]stylized[/i] text.

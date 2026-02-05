@@ -1,4 +1,4 @@
-[gd_scene load_steps=672 format=4 uid="uid://dxl6nusgtwlbr"]
+[gd_scene load_steps=677 format=4 uid="uid://dxl6nusgtwlbr"]
 
 [ext_resource type="Script" uid="uid://ck8wdo5oor1k2" path="res://scripts/main.gd" id="1_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
@@ -115,6 +115,11 @@
 [ext_resource type="Texture2D" uid="uid://deav0q0edqr7h" path="res://assets/house_interior (2)/textures/auto_133_baseColor.png" id="111_ny07x"]
 [ext_resource type="Script" uid="uid://d0tvnfpok8qu7" path="res://scenes/main/sbu_main.gd" id="114_pjhg1"]
 [ext_resource type="Texture2D" uid="uid://dmh1bx2x0kf0t" path="res://assets/ui/sbu.png" id="114_w6p3v"]
+[ext_resource type="Texture2D" uid="uid://dspr52rwvujad" path="res://assets/ui/maplol.png" id="115_ai87l"]
+[ext_resource type="Script" uid="uid://b3ig35afjrn4s" path="res://scenes/main/map_bg.gd" id="116_bs763"]
+[ext_resource type="Texture2D" uid="uid://r88qh1600xh5" path="res://assets/ui/creditsWIP.png" id="118_bs763"]
+[ext_resource type="Texture2D" uid="uid://b7neuamylaavd" path="res://assets/ui/settings.png" id="119_ai87l"]
+[ext_resource type="Texture2D" uid="uid://c8gvhv43is62l" path="res://assets/ui/loadfile.png" id="120_fvj8v"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(10, 10)
@@ -6715,11 +6720,78 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("114_pjhg1")
 
+[node name="mapBG" type="TextureRect" parent="UI/mainUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -473.0
+offset_top = -440.0
+offset_right = 1461.3143
+offset_bottom = 1127.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("115_ai87l")
+expand_mode = 1
+stretch_mode = 6
+script = ExtResource("116_bs763")
+
 [node name="sbustart" type="TextureRect" parent="UI/mainUI"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("114_w6p3v")
+expand_mode = 1
+
+[node name="creditspage" type="TextureRect" parent="UI/mainUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 620.0
+offset_top = 380.0
+offset_right = 1134.3555
+offset_bottom = 630.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("118_bs763")
+expand_mode = 1
+
+[node name="settingspage" type="TextureRect" parent="UI/mainUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 620.0
+offset_top = 380.0
+offset_right = 1134.3555
+offset_bottom = 630.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("119_ai87l")
+expand_mode = 1
+
+[node name="loadfilepage" type="TextureRect" parent="UI/mainUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 620.0
+offset_top = 380.0
+offset_right = 1134.3555
+offset_bottom = 630.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("120_fvj8v")
 expand_mode = 1
 
 [node name="newgamebutton" type="Button" parent="UI/mainUI"]
@@ -6755,3 +6827,6 @@ offset_bottom = 389.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bs763")
 
 [connection signal="pressed" from="UI/mainUI/newgamebutton" to="UI/mainUI" method="_on_newgamebutton_pressed"]
+[connection signal="pressed" from="UI/mainUI/loadfilebutton" to="UI/mainUI" method="_on_loadfilebutton_pressed"]
+[connection signal="pressed" from="UI/mainUI/settingsbutton" to="UI/mainUI" method="_on_settingsbutton_pressed"]
+[connection signal="pressed" from="UI/mainUI/creditsbutton" to="UI/mainUI" method="_on_creditsbutton_pressed"]
