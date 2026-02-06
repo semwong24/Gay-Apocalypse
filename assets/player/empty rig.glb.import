@@ -41,7 +41,7 @@ _subresources={
 "animations": {
 "edeath": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/player/animations/edeath.res",
+"save_to_file/fallback_path": "res://assets/player/empty hands animation/edeath.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://bh1freewiu547",
 "settings/loop_mode": 0,
@@ -2097,7 +2097,7 @@ _subresources={
 },
 "egrab": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/player/animations/egrab.res",
+"save_to_file/fallback_path": "res://assets/player/empty hands animation/egrab.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://cab6l52v41q4e",
 "settings/loop_mode": 0,
