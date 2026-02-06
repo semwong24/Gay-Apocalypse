@@ -1,6 +1,7 @@
 [signal arg_type="dict" arg="{"comic_name":"intro_comic","purpose":"start"}"]
 set {comic_complete} = false
 label keeploading
+[wait time="0.2"]
 if {comic_complete} == false:
 	if {page} == 0.0:
 		if {panel} == 5.0:
