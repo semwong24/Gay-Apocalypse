@@ -2,34 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:assets/Houses/house1/house1_wood-30_smooth.png.import
-uid="uid://b8cd2e3lohj5d"
-path.s3tc="res://.godot/imported/house1_wood-30_smooth.png-ffbeeaa84cbc85973e03af8eeafb675c.s3tc.ctex"
-========
 uid="uid://shy72vgd8t06"
 path.s3tc="res://.godot/imported/police radio_Front.png-0c5f34563ff01f6cda5f572f4fba7e77.s3tc.ctex"
->>>>>>>> 56f9568cb1fc94af51bc30772fd8b66ec76f34ef:assets/radio/police radio_Front.png.import
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-<<<<<<<< HEAD:assets/Houses/house1/house1_wood-30_smooth.png.import
-"md5": "0a27f12d94e5f956d9bda320ab6803eb"
-========
-"md5": "4f41a223e94844722ad450c53a1cca0c"
->>>>>>>> 56f9568cb1fc94af51bc30772fd8b66ec76f34ef:assets/radio/police radio_Front.png.import
-}
 
 [deps]
 
-<<<<<<<< HEAD:assets/Houses/house1/house1_wood-30_smooth.png.import
-source_file="res://assets/Houses/house1/house1_wood-30_smooth.png"
-dest_files=["res://.godot/imported/house1_wood-30_smooth.png-ffbeeaa84cbc85973e03af8eeafb675c.s3tc.ctex"]
-========
 source_file="res://assets/radio/police radio_Front.png"
 dest_files=["res://.godot/imported/police radio_Front.png-0c5f34563ff01f6cda5f572f4fba7e77.s3tc.ctex"]
->>>>>>>> 56f9568cb1fc94af51bc30772fd8b66ec76f34ef:assets/radio/police radio_Front.png.import
 
 [params]
 

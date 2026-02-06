@@ -40,8 +40,12 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://DialogueStyle.tres"]
 layout/default_style=""
 variables={
+"comic": "",
+"comic_complete": false,
 "opening": "",
-"opening_finished": ""
+"opening_finished": "",
+"page": 0,
+"panel": 0
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
