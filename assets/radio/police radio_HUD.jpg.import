@@ -2,38 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:assets/Houses/house4/house4_wood_brown_d.jpg.import
-uid="uid://wuqb8axspvtl"
-path.s3tc="res://.godot/imported/house4_wood_brown_d.jpg-ce9f43fcb8869187c5e25002e6390724.s3tc.ctex"
-========
-uid="uid://7l07ll3etrpc"
-path.s3tc="res://.godot/imported/police radio_HUD.jpg-1eb1889a74241cb30d5aa8ea505c61a7.s3tc.ctex"
->>>>>>>> 56f9568cb1fc94af51bc30772fd8b66ec76f34ef:assets/radio/police radio_HUD.jpg.import
+uid="uid://dsfnc6i6siphh"
+path="res://.godot/imported/police radio_HUD.jpg-1eb1889a74241cb30d5aa8ea505c61a7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-<<<<<<<< HEAD:assets/Houses/house4/house4_wood_brown_d.jpg.import
-"md5": "1e9db7b3a87f0cee448c31a74222e3ac"
-========
-"md5": "c21d7e77ece7f5830721b8c170e74c57"
->>>>>>>> 56f9568cb1fc94af51bc30772fd8b66ec76f34ef:assets/radio/police radio_HUD.jpg.import
+"vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:assets/Houses/house4/house4_wood_brown_d.jpg.import
-source_file="res://assets/Houses/house4/house4_wood_brown_d.jpg"
-dest_files=["res://.godot/imported/house4_wood_brown_d.jpg-ce9f43fcb8869187c5e25002e6390724.s3tc.ctex"]
-========
 source_file="res://assets/radio/police radio_HUD.jpg"
-dest_files=["res://.godot/imported/police radio_HUD.jpg-1eb1889a74241cb30d5aa8ea505c61a7.s3tc.ctex"]
->>>>>>>> 56f9568cb1fc94af51bc30772fd8b66ec76f34ef:assets/radio/police radio_HUD.jpg.import
+dest_files=["res://.godot/imported/police radio_HUD.jpg-1eb1889a74241cb30d5aa8ea505c61a7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -41,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -55,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
