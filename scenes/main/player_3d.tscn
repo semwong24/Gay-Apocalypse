@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=9 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
 [ext_resource type="PackedScene" uid="uid://br2bk5t6kirxt" path="res://scenes/interact/interact_ray.tscn" id="2_sibu1"]
 [ext_resource type="PackedScene" uid="uid://dsa0wv7vttamm" path="res://scenes/anim_rigs/mod_arms_walkie_talkie_rig.tscn" id="4_773k5"]
+[ext_resource type="Script" uid="uid://dnmgxf2pn41vh" path="res://scripts/player/animation_player_test.gd" id="5_niw32"]
 [ext_resource type="PackedScene" uid="uid://7cbsoiciba4a" path="res://scenes/main/comic_manager.tscn" id="5_t8qhm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
@@ -40,16 +41,16 @@ spot_angle_attenuation = 3.0
 [node name="InteractRay" parent="Head" instance=ExtResource("2_sibu1")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.05, 0)
 script = ExtResource("2_jkn4j")
+normal_prompt_offset = Vector2(0, 500)
+dialogue_prompt_offset = Vector2(0, 2)
 
 [node name="Prompt" type="Label" parent="Head/InteractRay"]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = 121.0
-offset_right = -1.0
-offset_bottom = 156.0
+offset_top = -17.5
+offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.8089983, 0.8089983, 0.8089982, 1)
@@ -62,6 +63,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="arms walkie talkie rig" parent="Head" instance=ExtResource("4_773k5")]
 transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.01, -1, 0.04)
+
+[node name="Skeleton3D" parent="Head/arms walkie talkie rig/Armature" index="0"]
+bones/3/rotation = Quaternion(0.038215708, -0.34498242, -0.11103058, 0.9312352)
+bones/19/rotation = Quaternion(-0.01848386, -0.0034299868, 0.92506284, 0.3793486)
+bones/20/rotation = Quaternion(0.48567244, 0.074014984, 0.0004450166, 0.8710016)
+bones/21/rotation = Quaternion(0.115572006, 0.3708026, 0.23775996, 0.89029145)
+bones/40/position = Vector3(-0.37009594, -0.26357263, 0.18899557)
+
+[node name="Palm_r" parent="Head/arms walkie talkie rig/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.98133856, 0.048432082, -0.18608776, -0.19223812, -0.22526279, 0.9551445, 0.0043409467, 0.9730933, 0.23036963, -0.3702352, 0.19221652, 0.2045698)
+
+[node name="AnimationPlayer" parent="Head/arms walkie talkie rig" index="1"]
+script = ExtResource("5_niw32")
 
 [node name="ComicManager" parent="." instance=ExtResource("5_t8qhm")]
 visible = false

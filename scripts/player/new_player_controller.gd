@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
-@export var speed := 5.0
+@export var speed := 4.0
+@export var sprint_speed := 7.0
 @export var mouse_sensitivity := 0.2
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var cam: Camera3D
@@ -8,36 +9,50 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export_group("headbob")
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
+
 #@export var sprite: Sprite3D
 var headbob_time := 0.0
 
 var flashlight_on = false
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	set_process_input(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#sprite.position.y = cam.position.y
 	flashlight.visible = false
 	
 func _input(event):
-		
+	if event.is_action_pressed("skip_dialogue") and Dialogic.current_timeline != null:
+		Dialogic.VAR.set("opening_finished", true)
+		Dialogic.end_timeline()
+			
 	if event.is_action_pressed("toggle_mouse"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	
-func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity * 0.01)
 		$Head.rotate_x(-event.relative.y * mouse_sensitivity * 0.01)
 		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -89, 89)
 		flashlight.rotation = cam.rotation
 		
+#im scared to delete this so its staying here...	
+#func _unhandled_input(event):
+	#if event is InputEventMouseMotion:
+		#rotate_y(-event.relative.x * mouse_sensitivity * 0.01)
+		#$Head.rotate_x(-event.relative.y * mouse_sensitivity * 0.01)
+		#$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -89, 89)
+		#flashlight.rotation = cam.rotation
+		
 func _physics_process(delta):
 	if Input.is_action_just_pressed("toggle_flashlight") and PlayerInventory.has_flashlight:
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
+	
+	var current_speed = sprint_speed if Input.is_action_pressed("sprint") else speed
 
 	var direction = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -54,8 +69,8 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 		
-	velocity.x = direction.x * speed
-	velocity.z = direction.z * speed
+	velocity.x = direction.x * current_speed
+	velocity.z = direction.z * current_speed
 	move_and_slide()
 	headbob_time += delta * velocity.length() * float(is_on_floor())
 	cam.transform.origin = headbob(headbob_time)
