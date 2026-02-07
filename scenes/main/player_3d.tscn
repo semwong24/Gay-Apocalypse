@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=12 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
 [ext_resource type="PackedScene" uid="uid://br2bk5t6kirxt" path="res://scenes/interact/interact_ray.tscn" id="2_sibu1"]
+[ext_resource type="AudioStream" uid="uid://c6x238413eibd" path="res://assets/sfx/mp3/indoor_hardfloor_footsteps.mp3" id="2_tyepa"]
 [ext_resource type="PackedScene" uid="uid://dsa0wv7vttamm" path="res://scenes/anim_rigs/mod_arms_walkie_talkie_rig.tscn" id="4_773k5"]
 [ext_resource type="Script" uid="uid://dnmgxf2pn41vh" path="res://scripts/player/animation_player_test.gd" id="5_niw32"]
 [ext_resource type="PackedScene" uid="uid://7cbsoiciba4a" path="res://scenes/main/comic_manager.tscn" id="5_t8qhm"]
+[ext_resource type="AudioStream" uid="uid://dpmot3k7t73i4" path="res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav" id="7_mh1ik"]
+[ext_resource type="AudioStream" uid="uid://buc4wdiu4q2yw" path="res://assets/sfx/mp3/highpitchbeep.mp3" id="7_tyepa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -16,6 +19,10 @@ points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4
 script = ExtResource("1_nohna")
 cam = NodePath("Head/Camera3D")
 flashlight = NodePath("Head/Camera3D/SpotLight3D")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_tyepa")
+volume_db = -25.597
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -64,18 +71,16 @@ metadata/_edit_use_anchors_ = true
 [node name="arms walkie talkie rig" parent="Head" instance=ExtResource("4_773k5")]
 transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.01, -1, 0.04)
 
-[node name="Skeleton3D" parent="Head/arms walkie talkie rig/Armature" index="0"]
-bones/3/rotation = Quaternion(0.038215708, -0.34498242, -0.11103058, 0.9312352)
-bones/19/rotation = Quaternion(-0.01848386, -0.0034299868, 0.92506284, 0.3793486)
-bones/20/rotation = Quaternion(0.48567244, 0.074014984, 0.0004450166, 0.8710016)
-bones/21/rotation = Quaternion(0.115572006, 0.3708026, 0.23775996, 0.89029145)
-bones/40/position = Vector3(-0.37009594, -0.26357263, 0.18899557)
-
-[node name="Palm_r" parent="Head/arms walkie talkie rig/Armature/Skeleton3D" index="0"]
-transform = Transform3D(-0.98133856, 0.048432082, -0.18608776, -0.19223812, -0.22526279, 0.9551445, 0.0043409467, 0.9730933, 0.23036963, -0.3702352, 0.19221652, 0.2045698)
-
-[node name="AnimationPlayer" parent="Head/arms walkie talkie rig" index="1"]
+[node name="AnimationPlayer" parent="Head/arms walkie talkie rig" index="1" node_paths=PackedStringArray("player")]
 script = ExtResource("5_niw32")
+player = NodePath("../../..")
+
+[node name="LowPitchBeep" type="AudioStreamPlayer3D" parent="Head/arms walkie talkie rig/AnimationPlayer" index="0"]
+stream = ExtResource("7_tyepa")
+volume_db = -9.106
+
+[node name="RadioClick" type="AudioStreamPlayer3D" parent="Head/arms walkie talkie rig/AnimationPlayer" index="1"]
+stream = ExtResource("7_mh1ik")
 
 [node name="ComicManager" parent="." instance=ExtResource("5_t8qhm")]
 visible = false
