@@ -42,7 +42,7 @@ _subresources={
 "death": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://assets/player/animations/death.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://cx13avnqbsw8l",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -2098,7 +2098,7 @@ _subresources={
 "run": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://assets/player/animations/run.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://c03uoowbylfm1",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
@@ -4154,7 +4154,7 @@ _subresources={
 "speak": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://assets/player/animations/speak.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://l03fsafee1yn",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -6210,7 +6210,7 @@ _subresources={
 "speak down": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://assets/player/animations/speak down.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://ibny6u2oo4fk",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,

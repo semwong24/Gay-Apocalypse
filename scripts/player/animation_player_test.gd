@@ -24,6 +24,8 @@ func _on_sprint_started():
 func _on_sprint_stopped():
 	if not currently_holding_radio:
 		play("speak down", -1, 100)
+		play(&"RESET")
+		advance(0)
 		radio_click.play()
 			
 func _on_text_about_to_show(info: Dictionary):

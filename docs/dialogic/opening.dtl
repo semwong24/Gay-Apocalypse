@@ -72,7 +72,7 @@ Rose: Right?!
 Narrator: [Rose clears her throat in embarrassment.]
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Rose: A-anyway. Are you sure? I was sort of just throwing it out there.
-Rose:  I mean, don’t get me wrong, I’d do anything to talk to a real person rather than all the plants around my place. It's just that… you know. It’s dangerous making that journey.
+Rose: I mean, don’t get me wrong, I’d do anything to talk to a real person rather than all the plants around my place. It's just that… you know. It’s dangerous making that journey.
 Core/Jessie: Ma’am, you’re talking to a certified firefighter. I’ve had my fair share of danger, what’s a little more?
 Rose: A firefighter, huh? Impressive…
 Core/Jessie: Isn't it?
@@ -98,5 +98,6 @@ Core/Jessie: Roger that.
 Rose: ...
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Core/Jessie: (Aside) Why did I say that…
+label opening-end
 set {opening_finished} = true
 [signal arg="nextpage"]
