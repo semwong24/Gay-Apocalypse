@@ -9,3 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_indoor_area_exited(body: Node3D) -> void:
+	pass # Replace with function body.

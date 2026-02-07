@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PlayerInventory="*res://scripts/player/player_inventory.gd"
+GameState="*res://scripts/GameState.gd"
 
 [dialogic]
 
@@ -73,10 +74,22 @@ audio/channel_defaults={
 "loop": false,
 "volume": 0.0
 },
+"RadioClick": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"WalkieBeep": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
 "music": {
 "audio_bus": "",
 "fade_length": 0.0,
-"loop": true,
+"loop": false,
 "volume": 0.0
 }
 }

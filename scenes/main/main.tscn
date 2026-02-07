@@ -1,4 +1,4 @@
-[gd_scene load_steps=677 format=4 uid="uid://cid2pxxqmnfx2"]
+[gd_scene load_steps=679 format=4 uid="uid://cid2pxxqmnfx2"]
 
 [ext_resource type="Script" uid="uid://ck8wdo5oor1k2" path="res://scripts/main.gd" id="1_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bpmd3q5apbetx" path="res://assets/buildings/Building 2/Building 2.glb" id="3_6q06x"]
 [ext_resource type="PackedScene" uid="uid://dxi8astn4is2i" path="res://assets/buildings/Building 3/Building 3.glb" id="4_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://blp6lti7hsg32" path="res://assets/buildings/med office build/medium office building.glb" id="5_b1x3f"]
+[ext_resource type="AudioStream" uid="uid://8k48nhvkmgmc" path="res://assets/sfx/ambient_wind_noise.mp3" id="5_e7c2j"]
 [ext_resource type="PackedScene" uid="uid://dilnnsod10ky1" path="res://assets/buildings/short office build/short office building.glb" id="6_a8run"]
 [ext_resource type="PackedScene" uid="uid://bud67ah5d8vok" path="res://assets/buildings/Building 4/Building 4.glb" id="6_hujxm"]
 [ext_resource type="PackedScene" uid="uid://de0fsvr2raexi" path="res://assets/buildings/reg tall build/regular tall building.glb" id="7_ouso4"]
@@ -122,6 +123,8 @@
 [sub_resource type="BoxMesh" id="BoxMesh_e7c2j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai87l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bs763"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(10, 10)
@@ -4742,6 +4745,19 @@ shape = SubResource("BoxShape3D_ai87l")
 [node name="intro_teleport" type="Marker3D" parent="Doorknob"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 118.439705, -2.4482608, -542.32526)
 
+[node name="Indoor Area" type="Area3D" parent="." groups=["indoor_area"]]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -17.279005, 0, 106.65559)
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Indoor Area"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.29781365, -1.7994934, -0.034931183)
+shape = SubResource("BoxShape3D_bs763")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Indoor Area"]
+stream = ExtResource("5_e7c2j")
+volume_db = -18.179
+autoplay = true
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.06984, 0)
 visible = false
@@ -7277,4 +7293,6 @@ offset_right = 198.0
 offset_bottom = 389.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bs763")
 
+[connection signal="body_entered" from="Indoor Area" to="Player3D" method="_on_indoor_area_entered"]
+[connection signal="body_exited" from="Indoor Area" to="." method="_on_indoor_area_exited"]
 [connection signal="pressed" from="UI/mainUI/newgamebutton" to="UI/mainUI" method="_on_newgamebutton_pressed"]

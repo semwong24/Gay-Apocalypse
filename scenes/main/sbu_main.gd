@@ -3,6 +3,7 @@ extends Control
 
 func _ready():
 	# Correct node path
+	GameState.ui_open = true
 	var start_button = $subustart/newgamebutton
 
 	if is_instance_valid(start_button):
@@ -12,6 +13,7 @@ func _ready():
 		print("ERROR: newgamebutton not found. Check node path.")
 
 func _on_newgamebutton_pressed():
+	GameState.ui_open = false
 	hide()
 	Dialogic.start("opening")
 	print("Menu hidden. Game starting.")

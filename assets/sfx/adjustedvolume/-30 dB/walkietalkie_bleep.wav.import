@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8ha0611wgi6m"
+path="res://.godot/imported/walkietalkie_bleep.wav-504d8f78f6c2368dbe506e0e5ea9be4a.sample"
+
+[deps]
+
+source_file="res://assets/sfx/adjustedvolume/-30 dB/walkietalkie_bleep.wav"
+dest_files=["res://.godot/imported/walkietalkie_bleep.wav-504d8f78f6c2368dbe506e0e5ea9be4a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

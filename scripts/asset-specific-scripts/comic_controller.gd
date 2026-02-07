@@ -57,6 +57,7 @@ func sync_dialogic():
 	Dialogic.VAR.set_variable("page",current_page)
 	Dialogic.VAR.set_variable("comic",current_comic)
 func start_comic(comic_name:String = ""):
+	GameState.comic_playing = true
 	self.visible = true
 	load_comic(comic_name)
 	current_comic = comic_name
@@ -82,6 +83,8 @@ func next_panel():
 	current_panel = -1
 	sync_dialogic()
 	self.visible = false
+	if current_page == -1:  
+		GameState.comic_playing = false
 	return {}
 		
 	current_page = current_page +1	
