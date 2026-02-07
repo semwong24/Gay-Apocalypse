@@ -1,6 +1,5 @@
 extends CollisionObject3D
 class_name Interactable
-
 signal interacted(body)
 
 @export var prompt_message = "Interact"
@@ -11,8 +10,8 @@ signal interacted(body)
 
 # Requirement settings
 @export_group("Requirements")
-@export var requires_item = false
-@export var required_item_name = ""
+@export var requires_items = false  
+@export var required_item_names: Array[String] = [] 
 @export var requires_dialogue_finished = false
 @export var required_dialogue_name = ""
 @export var locked_message = "Locked"
@@ -28,8 +27,9 @@ func get_prompt():
 		var dialogue_finished = Dialogic.VAR.get(required_dialogue_name) if Dialogic.VAR.has(required_dialogue_name) else false
 		if not dialogue_finished:
 			return locked_message
-			
-	if requires_item and not PlayerInventory.has_item(required_item_name):
+	
+	# Check all required items
+	if requires_items and not has_all_required_items():
 		return locked_message
 		
 	var key_name = ""
@@ -40,14 +40,24 @@ func get_prompt():
 			
 	return prompt_message + "\n[" + key_name + "]"
 
+func has_all_required_items() -> bool:
+	if required_item_names.is_empty():
+		return true
+		
+	for item in required_item_names:
+		if not PlayerInventory.has_item(item):
+			return false
+	return true
+
 func interact(body):
 	if requires_dialogue_finished:
 		var dialogue_finished = Dialogic.VAR.get(required_dialogue_name) if Dialogic.VAR.has(required_dialogue_name) else false
 		if not dialogue_finished:
 			print("Need to finish dialogue: ", required_dialogue_name)
 			return
-	if requires_item and not PlayerInventory.has_item(required_item_name):
-		print("Need item: ", required_item_name)
+	
+	if requires_items and not has_all_required_items():
+		print("Need items: ", required_item_names)
 		return 
 		
 	if item_name != "":
@@ -58,12 +68,10 @@ func interact(body):
 	
 	interacted.emit(body)
 
-
 func teleport_player(body):
 	if body.is_in_group("player") or body.has_method("teleport"):
 		var destination = teleport_marker.global_position if teleport_marker else teleport_position
 		body.global_position = destination
-
 
 func _ready():
 	interacted.connect(_on_interacted)
@@ -72,4 +80,3 @@ func _on_interacted(_body):
 	if disappears_on_pickup:
 		visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED
-	
