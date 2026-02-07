@@ -28,9 +28,11 @@ Core/Jessie: W-who is this? How did you…the radio tower, I thought it was down
 Rose: I fixed it!
 Core/Jessie: Fixed? How even… n-never mind that. You… you’re in the city then?
 Rose: Well, yeah. Honestly, the radio was my last hope of really… finding anyone. I’m glad it worked.
-Core/Jessie: Well, I’m also glad it worked. Frankly, my situation is dire over here. I’m running low on everything, and I’ve long since raided whatever was left of the nearby stores. I’m worried about going into the city for supplies.
+Core/Jessie: Well, I’m also glad it worked. Frankly, my situation is dire over here. I’m running low on everything--
+Core/Jessie: --and I’ve long since raided whatever was left of the nearby stores. I’m worried about going into the city for supplies.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
-Rose: Yeah…it’s pretty bad. The streets are overrun, and in the chaos of the outbreak, half the city is gridlocked with abandoned cards and the military’s poor attempt to control and quarantine…
+Rose: Yeah…it’s pretty bad. The streets are overrun, and in the chaos of the outbreak, half the city is gridlocked with abandoned cards.
+Rose: Not to mention the military’s poor attempt to control and quarantine… it's impossible to get around now.
 Core/Jessie: ...
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Rose: Sorry, didn’t mean to make things worse…
@@ -40,7 +42,7 @@ Core/Jessie: Sorry. Didn’t mean to shut you down like that. I’m thankful, I 
 Narrator: [Rose scoffs.]
 Rose: Don't we all?
 Core/Jessie: I suppose you're right.
-Narrator: Jessie chuckles.
+Narrator: [Jessie chuckles.]
 Rose: So… I never asked your name.
 Core/Jessie: Ah, right. My name’s Jessie.
 Rose: Jessie… that’s a nice name. I’m Rose.
@@ -58,22 +60,26 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Rose: S-sorry, I was just thinking. It was nothing…
 Core/Jessie: Doesn’t sound like nothing.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
-Rose: Well… I know this is abrupt, and we met literally less than 5 minutes ago, but… we could try to meet up. I know I said the streets are gridlocked and overrun, but I know these streets like the back of my hand. I have no doubt I could guide you through the city safely.
+Rose: Well… I know this is abrupt, and we met literally less than 5 minutes ago, but… we could try to meet up.
+Rose: I know I said the streets are gridlocked and overrun, but I know these streets like the back of my hand. I have no doubt I could guide you through the city safely.
 Rose: Besides, those things are slower at night. If you travel while the sun’s down, I’m sure it would be fine…
 Narrator: [Rose pauses for a moment before jumping in again.]
 Rose: A-ah, I’m getting ahead of myself. Sorry…
 audio WalkieBeep "res://assets/sfx/mp3/highpitchbeep.mp3"
-Core/Jessie: No, no it’s fine. I… I would like that. Don’t get me wrong, even just the radio is enough to keep me going a little while longer now, but…it would make the end of the world a whole lot less lonely if I had someone to share it with.
+Core/Jessie: No, no it’s fine. I… I would like that. Don’t get me wrong, even just the radio is enough to keep me going a little while longer now, but…
+Core/Jessie: It would make the end of the world a whole lot less lonely if I had someone to share it with.
 Rose: Right?!
 Narrator: [Rose clears her throat in embarrassment.]
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
-Rose: A-anyway. Are you sure? I was sort of just throwing it out there. I mean, don’t get me wrong, I’d do anything to talk to a real person rather than all the plants around my place. It's just that… you know. It’s dangerous making that journey.
-Core/Jessie: Ma’am you’re talking to a certified firefighter. I’ve had my fair share of danger, what’s a little more?
+Rose: A-anyway. Are you sure? I was sort of just throwing it out there.
+Rose:  I mean, don’t get me wrong, I’d do anything to talk to a real person rather than all the plants around my place. It's just that… you know. It’s dangerous making that journey.
+Core/Jessie: Ma’am, you’re talking to a certified firefighter. I’ve had my fair share of danger, what’s a little more?
 Rose: A firefighter, huh? Impressive…
 Core/Jessie: Isn't it?
 Rose: Alright, don’t go getting a big head about it now.
 Narrator: [Rose takes a deep breath and loudly exhales before speaking again.]
-Rose: Look, if you’re going to make this journey, you better get prepared. And I don’t mean packing up everything you could ever possibly carry-- I mean the opposite. You need to travel light. The faster you can move, the better.
+Rose: Look, if you’re going to make this journey, you better get prepared. And I don’t mean packing up everything you could ever possibly carry-- I mean the opposite.
+Rose: You need to travel light. The faster you can move, the better.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Rose: There’s no use in fighting these things, hacking them apart only slows them down. It doesn’t stop them. You’re better off avoiding them entirely if you can.
 Core/Jessie: How do you know so much about these things?
@@ -84,7 +90,8 @@ Core/Jessie: This isn’t a James Bond film. Sorry to disappoint, but I generall
 Rose: You shouldn't.
 Core/Jessie: What?
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
-Rose: Anyway, if you’re mostly moving under the cover of night, that means it’ll take a few days to get here. You’ll have to camp out in some places, so be sure to bring something you can use to defend yourself during the night. But nothing more. Remember\: fighting is a last resort.
+Rose: Anyway, if you’re mostly moving under the cover of night, that means it’ll take a few days to get here. You’ll have to camp out in some places--
+Rose: --so be sure to bring something you can use to defend yourself during the night. But nothing more. Remember\: fighting is a last resort.
 Core/Jessie: Got it.
 Rose: I’ll let you get ready. We can talk about the next steps once you’re done.
 Core/Jessie: Roger that.
