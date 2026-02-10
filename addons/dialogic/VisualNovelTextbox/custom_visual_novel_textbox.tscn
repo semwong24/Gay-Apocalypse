@@ -210,6 +210,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_bpydr")
+box_panel = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_default_panel.tres"
+name_label_box_panel = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres"
+name_label_box_modulate = Color(0, 0, 0, 1)
 
 [node name="Animations" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -257,6 +260,7 @@ mouse_filter = 2
 
 [node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
 anchors_preset = 15
@@ -320,6 +324,7 @@ mouse_filter = 2
 
 [node name="NameLabelPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
 offset_top = -50.0
