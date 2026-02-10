@@ -1,4 +1,4 @@
-[gd_scene load_steps=679 format=4 uid="uid://cid2pxxqmnfx2"]
+[gd_scene load_steps=683 format=4 uid="uid://cid2pxxqmnfx2"]
 
 [ext_resource type="Script" uid="uid://ck8wdo5oor1k2" path="res://scripts/main.gd" id="1_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
@@ -16,12 +16,16 @@
 [ext_resource type="Texture2D" uid="uid://iyikwc4ssabr" path="res://materials/concrete.jpg" id="12_blune"]
 [ext_resource type="Texture2D" uid="uid://citecdue6sll0" path="res://assets/house_interior (2)/textures/material_1_baseColor.png" id="13_rsy6c"]
 [ext_resource type="Texture2D" uid="uid://cu36gotyq1l82" path="res://assets/house_interior (2)/textures/auto_10_baseColor.png" id="14_cy6g1"]
+[ext_resource type="Texture2D" uid="uid://cvvnnkmw1b4m0" path="res://assets/vegetation/textures/brown_mud_leaves_01_diff_4k.png" id="14_e4mo3"]
 [ext_resource type="PackedScene" uid="uid://dmi208r5jlkkg" path="res://scenes/placeholders/housedraft.tscn" id="14_hoc2b"]
+[ext_resource type="Texture2D" uid="uid://bvdxoeulngk6r" path="res://assets/vegetation/brown_mud_leaves_01_nor_gl_4k.png" id="15_54mjm"]
 [ext_resource type="Texture2D" uid="uid://uwffsl8wi058" path="res://assets/house_interior (2)/textures/auto_17_baseColor.png" id="15_hoc2b"]
 [ext_resource type="PackedScene" uid="uid://d3o36s8edu5je" path="res://scenes/placeholders/housedraft_2.tscn" id="15_w6p3v"]
+[ext_resource type="Texture2D" uid="uid://uo2cls7t28ga" path="res://assets/vegetation/brown_mud_leaves_01_rough_4k.png" id="16_4fujo"]
 [ext_resource type="Texture2D" uid="uid://dmsh7fndq2kit" path="res://assets/house_interior (2)/textures/auto_28_baseColor.png" id="16_w6p3v"]
 [ext_resource type="Texture2D" uid="uid://d2ulcyqr8x7ma" path="res://assets/house_interior (2)/textures/auto_29_baseColor.png" id="17_pjhg1"]
 [ext_resource type="Texture2D" uid="uid://doashaa08c3pl" path="res://assets/house_interior (2)/textures/auto_37_baseColor.png" id="18_eg1d4"]
+[ext_resource type="Texture2D" uid="uid://dtkm48bg02wgk" path="res://assets/vegetation/aerial_ground_rock_diff_4k.png" id="18_w680c"]
 [ext_resource type="Texture2D" uid="uid://b6rmgkl1my7ee" path="res://assets/house_interior (2)/textures/auto_64_baseColor.png" id="19_61xge"]
 [ext_resource type="Texture2D" uid="uid://bqchbn4idc3vc" path="res://assets/house_interior (2)/textures/auto_70_baseColor.png" id="20_bs763"]
 [ext_resource type="Texture2D" uid="uid://blt3iq8pni3dg" path="res://assets/house_interior (2)/textures/auto_84_baseColor.png" id="21_e7c2j"]
@@ -125,11 +129,15 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bs763"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouso4"]
-albedo_color = Color(0, 0.22745098, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elqqq"]
+albedo_texture = ExtResource("14_e4mo3")
+roughness_texture = ExtResource("16_4fujo")
+normal_enabled = true
+normal_texture = ExtResource("15_54mjm")
+uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_blune"]
-material = SubResource("StandardMaterial3D_ouso4")
+material = SubResource("StandardMaterial3D_elqqq")
 size = Vector2(3000, 3000)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7smn1"]
@@ -155,7 +163,7 @@ size = Vector2(10, 70)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th5th"]
 albedo_color = Color(0.32915837, 0.3291584, 0.3291584, 1)
-albedo_texture = ExtResource("12_blune")
+albedo_texture = ExtResource("18_w680c")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_raeie"]
 material = SubResource("StandardMaterial3D_th5th")
@@ -5252,6 +5260,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056465626, 0.024589539, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30023956, -3.0517578e-05, -0.008987427)
 mesh = SubResource("PlaneMesh_blune")
 skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BlockPath/Mesh Green Floor"]
 
@@ -5274,7 +5283,7 @@ mesh = SubResource("PlaneMesh_necax")
 skeleton = NodePath("../Jessie\'s House")
 
 [node name="Road2" type="MeshInstance3D" parent="BlockPath/Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.629238, 0.024526358, -39.94982)
+transform = Transform3D(1, 0, 0, 0, 0.99987054, 0.01609124, 0, -0.01609124, 0.99987054, -2.5222304, 0.35803676, -39.855324)
 mesh = SubResource("PlaneMesh_raeie")
 skeleton = NodePath("../..")
 
