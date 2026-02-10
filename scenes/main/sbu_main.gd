@@ -9,10 +9,6 @@ extends Control
 func _ready():
 	for page in all_pages:
 		page.hide()
-		
-	var start_button = $subustart/newgamebutton
-	if is_instance_valid(start_button):
-		start_button.pressed.connect(_on_newgamebutton_pressed)
 
 func _on_newgamebutton_pressed():
 	hide()

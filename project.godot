@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Dialogic="*res://addons/dialogic/Example Assets/sound-effects/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -68,6 +68,14 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+translation/enabled=false
+translation/original_locale="en"
+translation/file_mode=1
+translation/translation_folder=""
+translation/save_mode=0
+translation/add_separator=false
+history/simple_history_save=false
+text/input_action="dialogic_default_action"
 
 [dotnet]
 
