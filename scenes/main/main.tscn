@@ -1,4 +1,4 @@
-[gd_scene load_steps=683 format=4 uid="uid://cid2pxxqmnfx2"]
+[gd_scene load_steps=682 format=4 uid="uid://cid2pxxqmnfx2"]
 
 [ext_resource type="Script" uid="uid://ck8wdo5oor1k2" path="res://scripts/main.gd" id="1_cy6g1"]
 [ext_resource type="PackedScene" uid="uid://coykx8w6ol25f" path="res://scenes/main/player_3d.tscn" id="1_hyk8p"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://dmsh7fndq2kit" path="res://assets/house_interior (2)/textures/auto_28_baseColor.png" id="16_w6p3v"]
 [ext_resource type="Texture2D" uid="uid://d2ulcyqr8x7ma" path="res://assets/house_interior (2)/textures/auto_29_baseColor.png" id="17_pjhg1"]
 [ext_resource type="Texture2D" uid="uid://doashaa08c3pl" path="res://assets/house_interior (2)/textures/auto_37_baseColor.png" id="18_eg1d4"]
-[ext_resource type="Texture2D" uid="uid://dtkm48bg02wgk" path="res://assets/vegetation/aerial_ground_rock_diff_4k.png" id="18_w680c"]
 [ext_resource type="Texture2D" uid="uid://b6rmgkl1my7ee" path="res://assets/house_interior (2)/textures/auto_64_baseColor.png" id="19_61xge"]
 [ext_resource type="Texture2D" uid="uid://bqchbn4idc3vc" path="res://assets/house_interior (2)/textures/auto_70_baseColor.png" id="20_bs763"]
 [ext_resource type="Texture2D" uid="uid://blt3iq8pni3dg" path="res://assets/house_interior (2)/textures/auto_84_baseColor.png" id="21_e7c2j"]
@@ -154,8 +153,11 @@ size = Vector3(9, 9, 9)
 data = PackedVector3Array(-4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, -4.5, -4.5, -4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, -4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, -4.5, 4.5, 4.5, -4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, 4.5, 4.5, -4.5, 4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, 4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, -4.5, -4.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvumn"]
-albedo_color = Color(0.19793725, 0.19793722, 0.19793728, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
 albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.008, 0.008, 0.008)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_necax"]
 material = SubResource("StandardMaterial3D_nvumn")
@@ -163,105 +165,166 @@ size = Vector2(10, 70)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th5th"]
 albedo_color = Color(0.32915837, 0.3291584, 0.3291584, 1)
-albedo_texture = ExtResource("18_w680c")
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+uv1_world_triplanar = true
+uv2_triplanar_sharpness = 0.12500009
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_raeie"]
 material = SubResource("StandardMaterial3D_th5th")
 size = Vector2(230, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxu8e"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nvumn"]
 material = SubResource("StandardMaterial3D_hxu8e")
 size = Vector2(10, 370)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7smn1"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pg34l"]
 material = SubResource("StandardMaterial3D_7smn1")
 size = Vector2(10, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4h2d"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p8abn"]
 material = SubResource("StandardMaterial3D_m4h2d")
 size = Vector2(120, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raeie"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_37hlw"]
 material = SubResource("StandardMaterial3D_raeie")
 size = Vector2(50, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6llfj"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0bhws"]
 material = SubResource("StandardMaterial3D_6llfj")
 size = Vector2(100, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62atk"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i7in8"]
 material = SubResource("StandardMaterial3D_62atk")
 size = Vector2(150, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkmcc"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r1bmu"]
 material = SubResource("StandardMaterial3D_gkmcc")
 size = Vector2(60, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w6mm"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_os81g"]
 material = SubResource("StandardMaterial3D_6w6mm")
 size = Vector2(10, 140)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k3ck"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_62f45"]
 material = SubResource("StandardMaterial3D_1k3ck")
 size = Vector2(80, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g32y"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5nwjq"]
 material = SubResource("StandardMaterial3D_6g32y")
 size = Vector2(20, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2upo"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_38d3o"]
 material = SubResource("StandardMaterial3D_g2upo")
 size = Vector2(30, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6fjx"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dg2i"]
 material = SubResource("StandardMaterial3D_i6fjx")
 size = Vector2(10, 150)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08tbl"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f4j1x"]
 material = SubResource("StandardMaterial3D_08tbl")
 size = Vector2(200, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcrab"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gohbf"]
 material = SubResource("StandardMaterial3D_wcrab")
@@ -305,14 +368,22 @@ size = Vector3(20, 10, 20)
 data = PackedVector3Array(-10, 5, 10, 10, 5, 10, -10, -5, 10, 10, 5, 10, 10, -5, 10, -10, -5, 10, 10, 5, -10, -10, 5, -10, 10, -5, -10, -10, 5, -10, -10, -5, -10, 10, -5, -10, 10, 5, 10, 10, 5, -10, 10, -5, 10, 10, 5, -10, 10, -5, -10, 10, -5, 10, -10, 5, -10, -10, 5, 10, -10, -5, -10, -10, 5, 10, -10, -5, 10, -10, -5, -10, 10, 5, 10, -10, 5, 10, 10, 5, -10, -10, 5, 10, -10, 5, -10, 10, 5, -10, -10, -5, 10, 10, -5, 10, -10, -5, -10, 10, -5, 10, 10, -5, -10, -10, -5, -10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7in8"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7nlll"]
 material = SubResource("StandardMaterial3D_i7in8")
 size = Vector2(10, 15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ii537"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rofvo"]
 material = SubResource("StandardMaterial3D_ii537")
@@ -346,14 +417,16 @@ material = SubResource("StandardMaterial3D_7ahn0")
 size = Vector3(50, 15, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ql0k"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8biwb"]
 material = SubResource("StandardMaterial3D_3ql0k")
 size = Vector2(20, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0t6v"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_axmsw"]
 material = SubResource("StandardMaterial3D_m0t6v")
@@ -367,14 +440,22 @@ material = SubResource("StandardMaterial3D_ou6is")
 size = Vector3(15, 8, 15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4lks"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1k3ck"]
 material = SubResource("StandardMaterial3D_r4lks")
 size = Vector2(10, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62f45"]
-albedo_color = Color(0.02745098, 0.02745098, 0.02745098, 1)
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("12_blune")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6g32y"]
 material = SubResource("StandardMaterial3D_62f45")
