@@ -84,6 +84,5 @@ stream = ExtResource("7_mh1ik")
 
 [node name="ComicManager" parent="." instance=ExtResource("5_t8qhm")]
 visible = false
-panelscale = 0.28
 
 [editable path="Head/arms walkie talkie rig"]

@@ -94,6 +94,10 @@ audio/channel_defaults={
 }
 }
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Gay Apocalypse"
