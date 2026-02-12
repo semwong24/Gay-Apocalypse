@@ -97,7 +97,7 @@ func _physics_process(delta):
 	# SPRINT CODE!!! ---------------------------------------------------------------------------------------
 
 	var can_sprint = wants_to_sprint and current_stamina >= stamina_required_to_sprint and not is_on_sprint_cooldown
-	
+	var is_moving = velocity.length() > 0.01
 	
 	if is_sprinting:
 		if current_stamina < stamina_required_to_sprint or not wants_to_sprint:
@@ -111,7 +111,7 @@ func _physics_process(delta):
 		if can_sprint:
 			is_sprinting = true
 	
-	if is_sprinting and not was_sprinting:
+	if is_sprinting and not was_sprinting and is_moving:
 		print("Player is sprinting")
 		sprint_started.emit()
 	elif not is_sprinting and was_sprinting:
