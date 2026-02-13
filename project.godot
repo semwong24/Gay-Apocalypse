@@ -31,6 +31,10 @@ directories/dtl_directory={
 "opening": "res://docs/dialogic/opening.dtl"
 }
 layout/style_directory={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
+variables={}
 
 [dotnet]
 
