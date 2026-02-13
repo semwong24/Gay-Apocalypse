@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-#Dialogic="*res://addons/dialogic/Example Assets/sound-effects/Core/DialogicGameHandler.gd"
+#Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Dialogic="*res://addons/dialogic/Example Assets/sound-effects/Core/DialogicGameHandler.gd"
 PlayerInventory="*res://scripts/player/player_inventory.gd"
 GameState="*res://scripts/GameState.gd"
 
