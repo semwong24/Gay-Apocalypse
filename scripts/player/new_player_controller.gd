@@ -14,6 +14,7 @@ var flashlight_on = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Dialogic.start("opening")
 	flashlight.visible = false
 	
 func _input(event):
