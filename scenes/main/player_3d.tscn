@@ -1,31 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=12 format=3 uid="uid://coykx8w6ol25f"]
 
-[ext_resource type="Script" uid="uid://b2ekuah1dkack" path="res://scripts/player/player_controller.gd" id="1_5wjm4"]
-[ext_resource type="PackedScene" uid="uid://b8ne6ju1p6hon" path="res://assets/character.fbx" id="2_jkn4j"]
+[ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
+[ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
+[ext_resource type="PackedScene" uid="uid://br2bk5t6kirxt" path="res://scenes/interact/interact_ray.tscn" id="2_sibu1"]
+[ext_resource type="AudioStream" uid="uid://c6x238413eibd" path="res://assets/sfx/mp3/indoor_hardfloor_footsteps.mp3" id="2_tyepa"]
+[ext_resource type="PackedScene" uid="uid://dsa0wv7vttamm" path="res://scenes/anim_rigs/mod_arms_walkie_talkie_rig.tscn" id="4_773k5"]
+[ext_resource type="Script" uid="uid://dnmgxf2pn41vh" path="res://scripts/player/animation_player_test.gd" id="5_niw32"]
+[ext_resource type="PackedScene" uid="uid://7cbsoiciba4a" path="res://scenes/main/comic_manager.tscn" id="5_t8qhm"]
+[ext_resource type="AudioStream" uid="uid://dpmot3k7t73i4" path="res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav" id="7_mh1ik"]
+[ext_resource type="AudioStream" uid="uid://buc4wdiu4q2yw" path="res://assets/sfx/mp3/highpitchbeep.mp3" id="7_tyepa"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5wjm4"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.4449077, -0.2620511)
-script = ExtResource("1_5wjm4")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sibu1"]
+points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
+
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("cam", "flashlight")]
+script = ExtResource("1_nohna")
+cam = NodePath("Head/Camera3D")
+flashlight = NodePath("Head/Camera3D/SpotLight3D")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_tyepa")
+volume_db = -25.597
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_jkn4j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8765642, 0.1793794)
-shape = SubResource("CapsuleShape3D_5wjm4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_sibu1")
 
-[node name="character" parent="." instance=ExtResource("2_jkn4j")]
-transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, 0, -1.529272, 0.19268423)
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2938614, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, 0, 0.8876165, -0.09591651)
-v_offset = 1.2
-current = true
+[node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08029318, 0)
-light_color = Color(0.9484095, 0.92518455, 0.6111116, 1)
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
+light_color = Color(0.9490196, 0.9254902, 0.6117647, 1)
 light_energy = 4.0
 light_volumetric_fog_energy = 0.1
 spot_range = 80.0
-spot_angle = 69.12
 spot_angle_attenuation = 3.0
+
+[node name="InteractRay" parent="Head" instance=ExtResource("2_sibu1")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.05, 0)
+script = ExtResource("2_jkn4j")
+normal_prompt_offset = Vector2(0, 500)
+dialogue_prompt_offset = Vector2(0, 2)
+
+[node name="Prompt" type="Label" parent="Head/InteractRay"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 176.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8089983, 0.8089983, 0.8089982, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 25
+text = "Press E to interact"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="arms walkie talkie rig" parent="Head" instance=ExtResource("4_773k5")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0.01, -1, 0.04)
+
+[node name="AnimationPlayer" parent="Head/arms walkie talkie rig" index="1" node_paths=PackedStringArray("player")]
+script = ExtResource("5_niw32")
+player = NodePath("../../..")
+
+[node name="LowPitchBeep" type="AudioStreamPlayer3D" parent="Head/arms walkie talkie rig/AnimationPlayer" index="0"]
+stream = ExtResource("7_tyepa")
+volume_db = -9.106
+
+[node name="RadioClick" type="AudioStreamPlayer3D" parent="Head/arms walkie talkie rig/AnimationPlayer" index="1"]
+stream = ExtResource("7_mh1ik")
+
+[node name="ComicManager" parent="." instance=ExtResource("5_t8qhm")]
+visible = false
+
+[editable path="Head/arms walkie talkie rig"]

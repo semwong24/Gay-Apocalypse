@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://7cbsoiciba4a"]
+
+[ext_resource type="Script" uid="uid://cxr8hck3hlyr8" path="res://scripts/asset-specific-scripts/comic_controller.gd" id="2_2m8d5"]
+[ext_resource type="Texture2D" uid="uid://bs2r0clnh7ovo" path="res://assets/comic/BLK_BG.png" id="2_h6mo4"]
+
+[node name="ComicManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_2m8d5")
+panelscale = 0.28
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_h6mo4")
+centered = false

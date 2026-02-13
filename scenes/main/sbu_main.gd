@@ -9,8 +9,20 @@ extends Control
 func _ready():
 	for page in all_pages:
 		page.hide()
+	# Correct node path
+	GameState.ui_open = true
+	var start_button = $subustart/newgamebutton
+
+	if is_instance_valid(start_button):
+		start_button.pressed.connect(_on_newgamebutton_pressed)
+		print("New Game button signal connected.")
+	else:
+		print("ERROR: newgamebutton not found. Check node path.")
 
 func _on_newgamebutton_pressed():
+	Dialogic.start("opening")
+	print("Menu hidden. Game starting.")
+	GameState.ui_open = false
 	hide()
 
 func _on_creditsbutton_pressed() -> void:
@@ -34,3 +46,4 @@ func _input(event):
 				var rect = page.get_global_rect()
 				if not rect.has_point(event.global_position):
 					page.hide()
+	

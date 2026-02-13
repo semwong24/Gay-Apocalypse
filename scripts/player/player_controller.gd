@@ -3,23 +3,30 @@ extends CharacterBody3D
 @export var speed := 5.0
 @export var mouse_sensitivity := 0.2
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
-@onready var cam = $Camera3D
+@export var cam: Camera3D
+@export var flashlight: SpotLight3D
 @export_group("headbob")
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
 var headbob_time := 0.0
 
-@onready var flashlight = $Camera3D/SpotLight3D
 var flashlight_on = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	flashlight.visible = false
 	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 func _input(event):
 	if event.is_action_pressed ("toggle_flashlight"):
 		toggle_flashlight()
+		
+	if event.is_action_pressed("toggle_mouse"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 func toggle_flashlight():
 	flashlight_on = !flashlight_on
@@ -28,7 +35,7 @@ func toggle_flashlight():
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * mouse_sensitivity * 0.01)
+		$Head.rotate_y(-event.relative.x * mouse_sensitivity * 0.01)
 		cam.rotate_x(-event.relative.y * mouse_sensitivity * 0.01)
 		cam.rotation_degrees.x = clamp(cam.rotation_degrees.x, -89, 89)
 		flashlight.rotation = cam.rotation
@@ -53,7 +60,7 @@ func _physics_process(delta):
 	velocity.z = direction.z * speed
 	move_and_slide()
 	headbob_time += delta * velocity.length() * float(is_on_floor())
-	$Camera3D.transform.origin = headbob(headbob_time)
+	cam.transform.origin = headbob(headbob_time)
 
 func headbob(headbob_time):
 	var headbob_pos = Vector3.ZERO

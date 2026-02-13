@@ -1,0 +1,3 @@
+do ComicController.pickup_item()
+[signal arg_type="dict" arg="{"":""}"]
+set
