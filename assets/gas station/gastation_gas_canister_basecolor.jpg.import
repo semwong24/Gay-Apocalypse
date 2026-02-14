@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bswoixvtlble1"
+uid="uid://di23qj7fxb8ve"
 path.s3tc="res://.godot/imported/gastation_gas_canister_basecolor.jpg-903cb3e541af7539e77067167ec8889d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ce0c409db0da22e7c5294c924c141566"
+"md5": "65bf2aeb9b95fa0c2d8375b4f101e9c8"
 }
 
 [deps]

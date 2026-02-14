@@ -11,9 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_2m8d5")
-panelscale = 0.73
+panelscale = 0.28
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.28, 0.28)
 texture = ExtResource("2_h6mo4")
 centered = false
