@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+#Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PlayerInventory="*res://scripts/player/player_inventory.gd"
 GameState="*res://scripts/GameState.gd"
@@ -93,6 +94,18 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+translation/enabled=false
+translation/original_locale="en"
+translation/file_mode=1
+translation/translation_folder=""
+translation/save_mode=0
+translation/add_separator=false
+history/simple_history_save=false
+text/input_action="dialogic_default_action"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

@@ -27,7 +27,7 @@ Rose: Hello? Oh my god, it worked? It actually worked?! Thank God!
 
 
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
-- Is this real?
+- Who is this? Is this real?
 	Core/Jessie: Is this really real?
 	Rose: As real as it gets these days.
 	Core/Jessie: But the radio tower...I thought it was broken.
@@ -40,10 +40,10 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 	Core/Jessie: ...
 	Rose: I don't know where you are, and I can't get to you. I just wanted to know if anyone else was out there.
 	Core/Jessie: You said you fixed the tower. So... you're in the city?
-Rose: Well yeah, that’s where the repeater is located after all. This was..honestly my last hope for finding anyone. If this didn’t work I…anyway, I’m glad it worked.
+Rose: Well yeah, that’s where the repeater is located after all. This was..honestly my last hope for…finding anyone. I’m glad it actually worked.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Core/Jessie: Me too, frankly my situation is dire over here. I’m running low on everything. Plus, I’ve already looted everything I can from the nearby stores.
-Core/Jessie: I’m not sure how much longer I can last out there. And I’m not thrilled about the idea of going into the city for a simple restock.
+Core/Jessie: I’m not sure how much longer I can last out here. And I’m not thrilled about the idea of going into the city for a simple restock.
 Rose: Yeah, it’s pretty bad. The streets are infested with infected, and all the chaos of the outbreak has left the city totally gridlocked with abandoned cars.
 Rose: Not to mention the military’s poor attempt to control and quarantine. Leaving all their fences and barbed wire around.
 Core/Jessie: ...
@@ -84,8 +84,8 @@ Core/Jessie: Hello? Rose?
 Rose: S-sorry, I was just thinking. It’s not important…
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Core/Jessie: Doesn’t sound like it.
-Rose: Well…I know this is abrupt. And we met literally less than 5 minutes ago over a radio no less but…we could try to…meet up? 
-Rose: I remember what I said about the streets, but I know them like the back of my hand.
+Rose: Well…I know this is abrupt. And we met literally less than 5 minutes ago, over a radio no less but…we could try to…meet up? 
+Rose: I know what I said about the streets, but I know them like the back of my hand.
 Rose: I could guide you through the city no problem. And if you traveled while the sun is down I’m sure everything would be fine.
 Rose: Ah…I’m getting ahead of myself, sorry.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
@@ -116,7 +116,7 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Rose: A firefighter, huh? Impressive…
 Core/Jessie: Isn't it?
-Rose: Alright, don’t go getting a big head about it now.
+Rose: Alright, don’t go getting a big head about it.
 Narrator: [Rose takes a deep breath and loudly exhales before speaking again.]
 Rose: Look, if you’re going to make it through this, you need to be prepared. And I don’t mean packing everything you could ever possibly carry. I mean the opposite.
 Rose: Travel light. The faster you can move? The better.
