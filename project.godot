@@ -17,19 +17,18 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-#Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Dialogic="*res://addons/dialogic/Example Assets/sound-effects/Core/DialogicGameHandler.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PlayerInventory="*res://scripts/player/player_inventory.gd"
 GameState="*res://scripts/GameState.gd"
 
 [dialogic]
 
 directories/dch_directory={
+"Core/Jessie": "res://addons/dialogic/Core/Jessie.dch",
+"Core/Rose": "res://addons/dialogic/Core/Rose.dch",
 "Jessie": "res://docs/dialogic/characters/Jessie.dch",
 "Narrator": "res://docs/dialogic/characters/Narrator.dch",
-"Rose": "res://docs/dialogic/characters/Rose.dch",
-"sound-effects/Core/Jessie": "res://addons/dialogic/Example Assets/sound-effects/Core/Jessie.dch",
-"sound-effects/Core/Rose": "res://addons/dialogic/Example Assets/sound-effects/Core/Rose.dch"
+"Rose": "res://docs/dialogic/characters/Rose.dch"
 }
 directories/dtl_directory={
 "opening": "res://docs/dialogic/opening.dtl",
