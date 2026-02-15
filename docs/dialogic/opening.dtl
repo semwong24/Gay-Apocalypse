@@ -28,14 +28,14 @@ Rose: Hello? Oh my god, it worked? It actually worked?! Thank God!
 
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 - Who is this? Is this real?
-	Core/Jessie: Is this really real?
+	Core/Jessie: Is this actually real?
 	Rose: As real as it gets these days.
 	Core/Jessie: But the radio tower...I thought it was broken.
 	Rose: Me too, till I found a bit of duck tape and old electrical wire. Turns out rigging one of them things up ain't so hard after all.
 	Core/Jessie: How does that even...n-nevermind. Does this mean you're in the city?
 - Who is this?!
 	Rose: I-what? I'm just—
-	Core/Jessie: How do you know tis frequency? How do I know you're not—
+	Core/Jessie: How do you know this frequency? How do I know you're not—
 	Rose: I'm not trying to trick you. I just—I fixed the radio tower. I've been broadcasting day and night, hoping someone would answer.
 	Core/Jessie: ...
 	Rose: I don't know where you are, and I can't get to you. I just wanted to know if anyone else was out there.
@@ -49,7 +49,7 @@ Rose: Not to mention the military’s poor attempt to control and quarantine. Le
 Core/Jessie: ...
 Rose: Sorry…didn’t mean to make things worse.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
-- It's alright, I guess I'm just at a bit of a loss
+- It's alright, I guess I'm just at a bit of a loss.
 	Core/Jessie: Don’t get me wrong, being able to talk to you - to anyone - is a big improvement. But it doesn’t change the situation.
 	Rose: What situation? The one where it’s the end of the world and the Earth is infested with flesh eating zombies infected by some weird plant virus? That situation?
 	Core/Jessie: Yes, that one.
@@ -84,7 +84,7 @@ Core/Jessie: Hello? Rose?
 Rose: S-sorry, I was just thinking. It’s not important…
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Core/Jessie: Doesn’t sound like it.
-Rose: Well…I know this is abrupt. And we met literally less than 5 minutes ago, over a radio no less but…we could try to…meet up? 
+Rose: Well…I know this is abrupt. And we met literally less than 5 minutes ago, over a radio no less but…we could try to…meet up?
 Rose: I know what I said about the streets, but I know them like the back of my hand.
 Rose: I could guide you through the city no problem. And if you traveled while the sun is down I’m sure everything would be fine.
 Rose: Ah…I’m getting ahead of myself, sorry.

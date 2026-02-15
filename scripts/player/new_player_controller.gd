@@ -67,9 +67,14 @@ func _input(event):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
+	# Only process mouse look when cursor is captured
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * mouse_sensitivity * 0.01)
-		$Head.rotate_x(-event.relative.y * mouse_sensitivity * 0.01)
+		# Don't rotate camera if mouse is visible
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			return
+			
+		rotate_y(-event.relative.x * mouse_sensitivity / 100.0)
+		$Head.rotate_x(-event.relative.y * mouse_sensitivity / 100.0)
 		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -89, 89)
 		flashlight.rotation = cam.rotation
 		
