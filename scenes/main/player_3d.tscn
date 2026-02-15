@@ -34,7 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("ConvexPolygonShape3D_sibu1")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2938614, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0233057, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
@@ -46,7 +46,7 @@ spot_range = 80.0
 spot_angle_attenuation = 3.0
 
 [node name="InteractRay" parent="Head" instance=ExtResource("2_sibu1")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.05, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.05, 0)
 script = ExtResource("2_jkn4j")
 normal_prompt_offset = Vector2(0, 500)
 dialogue_prompt_offset = Vector2(0, 2)
