@@ -30,7 +30,8 @@ directories/dch_directory={
 "Core/Rose": "res://addons/dialogic/Core/Rose.dch",
 "Jessie": "res://docs/dialogic/characters/Jessie.dch",
 "Narrator": "res://docs/dialogic/characters/Narrator.dch",
-"Rose": "res://docs/dialogic/characters/Rose.dch"
+"Rose": "res://docs/dialogic/characters/Rose.dch",
+"anon_rose": "res://anon_rose.dch"
 }
 directories/dtl_directory={
 "opening": "res://docs/dialogic/opening.dtl",
