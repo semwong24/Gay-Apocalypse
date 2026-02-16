@@ -28,18 +28,20 @@ signal sprint_stopped
 @onready var footstep_player_indoor: AudioStreamPlayer3D = $FootstepPlayerIndoors
 @onready var footstep_player_concrete: AudioStreamPlayer3D = $FootstepPlayerConcrete
 @onready var ambient_wind: AudioStreamPlayer = $AmbientWind
-@onready var ambient_crickets: AudioStreamPlayer = $AmbientCricket
+@onready var ambient_crickets: AudioStreamPlayer = $AmbientCrickets
 
 var headbob_time := 0.0
 var flashlight_on = false
 var is_sprinting = false
 
-# Raycast for floor detection
 var floor_raycast: RayCast3D
 
-# Floor type memory to bridge gaps between collision boxes
 var last_floor_type = ""
 var floor_type_timer = 0.0
+
+var is_in_outdoor_area = false
+
+
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -48,7 +50,7 @@ func _ready():
 	flashlight.visible = false
 	current_stamina = max_stamina
 	
-	# Create raycast pointing down
+
 	floor_raycast = RayCast3D.new()
 	floor_raycast.target_position = Vector3(0, -10, 0)
 	floor_raycast.enabled = true
@@ -56,12 +58,31 @@ func _ready():
 	floor_raycast.collide_with_bodies = true
 	floor_raycast.hit_from_inside = true
 	
-	# Explicitly set to detect layer 1
+
 	floor_raycast.set_collision_mask_value(1, true)
 	
 	add_child(floor_raycast)
 	
-	print("Floor raycast created")
+
+	
+	call_deferred("_connect_to_outdoor_area")
+
+func _connect_to_outdoor_area():
+	var outdoor_area = get_tree().get_first_node_in_group("outdoor_area")
+	
+	if outdoor_area:
+		outdoor_area.body_entered.connect(_on_outdoor_entered)
+		outdoor_area.body_exited.connect(_on_outdoor_exited)
+		if outdoor_area.overlaps_body(self):
+			is_in_outdoor_area = true
+
+func _on_outdoor_entered(body: Node3D) -> void:
+	if body == self:
+		is_in_outdoor_area = true
+
+func _on_outdoor_exited(body):
+	if body == self:
+		is_in_outdoor_area = false
 	
 func _input(event):
 	if GameState.comic_playing or GameState.ui_open:
@@ -162,24 +183,13 @@ func handle_stamina(delta):
 		current_stamina = min(max_stamina, current_stamina)
 
 func handle_ambient_sound():
-	# Check if we're in the outdoor area
-	if floor_raycast.is_colliding():
-		var collider = floor_raycast.get_collider()
-		
-		# Play outdoor ambient when in outdoor_area
-		if collider and collider.is_in_group("outdoor_area"):
-			if ambient_wind and not ambient_wind.playing:
-				ambient_wind.play()
-			if ambient_crickets and not ambient_crickets.playing:
-				ambient_crickets.play()
-		else:
-			# Stop outdoor ambient when not outside
-			if ambient_wind and ambient_wind.playing:
-				ambient_wind.stop()
-			if ambient_crickets and ambient_crickets.playing:
-				ambient_crickets.stop()
+	
+	if is_in_outdoor_area:
+		if ambient_wind and not ambient_wind.playing:
+			ambient_wind.play()
+		if ambient_crickets and not ambient_crickets.playing:
+			ambient_crickets.play()
 	else:
-		# No collision - stop ambient
 		if ambient_wind and ambient_wind.playing:
 			ambient_wind.stop()
 		if ambient_crickets and ambient_crickets.playing:
@@ -204,7 +214,7 @@ func handle_footsteps(delta):
 			elif collider and collider.is_in_group("indoor_area"):
 				detected_floor = "indoor"
 		
-		# If we detected a floor, use it immediately
+		
 		if detected_floor != "":
 			last_floor_type = detected_floor
 			floor_type_timer = 0.2
@@ -213,7 +223,7 @@ func handle_footsteps(delta):
 			if floor_type_timer <= 0:
 				last_floor_type = ""
 		
-		# Play sound based on current or recent floor type
+
 		if last_floor_type == "concrete":
 			_play_footstep(footstep_player_concrete, desired_pitch)
 			_stop_footstep(footstep_player_indoor)
