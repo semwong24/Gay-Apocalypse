@@ -21,7 +21,6 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PlayerInventory="*res://scripts/player/player_inventory.gd"
 GameState="*res://scripts/GameState.gd"
 DialogueScroll="*res://scripts/player/dialogue_scroll.gd"
-PickupMessageManager="*res://scripts/pickup_message_manager.gd"
 
 [dialogic]
 

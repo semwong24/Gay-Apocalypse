@@ -16,17 +16,21 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var stamina_drain_rate := 20.0
 @export var stamina_regen_rate := 15.0
 @export var stamina_required_to_sprint := 65.0
-@export var sprint_cooldown_after_depletion := 1.0  # Cooldown in seconds after stamina depletes
+@export var sprint_cooldown_after_depletion := 1.0
 var current_stamina := 100.0
 var is_on_sprint_cooldown := false
 var cooldown_timer := 0.0
 
-# Signals for sprint state changes
+
 signal sprint_started
 signal sprint_stopped
 
-var is_in_indoor_area = false
-@onready var footstep_player = $FootstepPlayer
+
+enum FloorType { NONE, INDOOR, CONCRETE }
+var current_floor_type = FloorType.NONE
+
+@onready var footstep_player_indoor = $FootstepPlayerIndoors
+@onready var footstep_player_concrete = $FootstepPlayerConcrete 
 var footstep_timer = 0.0
 @export var footstep_interval = 0.5
 
@@ -41,17 +45,24 @@ func _ready():
 	flashlight.visible = false
 	current_stamina = max_stamina
 	
-	call_deferred("_connect_to_indoor_area")
+	call_deferred("_connect_to_floor_areas")
 	
-func _connect_to_indoor_area():
+func _connect_to_floor_areas():
+	# Connect to indoor area
 	var indoor_area = get_tree().get_first_node_in_group("indoor_area")
-	
 	if indoor_area:
 		indoor_area.body_entered.connect(_on_indoor_area_entered)
 		indoor_area.body_exited.connect(_on_indoor_area_exited)
-		
 		if indoor_area.overlaps_body(self):
-			is_in_indoor_area = true
+			current_floor_type = FloorType.INDOOR
+	
+	# Connect to concrete area
+	var concrete_area = get_tree().get_first_node_in_group("concrete_area")
+	if concrete_area:
+		concrete_area.body_entered.connect(_on_concrete_area_entered)
+		concrete_area.body_exited.connect(_on_concrete_area_exited)
+		if concrete_area.overlaps_body(self):
+			current_floor_type = FloorType.CONCRETE
 	
 func _input(event):
 	if GameState.comic_playing or GameState.ui_open:
@@ -69,7 +80,6 @@ func _input(event):
 	
 	# Only process mouse look when cursor is captured
 	if event is InputEventMouseMotion:
-		# Don't rotate camera if mouse is visible
 		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			return
 			
@@ -86,23 +96,20 @@ func _physics_process(delta):
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
 	
-	# Handle sprint cooldown
+
 	if is_on_sprint_cooldown:
 		cooldown_timer -= delta
 		if cooldown_timer <= 0:
 			is_on_sprint_cooldown = false
 			print("Sprint cooldown ended!")
 	
-	# Handle stamina system
+
 	handle_stamina(delta)
 	
 	var was_sprinting = is_sprinting
 	var wants_to_sprint = Input.is_action_pressed("sprint")
 	
-	# SPRINT CODE!!! ---------------------------------------------------------------------------------------
-
 	var can_sprint = wants_to_sprint and current_stamina >= stamina_required_to_sprint and not is_on_sprint_cooldown
-	
 	
 	if is_sprinting:
 		if current_stamina < stamina_required_to_sprint or not wants_to_sprint:
@@ -124,7 +131,6 @@ func _physics_process(delta):
 		sprint_stopped.emit()
 	
 	var current_speed = sprint_speed if is_sprinting else speed
-# Sprint Code END!!! ---------------------------------------------------------------------------------------
 
 	var direction = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -149,7 +155,6 @@ func _physics_process(delta):
 	
 	handle_footsteps(delta)
 
-# Sprint MAIN FUNCTION ----------------------------------------------
 func handle_stamina(delta):
 	var is_moving = velocity.length() > 0.1
 	
@@ -162,38 +167,61 @@ func handle_stamina(delta):
 	else:
 		current_stamina += stamina_regen_rate * delta
 		current_stamina = min(max_stamina, current_stamina)
-# -------------------------------------------------------------------
 
-	
 func handle_footsteps(_delta):
 	if GameState.comic_playing:
-		if footstep_player and footstep_player.playing:
-			footstep_player.stop()
+		_stop_all_footsteps()
 		return
 	
 	var is_moving = velocity.length() > 0.1
 	
-	if is_in_indoor_area and is_moving:
+	if is_moving and current_floor_type != FloorType.NONE:
 		var desired_pitch = 1.3 if is_sprinting else 1.0
 		
-		if footstep_player:
-			footstep_player.pitch_scale = desired_pitch
-			
-			if not footstep_player.playing:
-				footstep_player.play()
+		# Play the appropriate footstep sound based on floor type
+		match current_floor_type:
+			FloorType.INDOOR:
+				_play_footstep(footstep_player_indoor, desired_pitch)
+				_stop_footstep(footstep_player_concrete)
+			FloorType.CONCRETE:
+				_play_footstep(footstep_player_concrete, desired_pitch)
+				_stop_footstep(footstep_player_indoor)
 	else:
-		if footstep_player and footstep_player.playing:
-			footstep_player.stop()
-		
+		_stop_all_footsteps()
+
+func _play_footstep(player: AudioStreamPlayer, pitch: float):
+	if player:
+		player.pitch_scale = pitch
+		if not player.playing:
+			player.play()
+
+func _stop_footstep(player: AudioStreamPlayer):
+	if player and player.playing:
+		player.stop()
+
+func _stop_all_footsteps():
+	_stop_footstep(footstep_player_indoor)
+	_stop_footstep(footstep_player_concrete)
+
+# Indoor area callbacks
 func _on_indoor_area_entered(body: Node3D) -> void:
 	if body == self:
-		is_in_indoor_area = true
+		current_floor_type = FloorType.INDOOR
 
 func _on_indoor_area_exited(body):
 	if body == self:
-		is_in_indoor_area = false
-		if footstep_player:
-			footstep_player.stop()
+		current_floor_type = FloorType.NONE
+		_stop_all_footsteps()
+
+# Concrete area callbacks
+func _on_concrete_area_entered(body: Node3D) -> void:
+	if body == self:
+		current_floor_type = FloorType.CONCRETE
+
+func _on_concrete_area_exited(body):
+	if body == self:
+		current_floor_type = FloorType.NONE
+		_stop_all_footsteps()
 
 func headbob(headbob_time):
 	var headbob_pos = Vector3.ZERO
