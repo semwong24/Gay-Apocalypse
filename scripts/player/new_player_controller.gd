@@ -21,22 +21,25 @@ var current_stamina := 100.0
 var is_on_sprint_cooldown := false
 var cooldown_timer := 0.0
 
-
+# Signals for sprint state changes
 signal sprint_started
 signal sprint_stopped
 
-
-enum FloorType { NONE, INDOOR, CONCRETE }
-var current_floor_type = FloorType.NONE
-
-@onready var footstep_player_indoor = $FootstepPlayerIndoors
-@onready var footstep_player_concrete = $FootstepPlayerConcrete 
-var footstep_timer = 0.0
-@export var footstep_interval = 0.5
+@onready var footstep_player_indoor: AudioStreamPlayer3D = $FootstepPlayerIndoors
+@onready var footstep_player_concrete: AudioStreamPlayer3D = $FootstepPlayerConcrete
+@onready var ambient_wind: AudioStreamPlayer = $AmbientWind
+@onready var ambient_crickets: AudioStreamPlayer = $AmbientCricket
 
 var headbob_time := 0.0
 var flashlight_on = false
 var is_sprinting = false
+
+# Raycast for floor detection
+var floor_raycast: RayCast3D
+
+# Floor type memory to bridge gaps between collision boxes
+var last_floor_type = ""
+var floor_type_timer = 0.0
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -45,24 +48,20 @@ func _ready():
 	flashlight.visible = false
 	current_stamina = max_stamina
 	
-	call_deferred("_connect_to_floor_areas")
+	# Create raycast pointing down
+	floor_raycast = RayCast3D.new()
+	floor_raycast.target_position = Vector3(0, -10, 0)
+	floor_raycast.enabled = true
+	floor_raycast.collide_with_areas = true
+	floor_raycast.collide_with_bodies = true
+	floor_raycast.hit_from_inside = true
 	
-func _connect_to_floor_areas():
-	# Connect to indoor area
-	var indoor_area = get_tree().get_first_node_in_group("indoor_area")
-	if indoor_area:
-		indoor_area.body_entered.connect(_on_indoor_area_entered)
-		indoor_area.body_exited.connect(_on_indoor_area_exited)
-		if indoor_area.overlaps_body(self):
-			current_floor_type = FloorType.INDOOR
+	# Explicitly set to detect layer 1
+	floor_raycast.set_collision_mask_value(1, true)
 	
-	# Connect to concrete area
-	var concrete_area = get_tree().get_first_node_in_group("concrete_area")
-	if concrete_area:
-		concrete_area.body_entered.connect(_on_concrete_area_entered)
-		concrete_area.body_exited.connect(_on_concrete_area_exited)
-		if concrete_area.overlaps_body(self):
-			current_floor_type = FloorType.CONCRETE
+	add_child(floor_raycast)
+	
+	print("Floor raycast created")
 	
 func _input(event):
 	if GameState.comic_playing or GameState.ui_open:
@@ -96,14 +95,13 @@ func _physics_process(delta):
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
 	
-
+	# Handle sprint cooldown
 	if is_on_sprint_cooldown:
 		cooldown_timer -= delta
 		if cooldown_timer <= 0:
 			is_on_sprint_cooldown = false
-			print("Sprint cooldown ended!")
 	
-
+	# Handle stamina system
 	handle_stamina(delta)
 	
 	var was_sprinting = is_sprinting
@@ -118,16 +116,13 @@ func _physics_process(delta):
 			if current_stamina < stamina_required_to_sprint:
 				is_on_sprint_cooldown = true
 				cooldown_timer = sprint_cooldown_after_depletion
-				print("Stamina depleted! Cooldown started.")
 	else:
 		if can_sprint:
 			is_sprinting = true
 	
 	if is_sprinting and not was_sprinting:
-		print("Player is sprinting")
 		sprint_started.emit()
 	elif not is_sprinting and was_sprinting:
-		print("Player stopped sprinting")
 		sprint_stopped.emit()
 	
 	var current_speed = sprint_speed if is_sprinting else speed
@@ -154,6 +149,7 @@ func _physics_process(delta):
 	cam.transform.origin = headbob(headbob_time)
 	
 	handle_footsteps(delta)
+	handle_ambient_sound()
 
 func handle_stamina(delta):
 	var is_moving = velocity.length() > 0.1
@@ -161,67 +157,88 @@ func handle_stamina(delta):
 	if is_sprinting and is_moving:
 		current_stamina -= stamina_drain_rate * delta
 		current_stamina = max(0, current_stamina)
-		
-		if current_stamina < stamina_required_to_sprint:
-			print("Not enough stamina! Need to rest.")
 	else:
 		current_stamina += stamina_regen_rate * delta
 		current_stamina = min(max_stamina, current_stamina)
 
-func handle_footsteps(_delta):
+func handle_ambient_sound():
+	# Check if we're in the outdoor area
+	if floor_raycast.is_colliding():
+		var collider = floor_raycast.get_collider()
+		
+		# Play outdoor ambient when in outdoor_area
+		if collider and collider.is_in_group("outdoor_area"):
+			if ambient_wind and not ambient_wind.playing:
+				ambient_wind.play()
+			if ambient_crickets and not ambient_crickets.playing:
+				ambient_crickets.play()
+		else:
+			# Stop outdoor ambient when not outside
+			if ambient_wind and ambient_wind.playing:
+				ambient_wind.stop()
+			if ambient_crickets and ambient_crickets.playing:
+				ambient_crickets.stop()
+	else:
+		# No collision - stop ambient
+		if ambient_wind and ambient_wind.playing:
+			ambient_wind.stop()
+		if ambient_crickets and ambient_crickets.playing:
+			ambient_crickets.stop()
+
+func handle_footsteps(delta):
 	if GameState.comic_playing:
 		_stop_all_footsteps()
 		return
 	
 	var is_moving = velocity.length() > 0.1
 	
-	if is_moving and current_floor_type != FloorType.NONE:
+	if is_moving:
 		var desired_pitch = 1.3 if is_sprinting else 1.0
+		var detected_floor = ""
 		
-		# Play the appropriate footstep sound based on floor type
-		match current_floor_type:
-			FloorType.INDOOR:
-				_play_footstep(footstep_player_indoor, desired_pitch)
-				_stop_footstep(footstep_player_concrete)
-			FloorType.CONCRETE:
-				_play_footstep(footstep_player_concrete, desired_pitch)
-				_stop_footstep(footstep_player_indoor)
+		if floor_raycast.is_colliding():
+			var collider = floor_raycast.get_collider()
+			
+			if collider and collider.is_in_group("concrete_area"):
+				detected_floor = "concrete"
+			elif collider and collider.is_in_group("indoor_area"):
+				detected_floor = "indoor"
+		
+		# If we detected a floor, use it immediately
+		if detected_floor != "":
+			last_floor_type = detected_floor
+			floor_type_timer = 0.2
+		else:
+			floor_type_timer -= delta
+			if floor_type_timer <= 0:
+				last_floor_type = ""
+		
+		# Play sound based on current or recent floor type
+		if last_floor_type == "concrete":
+			_play_footstep(footstep_player_concrete, desired_pitch)
+			_stop_footstep(footstep_player_indoor)
+		elif last_floor_type == "indoor":
+			_play_footstep(footstep_player_indoor, desired_pitch)
+			_stop_footstep(footstep_player_concrete)
+		else:
+			_stop_all_footsteps()
 	else:
 		_stop_all_footsteps()
+		last_floor_type = ""
 
-func _play_footstep(player: AudioStreamPlayer, pitch: float):
+func _play_footstep(player: AudioStreamPlayer3D, pitch: float):
 	if player:
 		player.pitch_scale = pitch
 		if not player.playing:
 			player.play()
 
-func _stop_footstep(player: AudioStreamPlayer):
+func _stop_footstep(player: AudioStreamPlayer3D):
 	if player and player.playing:
 		player.stop()
 
 func _stop_all_footsteps():
 	_stop_footstep(footstep_player_indoor)
 	_stop_footstep(footstep_player_concrete)
-
-# Indoor area callbacks
-func _on_indoor_area_entered(body: Node3D) -> void:
-	if body == self:
-		current_floor_type = FloorType.INDOOR
-
-func _on_indoor_area_exited(body):
-	if body == self:
-		current_floor_type = FloorType.NONE
-		_stop_all_footsteps()
-
-# Concrete area callbacks
-func _on_concrete_area_entered(body: Node3D) -> void:
-	if body == self:
-		current_floor_type = FloorType.CONCRETE
-
-func _on_concrete_area_exited(body):
-	if body == self:
-		current_floor_type = FloorType.NONE
-		_stop_all_footsteps()
 
 func headbob(headbob_time):
 	var headbob_pos = Vector3.ZERO

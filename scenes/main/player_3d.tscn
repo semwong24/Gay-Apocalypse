@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=15 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://7cbsoiciba4a" path="res://scenes/main/comic_manager.tscn" id="5_t8qhm"]
 [ext_resource type="AudioStream" uid="uid://dpmot3k7t73i4" path="res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav" id="7_mh1ik"]
 [ext_resource type="AudioStream" uid="uid://buc4wdiu4q2yw" path="res://assets/sfx/mp3/highpitchbeep.mp3" id="7_tyepa"]
+[ext_resource type="AudioStream" uid="uid://8k48nhvkmgmc" path="res://assets/sfx/ambient_wind_noise.mp3" id="11_lif8p"]
+[ext_resource type="AudioStream" uid="uid://b8h6c64jnhd5g" path="res://assets/sfx/cricket_ambient.wav" id="12_qe7o8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -27,6 +29,7 @@ volume_db = -25.597
 
 [node name="FootstepPlayerConcrete" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_tyepa")
+volume_db = -40.385
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -88,5 +91,13 @@ stream = ExtResource("7_mh1ik")
 
 [node name="ComicManager" parent="." instance=ExtResource("5_t8qhm")]
 visible = false
+
+[node name="AmbientWind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_lif8p")
+volume_db = -12.34
+
+[node name="AmbientCricket" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_qe7o8")
+volume_db = -18.179
 
 [editable path="Head/arms walkie talkie rig"]
