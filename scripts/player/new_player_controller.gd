@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
 
-# Stamina system
+# stamina system
 @export_group("Stamina")
 @export var max_stamina := 100.0
 @export var stamina_drain_rate := 20.0
@@ -21,12 +21,12 @@ var current_stamina := 100.0
 var is_on_sprint_cooldown := false
 var cooldown_timer := 0.0
 
-# Signals for sprint state changes
 signal sprint_started
 signal sprint_stopped
 
 @onready var footstep_player_indoor: AudioStreamPlayer3D = $FootstepPlayerIndoors
 @onready var footstep_player_concrete: AudioStreamPlayer3D = $FootstepPlayerConcrete
+@onready var footstep_player_terrain: AudioStreamPlayer3D = $FootstepPlayerTerrain
 @onready var ambient_wind: AudioStreamPlayer = $AmbientWind
 @onready var ambient_crickets: AudioStreamPlayer = $AmbientCrickets
 
@@ -41,8 +41,6 @@ var floor_type_timer = 0.0
 
 var is_in_outdoor_area = false
 
-
-
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_process_input(true)
@@ -50,7 +48,6 @@ func _ready():
 	flashlight.visible = false
 	current_stamina = max_stamina
 	
-
 	floor_raycast = RayCast3D.new()
 	floor_raycast.target_position = Vector3(0, -10, 0)
 	floor_raycast.enabled = true
@@ -58,12 +55,9 @@ func _ready():
 	floor_raycast.collide_with_bodies = true
 	floor_raycast.hit_from_inside = true
 	
-
 	floor_raycast.set_collision_mask_value(1, true)
 	
 	add_child(floor_raycast)
-	
-
 	
 	call_deferred("_connect_to_outdoor_area")
 
@@ -116,13 +110,12 @@ func _physics_process(delta):
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
 	
-	# Handle sprint cooldown
+
 	if is_on_sprint_cooldown:
 		cooldown_timer -= delta
 		if cooldown_timer <= 0:
 			is_on_sprint_cooldown = false
 	
-	# Handle stamina system
 	handle_stamina(delta)
 	
 	var was_sprinting = is_sprinting
@@ -183,7 +176,6 @@ func handle_stamina(delta):
 		current_stamina = min(max_stamina, current_stamina)
 
 func handle_ambient_sound():
-	
 	if is_in_outdoor_area:
 		if ambient_wind and not ambient_wind.playing:
 			ambient_wind.play()
@@ -208,28 +200,31 @@ func handle_footsteps(delta):
 		
 		if floor_raycast.is_colliding():
 			var collider = floor_raycast.get_collider()
-			
 			if collider and collider.is_in_group("concrete_area"):
 				detected_floor = "concrete"
 			elif collider and collider.is_in_group("indoor_area"):
 				detected_floor = "indoor"
 		
-		
 		if detected_floor != "":
 			last_floor_type = detected_floor
-			floor_type_timer = 0.2
+			floor_type_timer = 1.0
 		else:
 			floor_type_timer -= delta
 			if floor_type_timer <= 0:
 				last_floor_type = ""
 		
-
 		if last_floor_type == "concrete":
 			_play_footstep(footstep_player_concrete, desired_pitch)
 			_stop_footstep(footstep_player_indoor)
+			_stop_footstep(footstep_player_terrain)
 		elif last_floor_type == "indoor":
 			_play_footstep(footstep_player_indoor, desired_pitch)
 			_stop_footstep(footstep_player_concrete)
+			_stop_footstep(footstep_player_terrain)
+		elif is_in_outdoor_area and floor_type_timer <= 0:
+			_play_footstep(footstep_player_terrain, desired_pitch)
+			_stop_footstep(footstep_player_concrete)
+			_stop_footstep(footstep_player_indoor)
 		else:
 			_stop_all_footsteps()
 	else:
@@ -249,6 +244,7 @@ func _stop_footstep(player: AudioStreamPlayer3D):
 func _stop_all_footsteps():
 	_stop_footstep(footstep_player_indoor)
 	_stop_footstep(footstep_player_concrete)
+	_stop_footstep(footstep_player_terrain)
 
 func headbob(headbob_time):
 	var headbob_pos = Vector3.ZERO
