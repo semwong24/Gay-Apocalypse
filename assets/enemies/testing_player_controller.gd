@@ -87,6 +87,9 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	# Only process mouse look when cursor is captured
+	if event is InputEventMouseMotion:
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			return
 			
 		rotate_y(-event.relative.x * mouse_sensitivity / 100.0)
 		$Head.rotate_x(-event.relative.y * mouse_sensitivity / 100.0)
@@ -94,8 +97,6 @@ func _input(event):
 		flashlight.rotation = cam.rotation
 		
 func _physics_process(delta):
-	if GameState.comic_playing or GameState.ui_open:
-		return
 		
 	if Input.is_action_just_pressed("toggle_flashlight") and PlayerInventory.has_flashlight:
 		flashlight_on = !flashlight_on
