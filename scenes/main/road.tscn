@@ -1,0 +1,304 @@
+[gd_scene load_steps=38 format=3 uid="uid://de78uoxbuktd4"]
+
+[ext_resource type="Texture2D" uid="uid://iyikwc4ssabr" path="res://materials/concrete.jpg" id="1_8eml5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvumn"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.008, 0.008, 0.008)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_necax"]
+material = SubResource("StandardMaterial3D_nvumn")
+size = Vector2(10, 70)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th5th"]
+albedo_color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+uv1_world_triplanar = true
+uv2_triplanar_sharpness = 0.12500009
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_raeie"]
+material = SubResource("StandardMaterial3D_th5th")
+size = Vector2(230, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxu8e"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nvumn"]
+material = SubResource("StandardMaterial3D_hxu8e")
+size = Vector2(10, 370)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7smn1"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pg34l"]
+material = SubResource("StandardMaterial3D_7smn1")
+size = Vector2(10, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4h2d"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p8abn"]
+material = SubResource("StandardMaterial3D_m4h2d")
+size = Vector2(120, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raeie"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_37hlw"]
+material = SubResource("StandardMaterial3D_raeie")
+size = Vector2(50, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6llfj"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0bhws"]
+material = SubResource("StandardMaterial3D_6llfj")
+size = Vector2(100, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62atk"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i7in8"]
+material = SubResource("StandardMaterial3D_62atk")
+size = Vector2(150, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkmcc"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r1bmu"]
+material = SubResource("StandardMaterial3D_gkmcc")
+size = Vector2(60, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w6mm"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_os81g"]
+material = SubResource("StandardMaterial3D_6w6mm")
+size = Vector2(10, 140)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k3ck"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_62f45"]
+material = SubResource("StandardMaterial3D_1k3ck")
+size = Vector2(80, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g32y"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5nwjq"]
+material = SubResource("StandardMaterial3D_6g32y")
+size = Vector2(20, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2upo"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_38d3o"]
+material = SubResource("StandardMaterial3D_g2upo")
+size = Vector2(30, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6fjx"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7dg2i"]
+material = SubResource("StandardMaterial3D_i6fjx")
+size = Vector2(10, 150)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08tbl"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f4j1x"]
+material = SubResource("StandardMaterial3D_08tbl")
+size = Vector2(200, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcrab"]
+albedo_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+albedo_texture = ExtResource("1_8eml5")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gohbf"]
+material = SubResource("StandardMaterial3D_wcrab")
+size = Vector2(10, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_necax"]
+albedo_color = Color(0.3787787, 0.28296208, 0.06610414, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g2upo"]
+material = SubResource("StandardMaterial3D_necax")
+size = Vector2(70, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38d3o"]
+albedo_color = Color(0.38039216, 0.28235295, 0.06666667, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i6fjx"]
+material = SubResource("StandardMaterial3D_38d3o")
+size = Vector2(100, 10)
+
+[node name="Road" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_necax")
+skeleton = NodePath("../Jessie\'s House")
+
+[node name="Road2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99987054, 0.01609124, 0, -0.01609124, 0.99987054, -2.5222304, 0.35803676, -39.855324)
+mesh = SubResource("PlaneMesh_raeie")
+skeleton = NodePath("../..")
+
+[node name="Road3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.904404, 0.01578033, -226.4044)
+mesh = SubResource("PlaneMesh_nvumn")
+skeleton = NodePath("../..")
+
+[node name="Road4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.79534, 0.017671347, -37.362118)
+mesh = SubResource("PlaneMesh_pg34l")
+skeleton = NodePath("../../Mesh Green Floor")
+
+[node name="Road5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.611332, 0.040061712, -78.470985)
+mesh = SubResource("PlaneMesh_p8abn")
+skeleton = NodePath("../Road4")
+
+[node name="Road 6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.82897, 0, -92.27527)
+mesh = SubResource("PlaneMesh_37hlw")
+
+[node name="Road 7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.806274, 0.1397667, -204.4531)
+mesh = SubResource("PlaneMesh_0bhws")
+
+[node name="Road8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.85472, 0, -247.17578)
+mesh = SubResource("PlaneMesh_i7in8")
+
+[node name="Road9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.302338, 0.0039012432, -297.3673)
+mesh = SubResource("PlaneMesh_r1bmu")
+
+[node name="Road10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.76339, 0.08997154, -339.5803)
+mesh = SubResource("PlaneMesh_os81g")
+
+[node name="Road11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.82161, 0.07980728, -267.5157)
+mesh = SubResource("PlaneMesh_62f45")
+skeleton = NodePath("../Road10")
+
+[node name="Road 12 Cul-de-sac" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.91636276, 0, -0.40034902, 0, 1, 0, 0.40034902, 0, 0.91636276, 57.348377, 0.06203246, -334.58755)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road 12 Cul-de-sac2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0511, 0.40591216, -331.29388)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road 12 Cul-de-sac3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.94437635, 0, 0.32886663, 0, 1, 0, -0.32886663, 0, 0.94437635, 91.693726, 0.06203246, -334.04205)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road 12 Cul-de-sac4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5150381, 0, 0.8571673, 0, 1, 0, -0.8571673, 0, 0.5150381, 103.24553, 0.06203246, -343.17703)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road 12 Cul-de-sac5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 108.43328, 0.06203246, -359.2071)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road 12 Cul-de-sac6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.55919284, 0, 0.82903755, 0, 1, 0, -0.82903755, 0, -0.55919284, 104.378654, 0.06203246, -374.7993)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road 12 Cul-de-sac7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.97886735, 0, -0.20449603, 0, 1, 0, 0.20449603, 0, 0.97886735, 92.3478, 0.06203246, -383.2658)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road 12 Cul-de-sac8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.97886735, 0, 0.20449603, 0, 1, 0, -0.20449603, 0, 0.97886735, 74.74801, 0.06203246, -383.3359)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road 12 Cul-de-sac9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.81512773, 0, 0.5792811, 0, 1, 0, -0.5792811, 0, 0.81512773, 58.231647, 0.06203246, -376.71747)
+mesh = SubResource("PlaneMesh_5nwjq")
+
+[node name="Road13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8151278, 0, -0.57928115, 0, 1, 0, 0.57928115, 0, 0.8151278, 39.883003, 0, -415.00247)
+mesh = SubResource("PlaneMesh_38d3o")
+
+[node name="Road 14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.945091, 0.116355896, -493.9796)
+mesh = SubResource("PlaneMesh_7dg2i")
+
+[node name="Road 15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.83903, 0, -416.39978)
+mesh = SubResource("PlaneMesh_f4j1x")
+
+[node name="Road 16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.55007, 0.0837059, -520.13477)
+mesh = SubResource("PlaneMesh_gohbf")
+
+[node name="Dirt Path" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9788674, 0, 0.20449604, 0, 1, 0, -0.20449604, 0, 0.9788674, 17.78543, 0, -325.98016)
+mesh = SubResource("PlaneMesh_g2upo")
+
+[node name="Dirt Path 2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.91636276, 0, -0.40034902, 0, 1, 0, 0.40034902, 0, 0.91636276, -18.099274, 0, -471.64624)
+mesh = SubResource("PlaneMesh_i6fjx")

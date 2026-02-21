@@ -16,25 +16,30 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Gay Apocalypse"
 run/main_scene="res://scenes/main/main.tscn"
-config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Dialogic="*uid://ds2q0uclmolvu"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PlayerInventory="*res://scripts/player/player_inventory.gd"
 GameState="*res://scripts/GameState.gd"
 DialogueScroll="*res://scripts/player/dialogue_scroll.gd"
 PickupMessageManager="*res://scripts/pickup_message_manager.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+
 [dialogic]
 
 directories/dch_directory={
+"Core/Rose": "res://addons/dialogic/Core/Rose.dch",
 "Jessie": "res://addons/dialogic/Core/Jessie.dch",
 "Narrator": "res://docs/dialogic/characters/Narrator.dch",
-"Rose": "res://addons/dialogic/Core/Rose.dch",
-"characters/Jessie": "res://docs/dialogic/characters/Jessie.dch",
-"characters/Rose": "res://docs/dialogic/characters/Rose.dch"
+"Rose": "res://docs/dialogic/characters/Rose.dch",
+"anon_rose": "res://anon_rose.dch",
+"characters/Jessie": "res://docs/dialogic/characters/Jessie.dch"
 }
 directories/dtl_directory={
 "opening": "res://docs/dialogic/opening.dtl",

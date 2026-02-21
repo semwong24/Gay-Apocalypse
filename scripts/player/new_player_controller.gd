@@ -10,29 +10,36 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
 
-# Stamina system
+# stamina system
 @export_group("Stamina")
 @export var max_stamina := 100.0
 @export var stamina_drain_rate := 20.0
 @export var stamina_regen_rate := 15.0
 @export var stamina_required_to_sprint := 65.0
-@export var sprint_cooldown_after_depletion := 1.0  # Cooldown in seconds after stamina depletes
+@export var sprint_cooldown_after_depletion := 1.0
 var current_stamina := 100.0
 var is_on_sprint_cooldown := false
 var cooldown_timer := 0.0
 
-# Signals for sprint state changes
 signal sprint_started
 signal sprint_stopped
 
-var is_in_indoor_area = false
-@onready var footstep_player = $FootstepPlayer
-var footstep_timer = 0.0
-@export var footstep_interval = 0.5
+@onready var footstep_player_indoor: AudioStreamPlayer3D = $FootstepPlayerIndoors
+@onready var footstep_player_concrete: AudioStreamPlayer3D = $FootstepPlayerConcrete
+@onready var footstep_player_terrain: AudioStreamPlayer3D = $FootstepPlayerTerrain
+@onready var ambient_wind: AudioStreamPlayer = $AmbientWind
+@onready var ambient_crickets: AudioStreamPlayer = $AmbientCrickets
 
 var headbob_time := 0.0
 var flashlight_on = false
 var is_sprinting = false
+
+var floor_raycast: RayCast3D
+
+var last_floor_type = ""
+var floor_type_timer = 0.0
+
+var is_in_outdoor_area = false
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -41,17 +48,35 @@ func _ready():
 	flashlight.visible = false
 	current_stamina = max_stamina
 	
-	call_deferred("_connect_to_indoor_area")
+	floor_raycast = RayCast3D.new()
+	floor_raycast.target_position = Vector3(0, -10, 0)
+	floor_raycast.enabled = true
+	floor_raycast.collide_with_areas = true
+	floor_raycast.collide_with_bodies = true
+	floor_raycast.hit_from_inside = true
 	
-func _connect_to_indoor_area():
-	var indoor_area = get_tree().get_first_node_in_group("indoor_area")
+	floor_raycast.set_collision_mask_value(1, true)
 	
-	if indoor_area:
-		indoor_area.body_entered.connect(_on_indoor_area_entered)
-		indoor_area.body_exited.connect(_on_indoor_area_exited)
-		
-		if indoor_area.overlaps_body(self):
-			is_in_indoor_area = true
+	add_child(floor_raycast)
+	
+	call_deferred("_connect_to_outdoor_area")
+
+func _connect_to_outdoor_area():
+	var outdoor_area = get_tree().get_first_node_in_group("outdoor_area")
+	
+	if outdoor_area:
+		outdoor_area.body_entered.connect(_on_outdoor_entered)
+		outdoor_area.body_exited.connect(_on_outdoor_exited)
+		if outdoor_area.overlaps_body(self):
+			is_in_outdoor_area = true
+
+func _on_outdoor_entered(body: Node3D) -> void:
+	if body == self:
+		is_in_outdoor_area = true
+
+func _on_outdoor_exited(body):
+	if body == self:
+		is_in_outdoor_area = false
 	
 func _input(event):
 	if GameState.comic_playing or GameState.ui_open:
@@ -69,7 +94,6 @@ func _input(event):
 	
 	# Only process mouse look when cursor is captured
 	if event is InputEventMouseMotion:
-		# Don't rotate camera if mouse is visible
 		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			return
 			
@@ -86,23 +110,18 @@ func _physics_process(delta):
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
 	
-	# Handle sprint cooldown
+
 	if is_on_sprint_cooldown:
 		cooldown_timer -= delta
 		if cooldown_timer <= 0:
 			is_on_sprint_cooldown = false
-			print("Sprint cooldown ended!")
 	
-	# Handle stamina system
 	handle_stamina(delta)
 	
 	var was_sprinting = is_sprinting
 	var wants_to_sprint = Input.is_action_pressed("sprint")
 	
-	# SPRINT CODE!!! ---------------------------------------------------------------------------------------
-
 	var can_sprint = wants_to_sprint and current_stamina >= stamina_required_to_sprint and not is_on_sprint_cooldown
-	
 	
 	if is_sprinting:
 		if current_stamina < stamina_required_to_sprint or not wants_to_sprint:
@@ -111,20 +130,16 @@ func _physics_process(delta):
 			if current_stamina < stamina_required_to_sprint:
 				is_on_sprint_cooldown = true
 				cooldown_timer = sprint_cooldown_after_depletion
-				print("Stamina depleted! Cooldown started.")
 	else:
 		if can_sprint:
 			is_sprinting = true
 	
 	if is_sprinting and not was_sprinting:
-		print("Player is sprinting")
 		sprint_started.emit()
 	elif not is_sprinting and was_sprinting:
-		print("Player stopped sprinting")
 		sprint_stopped.emit()
 	
 	var current_speed = sprint_speed if is_sprinting else speed
-# Sprint Code END!!! ---------------------------------------------------------------------------------------
 
 	var direction = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -148,52 +163,88 @@ func _physics_process(delta):
 	cam.transform.origin = headbob(headbob_time)
 	
 	handle_footsteps(delta)
+	handle_ambient_sound()
 
-# Sprint MAIN FUNCTION ----------------------------------------------
 func handle_stamina(delta):
 	var is_moving = velocity.length() > 0.1
 	
 	if is_sprinting and is_moving:
 		current_stamina -= stamina_drain_rate * delta
 		current_stamina = max(0, current_stamina)
-		
-		if current_stamina < stamina_required_to_sprint:
-			print("Not enough stamina! Need to rest.")
 	else:
 		current_stamina += stamina_regen_rate * delta
 		current_stamina = min(max_stamina, current_stamina)
-# -------------------------------------------------------------------
 
-	
-func handle_footsteps(_delta):
+func handle_ambient_sound():
+	if is_in_outdoor_area:
+		if ambient_wind and not ambient_wind.playing:
+			ambient_wind.play()
+		if ambient_crickets and not ambient_crickets.playing:
+			ambient_crickets.play()
+	else:
+		if ambient_wind and ambient_wind.playing:
+			ambient_wind.stop()
+		if ambient_crickets and ambient_crickets.playing:
+			ambient_crickets.stop()
+
+func handle_footsteps(delta):
 	if GameState.comic_playing:
-		if footstep_player and footstep_player.playing:
-			footstep_player.stop()
+		_stop_all_footsteps()
 		return
 	
 	var is_moving = velocity.length() > 0.1
 	
-	if is_in_indoor_area and is_moving:
+	if is_moving:
 		var desired_pitch = 1.3 if is_sprinting else 1.0
+		var detected_floor = ""
 		
-		if footstep_player:
-			footstep_player.pitch_scale = desired_pitch
-			
-			if not footstep_player.playing:
-				footstep_player.play()
+		if floor_raycast.is_colliding():
+			var collider = floor_raycast.get_collider()
+			if collider and collider.is_in_group("concrete_area"):
+				detected_floor = "concrete"
+			elif collider and collider.is_in_group("indoor_area"):
+				detected_floor = "indoor"
+		
+		if detected_floor != "":
+			last_floor_type = detected_floor
+			floor_type_timer = 1.0
+		else:
+			floor_type_timer -= delta
+			if floor_type_timer <= 0:
+				last_floor_type = ""
+		
+		if last_floor_type == "concrete":
+			_play_footstep(footstep_player_concrete, desired_pitch)
+			_stop_footstep(footstep_player_indoor)
+			_stop_footstep(footstep_player_terrain)
+		elif last_floor_type == "indoor":
+			_play_footstep(footstep_player_indoor, desired_pitch)
+			_stop_footstep(footstep_player_concrete)
+			_stop_footstep(footstep_player_terrain)
+		elif is_in_outdoor_area and floor_type_timer <= 0:
+			_play_footstep(footstep_player_terrain, desired_pitch)
+			_stop_footstep(footstep_player_concrete)
+			_stop_footstep(footstep_player_indoor)
+		else:
+			_stop_all_footsteps()
 	else:
-		if footstep_player and footstep_player.playing:
-			footstep_player.stop()
-		
-func _on_indoor_area_entered(body: Node3D) -> void:
-	if body == self:
-		is_in_indoor_area = true
+		_stop_all_footsteps()
+		last_floor_type = ""
 
-func _on_indoor_area_exited(body):
-	if body == self:
-		is_in_indoor_area = false
-		if footstep_player:
-			footstep_player.stop()
+func _play_footstep(player: AudioStreamPlayer3D, pitch: float):
+	if player:
+		player.pitch_scale = pitch
+		if not player.playing:
+			player.play()
+
+func _stop_footstep(player: AudioStreamPlayer3D):
+	if player and player.playing:
+		player.stop()
+
+func _stop_all_footsteps():
+	_stop_footstep(footstep_player_indoor)
+	_stop_footstep(footstep_player_concrete)
+	_stop_footstep(footstep_player_terrain)
 
 func headbob(headbob_time):
 	var headbob_pos = Vector3.ZERO

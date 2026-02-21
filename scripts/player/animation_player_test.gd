@@ -12,7 +12,7 @@ func _ready():
 	Dialogic.timeline_ended.connect(_on_dialog_ended)
 	Dialogic.Text.about_to_show_text.connect(_on_text_about_to_show)
 	
-	# Connect to player sprint signals
+	
 	if player:
 		player.sprint_started.connect(_on_sprint_started)
 		player.sprint_stopped.connect(_on_sprint_stopped)
@@ -24,7 +24,6 @@ func _on_sprint_started():
 func _on_sprint_stopped():
 	if not currently_holding_radio:
 		play("speak down", -1, 100)
-		radio_click.play()
 			
 func _on_text_about_to_show(info: Dictionary):
 	var current_time = Time.get_ticks_msec() / 1000.0
