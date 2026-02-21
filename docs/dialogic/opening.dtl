@@ -11,11 +11,11 @@ if {comic_complete} == false:
 	elif {page} == 1.0:
 		if {panel} == 0.0:
 			audio RadioClick "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
-			Rose: -llo?
+			anon_rose: -llo?
 			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
 			jump keeploading
 		elif {panel} == 2.0:
-			Rose: Helloooo~?
+			anon_rose: Helloooo~?
 			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
 			jump keeploading
 	[wait_input]
@@ -23,53 +23,53 @@ if {comic_complete} == false:
 	jump keeploading
 audio WalkieBeep "res://assets/sfx/mp3/highpitchbeep.mp3" [volume="-10.0"]
 Core/Jessie: H-hello? Is someone there?!
-Rose: Hello? Oh my god, it worked? It actually worked?! Thank God!
+anon_rose: Hello? Oh my god, it worked? It actually worked?! Thank God!
 
 
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 - Who is this? Is this real?
 	Core/Jessie: Is this actually real?
-	Rose: As real as it gets these days.
-	Core/Jessie: But the radio tower...I thought it was broken.
-	Rose: Me too, till I found a bit of duck tape and old electrical wire. Turns out rigging one of them things up ain't so hard after all.
-	Core/Jessie: How does that even...n-nevermind. Does this mean you're in the city?
+	anon_rose: As real as it gets these days.
+	Core/Jessie: But the radio tower... I thought it was broken.
+	anon_rose: Me too, 'til I found a bit of duck tape and old electrical wire. Turns out rigging one of them things up ain't so hard after all.
+	Core/Jessie: How does that even... n-nevermind. Does this mean you're in the city?
 - Who is this?!
-	Rose: I-what? I'm just—
+	anon_rose: I— what? I'm just—
 	Core/Jessie: How do you know this frequency? How do I know you're not—
-	Rose: I'm not trying to trick you. I just—I fixed the radio tower. I've been broadcasting day and night, hoping someone would answer.
+	anon_rose: I'm not trying to trick you. I just— I fixed the radio tower. I've been broadcasting day and night, hoping someone would answer.
 	Core/Jessie: ...
-	Rose: I don't know where you are, and I can't get to you. I just wanted to know if anyone else was out there.
+	anon_rose: I don't know where you are, and I can't get to you. I just wanted to know if anyone else was out there.
 	Core/Jessie: You said you fixed the tower. So... you're in the city?
-Rose: Well yeah, that’s where the repeater is located after all. This was..honestly my last hope for…finding anyone. I’m glad it actually worked.
+anon_rose: Well, yeah, that’s where the repeater is located after all. This was..honestly my last hope for…finding anyone. I’m glad it actually worked.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Core/Jessie: Me too, frankly my situation is dire over here. I’m running low on everything. Plus, I’ve already looted everything I can from the nearby stores.
 Core/Jessie: I’m not sure how much longer I can last out here. And I’m not thrilled about the idea of going into the city for a simple restock.
-Rose: Yeah, it’s pretty bad. The streets are infested with infected, and all the chaos of the outbreak has left the city totally gridlocked with abandoned cars.
-Rose: Not to mention the military’s poor attempt to control and quarantine. Leaving all their fences and barbed wire around.
+anon_rose: Yeah, it’s pretty bad. The streets are infested with infected, and all the chaos of the outbreak has left the city totally gridlocked with abandoned cars.
+anon_rose: Not to mention the military’s poor attempt to control and quarantine. Leaving all their fences and barbed wire around.
 Core/Jessie: ...
-Rose: Sorry…didn’t mean to make things worse.
+anon_rose: Sorry…didn’t mean to make things worse.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 - It's alright, I guess I'm just at a bit of a loss.
 	Core/Jessie: Don’t get me wrong, being able to talk to you - to anyone - is a big improvement. But it doesn’t change the situation.
-	Rose: What situation? The one where it’s the end of the world and the Earth is infested with flesh eating zombies infected by some weird plant virus? That situation?
+	anon_rose: What situation? The one where it’s the end of the world and the Earth is infested with flesh eating zombies infected by some weird plant virus? That situation?
 	Core/Jessie: Yes, that one.
 	Core/Jessie: I just wish things were different…
-	Rose: Doesn't everyone?
+	anon_rose: Doesn't everyone?
 	Core/Jessie: I guess so, yeah. Sorry, I don’t mean to be such a debby downer.
-	Rose: It’s hard not to be one in this kind of situation...
+	anon_rose: It’s hard not to be one in this kind of situation...
 - Hey, at least you're honest.
 	Core/Jessie: I appreciate not getting the "everything’s gonna be alright" speech.
-	Rose: Yeah, that ship has sailed.
+	anon_rose: Yeah, that ship has sailed.
 	Core/Jessie: Way past sailed. Pretty sure that ship crashed into the dock and got overrun.
-	Rose: Oh my god.
+	anon_rose: Oh my god.
 	Core/Jessie: Too dark?
-	Rose: Maybe. But I’ll allow it.
+	anon_rose: Maybe. But I’ll allow it.
 	Core/Jessie: Look, talking to someone[br]—even about barbed wire and gridlock—[br]is a hell of an improvement over talking to myself.
-	Rose: Yeah. It really is.
-Rose: So…I never asked your name.
+	anon_rose: Yeah. It really is.
+anon_rose: So…I never asked your name.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Core/Jessie: Ah, right. My name’s Jessie.
-Rose: Jessie huh? That’s a nice name. I bet you couldn’t guess what my name is.
+anon_rose: Jessie huh? That’s a nice name. I bet you couldn’t guess what my name is.
 Core/Jessie: Well, you’d be right about that.
 Rose: Tch, talk about stingy. My name’s Rose. And yes, before you say anything, it’s like the lady from the Titanic.
 Core/Jessie: Well, I’d make a joke about the tragedy but uh…feels a little too close to home right now.
