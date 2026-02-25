@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://d23vdogkayn47"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftp6y"]
+albedo_color = Color(0.23921569, 0.23921569, 0.23921569, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pd34m"]
+material = SubResource("StandardMaterial3D_ftp6y")
+size = Vector3(9, 9, 9)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qjyke"]
+data = PackedVector3Array(-4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, -4.5, -4.5, -4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, 4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, -4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, -4.5, 4.5, 4.5, -4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, 4.5, 4.5, -4.5, 4.5, 4.5, 4.5, 4.5, -4.5, -4.5, 4.5, 4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, 4.5, 4.5, -4.5, 4.5, -4.5, -4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, -4.5, -4.5, -4.5, -4.5)
+
+[node name="Houses2" type="MeshInstance3D"]
+visible = false
+mesh = SubResource("BoxMesh_pd34m")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qjyke")
+
+[node name="Houses2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.897686, 0.66196823, -14.91227)
+mesh = SubResource("BoxMesh_pd34m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Houses2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qjyke")
+
+[node name="Houses2" type="MeshInstance3D" parent="Houses2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.844456, 1.0687256, -0.23226929)
+mesh = SubResource("BoxMesh_pd34m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Houses2/Houses2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses2/Houses2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qjyke")
+
+[node name="Houses2" type="MeshInstance3D" parent="Houses2/Houses2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.59816, -1.4692326, -0.56624603)
+mesh = SubResource("BoxMesh_pd34m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Houses2/Houses2/Houses2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses2/Houses2/Houses2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qjyke")
+
+[node name="Houses2" type="MeshInstance3D" parent="Houses2/Houses2/Houses2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3509598, -0.20204544, 30.860435)
+mesh = SubResource("BoxMesh_pd34m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Houses2/Houses2/Houses2/Houses2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses2/Houses2/Houses2/Houses2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qjyke")
