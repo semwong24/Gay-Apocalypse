@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b25rnkv7rfghb"]
+[gd_scene load_steps=0 format=4 uid="uid://b25rnkv7rfghb"]
 
 [ext_resource type="PackedScene" uid="uid://bld2yu04xt2mj" path="res://assets/gas station/gastation.glb" id="1_p4h6q"]
 [ext_resource type="Texture2D" uid="uid://bbexv5skm6aif" path="res://assets/gas station/gastation_Material_BaseColor.jpg" id="2_i7ei2"]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bnrpq6yg1m6ws"]
+[gd_scene load_steps=0 format=3 uid="uid://bnrpq6yg1m6ws"]
 
 [ext_resource type="PackedScene" uid="uid://dy1mal4j56i6" path="res://assets/supermarket/supermarket.glb" id="1_42p1p"]
 
