@@ -8,6 +8,10 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Gay Apocalypse"
@@ -23,15 +27,19 @@ GameState="*res://scripts/GameState.gd"
 DialogueScroll="*res://scripts/player/dialogue_scroll.gd"
 PickupMessageManager="*res://scripts/pickup_message_manager.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+
 [dialogic]
 
 directories/dch_directory={
-"Core/Jessie": "res://addons/dialogic/Core/Jessie.dch",
 "Core/Rose": "res://addons/dialogic/Core/Rose.dch",
-"Jessie": "res://docs/dialogic/characters/Jessie.dch",
+"Jessie": "res://addons/dialogic/Core/Jessie.dch",
 "Narrator": "res://docs/dialogic/characters/Narrator.dch",
 "Rose": "res://docs/dialogic/characters/Rose.dch",
-"anon_rose": "res://anon_rose.dch"
+"anon_rose": "res://anon_rose.dch",
+"characters/Jessie": "res://docs/dialogic/characters/Jessie.dch"
 }
 directories/dtl_directory={
 "opening": "res://docs/dialogic/opening.dtl",
