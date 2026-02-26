@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch1bwvhu5xpi8"]
+
+[ext_resource type="AudioStream" uid="uid://buxttnc44iphf" path="res://assets/sfx/adjustedvolume/zombie-groan-0.wav" id="1_1socl"]
+[ext_resource type="AudioStream" uid="uid://m6qcdsw6dyrq" path="res://assets/sfx/adjustedvolume/zombie-groan-1.wav" id="2_ldwjs"]
+[ext_resource type="AudioStream" uid="uid://bbihuyx15ko2g" path="res://assets/sfx/adjustedvolume/zombie-groan-2.wav" id="3_eq6x5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_47sof"]
+random_pitch = 1.2
+random_volume_offset_db = 1.2
+streams_count = 3
+stream_0/stream = ExtResource("1_1socl")
+stream_1/stream = ExtResource("3_eq6x5")
+stream_2/stream = ExtResource("2_ldwjs")
+
+[node name="Randomized_Groan" type="AudioStreamPlayer3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020950794, 0.2726984, 0.007051468)
+stream = SubResource("AudioStreamRandomizer_47sof")
