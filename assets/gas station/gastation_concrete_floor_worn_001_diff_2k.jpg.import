@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgcrdyv482fpr"
+uid="uid://cv3l1xs808rv6"
 path.s3tc="res://.godot/imported/gastation_concrete_floor_worn_001_diff_2k.jpg-123f3a55c49df77c25cf13e8b9d04720.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "705bd03dce2b048bea8e8e98e77c417f"
+"md5": "9119c3edc4ec5e2e7a9449f7a79e4f7d"
 }
 
 [deps]

@@ -20,10 +20,16 @@ var was_dialogue_active = false
 func _ready():
 	if prompt:
 		prompt.position = normal_prompt_offset
+		
+	if owner:
+		add_exception(owner)
 
 func _physics_process(_delta):
 	if Engine.is_editor_hint():
 		return
+	
+	force_raycast_update()
+	
 	
 	var is_dialogue_active = Dialogic.current_timeline != null
 	

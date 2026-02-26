@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dr8udhtfnpgpq"]
+[gd_scene load_steps=9 format=4 uid="uid://dr8udhtfnpgpq"]
 
 [ext_resource type="Script" uid="uid://sih6s1jsk7cj" path="res://scripts/interactable.gd" id="1_pp4f1"]
 [ext_resource type="Texture2D" uid="uid://b1oanfqhgl6tf" path="res://assets/1st scene house/living room/lroom obj_Материал_BaseColor.jpg-Материал_Alpha.png" id="2_hrp07"]
@@ -55,8 +55,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q4rxv")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v1afr"]
-
 [node name="Hatchet" type="StaticBody3D"]
 script = ExtResource("1_pp4f1")
 prompt_message = "Pick-Up"
@@ -69,7 +67,3 @@ locked_message = "[Grab Flashlight First]"
 transform = Transform3D(1.0000001, 0, -2.9802322e-08, 0, 1.0000004, 0, 2.9802322e-08, 0, 1.0000001, -0.065042496, 0.021107107, -0.06621075)
 mesh = SubResource("ArrayMesh_w5uj1")
 skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-0.04431604, -0.3960799, -0.034010753, 0.35228166, -0.023269525, -0.18803266, 0.18421137, -0.05078557, 0.35140723, -0.033290386, 0.021107107, -0.11280537)
-shape = SubResource("CapsuleShape3D_v1afr")
