@@ -13,10 +13,10 @@ if {comic_complete} == false:
 			audio RadioClick "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 			[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_01.ogg" volume="0.0"]
 			anon_rose: -llo?
+			audio "res://VOICE/Jessie Voicelines/Opening/a - PART 1/jessie_intro_part1_1.ogg"
 			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
 			jump keeploading
 		elif {panel} == 2.0:
-			[voice path="res://VOICE/Jessie Voicelines/Opening/a - PART 1/jessie_intro_part1_1.ogg" volume="0.0"]
 			anon_rose: Helloooo~?
 			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
 			jump keeploading
