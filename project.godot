@@ -34,12 +34,12 @@ file_logging/enable_file_logging=true
 [dialogic]
 
 directories/dch_directory={
+"Core/Jessie": "res://addons/dialogic/Core/Jessie.dch",
 "Core/Rose": "res://addons/dialogic/Core/Rose.dch",
-"Jessie": "res://addons/dialogic/Core/Jessie.dch",
+"Jessie": "res://docs/dialogic/characters/Jessie.dch",
 "Narrator": "res://docs/dialogic/characters/Narrator.dch",
 "Rose": "res://docs/dialogic/characters/Rose.dch",
-"anon_rose": "res://anon_rose.dch",
-"characters/Jessie": "res://docs/dialogic/characters/Jessie.dch"
+"anon_rose": "res://anon_rose.dch"
 }
 directories/dtl_directory={
 "opening": "res://docs/dialogic/opening.dtl",
