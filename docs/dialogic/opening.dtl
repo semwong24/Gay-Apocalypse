@@ -42,13 +42,15 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 	anon_rose: I— what? I'm just—
 	Core/Jessie: How do you know this frequency? How do I know you're not—
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_06.ogg" volume="0.0"]
-	anon_rose: I'm not trying to trick you. I just— I fixed the radio tower. I've been broadcasting day and night, hoping someone would answer.
+	anon_rose: I'm not trying to trick you. I just— I fixed the radio tower.
+	anon_rose: I've been broadcasting day and night, hoping someone would answer.
 	Core/Jessie: ...
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_07.ogg" volume="0.0"]
 	anon_rose: I don't know where you are, and I can't get to you. I just wanted to know if anyone else was out there.
 	Core/Jessie: You said you fixed the tower. So... you're in the city?
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_08.ogg" volume="0.0"]
-anon_rose: Well, yeah, that’s where the repeater is located after all. This was..honestly my last hope for…finding anyone. I’m glad it actually worked.
+anon_rose: Well, yeah, that’s where the repeater is located after all. This was...
+anon_rose: ...honestly my last hope for…finding anyone. I’m glad it actually worked.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Core/Jessie: Me too, frankly my situation is dire over here. I’m running low on everything. Plus, I’ve already looted everything I can from the nearby stores.
 Core/Jessie: I’m not sure how much longer I can last out here. And I’m not thrilled about the idea of going into the city for a simple restock.
@@ -63,7 +65,8 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 - It's alright, I guess I'm just at a bit of a loss.
 	Core/Jessie: Don’t get me wrong, being able to talk to you - to anyone - is a big improvement. But it doesn’t change the situation.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_12.ogg" volume="0.0"]
-	anon_rose: What situation? The one where it’s the end of the world and the Earth is infested with flesh eating zombies infected by some weird plant virus? That situation?
+	anon_rose: What situation? The one where it’s the end of the world and the Earth is infested with flesh eating zombies infected by some weird plant virus?
+	anon_rose: That situation?
 	Core/Jessie: Yes, that one.
 	Core/Jessie: I just wish things were different…
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_13.ogg" volume="0.0"]
@@ -81,7 +84,8 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 	Core/Jessie: Too dark?
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_17.ogg" volume="0.0"]
 	anon_rose: Maybe. But I’ll allow it.
-	Core/Jessie: Look, talking to someone[br]—even about barbed wire and gridlock—[br]is a hell of an improvement over talking to myself.
+	Core/Jessie: Look, talking to someone
+	Core/Jessie: —even about barbed wire and gridlock—is a hell of an improvement over talking to myself.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_18.ogg" volume="0.0"]
 	anon_rose: Yeah. It really is.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_19.ogg" volume="0.0"]
@@ -95,7 +99,8 @@ Core/Jessie: Well, you’d be right about that.
 Rose: Tch, talk about stingy. My name’s Rose. And yes, before you say anything, it’s like the lady from the Titanic.
 Core/Jessie: Well, I’d make a joke about the tragedy but uh…feels a little too close to home right now.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_22.ogg" volume="0.0"]
-Rose: I don’t really mind. Telling shitty jokes to the skeletons in my closet is the only thing that’s kept me going. I’d much rather tell shitty jokes with someone else.
+Rose: I don’t really mind. Telling shitty jokes to the skeletons in my closet is the only thing that’s kept me going.
+Rose: I’d much rather tell shitty jokes with someone else.
 Core/Jessie: Actual skeletons?
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_23.ogg" volume="0.0"]
 Rose: What? N-no, it’s a figure of speech…
@@ -110,19 +115,22 @@ Rose: S-sorry, I was just thinking. It’s not important…
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Core/Jessie: Doesn’t sound like it.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_26.ogg" volume="0.0"]
-Rose: Well…I know this is abrupt. And we met literally less than 5 minutes ago, over a radio no less but…we could try to…meet up?
+Rose: Well…I know this is abrupt. And we met literally less than 5 minutes ago, over a radio no less but…
+Rose: …we could try to…meet up?
 Rose: I know what I said about the streets, but I know them like the back of my hand.
 Rose: I could guide you through the city no problem. And if you traveled while the sun is down I’m sure everything would be fine.
 Rose: Ah…I’m getting ahead of myself, sorry.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 - No, no it's fine. Really, I...I would like that.
-	Core/Jessie: Don’t get me wrong, the radio is a big improvement already. But…it would make the end of the world a whole lot less lonely if I had someone to share it with.
+	Core/Jessie: Don’t get me wrong, the radio is a big improvement already.
+	Core/Jessie: But…it would make the end of the world a whole lot less lonely if I had someone to share it with.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_27.ogg" volume="0.0"]
 	Rose: Right?!
 	Narrator: [Rose clears her throat in embarrasment]
 	Rose: A-anyway, are you sure? I was sort of just…throwing it out there…
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_28.ogg" volume="0.0"]
-	Rose: I mean, don’t get me wrong, I’d do anything to talk face to face with a real person again. But you know…it’s dangerous, making that journey.
+	Rose: I mean, don’t get me wrong, I’d do anything to talk face to face with a real person again.
+	Rose: But you know…it’s dangerous, making that journey.
 	Core/Jessie: Ma’am you’re talking to a certified firefighter. I’ve had my fair share of danger, what’s a little more?
 - You want me to travel through a zombie-infested city to meet someone I've only known for five minutes?
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_29.ogg" volume="0.0"]
@@ -146,7 +154,8 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 	Core/Jessie: I’ll do it. I’ll come to you.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_35.ogg" volume="0.0"]
 	Rose: Really?
-	Core/Jessie: Don’t make me change my mind. Look, I know it’s risky. I know I barely know you. But I can’t just stay here forever, and—
+	Core/Jessie: Don’t make me change my mind. Look, I know it’s risky. I know I barely know you.
+	Core/Jessie: But I can’t just stay here forever, and—
 	Core/Jessie: —and I’m a firefighter. Or, I was. Running into danger is kind of what I do.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_36.ogg" volume="0.0"]
@@ -156,7 +165,8 @@ Core/Jessie: Isn't it?
 Rose: Alright, don’t go getting a big head about it.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_38.ogg" volume="0.0"]
 Narrator: [Rose takes a deep breath and loudly exhales before speaking again.]
-Rose: Look, if you’re going to make it through this, you need to be prepared. And I don’t mean packing everything you could ever possibly carry. I mean the opposite.
+Rose: Look, if you’re going to make it through this, you need to be prepared. And I don’t mean packing everything you could ever possibly carry.
+Rose: I mean the opposite.
 Rose: Travel light. The faster you can move? The better.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Rose: There’s no use fighting these things, hacking them apart doesn’t do anything but slow them down. So you’re better off avoiding them entirely.
@@ -172,8 +182,9 @@ Rose: You shouldn't.
 Core/Jessie: What?
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_42.ogg" volume="0.0"]
-Rose: You’re going to be moving under the cover of night. That means it’ll take at least a few days to get here. You’ll have to camp out in some places—
-Rose: —so be sure to bring something you can use to protect yourself with. But only as a precaution, nothing more. Remember, fighting is a last resort.
+Rose: You’re going to be moving under the cover of night. That means it’ll take at least a few days to get here.
+Rose: You’ll have to camp out in some places so be sure to bring something you can use to protect yourself with.
+Rose: But only as a precaution, nothing more. Remember, fighting is a last resort.
 Core/Jessie: I’ve got an old flashlight I’ve been using on my supply runs, and a rusty hatchet I used for chopping up the wood to board my doors and windows with.
 Core/Jessie: But…that flashlight might need some new batteries.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_43.ogg" volume="0.0"]
