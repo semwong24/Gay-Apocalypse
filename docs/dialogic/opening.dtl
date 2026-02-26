@@ -16,6 +16,7 @@ if {comic_complete} == false:
 			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
 			jump keeploading
 		elif {panel} == 2.0:
+			[voice path="res://VOICE/Jessie Voicelines/Opening/a - PART 1/jessie_intro_part1_1.ogg" volume="0.0"]
 			anon_rose: Helloooo~?
 			[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
 			jump keeploading
@@ -23,6 +24,7 @@ if {comic_complete} == false:
 	[signal arg_type="dict" arg="{"purpose":"next_panel"}"]
 	jump keeploading
 audio WalkieBeep "res://assets/sfx/mp3/highpitchbeep.mp3" [volume="-10.0"]
+[voice path="res://VOICE/Jessie Voicelines/Opening/a - PART 1/jessie_intro_part1_2.ogg" volume="0.0"]
 Core/Jessie: H-hello? Is someone there?!
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_02.ogg" volume="0.0"]
 anon_rose: Hello? Oh my god, it worked? It actually worked?! Thank God!
@@ -30,60 +32,84 @@ anon_rose: Hello? Oh my god, it worked? It actually worked?! Thank God!
 
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 - Who is this? Is this real?
+	[voice path="res://VOICE/Jessie Voicelines/Opening/b - CHOICE 1/jessie_intro_choice1_option1_1.ogg" volume="0.0"]
+	Core/Jessie: Who is this? Is this real?
+	[voice path="res://VOICE/Jessie Voicelines/Opening/b - CHOICE 1/jessie_intro_choice1_option1_1.5.ogg" volume="0.0"]
 	Core/Jessie: Is this actually real?
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_03.ogg" volume="0.0"]
 	anon_rose: As real as it gets these days.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/b - CHOICE 1/jessie_intro_choice1_option1_2.ogg" volume="0.0"]
 	Core/Jessie: But the radio tower... I thought it was broken.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_04.ogg" volume="0.0"]
 	anon_rose: Me too, 'til I found a bit of duck tape and old electrical wire. Turns out rigging one of them things up ain't so hard after all.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/b - CHOICE 1/jessie_intro_choice1_option1_3.ogg" volume="0.0"]
 	Core/Jessie: How does that even... n-nevermind. Does this mean you're in the city?
 - Who is this?!
+	[voice path="res://VOICE/Jessie Voicelines/Opening/b - CHOICE 1/jessie_intro_choice1_option2_1.ogg" volume="0.0"]
+	Core/Jessie: Who is this?!
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_05.ogg" volume="0.0"]
 	anon_rose: I— what? I'm just—
+	[voice path="res://VOICE/Jessie Voicelines/Opening/b - CHOICE 1/jessie_intro_choice1_option2_2.ogg" volume="0.0"]
 	Core/Jessie: How do you know this frequency? How do I know you're not—
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_06.ogg" volume="0.0"]
 	anon_rose: I'm not trying to trick you. I just— I fixed the radio tower.
 	anon_rose: I've been broadcasting day and night, hoping someone would answer.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/b - CHOICE 1/jessie_intro_choice1_option2_3.ogg" volume="0.0"]
 	Core/Jessie: ...
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_07.ogg" volume="0.0"]
 	anon_rose: I don't know where you are, and I can't get to you. I just wanted to know if anyone else was out there.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/b - CHOICE 1/jessie_intro_choice1_option2_4.ogg" volume="0.0"]
 	Core/Jessie: You said you fixed the tower. So... you're in the city?
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_08.ogg" volume="0.0"]
 anon_rose: Well, yeah, that’s where the repeater is located after all. This was...
 anon_rose: ...honestly my last hope for…finding anyone. I’m glad it actually worked.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
+[voice path="res://VOICE/Jessie Voicelines/Opening/c - PART 2/jessie_intro_part2_1.ogg" volume="0.0"]
 Core/Jessie: Me too, frankly my situation is dire over here. I’m running low on everything. Plus, I’ve already looted everything I can from the nearby stores.
 Core/Jessie: I’m not sure how much longer I can last out here. And I’m not thrilled about the idea of going into the city for a simple restock.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_09.ogg" volume="0.0"]
 anon_rose: Yeah, it’s pretty bad. The streets are infested with infected, and all the chaos of the outbreak has left the city totally gridlocked with abandoned cars.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_10.ogg" volume="0.0"]
 anon_rose: Not to mention the military’s poor attempt to control and quarantine. Leaving all their fences and barbed wire around.
+[voice path="res://VOICE/Jessie Voicelines/Opening/c - PART 2/jessie_intro_part2_2.ogg" volume="0.0"]
 Core/Jessie: ...
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_11.ogg" volume="0.0"]
 anon_rose: Sorry…didn’t mean to make things worse.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 - It's alright, I guess I'm just at a bit of a loss.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option1_1.ogg" volume="0.0"]
+	Core/Jessie: It's alright, I guess I'm just at a bit of a loss.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option1_2.ogg" volume="0.0"]
 	Core/Jessie: Don’t get me wrong, being able to talk to you - to anyone - is a big improvement. But it doesn’t change the situation.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_12.ogg" volume="0.0"]
 	anon_rose: What situation? The one where it’s the end of the world and the Earth is infested with flesh eating zombies infected by some weird plant virus?
 	anon_rose: That situation?
-	Core/Jessie: Yes, that one.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option1_3.ogg" volume="0.0"]
+	Core/Jessie: Yeah, that one.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option1_4.ogg" volume="0.0"]
 	Core/Jessie: I just wish things were different…
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_13.ogg" volume="0.0"]
 	anon_rose: Doesn't everyone?
-	Core/Jessie: I guess so, yeah. Sorry, I don’t mean to be such a debby downer.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option1_5.ogg" volume="0.0"]
+	Core/Jessie: I guess so, yeah. I'm sorry, I don’t mean to be such a debby downer.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_14.ogg" volume="0.0"]
 	anon_rose: It’s hard not to be one in this kind of situation...
 - Hey, at least you're honest.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option2_1.ogg" volume="0.0"]
+	Core/Jessie: Hey, at least you're honest.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option2_2.ogg" volume="0.0"]
 	Core/Jessie: I appreciate not getting the "everything’s gonna be alright" speech.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_15.ogg" volume="0.0"]
 	anon_rose: Yeah, that ship has sailed.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option2_3.ogg" volume="0.0"]
 	Core/Jessie: Way past sailed. Pretty sure that ship crashed into the dock and got overrun.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_16.ogg" volume="0.0"]
 	anon_rose: Oh my god.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option2_4.ogg" volume="0.0"]
 	Core/Jessie: Too dark?
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_17.ogg" volume="0.0"]
 	anon_rose: Maybe. But I’ll allow it.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/d - CHOICE 2/jessie_intro_choice2_option2_5.ogg" volume="0.0"]
 	Core/Jessie: Look, talking to someone
 	Core/Jessie: —even about barbed wire and gridlock—is a hell of an improvement over talking to myself.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_18.ogg" volume="0.0"]
@@ -91,29 +117,36 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_19.ogg" volume="0.0"]
 anon_rose: So…I never asked your name.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
+[voice path="res://VOICE/Jessie Voicelines/Opening/e - PART 3/jessie_intro_part3_1.ogg" volume="0.0"]
 Core/Jessie: Ah, right. My name’s Jessie.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_20.ogg" volume="0.0"]
 anon_rose: Jessie huh? That’s a nice name. I bet you couldn’t guess what my name is.
+[voice path="res://VOICE/Jessie Voicelines/Opening/e - PART 3/jessie_intro_part3_2.ogg" volume="0.0"]
 Core/Jessie: Well, you’d be right about that.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_21.ogg" volume="0.0"]
 Rose: Tch, talk about stingy. My name’s Rose. And yes, before you say anything, it’s like the lady from the Titanic.
+[voice path="res://VOICE/Jessie Voicelines/Opening/e - PART 3/jessie_intro_part3_3.ogg" volume="0.0"]
 Core/Jessie: Well, I’d make a joke about the tragedy but uh…feels a little too close to home right now.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_22.ogg" volume="0.0"]
 Rose: I don’t really mind. Telling shitty jokes to the skeletons in my closet is the only thing that’s kept me going.
 Rose: I’d much rather tell shitty jokes with someone else.
+[voice path="res://VOICE/Jessie Voicelines/Opening/e - PART 3/jessie_intro_part3_4.ogg" volume="0.0"]
 Core/Jessie: Actual skeletons?
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_23.ogg" volume="0.0"]
 Rose: What? N-no, it’s a figure of speech…
+[voice path="res://VOICE/Jessie Voicelines/Opening/e - PART 3/jessie_intro_part3_5.ogg" volume="0.0"]
 Core/Jessie: R-right, I knew that.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_24.ogg" volume="0.0"]
 Rose: You know…
 Narrator: [Silence crackles on the other end for a moment]
 audio WalkieBeep "res://assets/sfx/mp3/highpitchbeep.mp3"
+[voice path="res://VOICE/Jessie Voicelines/Opening/e - PART 3/jessie_intro_part3_6.ogg" volume="0.0"]
 Core/Jessie: Hello? Rose?
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_25.ogg" volume="0.0"]
 Rose: S-sorry, I was just thinking. It’s not important…
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
-Core/Jessie: Doesn’t sound like it.
+[voice path="res://VOICE/Jessie Voicelines/Opening/e - PART 3/jessie_intro_part3_7.ogg" volume="0.0"]
+Core/Jessie: It doesn’t sound like it.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_26.ogg" volume="0.0"]
 Rose: Well…I know this is abrupt. And we met literally less than 5 minutes ago, over a radio no less but…
 Rose: …we could try to…meet up?
@@ -122,6 +155,9 @@ Rose: I could guide you through the city no problem. And if you traveled while t
 Rose: Ah…I’m getting ahead of myself, sorry.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 - No, no it's fine. Really, I...I would like that.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option1_1.ogg" volume="0.0"]
+	Core/Jessie: No, no it's fine. Really, I...I would like that.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option1_2.ogg" volume="0.0"]
 	Core/Jessie: Don’t get me wrong, the radio is a big improvement already.
 	Core/Jessie: But…it would make the end of the world a whole lot less lonely if I had someone to share it with.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_27.ogg" volume="0.0"]
@@ -131,35 +167,46 @@ audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_28.ogg" volume="0.0"]
 	Rose: I mean, don’t get me wrong, I’d do anything to talk face to face with a real person again.
 	Rose: But you know…it’s dangerous, making that journey.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option1_3.ogg" volume="0.0"]
 	Core/Jessie: Ma’am you’re talking to a certified firefighter. I’ve had my fair share of danger, what’s a little more?
 - You want me to travel through a zombie-infested city to meet someone I've only known for five minutes?
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_1.ogg" volume="0.0"]
+	Core/Jessie: You want me to travel through a zombie-infested city to meet someone I've only known for five minutes?
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_29.ogg" volume="0.0"]
 	Rose: Well, when you say it like that, it sounds insane.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_2.ogg" volume="0.0"]
 	Core/Jessie: That’s because it is insane.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_30.ogg" volume="0.0"]
 	Rose: I know, I know. But—
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_3.ogg" volume="0.0"]
 	Core/Jessie: Rose, I don’t even know you. For all I know—
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_31.ogg" volume="0.0"]
 	Rose: I know. You’re right to be suspicious. I would be too.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_4.ogg" volume="0.0"]
 	Core/Jessie: So why are you even suggesting this?
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_32.ogg" volume="0.0"]
 	Rose: Because I’m desperate. Because I’ve been alone for 9 months and talking to you is the first time I’ve felt human in weeks.
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_5.ogg" volume="0.0"]
 	Core/Jessie: ...
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_33.ogg" volume="0.0"]
 	Rose: And because…I think you need this too. Don’t you?
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_6.ogg" volume="0.0"]
 	Core/Jessie: ...Yeah. I do.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_34.ogg" volume="0.0"]
 	Rose: So you’ll—?
 	audio WalkieBeep "res://assets/sfx/mp3/highpitchbeep.mp3"
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_7.ogg" volume="0.0"]
 	Core/Jessie: I’ll do it. I’ll come to you.
 	[voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_35.ogg" volume="0.0"]
 	Rose: Really?
+	[voice path="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_8.ogg" volume="0.0"]
 	Core/Jessie: Don’t make me change my mind. Look, I know it’s risky. I know I barely know you.
 	Core/Jessie: But I can’t just stay here forever, and—
 	Core/Jessie: —and I’m a firefighter. Or, I was. Running into danger is kind of what I do.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_36.ogg" volume="0.0"]
 Rose: A firefighter, huh? Impressive…
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_1.ogg" volume="0.0"]
 Core/Jessie: Isn't it?
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_37.ogg" volume="0.0"]
 Rose: Alright, don’t go getting a big head about it.
@@ -170,31 +217,39 @@ Rose: I mean the opposite.
 Rose: Travel light. The faster you can move? The better.
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 Rose: There’s no use fighting these things, hacking them apart doesn’t do anything but slow them down. So you’re better off avoiding them entirely.
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_2.ogg" volume="0.0"]
 Core/Jessie: How do you know so much about these things anyway?
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_39.ogg" volume="0.0"]
 Rose: Let’s just say it wasn’t a walk in the park repairing that repeater.
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_3.ogg" volume="0.0"]
 Core/Jessie: Alright, you’re the pro. I trust you.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_40.ogg" volume="0.0"]
 Rose: Already? Didn’t your mom ever tell you not to trust strangers?
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_4.ogg" volume="0.0"]
 Core/Jessie: This isn’t some cliché action film. Sorry to say, but I generally have faith in people.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_41.ogg" volume="0.0"]
 Rose: You shouldn't.
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_5.ogg" volume="0.0"]
 Core/Jessie: What?
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_42.ogg" volume="0.0"]
 Rose: You’re going to be moving under the cover of night. That means it’ll take at least a few days to get here.
 Rose: You’ll have to camp out in some places so be sure to bring something you can use to protect yourself with.
 Rose: But only as a precaution, nothing more. Remember, fighting is a last resort.
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_6.ogg" volume="0.0"]
 Core/Jessie: I’ve got an old flashlight I’ve been using on my supply runs, and a rusty hatchet I used for chopping up the wood to board my doors and windows with.
 Core/Jessie: But…that flashlight might need some new batteries.
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_43.ogg" volume="0.0"]
 Rose: Shit...
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_7.ogg" volume="0.0"]
 Core/Jessie: Don’t worry, I think I know just the place…
 [voice path="res://VOICE/INTRO/ROSE_OGG/rose_intro_44.ogg" volume="0.0"]
 Rose: Thank god. Alright, I’ll let you get ready. We can talk about the next steps once you’re done.
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_8.ogg" volume="0.0"]
 Core/Jessie: Rodger that.
 Rose: ...
 audio "res://assets/sfx/adjustedvolume/-20 dB/radio_click.wav"
+[voice path="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_9.ogg" volume="0.0"]
 Jessie: (Aside) Why did I say that…
 set {opening_finished} = true
 [signal arg="nextpage"]
