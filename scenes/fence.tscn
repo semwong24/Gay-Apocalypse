@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://kisqfmefoyv4"]
+
+[ext_resource type="PackedScene" uid="uid://bves4eqfll1xg" path="res://assets/fence/fence.glb" id="1_tphf0"]
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_4tlro"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3etb"]
+size = Vector3(1.55, 1.55, 0.25)
+
+[node name="fence" type="StaticBody3D"]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaceholderMesh_4tlro")
+
+[node name="fence" parent="MeshInstance3D" instance=ExtResource("1_tphf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7482714, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7282462, 0)
+shape = SubResource("BoxShape3D_b3etb")
