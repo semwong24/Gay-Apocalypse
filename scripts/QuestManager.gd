@@ -18,7 +18,7 @@ func _on_timeline_ended():
 		["Find flashlight", "Grab hatchet"],
 		["flashlight", "hatchet"],
 		"Front door unlocked.",
-		5.0
+		3.0
 	)
 
 func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float):
@@ -54,6 +54,7 @@ func _check_all_complete():
 			return
 	quest_complete = true
 	if on_complete_message != "":
+		await get_tree().create_timer(2.5).timeout
 		if not quest_complete:
 			return
 		
