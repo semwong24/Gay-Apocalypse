@@ -7,25 +7,36 @@ signal interacted(body)
 @export var unlocks_action = ""
 @export var disappears_on_pickup = true
 
-# Pickup message settings
 @export_group("Pickup Message")
 @export var show_pickup_message = true
 @export var pickup_message = ""
 @export var message_duration = 3.0
 
-# Requirement settings
 @export_group("Requirements")
-@export var requires_items = false  
-@export var required_item_names: Array[String] = [] 
+@export var requires_items = false
+@export var required_item_names: Array[String] = []
 @export var requires_dialogue_finished = false
 @export var required_dialogue_name = ""
 @export var locked_message = "Locked"
 
-# teleport settings
 @export_group("Teleportation")
 @export var teleports_player = false
 @export var teleport_position: Vector3 = Vector3.ZERO
 @export var teleport_marker: Marker3D
+
+@export_group("Quest")
+@export var starts_quest = false
+@export var quest_title = ""
+@export var quest_objectives: Array[String] = []
+@export var quest_objective_keys: Array[String] = []
+@export var quest_complete_message = ""
+@export var quest_complete_message_duration = 3.0
+@export var completes_quest_key = ""
+
+@export_group("Dialogue")
+@export var plays_dialogue = false
+@export var dialogue_timeline = ""
+@export var dialogue_duration = 0.0
 
 func _ready():
 	interacted.connect(_on_interacted)
@@ -40,10 +51,11 @@ func get_prompt():
 		return locked_message
 		
 	var key_name = ""
-	for action in InputMap.action_get_events(prompt_input):
-		if action is InputEventKey:
-			key_name = action.as_text_physical_keycode()
-			break
+	if prompt_input != null and prompt_input != "" and InputMap.has_action(prompt_input):
+		for action in InputMap.action_get_events(prompt_input):
+			if action is InputEventKey:
+				key_name = action.as_text_physical_keycode()
+				break
 			
 	return prompt_message + "\n[" + key_name + "]"
 
@@ -65,16 +77,35 @@ func interact(body):
 	
 	if requires_items and not has_all_required_items():
 		print("Need items: ", required_item_names)
-		return 
-		
-	if item_name != "":
+		return
+
+	if item_name != null and item_name != "":
 		PlayerInventory.pickup_item(item_name)
+		QuestManager.notify_item_collected(item_name)
 		if show_pickup_message:
 			var display_message = pickup_message
 			if "{item}" in display_message:
 				display_message = display_message.replace("{item}", item_name)
 			PickupMessageManager.show_message(display_message, message_duration)
-	
+
+	if plays_dialogue and dialogue_timeline != "":
+		Dialogic.start(dialogue_timeline)
+		if dialogue_duration > 0.0:
+			await get_tree().create_timer(dialogue_duration).timeout
+			Dialogic.end_timeline()
+
+	if starts_quest and quest_objectives.size() > 0:
+		QuestManager.start_custom_quest(
+			quest_title,
+			quest_objectives,
+			quest_objective_keys,
+			quest_complete_message,
+			quest_complete_message_duration
+		)
+
+	if completes_quest_key != null and completes_quest_key != "":
+		QuestManager.notify_item_collected(completes_quest_key)
+
 	if teleports_player:
 		teleport_player(body)
 	
@@ -86,6 +117,8 @@ func teleport_player(body):
 		body.global_position = destination
 
 func _on_interacted(_body):
+	if item_name == "doorknob":
+		QuestManager.hide_complete_message()
 	if disappears_on_pickup:
 		visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED

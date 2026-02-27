@@ -3,7 +3,6 @@ extends Control
 @onready var settings_page = $settingspage
 @onready var load_page = $loadfilepage
 @onready var all_pages = [credits_page, settings_page, load_page]
-
 var click_to_continue_label: Label
 var click_canvas_layer: CanvasLayer
 var waiting_for_click = false
@@ -27,34 +26,31 @@ func _setup_click_text():
 	var viewport_size = get_viewport().get_visible_rect().size
 	
 	click_canvas_layer = CanvasLayer.new()
-	click_canvas_layer.layer = 100  
+	click_canvas_layer.layer = 100
 	click_canvas_layer.name = "ClickToContinueLayer"
 	get_tree().root.add_child(click_canvas_layer)
 	
-	# Create label
 	click_to_continue_label = Label.new()
-	click_to_continue_label.text = "[Click to continue - ESC to Hide/Show Mouse after comic completion]"
+	click_to_continue_label.text = "[Click to cycle through comic]"
 	click_to_continue_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	click_to_continue_label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM 
+	click_to_continue_label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
 	click_to_continue_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	click_to_continue_label.visible = false
 	click_to_continue_label.name = "ClickToContinueLabel"
 	
-
 	click_to_continue_label.position = Vector2.ZERO
 	click_to_continue_label.size = viewport_size
 	
-	
 	click_to_continue_label.add_theme_font_size_override("font_size", 25)
 	click_to_continue_label.add_theme_color_override("font_color", Color.WHITE)
-	click_to_continue_label.add_theme_constant_override("line_spacing", -50)  
+	click_to_continue_label.add_theme_constant_override("line_spacing", -50)
 	
 	click_canvas_layer.add_child(click_to_continue_label)
 
 func _on_newgamebutton_pressed():
 	GameState.ui_open = false
 	hide()
-	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Dialogic.start("opening")
 	
 	if click_to_continue_label:
@@ -82,7 +78,7 @@ func _input(event):
 		waiting_for_click = false
 		click_to_continue_label.visible = false
 		_start_game()
-		return  
+		return
 	
 	if event is InputEventMouseButton and event.pressed:
 		for page in all_pages:

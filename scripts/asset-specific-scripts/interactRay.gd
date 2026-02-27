@@ -1,20 +1,16 @@
 @tool
 extends RayCast3D
-
 @onready var prompt = $Prompt
-
 @export var normal_prompt_offset := Vector2(0, 0):
 	set(value):
 		normal_prompt_offset = value
 		if prompt and not was_dialogue_active:
 			prompt.position = value
-
 @export var dialogue_prompt_offset := Vector2(0, -200):
 	set(value):
 		dialogue_prompt_offset = value
 		if prompt and was_dialogue_active:
 			prompt.position = value
-
 var was_dialogue_active = false
 
 func _ready():
@@ -29,7 +25,6 @@ func _physics_process(_delta):
 		return
 	
 	force_raycast_update()
-	
 	
 	var is_dialogue_active = Dialogic.current_timeline != null
 	
@@ -49,5 +44,6 @@ func _physics_process(_delta):
 		if collider is Interactable:
 			prompt.text = collider.get_prompt()
 			
-			if Input.is_action_just_pressed(collider.prompt_input):
-				collider.interact(owner)
+			if collider.prompt_input != null and collider.prompt_input != "" and InputMap.has_action(collider.prompt_input):
+				if Input.is_action_just_pressed(collider.prompt_input):
+					collider.interact(owner)
