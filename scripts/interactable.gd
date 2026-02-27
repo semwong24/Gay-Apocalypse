@@ -32,6 +32,9 @@ signal interacted(body)
 @export var quest_complete_message = ""
 @export var quest_complete_message_duration = 3.0
 @export var completes_quest_key = ""
+@export var quest_optional_title = ""
+@export var quest_optional_objectives: Array[String] = []
+@export var quest_optional_keys: Array[String] = []
 
 @export_group("Dialogue")
 @export var plays_dialogue = false
@@ -88,27 +91,32 @@ func interact(body):
 				display_message = display_message.replace("{item}", item_name)
 			PickupMessageManager.show_message(display_message, message_duration)
 
-	if plays_dialogue and dialogue_timeline != "":
-		Dialogic.start(dialogue_timeline)
-		if dialogue_duration > 0.0:
-			await get_tree().create_timer(dialogue_duration).timeout
-			Dialogic.end_timeline()
-
-	if starts_quest and quest_objectives.size() > 0:
-		QuestManager.start_custom_quest(
-			quest_title,
-			quest_objectives,
-			quest_objective_keys,
-			quest_complete_message,
-			quest_complete_message_duration
-		)
-
 	if completes_quest_key != null and completes_quest_key != "":
 		QuestManager.notify_item_collected(completes_quest_key)
 
 	if teleports_player:
 		teleport_player(body)
-	
+		await get_tree().process_frame
+
+	if plays_dialogue and dialogue_timeline != "":
+		Dialogic.start(dialogue_timeline)
+
+	if starts_quest and quest_objectives.size() > 0:
+		QuestManager.start_custom_quest(
+			quest_title if quest_title != null else "",
+			quest_objectives,
+			quest_objective_keys,
+			quest_complete_message if quest_complete_message != null else "",
+			quest_complete_message_duration,
+			quest_optional_title if quest_optional_title != null else "",
+			quest_optional_objectives,
+			quest_optional_keys
+		)
+
+	if plays_dialogue and dialogue_duration > 0.0:
+		await get_tree().create_timer(dialogue_duration).timeout
+		Dialogic.end_timeline()
+
 	interacted.emit(body)
 
 func teleport_player(body):

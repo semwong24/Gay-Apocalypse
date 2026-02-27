@@ -3,47 +3,68 @@ extends Node
 var quest_ui: CanvasLayer
 var quest_container: QuestDisplay
 var current_quest_objectives = []
+var current_quest_optional_objectives = []
 var on_complete_message = ""
 var on_complete_duration = 3.0
 var current_quest_title = ""
+var current_optional_title = ""
 var complete_message_canvas: CanvasLayer
 var quest_complete = false
+var last_timeline = ""
 
 func _ready():
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.timeline_started.connect(_on_timeline_started)
+
+func _on_timeline_started():
+	if Dialogic.current_timeline != null:
+		last_timeline = Dialogic.current_timeline.resource_path
 
 func _on_timeline_ended():
-	start_custom_quest(
-		"Objectives:",
-		["Find flashlight", "Grab hatchet"],
-		["flashlight", "hatchet"],
-		"Front door unlocked.",
-		3.0
-	)
+	if "opening" in last_timeline:
+		start_custom_quest(
+			"Objectives:",
+			["Find flashlight", "Grab hatchet"],
+			["flashlight", "hatchet"],
+			"Front door unlocked.",
+			3.0
+		)
+	last_timeline = ""
 
-func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float):
+func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = []):
 	current_quest_title = title
 	current_quest_objectives = []
+	current_quest_optional_objectives = []
+	current_optional_title = optional_title
 	on_complete_message = complete_message
 	on_complete_duration = complete_duration
 	quest_complete = false
 	for i in range(objectives.size()):
 		var key = keys[i] if i < keys.size() else ""
 		current_quest_objectives.append({"text": objectives[i], "complete": false, "key": key})
+	for i in range(optional_objectives.size()):
+		var key = optional_keys[i] if i < optional_keys.size() else ""
+		current_quest_optional_objectives.append({"text": optional_objectives[i], "complete": false, "key": key})
 	if not quest_ui:
 		await _build_ui()
 	_update_ui()
 
 func notify_item_collected(item_name: String):
+	var found = false
 	for objective in current_quest_objectives:
 		if objective["key"] == item_name and not objective["complete"]:
 			objective["complete"] = true
-			_update_ui()
-			_check_all_complete()
+			found = true
 			break
+	if not found:
+		for objective in current_quest_optional_objectives:
+			if objective["key"] == item_name and not objective["complete"]:
+				objective["complete"] = true
+				break
+	_update_ui()
+	_check_all_complete()
 
 func hide_complete_message():
-	quest_complete = false
 	if complete_message_canvas:
 		complete_message_canvas.queue_free()
 		complete_message_canvas = null
@@ -52,9 +73,11 @@ func _check_all_complete():
 	for objective in current_quest_objectives:
 		if not objective["complete"]:
 			return
+	if quest_complete:
+		return
 	quest_complete = true
 	if on_complete_message != "":
-		await get_tree().create_timer(2.5).timeout
+		await get_tree().create_timer(3).timeout
 		if not quest_complete:
 			return
 		
@@ -101,4 +124,4 @@ func _build_ui():
 func _update_ui():
 	if not quest_container:
 		return
-	quest_container.set_objectives(current_quest_title, current_quest_objectives)
+	quest_container.set_objectives(current_quest_title, current_quest_objectives, current_optional_title, current_quest_optional_objectives)

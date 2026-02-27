@@ -13,9 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # stamina system
 @export_group("Stamina")
 @export var max_stamina := 100.0
-@export var stamina_drain_rate := 20.0
+@export var stamina_drain_rate := 10.0
 @export var stamina_regen_rate := 15.0
-@export var stamina_required_to_sprint := 65.0
+@export var stamina_required_to_sprint := 60.0
 @export var sprint_cooldown_after_depletion := 1.0
 var current_stamina := 100.0
 var is_on_sprint_cooldown := false
