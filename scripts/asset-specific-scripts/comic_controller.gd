@@ -61,7 +61,7 @@ func start_comic(comic_name:String = ""):
 	self.visible = true
 	load_comic(comic_name)
 	current_comic = comic_name
-	if current_page == -1:
+	if current_page < 0:
 		current_page = 0
 		current_panel = 0
 	

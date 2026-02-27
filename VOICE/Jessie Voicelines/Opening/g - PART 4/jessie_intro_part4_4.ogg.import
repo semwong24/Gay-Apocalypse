@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d1robyw7enmk7"
+path="res://.godot/imported/jessie_intro_part4_4.ogg-f2e458e1873745b0c885ed93fa554234.oggvorbisstr"
+
+[deps]
+
+source_file="res://VOICE/Jessie Voicelines/Opening/g - PART 4/jessie_intro_part4_4.ogg"
+dest_files=["res://.godot/imported/jessie_intro_part4_4.ogg-f2e458e1873745b0c885ed93fa554234.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
