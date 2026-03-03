@@ -8,7 +8,7 @@
 size = Vector3(1.55, 1.55, 0.25)
 
 [node name="fence" type="StaticBody3D"]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaceholderMesh_4tlro")
