@@ -92,6 +92,49 @@ size = Vector3(0.95030403, 1.1217976, 1.3874105)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqlds"]
 size = Vector3(0.95030403, 1.1217976, 1.3874106)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiqu8"]
+resource_name = "sleeping_bag_01"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_mthht")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ogrfu"]
+_surfaces = [{
+"aabb": AABB(-0.009812445, -0.009852822, -0.010139018, 0.022906391, 0.020133473, 0.020139018),
+"format": 34359742465,
+"index_count": 312,
+"index_data": PackedByteArray("CgABABIAEwASAAEAEgAUAAoAIgAUABIAEgAjACIAIwASABMAFAAiACQAFQAiACMAJAAiABUAJAAWABQACgAUABYAIQAWACQAFgACAAoAAgAWACEAJQAKAAIACgAlABcAFwABAAoAAgAmACUAFwAlACYAAQAXACcAJwAXACYAJwAPAAEAAQAPABMADwAnABkAGQAnACYAEwAPAAMAGQADAA8AAwAoABMAAAADABkAKAADAAAAKQAZACYAGQApAAAAKQAmAAsACwAmABgAGAAmAAIAKQALAAkACQAAACkAGAAqAAsACQALACoAAgArABgAKgAYACsAIQArAAIAKgAMAAkAKwAMACoAAAAJABoAGgAJAAwALAAMACsAKwAhACwADAAsABoAGgAtAAAAAAAtACgAGgAsABwAHAAsACEALQAaAC4AHAAuABoAKAAtABsALgAbAC0AIQAvABwAJAAvACEACAAuABwAGwAuAAgALwAkAAYAHAAvACAABgAgAC8AFQAGACQAIAANABwAHAANAAgAMAANACAACAANADAAIAAxADAAIAAGAB8AHwAxACAAHwAGABUADgAwADEAMAAOAAgAMQAfAA4ACAAOAB0AHQAOAB8AHQAHAAgACAAHABsABQAHAB0AGwAHAAUAHQAyAAUAMgAdAB8ABQAzABsAGwAzACgAEAAFADIAMwAFABAAEQAyAB8AMgARABAAKAAzADQAEAA0ADMANAATACgAEwA0ACMANAAQAAQABAAjADQABAAQABEAIwAEABUAEQAeAAQAFQAEAB4AHgARAB8AFQA1AB8AHgAfADUAHgA1ABUA"),
+"lods": [0.0049603353, PackedByteArray("CgABABIAEwASAAEAEgAUAAoAFQAUABIACgAUABYAFgAUABUAFwABAAoAFwAPAAEAAQAPABMAFwAKABgAFgACAAoAAgAYAAoAGQAXABgADwAXABkADAAYAAIAGQADAA8AEwAPAAMACwAZABgAGAAMAAsAAAADABkAGQALAAAACQAAAAsACQALAAwAAAAJABoAGgAJAAwAAAAbAAMAGgAbAAAAAwAFABMAGwAFAAMAGwAaAAgAGwAHAAUACAAHABsAEAATAAUAGgAMABwACAAaABwABQAHAB0AHQAHAAgAEAAFABEAHQARAAUAEwAQAAQABAAQABEABAASABMAEgAEABUAEQAeAAQAFQAEAB4AHgARAB8AHgAfABUAEQAdAB8AHwAGABUAFQAGABYAHQAOAB8ACAAOAB0ADQAOAAgAHAANAAgAIAAfAA4ADgANACAAIAAGAB8AIAANABwAIQAWAAYABgAgACEAHAAhACAAAgAWACEAHAAMACEAAgAhAAwA"), 0.011174414, PackedByteArray("AQAKAAsAAgALAAoAAgAKAAYABgAKAAEAAgAMAAsADQACAAYADQAMAAIACwAMAAkACQAMAA0AAwABAAsACQAAAAsAAwALAAAACAAJAA0AAAAJAAgADgANAAYADQAOAAgAAQAEAAYABAAOAAYADwABAAMABAABAA8AAAAFAAMAAwAFAA8ADwAQAAQAEAAPAAUABAAQABEABAARAA4AEAAFABEAAAAHAAUABwARAAUAEQAHAA4ACAAHAAAACAAOAAcA"), 0.017518349, PackedByteArray("AAABAAIAAwABAAAABAABAAMABAACAAEAAwAFAAQAAAAFAAMABAAGAAIABAAFAAYAAAAHAAUABQAHAAYABwAIAAYACAAHAAAACAACAAYAAAACAAkACAAJAAIAAAAJAAgA")],
+"name": "sleeping_bag_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 54,
+"vertex_data": PackedByteArray("X4GGOyovCLzDyhA8ZRgAvBtOzDsUmhM8ZBgAPB1OzDsUmhM89KyTu1VjC7wYlhE8ZRgAvBtOzDsUmhO8zyyOu1+dE7wUmhO8ZBgAPB1OzDsUmhO8+jiTO7ttIbzFEBW8/3gjPLy5Y7toxRW86/ccPH0L5rqDlRE8AAAAAArXIzwUmhM83NsAPPqRqLpOiSE81kZQPCVMqbtj/RE8/YdWPMpo4rvk9RW8al8HPBgrQrtzyiW8cbsfvNTUEbsUmhM8cbsfvNTUEbsUmhO8RwIEvJYK8boK1yO8xOj9u1OI1Tss81Y7P40evNGv/rpq5lc7bDOIOCxwKDxp8FQ7AAAAAArXIzwUmhO8hRoBPLJ61TvFYVM707nTu3/YqDsK1yM8sy0bPMrw9zoX1SI8UpJ3uzNa4buYiSE8Yr8gPNjz/rppc1M72EiLO6ilE7zjyhW78tNQPDc2trtOSAq79vRzO/VABryPIyW807nTu3/YqDsK1yO80bnTO4HYqDsK1yO81JA1POG1AjulMBW8QdgzPJrQUDtXXFM7yaSyuHXRIzzzsRS7pDoBvDd3zDuozSK7n/H8OxsXzDvYxQm7CtcjL1xnBzwK1yM8MnbTOyyOnjtQ0SM8RwIEvJcK8boK1yM8QN6Lu3z/Drz3Elc7dhxbOxxV3LsV7iA8TtAzPEMLmLtFryE8v8MyPE9HMzuclRM8aSJSPPP5vruxTXU7w1WQO0QDD7wTGFU7NhYePKZHErvgQgq7jDYxPGwJPjtGywm7F6s6PNE51LsgHia8NmofPCMHaDq0eSW8e/9quzf987sK1yO8q4WQu/yKE7z0riO7YcQgvO9XEbtJeSm7AAAAAFxnBzwK1yO8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mkoa7"]
+resource_name = "sleeping_bag_01"
+_surfaces = [{
+"aabb": AABB(-0.009812445, -0.009852822, -0.010139018, 0.022906391, 0.020133473, 0.020139018),
+"attribute_data": PackedByteArray("LPo/P0DqST9KRdI+UURoP6piAz9cbyA/QWsyP4vNcT9oDCs/sMAlP6BJxz5cg0k/SKGdPmAIJj9ItvM9EaYgP1+Doz70C3E/oHm2PNQBaT9BvjE/yKF6PsaHyj7MoXo+yIfKPj/IFj9CvjE/PsgWP37HND/MoXo+f8c0Pz/IFj9M4nw/Ni4WP/xWfz/IoXo+pYhCPya/fj+TYEE/7AInP0eRbD9A0Cc/CqZsP/5Wfz9qWZM+QsgUP7x1ej4cnRU/6MaKPrA2dT6/KZ8+oL1zPtCNQT6wNnU+gHcjPO3wFj8AQGs7DFR7Prx1Jj4cnRU/qO3JPr4HPj+CAyY/yNgsPyz6Pz/2Fx0/CMIMP/5Wfz+gScc+/AwdP4t1kz6MKC0/eL4qPufldj+wLCc+/lZ/PxOBCz8/yBY/QihePz/IFj9BKF4/zKF6PtJdgj6gvXM+vDJpPttsFT8WZzE/DIb1PsEvCz82OfU+qu3JPrb99D4SgQs/zKF6PlwffD4a2PM+RSyYPtCmvD7FR0I/G1dIPwrHXD9cqvU+6WYzPwyG9T7axOA+k9ljP9McGj/uISA/PicsP323az98SgU+QqQoPwACKTua3T4/uARdPvBCGD+AvU09BHFkP0R/tT6ac0o/2H+HPRjD9D4AAik7lF71PoArrT2Y5Hc+FOhsPub+vj5cHyg+GtjzPuZ/yz5S4MA+uusLP/g+vz7mFDI/4iO9Pl5plj6o2/I+MMx/PmCavz4Kt2s/6OtjPzBMQT9GamM/CqZsP2apRz8s9n0/yor1PlzBND/kI70+7x5ePwAlvD6AUX8/QgK9PoD2yTsqNsE+QFSdPUqeFj8o1449sJrAPmRDdD76MPg+MMwrPmCavz5rZzc/Nr9KP/WBBz+qDCk/CtMNPxTrdj/g39k+pPFAPwSnGD9EGhg/XKQ6P7YwJD9AEQs9NJ1BPwZtlz7vFWs/LP1oPkhGID9C5b0+ITwkPw=="),
+"format": 34359742487,
+"index_count": 312,
+"index_data": PackedByteArray("JgANACsALQAMACYAJgAsAC0AKwAsACYAQQAtACwAQgAsACsALABCAEEAKwBDAEIAQQBCAC4ALgBCAEMALgALAEEAQwAKAC4AFgAXAC8ALwBEABYARAAvAEUARQAwAEQAMABFABgAGAAZADAARgAVABIAEgBHAEYARgBHADEAMQBIAEYAFABIADEAMQATABQAMgAnABAADwAnADIAMgAzAA8AEABJADIASgAzADIASwAyAEkAMgBLAEoADgBKAEsASQBMAEsASwAoAA4AKABLAEwATAARACgAPAA9AE0AGwA9ADwAPABOABsATQBPADwATwBNABwAHAA+AE8APwBPAD4APABPAD8APgApAD8ATgA8AFAAPwBQADwAPwApABoAUAAqAE4AGgBRAD8APwBRAEAAQABQAD8AKgBQAEAAQAAdACoAUgBTAB8AUgAfAAQABAAAAFIANgBSAAAAUgA2AFMAAAADADYANgADACEAIQBUADYANgBUAFMAVAAhAAEAAQA0AFQAVAA0AFMANAABAB4AHgBVADQANABVAFMAVQAeAAIAAgBTAFUANQBTAAIAHwBTADUAAgBWADUANQBXAB8AVwA1AFYABAAfAFcAVgAgAFcAVwAgAAQANwAHADgAOQAHADcAOABYADcAOgBYADgAOgA3AFgAOAAJADoAJAA6AAkAOgAkADcACQAlACQAWQAkACUAJABZADcAJQAIAFkAOwBZAAgAWQA7ADcACAAFADsAOwAFAAYAOwAjADcABgAjADsAWgA3ACMANwBaADkAWwAjAAYAIwBbAFoAOQBaAFsABgAiAFsAWwAiADkA"),
+"lods": [0.0049603353, PackedByteArray("JgANACsAKwAsACYAJgAsAC0ALQAMACYALgAsACsALQAsAC4AKwAKAC4ALgALAC0AFgAXAC8ALwAwABYAMAAvABgAGAAZADAAEgAxABUAMQAUABUAMQATABQAMgAnABAADwAnADIAEAARADIAMgAzAA8AKAAyABEADgAzADIAMgAoAA4ANAAeADUANAABAB4AAgA1AB4ANAAhAAEAIAA1AAIAIQA0ADYANgA0ADUANgADACEAAAADADYAHwA2ADUANgAfAAAANQAgAB8ABAAAAB8ABAAfACAANwAHADgAOQAHADcAOgA3ADgAOAAJADoAOQA3ACMAIwAiADkAIgAjAAYAJAA6AAkAOgAkADcACQAlACQAJQAIACQABgAjADsAOwAjADcAJAA7ADcAOwAkAAgAOwAFAAYACAAFADsAPAA9ABwAGwA9ADwAHAA+ADwAGwA8ACoAPwA8AD4APwAqADwAPgApAD8APwApABoAGgBAAD8AQAAqAD8AQAAdACoA"), 0.011174414, PackedByteArray("AQAeAB8AAgAfAB4AAgAgAB8AHwAgAAQABAAAAB8AAwAfAAAAAwABAB8AIQABAAMAIgAjAAYAIwAiAAcABgAjAAUACQAjAAcAJAAFACMACQAkACMABQAkAAgACQAlACQAJQAIACQADAAmAAsACwAmAA0ADQAKAAsADgAPACcAJwAoAA4AKAAnABEAEAARACcAEgATABQAEgAUABUAFgAXABgAGAAZABYAKQAbABwAKQAqABsAHQAqACkAGgAdACkA"), 0.017518349, PackedByteArray("AAABAAIAAwABAAAAAAACAAQABQAGAAcACAAFAAcACQAIAAcACgALAAwACgAMAA0ADgAPABAAEAARAA4AEgATABQAEgAUABUAFgAXABgAGAAZABYAGgAbABwAGgAdABsA")],
+"material": SubResource("StandardMaterial3D_hiqu8"),
+"name": "sleeping_bag_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 92,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ogrfu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wc58k"]
+size = Vector3(1.7094727, 1.6245117, 3.4882813)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0exn"]
 resource_name = "Can"
 vertex_color_use_as_albedo = true
@@ -175,49 +218,6 @@ shadow_mesh = SubResource("ArrayMesh_tnq36")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mthht"]
 size = Vector3(4.055191, 3.8247223, 2.5204468)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiqu8"]
-resource_name = "sleeping_bag_01"
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_mthht")
-emission_enabled = true
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_ogrfu"]
-_surfaces = [{
-"aabb": AABB(-0.009812445, -0.009852822, -0.010139018, 0.022906391, 0.020133473, 0.020139018),
-"format": 34359742465,
-"index_count": 312,
-"index_data": PackedByteArray("CgABABIAEwASAAEAEgAUAAoAIgAUABIAEgAjACIAIwASABMAFAAiACQAFQAiACMAJAAiABUAJAAWABQACgAUABYAIQAWACQAFgACAAoAAgAWACEAJQAKAAIACgAlABcAFwABAAoAAgAmACUAFwAlACYAAQAXACcAJwAXACYAJwAPAAEAAQAPABMADwAnABkAGQAnACYAEwAPAAMAGQADAA8AAwAoABMAAAADABkAKAADAAAAKQAZACYAGQApAAAAKQAmAAsACwAmABgAGAAmAAIAKQALAAkACQAAACkAGAAqAAsACQALACoAAgArABgAKgAYACsAIQArAAIAKgAMAAkAKwAMACoAAAAJABoAGgAJAAwALAAMACsAKwAhACwADAAsABoAGgAtAAAAAAAtACgAGgAsABwAHAAsACEALQAaAC4AHAAuABoAKAAtABsALgAbAC0AIQAvABwAJAAvACEACAAuABwAGwAuAAgALwAkAAYAHAAvACAABgAgAC8AFQAGACQAIAANABwAHAANAAgAMAANACAACAANADAAIAAxADAAIAAGAB8AHwAxACAAHwAGABUADgAwADEAMAAOAAgAMQAfAA4ACAAOAB0AHQAOAB8AHQAHAAgACAAHABsABQAHAB0AGwAHAAUAHQAyAAUAMgAdAB8ABQAzABsAGwAzACgAEAAFADIAMwAFABAAEQAyAB8AMgARABAAKAAzADQAEAA0ADMANAATACgAEwA0ACMANAAQAAQABAAjADQABAAQABEAIwAEABUAEQAeAAQAFQAEAB4AHgARAB8AFQA1AB8AHgAfADUAHgA1ABUA"),
-"lods": [0.0049603353, PackedByteArray("CgABABIAEwASAAEAEgAUAAoAFQAUABIACgAUABYAFgAUABUAFwABAAoAFwAPAAEAAQAPABMAFwAKABgAFgACAAoAAgAYAAoAGQAXABgADwAXABkADAAYAAIAGQADAA8AEwAPAAMACwAZABgAGAAMAAsAAAADABkAGQALAAAACQAAAAsACQALAAwAAAAJABoAGgAJAAwAAAAbAAMAGgAbAAAAAwAFABMAGwAFAAMAGwAaAAgAGwAHAAUACAAHABsAEAATAAUAGgAMABwACAAaABwABQAHAB0AHQAHAAgAEAAFABEAHQARAAUAEwAQAAQABAAQABEABAASABMAEgAEABUAEQAeAAQAFQAEAB4AHgARAB8AHgAfABUAEQAdAB8AHwAGABUAFQAGABYAHQAOAB8ACAAOAB0ADQAOAAgAHAANAAgAIAAfAA4ADgANACAAIAAGAB8AIAANABwAIQAWAAYABgAgACEAHAAhACAAAgAWACEAHAAMACEAAgAhAAwA"), 0.011174414, PackedByteArray("AQAKAAsAAgALAAoAAgAKAAYABgAKAAEAAgAMAAsADQACAAYADQAMAAIACwAMAAkACQAMAA0AAwABAAsACQAAAAsAAwALAAAACAAJAA0AAAAJAAgADgANAAYADQAOAAgAAQAEAAYABAAOAAYADwABAAMABAABAA8AAAAFAAMAAwAFAA8ADwAQAAQAEAAPAAUABAAQABEABAARAA4AEAAFABEAAAAHAAUABwARAAUAEQAHAA4ACAAHAAAACAAOAAcA"), 0.017518349, PackedByteArray("AAABAAIAAwABAAAABAABAAMABAACAAEAAwAFAAQAAAAFAAMABAAGAAIABAAFAAYAAAAHAAUABQAHAAYABwAIAAYACAAHAAAACAACAAYAAAACAAkACAAJAAIAAAAJAAgA")],
-"name": "sleeping_bag_01",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 54,
-"vertex_data": PackedByteArray("X4GGOyovCLzDyhA8ZRgAvBtOzDsUmhM8ZBgAPB1OzDsUmhM89KyTu1VjC7wYlhE8ZRgAvBtOzDsUmhO8zyyOu1+dE7wUmhO8ZBgAPB1OzDsUmhO8+jiTO7ttIbzFEBW8/3gjPLy5Y7toxRW86/ccPH0L5rqDlRE8AAAAAArXIzwUmhM83NsAPPqRqLpOiSE81kZQPCVMqbtj/RE8/YdWPMpo4rvk9RW8al8HPBgrQrtzyiW8cbsfvNTUEbsUmhM8cbsfvNTUEbsUmhO8RwIEvJYK8boK1yO8xOj9u1OI1Tss81Y7P40evNGv/rpq5lc7bDOIOCxwKDxp8FQ7AAAAAArXIzwUmhO8hRoBPLJ61TvFYVM707nTu3/YqDsK1yM8sy0bPMrw9zoX1SI8UpJ3uzNa4buYiSE8Yr8gPNjz/rppc1M72EiLO6ilE7zjyhW78tNQPDc2trtOSAq79vRzO/VABryPIyW807nTu3/YqDsK1yO80bnTO4HYqDsK1yO81JA1POG1AjulMBW8QdgzPJrQUDtXXFM7yaSyuHXRIzzzsRS7pDoBvDd3zDuozSK7n/H8OxsXzDvYxQm7CtcjL1xnBzwK1yM8MnbTOyyOnjtQ0SM8RwIEvJcK8boK1yM8QN6Lu3z/Drz3Elc7dhxbOxxV3LsV7iA8TtAzPEMLmLtFryE8v8MyPE9HMzuclRM8aSJSPPP5vruxTXU7w1WQO0QDD7wTGFU7NhYePKZHErvgQgq7jDYxPGwJPjtGywm7F6s6PNE51LsgHia8NmofPCMHaDq0eSW8e/9quzf987sK1yO8q4WQu/yKE7z0riO7YcQgvO9XEbtJeSm7AAAAAFxnBzwK1yO8")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_mkoa7"]
-resource_name = "sleeping_bag_01"
-_surfaces = [{
-"aabb": AABB(-0.009812445, -0.009852822, -0.010139018, 0.022906391, 0.020133473, 0.020139018),
-"attribute_data": PackedByteArray("LPo/P0DqST9KRdI+UURoP6piAz9cbyA/QWsyP4vNcT9oDCs/sMAlP6BJxz5cg0k/SKGdPmAIJj9ItvM9EaYgP1+Doz70C3E/oHm2PNQBaT9BvjE/yKF6PsaHyj7MoXo+yIfKPj/IFj9CvjE/PsgWP37HND/MoXo+f8c0Pz/IFj9M4nw/Ni4WP/xWfz/IoXo+pYhCPya/fj+TYEE/7AInP0eRbD9A0Cc/CqZsP/5Wfz9qWZM+QsgUP7x1ej4cnRU/6MaKPrA2dT6/KZ8+oL1zPtCNQT6wNnU+gHcjPO3wFj8AQGs7DFR7Prx1Jj4cnRU/qO3JPr4HPj+CAyY/yNgsPyz6Pz/2Fx0/CMIMP/5Wfz+gScc+/AwdP4t1kz6MKC0/eL4qPufldj+wLCc+/lZ/PxOBCz8/yBY/QihePz/IFj9BKF4/zKF6PtJdgj6gvXM+vDJpPttsFT8WZzE/DIb1PsEvCz82OfU+qu3JPrb99D4SgQs/zKF6PlwffD4a2PM+RSyYPtCmvD7FR0I/G1dIPwrHXD9cqvU+6WYzPwyG9T7axOA+k9ljP9McGj/uISA/PicsP323az98SgU+QqQoPwACKTua3T4/uARdPvBCGD+AvU09BHFkP0R/tT6ac0o/2H+HPRjD9D4AAik7lF71PoArrT2Y5Hc+FOhsPub+vj5cHyg+GtjzPuZ/yz5S4MA+uusLP/g+vz7mFDI/4iO9Pl5plj6o2/I+MMx/PmCavz4Kt2s/6OtjPzBMQT9GamM/CqZsP2apRz8s9n0/yor1PlzBND/kI70+7x5ePwAlvD6AUX8/QgK9PoD2yTsqNsE+QFSdPUqeFj8o1449sJrAPmRDdD76MPg+MMwrPmCavz5rZzc/Nr9KP/WBBz+qDCk/CtMNPxTrdj/g39k+pPFAPwSnGD9EGhg/XKQ6P7YwJD9AEQs9NJ1BPwZtlz7vFWs/LP1oPkhGID9C5b0+ITwkPw=="),
-"format": 34359742487,
-"index_count": 312,
-"index_data": PackedByteArray("JgANACsALQAMACYAJgAsAC0AKwAsACYAQQAtACwAQgAsACsALABCAEEAKwBDAEIAQQBCAC4ALgBCAEMALgALAEEAQwAKAC4AFgAXAC8ALwBEABYARAAvAEUARQAwAEQAMABFABgAGAAZADAARgAVABIAEgBHAEYARgBHADEAMQBIAEYAFABIADEAMQATABQAMgAnABAADwAnADIAMgAzAA8AEABJADIASgAzADIASwAyAEkAMgBLAEoADgBKAEsASQBMAEsASwAoAA4AKABLAEwATAARACgAPAA9AE0AGwA9ADwAPABOABsATQBPADwATwBNABwAHAA+AE8APwBPAD4APABPAD8APgApAD8ATgA8AFAAPwBQADwAPwApABoAUAAqAE4AGgBRAD8APwBRAEAAQABQAD8AKgBQAEAAQAAdACoAUgBTAB8AUgAfAAQABAAAAFIANgBSAAAAUgA2AFMAAAADADYANgADACEAIQBUADYANgBUAFMAVAAhAAEAAQA0AFQAVAA0AFMANAABAB4AHgBVADQANABVAFMAVQAeAAIAAgBTAFUANQBTAAIAHwBTADUAAgBWADUANQBXAB8AVwA1AFYABAAfAFcAVgAgAFcAVwAgAAQANwAHADgAOQAHADcAOABYADcAOgBYADgAOgA3AFgAOAAJADoAJAA6AAkAOgAkADcACQAlACQAWQAkACUAJABZADcAJQAIAFkAOwBZAAgAWQA7ADcACAAFADsAOwAFAAYAOwAjADcABgAjADsAWgA3ACMANwBaADkAWwAjAAYAIwBbAFoAOQBaAFsABgAiAFsAWwAiADkA"),
-"lods": [0.0049603353, PackedByteArray("JgANACsAKwAsACYAJgAsAC0ALQAMACYALgAsACsALQAsAC4AKwAKAC4ALgALAC0AFgAXAC8ALwAwABYAMAAvABgAGAAZADAAEgAxABUAMQAUABUAMQATABQAMgAnABAADwAnADIAEAARADIAMgAzAA8AKAAyABEADgAzADIAMgAoAA4ANAAeADUANAABAB4AAgA1AB4ANAAhAAEAIAA1AAIAIQA0ADYANgA0ADUANgADACEAAAADADYAHwA2ADUANgAfAAAANQAgAB8ABAAAAB8ABAAfACAANwAHADgAOQAHADcAOgA3ADgAOAAJADoAOQA3ACMAIwAiADkAIgAjAAYAJAA6AAkAOgAkADcACQAlACQAJQAIACQABgAjADsAOwAjADcAJAA7ADcAOwAkAAgAOwAFAAYACAAFADsAPAA9ABwAGwA9ADwAHAA+ADwAGwA8ACoAPwA8AD4APwAqADwAPgApAD8APwApABoAGgBAAD8AQAAqAD8AQAAdACoA"), 0.011174414, PackedByteArray("AQAeAB8AAgAfAB4AAgAgAB8AHwAgAAQABAAAAB8AAwAfAAAAAwABAB8AIQABAAMAIgAjAAYAIwAiAAcABgAjAAUACQAjAAcAJAAFACMACQAkACMABQAkAAgACQAlACQAJQAIACQADAAmAAsACwAmAA0ADQAKAAsADgAPACcAJwAoAA4AKAAnABEAEAARACcAEgATABQAEgAUABUAFgAXABgAGAAZABYAKQAbABwAKQAqABsAHQAqACkAGgAdACkA"), 0.017518349, PackedByteArray("AAABAAIAAwABAAAAAAACAAQABQAGAAcACAAFAAcACQAIAAcACgALAAwACgAMAA0ADgAPABAAEAARAA4AEgATABQAEgAUABUAFgAXABgAGAAZABYAGgAbABwAGgAdABsA")],
-"material": SubResource("StandardMaterial3D_hiqu8"),
-"name": "sleeping_bag_01",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 92,
-"vertex_data": PackedByteArray("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")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_ogrfu")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wc58k"]
-size = Vector3(1.7094727, 1.6245117, 3.4882813)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s124"]
 resource_name = "bengal"
@@ -1465,41 +1465,22 @@ shape = SubResource("BoxShape3D_uqlds")
 [node name="Survival" type="Node3D" parent="." index="45"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4363604, 0, -19.2875)
 
-[node name="CannedFood1" type="StaticBody3D" parent="Survival" index="0"]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -1.3684533, 0.45205122, 17.018848)
-script = ExtResource("2_43cjk")
-prompt_message = "Canned Food"
-item_name = "food"
-
-[node name="Can" type="MeshInstance3D" parent="Survival/CannedFood1" index="0"]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 1.0658141e-14, 0, 7.1054274e-15, 1.072, 0, 0, 0)
-mesh = SubResource("ArrayMesh_bf5ap")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/CannedFood1" index="1"]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 1.110223e-16, 0, -1.110223e-16, 0.02, 0.001332432, -0.0022355318, 0.006551519)
-shape = SubResource("BoxShape3D_ggthe")
-
-[node name="Matchbox" type="StaticBody3D" parent="Survival" index="1"]
-transform = Transform3D(1.4167043, -1.4117185, -6.170817e-08, 0, -8.742278e-08, 2, -1.4117185, -1.4167043, -6.192611e-08, -5.2966504, 0.42942765, 13.232294)
-script = ExtResource("2_43cjk")
-prompt_message = "Matchbox"
-item_name = "matchbox"
-
-[node name="match" type="MeshInstance3D" parent="Survival/Matchbox" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.7763568e-15, -7.1054274e-15, 1.7763568e-15, 1, 0, 0, 0)
-mesh = SubResource("ArrayMesh_e5kvy")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/Matchbox" index="1"]
-transform = Transform3D(0.013842869, -0.0144352075, -6.3098277e-10, 0.0144352075, 0.013842869, -2.69137e-10, 6.310107e-10, -2.6913669e-10, 0.02, 0.0057940483, -0.003850937, 0.015204474)
-shape = SubResource("BoxShape3D_mthht")
-
-[node name="SleepingBag" type="StaticBody3D" parent="Survival" index="2"]
+[node name="SleepingBag" type="StaticBody3D" parent="Survival" index="0"]
 transform = Transform3D(-4.9990087, -4.3520627e-09, -0.09956373, 6.8432364e-15, 5, -2.1855699e-07, 0.09956373, -2.1851365e-07, -4.9990087, 1.4274669, 0.46272486, 16.085836)
 script = ExtResource("2_43cjk")
 prompt_message = "Sleeping Bag"
 item_name = "sleepingbag"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="sleeping_bag_01" type="MeshInstance3D" parent="Survival/SleepingBag" index="0"]
 transform = Transform3D(0.99999994, 3.996803e-15, 3.7252903e-07, -4.9404925e-15, 0.9999998, 0, -1.17346644e-07, 7.1054274e-15, 2.5295994, 0, 0, 0)
@@ -1510,11 +1491,74 @@ skeleton = NodePath("")
 transform = Transform3D(0.020000521, -5.9327543e-16, -1.2514647e-09, 4.597017e-16, 0.02, -2.220446e-16, 1.2514647e-09, 4.1633363e-14, 0.020000521, 0.007691264, 0.0058251917, -0.002246201)
 shape = SubResource("BoxShape3D_wc58k")
 
+[node name="CannedFood1" type="StaticBody3D" parent="Survival" index="1"]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -1.3684533, 0.45205122, 17.018848)
+script = ExtResource("2_43cjk")
+prompt_message = "Canned Food"
+item_name = "food"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
+
+[node name="Can" type="MeshInstance3D" parent="Survival/CannedFood1" index="0"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 1.0658141e-14, 0, 7.1054274e-15, 1.072, 0, 0, 0)
+mesh = SubResource("ArrayMesh_bf5ap")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/CannedFood1" index="1"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 1.110223e-16, 0, -1.110223e-16, 0.02, 0.001332432, -0.0022355318, 0.006551519)
+shape = SubResource("BoxShape3D_ggthe")
+
+[node name="Matchbox" type="StaticBody3D" parent="Survival" index="2"]
+transform = Transform3D(1.4167043, -1.4117185, -6.170817e-08, 0, -8.742278e-08, 2, -1.4117185, -1.4167043, -6.192611e-08, -5.2966504, 0.42942765, 13.232294)
+script = ExtResource("2_43cjk")
+prompt_message = "Matchbox"
+item_name = "matchbox"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
+
+[node name="match" type="MeshInstance3D" parent="Survival/Matchbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.7763568e-15, -7.1054274e-15, 1.7763568e-15, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_e5kvy")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/Matchbox" index="1"]
+transform = Transform3D(0.013842869, -0.0144352075, -6.3098277e-10, 0.0144352075, 0.013842869, -2.69137e-10, 6.310107e-10, -2.6913669e-10, 0.02, 0.0057940483, -0.003850937, 0.015204474)
+shape = SubResource("BoxShape3D_mthht")
+
 [node name="Flare" type="StaticBody3D" parent="Survival" index="3"]
 transform = Transform3D(3, 0, 0, 0, 2.9999695, 0.0135089895, 0, -0.0135089895, 2.9999695, 2.9448953, 0.43099773, 23.064013)
 script = ExtResource("2_43cjk")
 prompt_message = "Flare"
 item_name = "flare"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="bengal" type="MeshInstance3D" parent="Survival/Flare" index="0"]
 mesh = SubResource("ArrayMesh_n3r1o")
@@ -1529,6 +1573,17 @@ transform = Transform3D(1.5549241, 33.967346, 8.294676, -0.37930804, -8.285999, 
 script = ExtResource("2_43cjk")
 prompt_message = "Backpack"
 item_name = "backpack"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="Backpack_001" type="MeshInstance3D" parent="Survival/Backpack" index="0"]
 transform = Transform3D(0.99999994, 7.450581e-09, 8.2751495e-10, 3.7252903e-09, 1, 1.5374878e-08, 1.3451107e-10, 4.6280738e-10, 1, 0, 0, 0)
@@ -1544,6 +1599,17 @@ transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, -5.2
 script = ExtResource("2_43cjk")
 prompt_message = "Soda"
 item_name = "soda"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="Can_Soda" type="MeshInstance3D" parent="Survival/Soda" index="0"]
 mesh = SubResource("ArrayMesh_x2v57")
@@ -1558,6 +1624,17 @@ transform = Transform3D(-11.671464, -2.7887177, -1.2189867e-07, 1.1723825e-15, -
 script = ExtResource("2_43cjk")
 prompt_message = "Antiseptic"
 item_name = "antiseptic"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="Antiseptic" type="MeshInstance3D" parent="Survival/Antiseptic" index="0"]
 transform = Transform3D(1, -2.9802322e-08, -1.7763568e-15, 2.9802322e-08, 1, 0, 0, 0, 1, 0.000841856, 0.00020115077, 0)
@@ -1576,6 +1653,17 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, -1.3113417e-08, 0, 1.3113417e-08, 0.3
 script = ExtResource("2_43cjk")
 prompt_message = "Canned Food"
 item_name = "food"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="Can_2" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood2" index="0"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 3.5527137e-15, 0, -3.5527137e-15, 0.99999994, 0, 0, 0)
@@ -1676,6 +1764,17 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, -1.3113417e-08, 0, 1.3113417e-08, 0.3
 script = ExtResource("2_43cjk")
 prompt_message = "Canned Food"
 item_name = "food"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="Tin_1" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood3" index="0"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 3.5527137e-15, 0, -3.5527137e-15, 0.99999994, 0, 0, 0)
@@ -1691,6 +1790,17 @@ transform = Transform3D(0.19772616, 1.3145204e-09, 0.030072723, 0, 0.2, -8.74227
 script = ExtResource("2_43cjk")
 prompt_message = "Canned Food"
 item_name = "food"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="Tin_3" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood4" index="0"]
 transform = Transform3D(1, 4.440892e-16, 0, 8.881784e-16, 0.99999994, 0, 0, 3.5527137e-15, 1, 0, 0, 0)
@@ -1706,6 +1816,17 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, -8.742278e-09, 0, 8.742278e-09, 0.2, 
 script = ExtResource("2_43cjk")
 prompt_message = "Water"
 item_name = "water"
+show_pickup_message = false
+requires_quest_complete = true
+required_quest_title = "Locate:"
+locked_message = "Head to the liquor store first."
+starts_quest = true
+auto_start_on_quest_complete = true
+quest_title = "Locate the gas station."
+plays_dialogue_on_quest_start = true
+plays_dialogue = true
+dialogue_timeline = "supermarketfinished"
+dialogue_duration = 5.0
 
 [node name="WaterBottle" type="MeshInstance3D" parent="TrashAndDebrisPreview/Water" index="0"]
 mesh = SubResource("ArrayMesh_pyc4u")

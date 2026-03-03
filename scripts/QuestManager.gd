@@ -16,6 +16,7 @@ var quest_complete = false
 var last_timeline = ""
 var active_quest_title = ""
 var completed_quests: Array = []
+var next_quest_data = null
 
 func _ready():
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
@@ -41,6 +42,18 @@ func is_quest_active(title: String) -> bool:
 
 func is_quest_complete(title: String) -> bool:
 	return title in completed_quests
+
+func queue_next_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = []):
+	next_quest_data = {
+		"title": title,
+		"objectives": objectives,
+		"keys": keys,
+		"complete_message": complete_message,
+		"complete_duration": complete_duration,
+		"optional_title": optional_title,
+		"optional_objectives": optional_objectives,
+		"optional_keys": optional_keys
+	}
 
 func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = []):
 	current_quest_title = title
@@ -83,15 +96,35 @@ func hide_complete_message():
 		complete_message_canvas = null
 
 func _check_all_complete():
+	print("Checking complete, objectives: ", current_quest_objectives)
 	for objective in current_quest_objectives:
 		if not objective["complete"]:
 			return
+	print("All complete! Adding to completed: ", current_quest_title)
+	print("next_quest_data is: ", next_quest_data)
+	
 	if quest_complete:
 		return
 	quest_complete = true
 	active_quest_title = ""
 	completed_quests.append(current_quest_title)
 	quest_completed.emit()
+
+	if next_quest_data != null:
+		var data = next_quest_data
+		next_quest_data = null
+		await get_tree().create_timer(0.5).timeout
+		start_custom_quest(
+			data["title"],
+			data["objectives"],
+			data["keys"],
+			data["complete_message"],
+			data["complete_duration"],
+			data["optional_title"],
+			data["optional_objectives"],
+			data["optional_keys"]
+		)
+
 	if on_complete_message != "":
 		await get_tree().create_timer(3).timeout
 		if not quest_complete:

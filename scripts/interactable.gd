@@ -28,6 +28,7 @@ signal interacted(body)
 
 @export_group("Quest")
 @export var starts_quest = false
+@export var auto_start_on_quest_complete = false
 @export var quest_title = ""
 @export var quest_objectives: Array[String] = []
 @export var quest_objective_keys: Array[String] = []
@@ -114,8 +115,19 @@ func interact(body):
 		teleport_player(body)
 		await get_tree().process_frame
 
-	if starts_quest and quest_objectives.size() > 0:
-		if not requires_quest_complete or QuestManager.is_quest_complete(required_quest_title):
+	if starts_quest:
+		if auto_start_on_quest_complete:
+			QuestManager.queue_next_quest(
+				quest_title if quest_title != null else "",
+				quest_objectives,
+				quest_objective_keys,
+				quest_complete_message if quest_complete_message != null else "",
+				quest_complete_message_duration,
+				quest_optional_title if quest_optional_title != null else "",
+				quest_optional_objectives,
+				quest_optional_keys
+			)
+		elif not requires_quest_complete or QuestManager.is_quest_complete(required_quest_title):
 			QuestManager.start_custom_quest(
 				quest_title if quest_title != null else "",
 				quest_objectives,
