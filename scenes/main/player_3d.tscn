@@ -24,6 +24,8 @@ collision_mask = 3
 script = ExtResource("1_nohna")
 cam = NodePath("Head/Camera3D")
 flashlight = NodePath("Head/Camera3D/SpotLight3D")
+stamina_required_to_sprint = 15.0
+sprint_cooldown_after_depletion = 2.0
 
 [node name="FootstepPlayerTerrain" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_qe7o8")

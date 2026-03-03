@@ -1,13 +1,14 @@
-[gd_scene load_steps=116 format=4 uid="uid://bery8p6q8hp8l"]
+[gd_scene load_steps=128 format=4 uid="uid://bery8p6q8hp8l"]
 
 [ext_resource type="PackedScene" uid="uid://dy1mal4j56i6" path="res://assets/supermarket/supermarket.glb" id="1_42p1p"]
-[ext_resource type="Texture2D" uid="uid://cas83lpv0hhq0" path="res://assets/collection items/Survival/textures/Can.png" id="2_okd82"]
-[ext_resource type="Texture2D" uid="uid://di6dw6jth2h8x" path="res://assets/collection items/Survival/textures/match.png" id="3_ggthe"]
-[ext_resource type="Texture2D" uid="uid://bcvjvyr8x70by" path="res://assets/collection items/Survival/textures/sleeping_bag_01.png" id="4_mthht"]
-[ext_resource type="Texture2D" uid="uid://cht2sk4o8c5wl" path="res://assets/collection items/Survival/textures/Bengal.png" id="5_wc58k"]
-[ext_resource type="Texture2D" uid="uid://cmbrqqa3pgysf" path="res://assets/collection items/Survival/textures/Backpack.png" id="6_yefhy"]
-[ext_resource type="Texture2D" uid="uid://b5xu542ofib64" path="res://assets/collection items/Survival/textures/Can_Soda.png" id="7_8m2pq"]
-[ext_resource type="Texture2D" uid="uid://b3g53inj0onmm" path="res://assets/collection items/Survival/textures/Antiseptic.png" id="8_7bqxw"]
+[ext_resource type="Script" uid="uid://sih6s1jsk7cj" path="res://scripts/interactable.gd" id="2_43cjk"]
+[ext_resource type="Texture2D" uid="uid://cas83lpv0hhq0" path="res://assets/collection items/Survival/Textures/Can.png" id="2_okd82"]
+[ext_resource type="Texture2D" uid="uid://di6dw6jth2h8x" path="res://assets/collection items/Survival/Textures/match.png" id="3_ggthe"]
+[ext_resource type="Texture2D" uid="uid://bcvjvyr8x70by" path="res://assets/collection items/Survival/Textures/sleeping_bag_01.png" id="4_mthht"]
+[ext_resource type="Texture2D" uid="uid://cht2sk4o8c5wl" path="res://assets/collection items/Survival/Textures/Bengal.png" id="5_wc58k"]
+[ext_resource type="Texture2D" uid="uid://cmbrqqa3pgysf" path="res://assets/collection items/Survival/Textures/Backpack.png" id="6_yefhy"]
+[ext_resource type="Texture2D" uid="uid://b5xu542ofib64" path="res://assets/collection items/Survival/Textures/Can_Soda.png" id="7_8m2pq"]
+[ext_resource type="Texture2D" uid="uid://b3g53inj0onmm" path="res://assets/collection items/Survival/Textures/Antiseptic.png" id="8_7bqxw"]
 [ext_resource type="Texture2D" uid="uid://6k5gifqtkik8" path="res://assets/collection items/trash-and-debris/textures/Cans.png" id="11_so6pu"]
 [ext_resource type="Texture2D" uid="uid://bna65vh0qxw4m" path="res://assets/collection items/trash-and-debris/textures/CardboardPaper.png" id="12_ib48l"]
 [ext_resource type="Texture2D" uid="uid://b140e7qc4mb2h" path="res://assets/collection items/trash-and-debris/textures/Bags.png" id="13_45pki"]
@@ -131,6 +132,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vdgt7")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggthe"]
+size = Vector3(2.1609497, 2.2658997, 1.6551514)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gt1h"]
 resource_name = "match"
 vertex_color_use_as_albedo = true
@@ -168,6 +172,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tnq36")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mthht"]
+size = Vector3(4.055191, 3.8247223, 2.5204468)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiqu8"]
 resource_name = "sleeping_bag_01"
@@ -209,6 +216,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ogrfu")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wc58k"]
+size = Vector3(1.7094727, 1.6245117, 3.4882813)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s124"]
 resource_name = "bengal"
 vertex_color_use_as_albedo = true
@@ -248,6 +258,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r8pk7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yefhy"]
+size = Vector3(2.4779663, 1.6363373, 2.6424255)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xd44t"]
 resource_name = "Backpack"
@@ -289,6 +302,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k1cp7")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8m2pq"]
+size = Vector3(0.51226807, 0.32104492, 0.84332275)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkuux"]
 resource_name = "Material.001"
 vertex_color_use_as_albedo = true
@@ -329,6 +345,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dfhei")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bqxw"]
+size = Vector3(3.4674683, 2.520279, 2.1734009)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muns1"]
 resource_name = "Antiseptic"
 vertex_color_use_as_albedo = true
@@ -368,6 +387,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g8h5q")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0m26"]
+size = Vector3(0.5950775, 0.48632813, 0.4906006)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwcgd"]
 resource_name = "Cans"
@@ -410,6 +432,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_edjoj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_71lh5"]
+size = Vector3(2.378296, 2.1798096, 2.1811218)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0fd3"]
 resource_name = "CardboardPaper"
@@ -1085,6 +1110,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ati4a")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_so6pu"]
+size = Vector3(0.4658203, 0.42529297, 0.58958435)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_7jydo"]
 _surfaces = [{
 "aabb": AABB(8.684986, -0.025406571, -3.1782644, 0.3570633, 0.09388127, 0.23166656),
@@ -1116,6 +1144,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7jydo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ib48l"]
+size = Vector3(0.70513916, 0.45361328, 0.6055145)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbiol"]
 resource_name = "Bottles"
@@ -1159,6 +1190,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8622y")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45pki"]
+size = Vector3(0.74282837, 0.6292114, 0.6296387)
 
 [node name="supermarket" instance=ExtResource("1_42p1p")]
 
@@ -1224,6 +1258,7 @@ shape = SubResource("BoxShape3D_avlri")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="shelves" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84657335, 0.004406631, -0.6585007)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1231,6 +1266,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D17" type="StaticBody3D" parent="shelves" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5970845, 0.004406631, -0.6585007)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D17" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1238,6 +1274,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="shelves" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.230784, 0.004406631, -0.6585007)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1245,6 +1282,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="shelves" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.995678, 0.004406631, -0.6585007)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D3" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1252,6 +1290,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="shelves" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.327965, 0.004406631, -0.6585007)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D4" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1259,6 +1298,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="shelves" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7006974, 0.004406631, -0.6585007)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D5" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1266,6 +1306,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="shelves" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.061884, 0.004406631, -0.6585007)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D6" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1273,6 +1314,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="shelves" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.258289, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D7" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1280,6 +1322,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D8" type="StaticBody3D" parent="shelves" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.871035, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D8" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1287,6 +1330,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D9" type="StaticBody3D" parent="shelves" index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.497776, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D9" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1294,6 +1338,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D10" type="StaticBody3D" parent="shelves" index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.108887, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D10" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1301,6 +1346,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D11" type="StaticBody3D" parent="shelves" index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7155175, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D11" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1308,6 +1354,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D12" type="StaticBody3D" parent="shelves" index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.355163, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D12" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1315,6 +1362,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D13" type="StaticBody3D" parent="shelves" index="13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9670844, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D13" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1322,6 +1370,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D14" type="StaticBody3D" parent="shelves" index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.596951, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D14" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1329,6 +1378,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D15" type="StaticBody3D" parent="shelves" index="15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2395205, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D15" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1336,6 +1386,7 @@ shape = SubResource("BoxShape3D_42p1p")
 
 [node name="StaticBody3D16" type="StaticBody3D" parent="shelves" index="16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85785985, 0.004406631, 6.7252455)
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D16" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1832867, 0, -3.6860406)
@@ -1414,48 +1465,126 @@ shape = SubResource("BoxShape3D_uqlds")
 [node name="Survival" type="Node3D" parent="." index="45"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4363604, 0, -19.2875)
 
-[node name="Can" type="MeshInstance3D" parent="Survival" index="0"]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3.216, 0, -3, -1.4057582e-07, -1.3684533, 0.45205122, 17.018848)
+[node name="CannedFood1" type="StaticBody3D" parent="Survival" index="0"]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -1.3684533, 0.45205122, 17.018848)
+script = ExtResource("2_43cjk")
+prompt_message = "Canned Food"
+item_name = "food"
+
+[node name="Can" type="MeshInstance3D" parent="Survival/CannedFood1" index="0"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 1.0658141e-14, 0, 7.1054274e-15, 1.072, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bf5ap")
 skeleton = NodePath("")
 
-[node name="match" type="MeshInstance3D" parent="Survival" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/CannedFood1" index="1"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 1.110223e-16, 0, -1.110223e-16, 0.02, 0.001332432, -0.0022355318, 0.006551519)
+shape = SubResource("BoxShape3D_ggthe")
+
+[node name="Matchbox" type="StaticBody3D" parent="Survival" index="1"]
 transform = Transform3D(1.4167043, -1.4117185, -6.170817e-08, 0, -8.742278e-08, 2, -1.4117185, -1.4167043, -6.192611e-08, -5.2966504, 0.42942765, 13.232294)
+script = ExtResource("2_43cjk")
+prompt_message = "Matchbox"
+item_name = "matchbox"
+
+[node name="match" type="MeshInstance3D" parent="Survival/Matchbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.7763568e-15, -7.1054274e-15, 1.7763568e-15, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_e5kvy")
 skeleton = NodePath("")
 
-[node name="sleeping_bag_01" type="MeshInstance3D" parent="Survival" index="2"]
-transform = Transform3D(-4.999008, -4.3520814e-09, -0.25185823, 6.843236e-15, 4.999999, -5.528616e-07, 0.099564314, -2.185136e-07, -12.645489, 1.4274669, 0.46272486, 16.085836)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/Matchbox" index="1"]
+transform = Transform3D(0.013842869, -0.0144352075, -6.3098277e-10, 0.0144352075, 0.013842869, -2.69137e-10, 6.310107e-10, -2.6913669e-10, 0.02, 0.0057940483, -0.003850937, 0.015204474)
+shape = SubResource("BoxShape3D_mthht")
+
+[node name="SleepingBag" type="StaticBody3D" parent="Survival" index="2"]
+transform = Transform3D(-4.9990087, -4.3520627e-09, -0.09956373, 6.8432364e-15, 5, -2.1855699e-07, 0.09956373, -2.1851365e-07, -4.9990087, 1.4274669, 0.46272486, 16.085836)
+script = ExtResource("2_43cjk")
+prompt_message = "Sleeping Bag"
+item_name = "sleepingbag"
+
+[node name="sleeping_bag_01" type="MeshInstance3D" parent="Survival/SleepingBag" index="0"]
+transform = Transform3D(0.99999994, 3.996803e-15, 3.7252903e-07, -4.9404925e-15, 0.9999998, 0, -1.17346644e-07, 7.1054274e-15, 2.5295994, 0, 0, 0)
 mesh = SubResource("ArrayMesh_mkoa7")
 skeleton = NodePath("")
 
-[node name="bengal" type="MeshInstance3D" parent="Survival" index="3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/SleepingBag" index="1"]
+transform = Transform3D(0.020000521, -5.9327543e-16, -1.2514647e-09, 4.597017e-16, 0.02, -2.220446e-16, 1.2514647e-09, 4.1633363e-14, 0.020000521, 0.007691264, 0.0058251917, -0.002246201)
+shape = SubResource("BoxShape3D_wc58k")
+
+[node name="Flare" type="StaticBody3D" parent="Survival" index="3"]
 transform = Transform3D(3, 0, 0, 0, 2.9999695, 0.0135089895, 0, -0.0135089895, 2.9999695, 2.9448953, 0.43099773, 23.064013)
+script = ExtResource("2_43cjk")
+prompt_message = "Flare"
+item_name = "flare"
+
+[node name="bengal" type="MeshInstance3D" parent="Survival/Flare" index="0"]
 mesh = SubResource("ArrayMesh_n3r1o")
 skeleton = NodePath("")
 
-[node name="Backpack_001" type="MeshInstance3D" parent="Survival" index="4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/Flare" index="1"]
+transform = Transform3D(0.02, 0, 0, 0, 0.020001438, -7.275958e-12, 0, 7.275958e-12, 0.020001438, 0.003983617, 0.0073909312, 0.0038735867)
+shape = SubResource("BoxShape3D_yefhy")
+
+[node name="Backpack" type="StaticBody3D" parent="Survival" index="4"]
 transform = Transform3D(1.5549241, 33.967346, 8.294676, -0.37930804, -8.285999, 34.00292, 34.963387, -1.6005197, -3.625718e-07, -7.234367, 0.14468427, 11.616789)
+script = ExtResource("2_43cjk")
+prompt_message = "Backpack"
+item_name = "backpack"
+
+[node name="Backpack_001" type="MeshInstance3D" parent="Survival/Backpack" index="0"]
+transform = Transform3D(0.99999994, 7.450581e-09, 8.2751495e-10, 3.7252903e-09, 1, 1.5374878e-08, 1.3451107e-10, 4.6280738e-10, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_j4xt2")
 skeleton = NodePath("")
 
-[node name="Can_Soda" type="MeshInstance3D" parent="Survival" index="5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/Backpack" index="1"]
+transform = Transform3D(0.009999998, 1.7695129e-08, -3.8914094e-10, 2.910383e-11, 0.010000004, 4.8913723e-10, 8.039014e-12, 4.702892e-10, 0.01, -8.948147e-05, -0.00084849447, -0.000783395)
+shape = SubResource("BoxShape3D_8m2pq")
+
+[node name="Soda" type="StaticBody3D" parent="Survival" index="5"]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, -5.2739544, 0.44703645, 25.063126)
+script = ExtResource("2_43cjk")
+prompt_message = "Soda"
+item_name = "soda"
+
+[node name="Can_Soda" type="MeshInstance3D" parent="Survival/Soda" index="0"]
 mesh = SubResource("ArrayMesh_x2v57")
 skeleton = NodePath("")
 
-[node name="Antiseptic" type="MeshInstance3D" parent="Survival" index="6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/Soda" index="1"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.003215909, 0.0010197163, 0.011734009)
+shape = SubResource("BoxShape3D_7bqxw")
+
+[node name="Antiseptic" type="StaticBody3D" parent="Survival" index="6"]
 transform = Transform3D(-11.671464, -2.7887177, -1.2189867e-07, 1.1723825e-15, -5.245366e-07, 12, -2.7887177, 11.671464, 5.101759e-07, 5.533889, 0.61815363, 23.731432)
+script = ExtResource("2_43cjk")
+prompt_message = "Antiseptic"
+item_name = "antiseptic"
+
+[node name="Antiseptic" type="MeshInstance3D" parent="Survival/Antiseptic" index="0"]
+transform = Transform3D(1, -2.9802322e-08, -1.7763568e-15, 2.9802322e-08, 1, 0, 0, 0, 1, 0.000841856, 0.00020115077, 0)
 mesh = SubResource("ArrayMesh_3bylv")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Survival/Antiseptic" index="1"]
+transform = Transform3D(0.019540764, -0.0042612934, -1.8626725e-10, 0.0042612934, 0.019540764, -2.0074442e-11, 1.8626685e-10, -2.0073443e-11, 0.020000003, 0.0009072423, 0.0004825741, 0.0026696771)
+shape = SubResource("BoxShape3D_e0m26")
 
 [node name="TrashAndDebrisPreview" type="Node3D" parent="." index="46"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0828457, 0, -29.753021)
 
-[node name="Can_2" type="MeshInstance3D" parent="TrashAndDebrisPreview" index="0"]
+[node name="CannedFood2" type="StaticBody3D" parent="TrashAndDebrisPreview" index="0"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, -1.3113417e-08, 0, 1.3113417e-08, 0.3, 4.7806225, 0.45058274, 31.138401)
+script = ExtResource("2_43cjk")
+prompt_message = "Canned Food"
+item_name = "food"
+
+[node name="Can_2" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood2" index="0"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 3.5527137e-15, 0, -3.5527137e-15, 0.99999994, 0, 0, 0)
 mesh = SubResource("ArrayMesh_uc63d")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrashAndDebrisPreview/CannedFood2" index="1"]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 8.881784e-16, 0, -8.881784e-16, 0.19999996, 5.026044, 0.117981195, 5.551759)
+shape = SubResource("BoxShape3D_71lh5")
 
 [node name="Cardboard_Cutout_2" type="MeshInstance3D" parent="TrashAndDebrisPreview" index="1"]
 transform = Transform3D(0.4025194, -1.2965283e-08, -0.2966111, 0, 0.5, -2.1855694e-08, 0.2966111, 1.7594681e-08, 0.4025194, 1.2887444, 0.05253774, 18.780836)
@@ -1542,17 +1671,46 @@ transform = Transform3D(0.12817894, -0.27123818, 1.1856197e-08, 0.27123818, 0.12
 mesh = SubResource("ArrayMesh_cj7s1")
 skeleton = NodePath("")
 
-[node name="Tin_1" type="MeshInstance3D" parent="TrashAndDebrisPreview" index="18"]
+[node name="CannedFood3" type="StaticBody3D" parent="TrashAndDebrisPreview" index="18"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, -1.3113417e-08, 0, 1.3113417e-08, 0.3, 0.8016149, 0.6048034, 25.648214)
+script = ExtResource("2_43cjk")
+prompt_message = "Canned Food"
+item_name = "food"
+
+[node name="Tin_1" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood3" index="0"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 3.5527137e-15, 0, -3.5527137e-15, 0.99999994, 0, 0, 0)
 mesh = SubResource("ArrayMesh_xlc32")
 skeleton = NodePath("")
 
-[node name="Tin_3" type="MeshInstance3D" parent="TrashAndDebrisPreview" index="19"]
-transform = Transform3D(0.29658923, 1.9717805e-09, 0.045109086, 0, 0.29999998, -1.3113415e-08, -0.045109086, 1.2964326e-08, 0.29658923, -0.08714056, 0.4667933, 34.998524)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrashAndDebrisPreview/CannedFood3" index="1"]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 1.5063506e-12, 0, -1.5063506e-12, 0.99999976, 9.121982, 0.16335058, -2.3310099)
+shape = SubResource("BoxShape3D_so6pu")
+
+[node name="CannedFood4" type="StaticBody3D" parent="TrashAndDebrisPreview" index="19"]
+transform = Transform3D(0.19772616, 1.3145204e-09, 0.030072723, 0, 0.2, -8.742278e-09, -0.030072723, 8.642885e-09, 0.19772616, 0.68395877, 0.43029445, 34.476677)
+script = ExtResource("2_43cjk")
+prompt_message = "Canned Food"
+item_name = "food"
+
+[node name="Tin_3" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood4" index="0"]
+transform = Transform3D(1, 4.440892e-16, 0, 8.881784e-16, 0.99999994, 0, 0, 3.5527137e-15, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jm4ay")
 skeleton = NodePath("")
 
-[node name="WaterBottle" type="MeshInstance3D" parent="TrashAndDebrisPreview" index="20"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrashAndDebrisPreview/CannedFood4" index="1"]
+transform = Transform3D(0.9900555, -6.1489254e-09, -0.14067657, 6.1491763e-09, 0.99995, -4.3468162e-10, 0.14067657, -4.3320725e-10, 0.9900555, 8.968298, 0.16186666, -3.0823154)
+shape = SubResource("BoxShape3D_ib48l")
+
+[node name="Water" type="StaticBody3D" parent="TrashAndDebrisPreview" index="20"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, -8.742278e-09, 0, 8.742278e-09, 0.2, -3.9756703, 0.6440086, 36.03199)
+script = ExtResource("2_43cjk")
+prompt_message = "Water"
+item_name = "water"
+
+[node name="WaterBottle" type="MeshInstance3D" parent="TrashAndDebrisPreview/Water" index="0"]
 mesh = SubResource("ArrayMesh_pyc4u")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrashAndDebrisPreview/Water" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1974583, 0.032377005, 3.965271)
+shape = SubResource("BoxShape3D_45pki")
