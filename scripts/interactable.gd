@@ -150,6 +150,3 @@ func _on_interacted(_body):
 	if disappears_on_pickup:
 		visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED
-
-func test_interact():
-	print("test works on: ", name)

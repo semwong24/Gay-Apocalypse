@@ -40,7 +40,6 @@ func _physics_process(_delta):
 	
 	if is_colliding():
 		var collider = get_collider()
-		print("Hitting: ", collider.name, " | has test_interact: ", collider.has_method("test_interact"), " | has interact: ", collider.has_method("interact"))
 		
 		if collider.has_method("interact") and collider.visible:
 			prompt.text = collider.get_prompt()
