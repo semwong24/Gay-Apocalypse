@@ -96,12 +96,9 @@ func hide_complete_message():
 		complete_message_canvas = null
 
 func _check_all_complete():
-	print("Checking complete, objectives: ", current_quest_objectives)
 	for objective in current_quest_objectives:
 		if not objective["complete"]:
 			return
-	print("All complete! Adding to completed: ", current_quest_title)
-	print("next_quest_data is: ", next_quest_data)
 	
 	if quest_complete:
 		return
