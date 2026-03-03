@@ -25,7 +25,7 @@ func _physics_process(_delta):
 		return
 	
 	force_raycast_update()
-	
+
 	var is_dialogue_active = Dialogic.current_timeline != null
 	
 	if is_dialogue_active != was_dialogue_active:
@@ -40,10 +40,15 @@ func _physics_process(_delta):
 	
 	if is_colliding():
 		var collider = get_collider()
+		print("Hitting: ", collider.name, " | has test_interact: ", collider.has_method("test_interact"), " | has interact: ", collider.has_method("interact"))
 		
-		if collider is Interactable:
+		if collider.has_method("interact") and collider.visible:
 			prompt.text = collider.get_prompt()
 			
 			if collider.prompt_input != null and collider.prompt_input != "" and InputMap.has_action(collider.prompt_input):
 				if Input.is_action_just_pressed(collider.prompt_input):
 					collider.interact(owner)
+		else:
+			prompt.text = ""
+	else:
+		prompt.text = ""

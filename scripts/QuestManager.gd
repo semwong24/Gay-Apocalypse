@@ -1,5 +1,8 @@
 extends Node
 
+signal quest_started(title)
+signal quest_completed
+
 var quest_ui: CanvasLayer
 var quest_container: QuestDisplay
 var current_quest_objectives = []
@@ -11,6 +14,8 @@ var current_optional_title = ""
 var complete_message_canvas: CanvasLayer
 var quest_complete = false
 var last_timeline = ""
+var active_quest_title = ""
+var completed_quests: Array = []
 
 func _ready():
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
@@ -31,8 +36,15 @@ func _on_timeline_ended():
 		)
 	last_timeline = ""
 
+func is_quest_active(title: String) -> bool:
+	return active_quest_title == title
+
+func is_quest_complete(title: String) -> bool:
+	return title in completed_quests
+
 func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = []):
 	current_quest_title = title
+	active_quest_title = title
 	current_quest_objectives = []
 	current_quest_optional_objectives = []
 	current_optional_title = optional_title
@@ -48,6 +60,7 @@ func start_custom_quest(title: String, objectives: Array, keys: Array, complete_
 	if not quest_ui:
 		await _build_ui()
 	_update_ui()
+	quest_started.emit(title)
 
 func notify_item_collected(item_name: String):
 	var found = false
@@ -76,6 +89,9 @@ func _check_all_complete():
 	if quest_complete:
 		return
 	quest_complete = true
+	active_quest_title = ""
+	completed_quests.append(current_quest_title)
+	quest_completed.emit()
 	if on_complete_message != "":
 		await get_tree().create_timer(3).timeout
 		if not quest_complete:

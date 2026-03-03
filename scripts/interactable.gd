@@ -17,6 +17,8 @@ signal interacted(body)
 @export var required_item_names: Array[String] = []
 @export var requires_dialogue_finished = false
 @export var required_dialogue_name = ""
+@export var requires_quest_complete = false
+@export var required_quest_title = ""
 @export var locked_message = "Locked"
 
 @export_group("Teleportation")
@@ -35,6 +37,7 @@ signal interacted(body)
 @export var quest_optional_title = ""
 @export var quest_optional_objectives: Array[String] = []
 @export var quest_optional_keys: Array[String] = []
+@export var plays_dialogue_on_quest_start = false
 
 @export_group("Dialogue")
 @export var plays_dialogue = false
@@ -49,7 +52,11 @@ func get_prompt():
 		var dialogue_finished = Dialogic.VAR.get(required_dialogue_name) if Dialogic.VAR.has(required_dialogue_name) else false
 		if not dialogue_finished:
 			return locked_message
-	
+
+	if requires_quest_complete and required_quest_title != "":
+		if not QuestManager.is_quest_complete(required_quest_title):
+			return locked_message
+
 	if requires_items and not has_all_required_items():
 		return locked_message
 		
@@ -77,10 +84,19 @@ func interact(body):
 		if not dialogue_finished:
 			print("Need to finish dialogue: ", required_dialogue_name)
 			return
-	
+
+	if requires_quest_complete and required_quest_title != "":
+		if not QuestManager.is_quest_complete(required_quest_title):
+			print("Quest not complete yet: ", required_quest_title)
+			return
+
 	if requires_items and not has_all_required_items():
 		print("Need items: ", required_item_names)
 		return
+
+	if disappears_on_pickup:
+		visible = false
+		process_mode = Node.PROCESS_MODE_DISABLED
 
 	if item_name != null and item_name != "":
 		PlayerInventory.pickup_item(item_name)
@@ -98,20 +114,24 @@ func interact(body):
 		teleport_player(body)
 		await get_tree().process_frame
 
-	if plays_dialogue and dialogue_timeline != "":
-		Dialogic.start(dialogue_timeline)
-
 	if starts_quest and quest_objectives.size() > 0:
-		QuestManager.start_custom_quest(
-			quest_title if quest_title != null else "",
-			quest_objectives,
-			quest_objective_keys,
-			quest_complete_message if quest_complete_message != null else "",
-			quest_complete_message_duration,
-			quest_optional_title if quest_optional_title != null else "",
-			quest_optional_objectives,
-			quest_optional_keys
-		)
+		if not requires_quest_complete or QuestManager.is_quest_complete(required_quest_title):
+			QuestManager.start_custom_quest(
+				quest_title if quest_title != null else "",
+				quest_objectives,
+				quest_objective_keys,
+				quest_complete_message if quest_complete_message != null else "",
+				quest_complete_message_duration,
+				quest_optional_title if quest_optional_title != null else "",
+				quest_optional_objectives,
+				quest_optional_keys
+			)
+
+	if plays_dialogue and dialogue_timeline != "":
+		if plays_dialogue_on_quest_start:
+			if not QuestManager.is_quest_active(quest_title):
+				await QuestManager.quest_started
+		Dialogic.start(dialogue_timeline)
 
 	if plays_dialogue and dialogue_duration > 0.0:
 		await get_tree().create_timer(dialogue_duration).timeout
@@ -130,3 +150,6 @@ func _on_interacted(_body):
 	if disappears_on_pickup:
 		visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED
+
+func test_interact():
+	print("test works on: ", name)

@@ -44,6 +44,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "houseinteriorfinished": "res://docs/dialogic/houseinteriorfinished.dtl",
+"liquorstorefinished": "res://docs/dialogic/liquorstorefinished.dtl",
 "opening": "res://docs/dialogic/opening.dtl",
 "test_timeline": "res://docs/dialogic/test_timeline.dtl"
 }

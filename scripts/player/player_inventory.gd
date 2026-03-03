@@ -5,7 +5,14 @@ var has_hatchet = false
 var has_batteries = false
 var has_painkillers = false
 var has_lighter = false
-# can add more items later
+var has_food = false
+var has_water = false
+var has_sleepingbag = false
+var has_antiseptic = false
+var has_flare = false
+var has_backpack = false
+var has_soda = false
+var has_matchbox = false
 
 func pickup_item(item_name: String):
 	match item_name:
@@ -14,11 +21,27 @@ func pickup_item(item_name: String):
 		"hatchet":
 			has_hatchet = true
 		"batteries":
-			has_flashlight = true
+			has_batteries = true
 		"painkillers":
-			has_hatchet = true
+			has_painkillers = true
 		"lighter":
-			has_hatchet = true
+			has_lighter = true
+		"food":
+			has_food = true
+		"water":
+			has_water = true
+		"sleepingbag":
+			has_sleepingbag = true
+		"antiseptic":
+			has_antiseptic = true
+		"flare":
+			has_flare = true
+		"backpack":
+			has_backpack = true
+		"soda":
+			has_soda = true
+		"matchbox":
+			has_matchbox = true
 
 func has_item(item_name: String) -> bool:
 	match item_name:
@@ -27,10 +50,26 @@ func has_item(item_name: String) -> bool:
 		"hatchet":
 			return has_hatchet
 		"batteries":
-			return has_flashlight
+			return has_batteries
 		"painkillers":
-			return has_hatchet
+			return has_painkillers
 		"lighter":
-			return has_hatchet
+			return has_lighter
+		"food":
+			return has_food
+		"water":
+			return has_water
+		"sleepingbag":
+			return has_sleepingbag
+		"antiseptic":
+			return has_antiseptic
+		"flare":
+			return has_flare
+		"backpack":
+			return has_backpack
+		"soda":
+			return has_soda
+		"matchbox":
+			return has_matchbox
 		_:
 			return false
