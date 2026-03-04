@@ -21,7 +21,7 @@ func _setup_message_display():
 	message_label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
 	message_label.add_theme_font_size_override("font_size", 24)
 	
-	message_label.add_theme_color_override("font_color", Color(0.85, 0.85, 0.85, 1.0))
+	message_label.add_theme_color_override("font_color", Color(0.704, 0.704, 0.704, 1.0))
 	
 	message_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	message_label.add_theme_constant_override("outline_size", 2)

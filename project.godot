@@ -26,6 +26,8 @@ PlayerInventory="*res://scripts/player/player_inventory.gd"
 GameState="*res://scripts/GameState.gd"
 DialogueScroll="*res://scripts/player/dialogue_scroll.gd"
 PickupMessageManager="*res://scripts/pickup_message_manager.gd"
+QuestManager="*res://scripts/QuestManager.gd"
+SceneTransition="*res://scripts/SceneTransition.gd"
 
 [debug]
 
@@ -42,8 +44,15 @@ directories/dch_directory={
 "anon_rose": "res://anon_rose.dch"
 }
 directories/dtl_directory={
+"carbattery": "res://docs/dialogic/carbattery.dtl",
+"gas": "res://docs/dialogic/gas.dtl",
+"houseinteriorfinished": "res://docs/dialogic/houseinteriorfinished.dtl",
+"keyfob": "res://docs/dialogic/keyfob.dtl",
+"liquorstorefinished": "res://docs/dialogic/liquorstorefinished.dtl",
 "opening": "res://docs/dialogic/opening.dtl",
-"test_timeline": "res://docs/dialogic/test_timeline.dtl"
+"supermarketfinished": "res://docs/dialogic/supermarketfinished.dtl",
+"test_timeline": "res://docs/dialogic/test_timeline.dtl",
+"tires": "res://docs/dialogic/tires.dtl"
 }
 layout/style_directory={
 "DialogueStyle": "res://DialogueStyle.tres"

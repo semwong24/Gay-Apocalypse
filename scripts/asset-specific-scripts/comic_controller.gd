@@ -5,11 +5,35 @@ var current_comic = ""
 var current_page = -1
 var current_panel = -1
 @export var panelscale:float
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	#load_comic("intro_comic")
-	#load_page_full("intro_comic",0)
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+	
+func _on_dialogue_ended():
+	var viewport_size = get_viewport().get_visible_rect().size
+	
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100
+	add_child(canvas_layer)
+	
+	var label = Label.new()
+	label.text = "Find Flashlight"
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
+	label.add_theme_font_size_override("font_size", 24)
+	label.add_theme_color_override("font_color", Color(0.704, 0.704, 0.704, 1.0))
+	label.add_theme_color_override("font_outline_color", Color.BLACK)
+	label.add_theme_constant_override("outline_size", 2)
+	label.position = Vector2(0, viewport_size.y - 150)
+	label.size = Vector2(viewport_size.x, 100)
+	canvas_layer.add_child(label)
+	
+	var timer = Timer.new()
+	timer.one_shot = true
+	timer.timeout.connect(func(): canvas_layer.queue_free())
+	canvas_layer.add_child(timer)
+	timer.start(10.0)
 
 func _on_dialogic_signal(argument:Dictionary):
 	if argument["purpose"] == "start":
@@ -23,6 +47,7 @@ func _on_dialogic_signal(argument:Dictionary):
 		return
 	if argument["purpose"] == "load_curr_panel":
 		load_panel(current_panel)
+
 func load_comic(name:String):
 	if name in comics.keys():
 		return comics[name]
@@ -46,16 +71,18 @@ func load_comic(name:String):
 		comic.append(page_panels)
 	comics[name] = comic
 	return comic
-	
+
 func load_page_full(comic_name:String,page:int):
 	current_comic = comic_name
 	current_page = page
 	for panel in comics[comic_name][page]:
 		panel.visible = true
+
 func sync_dialogic():
 	Dialogic.VAR.set_variable("panel",current_panel)
 	Dialogic.VAR.set_variable("page",current_page)
 	Dialogic.VAR.set_variable("comic",current_comic)
+
 func start_comic(comic_name:String = ""):
 	GameState.comic_playing = true
 	self.visible = true
@@ -64,7 +91,7 @@ func start_comic(comic_name:String = ""):
 	if current_page < 0:
 		current_page = 0
 		current_panel = 0
-	
+
 func next_panel():
 	if current_panel+1 < len(comics[current_comic][current_page]):
 		current_panel = current_panel + 1
@@ -83,21 +110,22 @@ func next_panel():
 	current_panel = -1
 	sync_dialogic()
 	self.visible = false
-	if current_page == -1:  
+	if current_page == -1:
 		GameState.comic_playing = false
 	return {}
-		
-	current_page = current_page +1	
+
+	current_page = current_page +1
+
 func load_panel(panel:int):
 	assert (comics[current_comic])
 	comics[current_comic][current_page][panel].visible = true
 	current_panel = panel
 	sync_dialogic()
-	
+
 func unload_page():
 	for panel in comics[current_comic][current_page]:
 		panel.visible = false
-	
+
 func advance_page():
 	assert(current_comic.length() > 0)
 	unload_page()
@@ -106,6 +134,6 @@ func advance_page():
 		current_page = -1
 		return
 	load_page_full(current_comic,current_page)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	pass
