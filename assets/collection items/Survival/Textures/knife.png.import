@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://beq1huaigq7qo"
-path.s3tc="res://.godot/imported/knife.png-1ba0f7705054d7e2c575fd0f9929ab2a.s3tc.ctex"
+path.s3tc="res://.godot/imported/knife.png-d456f95181e6ea390ae14c9fb7a449f9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/collection items/Survival/textures/knife.png"
-dest_files=["res://.godot/imported/knife.png-1ba0f7705054d7e2c575fd0f9929ab2a.s3tc.ctex"]
+source_file="res://assets/collection items/Survival/Textures/knife.png"
+dest_files=["res://.godot/imported/knife.png-d456f95181e6ea390ae14c9fb7a449f9.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdwgaho8t4pog"
-path.s3tc="res://.godot/imported/Torch.png-ab0eb8250e43f2327501509d71df1213.s3tc.ctex"
+path.s3tc="res://.godot/imported/Torch.png-5c88690cb87fef502ab1287cb55b9745.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/collection items/Survival/textures/Torch.png"
-dest_files=["res://.godot/imported/Torch.png-ab0eb8250e43f2327501509d71df1213.s3tc.ctex"]
+source_file="res://assets/collection items/Survival/Textures/Torch.png"
+dest_files=["res://.godot/imported/Torch.png-5c88690cb87fef502ab1287cb55b9745.s3tc.ctex"]
 
 [params]
 

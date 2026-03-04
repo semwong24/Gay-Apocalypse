@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgye1mug76al4"
-path.s3tc="res://.godot/imported/hunting_rifle.png-5fcc3b1ce93a3e708f5f26bd12bba715.s3tc.ctex"
+path.s3tc="res://.godot/imported/hunting_rifle.png-bca4a641f4bb23a11386c5ef932d46b5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/collection items/Survival/textures/hunting_rifle.png"
-dest_files=["res://.godot/imported/hunting_rifle.png-5fcc3b1ce93a3e708f5f26bd12bba715.s3tc.ctex"]
+source_file="res://assets/collection items/Survival/Textures/hunting_rifle.png"
+dest_files=["res://.godot/imported/hunting_rifle.png-bca4a641f4bb23a11386c5ef932d46b5.s3tc.ctex"]
 
 [params]
 

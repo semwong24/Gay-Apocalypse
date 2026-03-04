@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cm3ydvew37asd"
-path.s3tc="res://.godot/imported/Shelter_tent.png-6524bc9a30c25d7bf1d007137b80b79e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Shelter_tent.png-228c567878f234583c5b7a13fb62757a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/collection items/Survival/textures/Shelter_tent.png"
-dest_files=["res://.godot/imported/Shelter_tent.png-6524bc9a30c25d7bf1d007137b80b79e.s3tc.ctex"]
+source_file="res://assets/collection items/Survival/Textures/Shelter_tent.png"
+dest_files=["res://.godot/imported/Shelter_tent.png-228c567878f234583c5b7a13fb62757a.s3tc.ctex"]
 
 [params]
 

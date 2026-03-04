@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjrb2tf0evtii"
-path.s3tc="res://.godot/imported/farol.png-53d8f9b13132c9db6ef0ff300d510b15.s3tc.ctex"
+path.s3tc="res://.godot/imported/farol.png-c7b11966080c2489ab41ed8eac553ed1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/collection items/Survival/textures/farol.png"
-dest_files=["res://.godot/imported/farol.png-53d8f9b13132c9db6ef0ff300d510b15.s3tc.ctex"]
+source_file="res://assets/collection items/Survival/Textures/farol.png"
+dest_files=["res://.godot/imported/farol.png-c7b11966080c2489ab41ed8eac553ed1.s3tc.ctex"]
 
 [params]
 
