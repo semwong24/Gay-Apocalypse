@@ -43,6 +43,10 @@ func is_quest_active(title: String) -> bool:
 func is_quest_complete(title: String) -> bool:
 	return title in completed_quests
 
+func hide_quest_ui():
+	if quest_ui:
+		quest_ui.visible = false
+
 func queue_next_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = []):
 	next_quest_data = {
 		"title": title,
@@ -72,6 +76,8 @@ func start_custom_quest(title: String, objectives: Array, keys: Array, complete_
 		current_quest_optional_objectives.append({"text": optional_objectives[i], "complete": false, "key": key})
 	if not quest_ui:
 		await _build_ui()
+	else:
+		quest_ui.visible = true
 	_update_ui()
 	quest_started.emit(title)
 
@@ -99,7 +105,6 @@ func _check_all_complete():
 	for objective in current_quest_objectives:
 		if not objective["complete"]:
 			return
-	
 	if quest_complete:
 		return
 	quest_complete = true
@@ -158,7 +163,7 @@ func _build_ui():
 	await get_tree().process_frame
 
 	quest_ui = CanvasLayer.new()
-	quest_ui.layer = 99
+	quest_ui.layer = 50
 	get_tree().root.add_child(quest_ui)
 
 	quest_container = QuestDisplay.new()
@@ -169,5 +174,7 @@ func _build_ui():
 
 func _update_ui():
 	if not quest_container:
+		return
+	if Dialogic.current_timeline != null:
 		return
 	quest_container.set_objectives(current_quest_title, current_quest_objectives, current_optional_title, current_quest_optional_objectives)

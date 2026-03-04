@@ -45,6 +45,12 @@ signal interacted(body)
 @export var dialogue_timeline = ""
 @export var dialogue_duration = 0.0
 
+@export_group("Scene Change")
+@export var changes_scene = false
+@export var target_scene: String = ""
+
+var is_interacting = false
+
 func _ready():
 	interacted.connect(_on_interacted)
 
@@ -80,19 +86,26 @@ func has_all_required_items() -> bool:
 	return true
 
 func interact(body):
+	if is_interacting:
+		return
+	is_interacting = true
+
 	if requires_dialogue_finished:
 		var dialogue_finished = Dialogic.VAR.get(required_dialogue_name) if Dialogic.VAR.has(required_dialogue_name) else false
 		if not dialogue_finished:
 			print("Need to finish dialogue: ", required_dialogue_name)
+			is_interacting = false
 			return
 
 	if requires_quest_complete and required_quest_title != "":
 		if not QuestManager.is_quest_complete(required_quest_title):
 			print("Quest not complete yet: ", required_quest_title)
+			is_interacting = false
 			return
 
 	if requires_items and not has_all_required_items():
 		print("Need items: ", required_item_names)
+		is_interacting = false
 		return
 
 	if disappears_on_pickup:
@@ -114,6 +127,12 @@ func interact(body):
 	if teleports_player:
 		teleport_player(body)
 		await get_tree().process_frame
+
+	if changes_scene and target_scene != "":
+		QuestManager.hide_quest_ui()
+		SceneTransition.fade_to_scene(target_scene)
+		is_interacting = false
+		return
 
 	if starts_quest:
 		if auto_start_on_quest_complete:
@@ -140,6 +159,8 @@ func interact(body):
 			)
 
 	if plays_dialogue and dialogue_timeline != "":
+		await get_tree().process_frame
+		await get_tree().process_frame
 		if plays_dialogue_on_quest_start:
 			if not QuestManager.is_quest_active(quest_title):
 				await QuestManager.quest_started
@@ -150,6 +171,8 @@ func interact(body):
 		Dialogic.end_timeline()
 
 	interacted.emit(body)
+	await get_tree().process_frame
+	is_interacting = false
 
 func teleport_player(body):
 	if body.is_in_group("player") or body.has_method("teleport"):

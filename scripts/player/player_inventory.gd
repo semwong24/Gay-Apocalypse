@@ -13,6 +13,10 @@ var has_flare = false
 var has_backpack = false
 var has_soda = false
 var has_matchbox = false
+var has_keyfob = false
+var has_gas = false
+var has_carbattery = false
+var has_tires = false
 
 func pickup_item(item_name: String):
 	match item_name:
@@ -42,6 +46,14 @@ func pickup_item(item_name: String):
 			has_soda = true
 		"matchbox":
 			has_matchbox = true
+		"keyfob":
+			has_keyfob = true
+		"gas":
+			has_gas = true
+		"carbattery":
+			has_carbattery = true
+		"tires":
+			has_tires = true
 
 func has_item(item_name: String) -> bool:
 	match item_name:
@@ -71,5 +83,13 @@ func has_item(item_name: String) -> bool:
 			return has_soda
 		"matchbox":
 			return has_matchbox
+		"keyfob":
+			return has_keyfob
+		"gas":
+			return has_gas
+		"carbattery":
+			return has_carbattery
+		"tires":
+			return has_tires
 		_:
 			return false

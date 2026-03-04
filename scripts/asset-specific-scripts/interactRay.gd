@@ -41,6 +41,10 @@ func _physics_process(_delta):
 	if is_colliding():
 		var collider = get_collider()
 		
+		if is_dialogue_active:
+			prompt.text = ""
+			return
+		
 		if collider.has_method("interact") and collider.visible:
 			prompt.text = collider.get_prompt()
 			

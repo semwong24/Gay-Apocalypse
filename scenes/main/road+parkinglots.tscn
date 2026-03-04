@@ -1,7 +1,8 @@
-[gd_scene load_steps=111 format=3 uid="uid://jbkmmkrlbjdf"]
+[gd_scene load_steps=114 format=3 uid="uid://jbkmmkrlbjdf"]
 
 [ext_resource type="Script" uid="uid://bcpg0weu2fnfd" path="res://scripts/asset-specific-scripts/mesh_merge_tool.gd" id="1_fbkcg"]
 [ext_resource type="Texture2D" uid="uid://iyikwc4ssabr" path="res://materials/concrete.jpg" id="1_nwn3e"]
+[ext_resource type="Texture2D" uid="uid://dtkm48bg02wgk" path="res://assets/vegetation/aerial_ground_rock_diff_4k.png" id="3_l135q"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aek33"]
 
@@ -259,8 +260,14 @@ points = PackedVector3Array(5, 0, 100, -5, 0, 100, 5, 0, -100, -5, 0, -100)
 albedo_color = Color(0.3787787, 0.28296208, 0.06610414, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vo5ug"]
+lightmap_size_hint = Vector2i(352, 52)
 material = SubResource("StandardMaterial3D_8ubgm")
+add_uv2 = true
 size = Vector2(70, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhsa5"]
+albedo_texture = ExtResource("3_l135q")
+uv1_scale = Vector3(7, 1, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3b1qf"]
 points = PackedVector3Array(-35, 0, -5, -35, 0, 5, 35, 0, -5, 35, 0, 5)
@@ -271,6 +278,10 @@ albedo_color = Color(0.38039216, 0.28235295, 0.06666667, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_6bt7j"]
 material = SubResource("StandardMaterial3D_ouil2")
 size = Vector2(100, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s11j4"]
+albedo_texture = ExtResource("3_l135q")
+uv1_scale = Vector3(7, 1, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aek33"]
 points = PackedVector3Array(-50, 0, -5, -50, 0, 5, 50, 0, -5, 50, 0, 5)
@@ -686,6 +697,7 @@ shape = SubResource("ConvexPolygonShape3D_wuxlm")
 transform = Transform3D(0.9788674, 0, 0.20449604, 0, 1, 0, -0.20449604, 0, 0.9788674, 20.414669, -0.00094795227, -302.05835)
 mesh = SubResource("PlaneMesh_vo5ug")
 skeleton = NodePath("../Road")
+surface_material_override/0 = SubResource("StandardMaterial3D_qhsa5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Dirt Path"]
 
@@ -696,6 +708,7 @@ shape = SubResource("ConvexPolygonShape3D_3b1qf")
 transform = Transform3D(0.91636276, 0, -0.40034902, 0, 1, 0, 0.40034902, 0, 0.91636276, -15.470036, -0.11634064, -447.72443)
 mesh = SubResource("PlaneMesh_6bt7j")
 skeleton = NodePath("../Road")
+surface_material_override/0 = SubResource("StandardMaterial3D_s11j4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/Dirt Path 2"]
 

@@ -83,6 +83,10 @@ func _input(event):
 	if event.is_action_pressed("skip_dialogue") and Dialogic.current_timeline != null:
 		Dialogic.VAR.set("opening_finished", true)
 		Dialogic.end_timeline()
+		await get_tree().process_frame
+		for child in get_tree().root.get_children():
+			if child is CanvasLayer and child.name.begins_with("Dialogic"):
+				child.visible = false
 			
 	if event.is_action_pressed("toggle_mouse"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
