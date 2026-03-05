@@ -1,9 +1,8 @@
 extends Control
 
 @onready var credits_page = $creditspage
-@onready var settings_page = $settingspage
 @onready var load_page = $loadfilepage
-@onready var all_pages = [credits_page, settings_page, load_page]
+@onready var all_pages = [credits_page, load_page]
 var confirm_canvas: CanvasLayer
 
 var click_to_continue_label: Label
@@ -63,7 +62,6 @@ func _show_overlay(image_path: String, mode: String):
 	overlay_texture_rect.texture = texture
 	overlay_texture_rect.visible = true
 	overlay_mode = mode
-	# Force fill viewport size on next frame
 	await get_tree().process_frame
 	var vp_size = get_viewport().get_visible_rect().size
 	overlay_texture_rect.position = Vector2.ZERO
@@ -108,9 +106,6 @@ func _on_newgamebutton_pressed():
 
 func _on_creditsbutton_pressed() -> void:
 	_show_overlay("res://assets/UI Assets/credits.png", "credits")
-
-func _on_settingsbutton_pressed() -> void:
-	_show_page(settings_page)
 
 func _on_loadfilebutton_pressed():
 	if SaveManager.has_save():
@@ -176,16 +171,15 @@ func _on_confirm_load():
 		var anim = player.get_node_or_null("Head/arms walkie talkie rig/AnimationPlayer")
 		if anim:
 			anim.play("speak down")
-			
-			
+
 		await get_tree().process_frame
 		await get_tree().process_frame
-	
+
 		for node in get_tree().get_nodes_in_group("interactable"):
 			if node.item_name != "" and PlayerInventory.has_item(node.item_name):
 				node.visible = false
 				node.process_mode = Node.PROCESS_MODE_DISABLED
-				
+
 		if PlayerInventory.has_flashlight:
 			var flashlight_node = get_tree().root.find_child("Flashlight", true, false)
 			if flashlight_node:
@@ -206,7 +200,6 @@ func _close_load_confirmation():
 	if confirm_canvas:
 		confirm_canvas.queue_free()
 		confirm_canvas = null
-
 
 func _show_page(target_page):
 	for page in all_pages:
