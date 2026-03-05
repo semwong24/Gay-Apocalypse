@@ -34,9 +34,11 @@ var flashlight_on = false
 var is_sprinting = false
 
 var floor_raycast: RayCast3D
+var terrain_check_raycast: RayCast3D
 
 var last_floor_type = ""
-var floor_type_timer = 0.0
+var floor_type_counter = 0
+var pending_floor_type = ""
 
 var is_in_outdoor_area = false
 
@@ -50,13 +52,21 @@ func _ready():
 	floor_max_angle = deg_to_rad(60)
 	
 	floor_raycast = RayCast3D.new()
-	floor_raycast.target_position = Vector3(0, -10, 0)
+	floor_raycast.target_position = Vector3(0, -1.05, 0)
 	floor_raycast.enabled = true
 	floor_raycast.collide_with_areas = true
 	floor_raycast.collide_with_bodies = true
 	floor_raycast.hit_from_inside = true
 	floor_raycast.set_collision_mask_value(1, true)
 	add_child(floor_raycast)
+
+	terrain_check_raycast = RayCast3D.new()
+	terrain_check_raycast.target_position = Vector3(0, -1.01, 0)
+	terrain_check_raycast.enabled = true
+	terrain_check_raycast.collide_with_areas = false
+	terrain_check_raycast.collide_with_bodies = true
+	terrain_check_raycast.set_collision_mask_value(1, true)
+	add_child(terrain_check_raycast)
 	
 	call_deferred("_connect_to_outdoor_area")
 
@@ -198,23 +208,36 @@ func handle_footsteps(delta):
 	
 	if is_moving:
 		var desired_pitch = 1.3 if is_sprinting else 1.0
-		var detected_floor = ""
-		
+		var new_floor = ""
+
 		if floor_raycast.is_colliding():
 			var collider = floor_raycast.get_collider()
-			if collider and collider.is_in_group("concrete_area"):
-				detected_floor = "concrete"
+			if terrain_check_raycast.is_colliding():
+				var body_collider = terrain_check_raycast.get_collider()
+				if body_collider and body_collider.get_class() == "Terrain3D":
+					new_floor = "terrain"
+				elif collider and collider.is_in_group("concrete_area"):
+					new_floor = "concrete"
+				elif collider and collider.is_in_group("indoor_area"):
+					new_floor = "indoor"
+				else:
+					new_floor = "terrain"
+			elif collider and collider.is_in_group("concrete_area"):
+				new_floor = "concrete"
 			elif collider and collider.is_in_group("indoor_area"):
-				detected_floor = "indoor"
-		
-		if detected_floor != "":
-			last_floor_type = detected_floor
-			floor_type_timer = 1.0
+				new_floor = "indoor"
+			else:
+				new_floor = "terrain"
+
+		# Only switch if same type detected for 10 consecutive frames
+		if new_floor == pending_floor_type:
+			floor_type_counter += 1
+			if floor_type_counter >= 10:
+				last_floor_type = new_floor
 		else:
-			floor_type_timer -= delta
-			if floor_type_timer <= 0:
-				last_floor_type = ""
-		
+			pending_floor_type = new_floor
+			floor_type_counter = 0
+
 		if last_floor_type == "concrete":
 			_play_footstep(footstep_player_concrete, desired_pitch)
 			_stop_footstep(footstep_player_indoor)
@@ -223,12 +246,10 @@ func handle_footsteps(delta):
 			_play_footstep(footstep_player_indoor, desired_pitch)
 			_stop_footstep(footstep_player_concrete)
 			_stop_footstep(footstep_player_terrain)
-		elif is_in_outdoor_area and floor_type_timer <= 0:
+		else:
 			_play_footstep(footstep_player_terrain, desired_pitch)
 			_stop_footstep(footstep_player_concrete)
 			_stop_footstep(footstep_player_indoor)
-		else:
-			_stop_all_footsteps()
 	else:
 		_stop_all_footsteps()
 		last_floor_type = ""
