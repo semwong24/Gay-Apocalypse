@@ -45,9 +45,14 @@ func _on_resume():
 	GameState.ui_open = false
 
 func _on_save_load():
-	print("Save/Load — not yet implemented.")
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		SaveManager.save_game(player)
+	else:
+		print("ERROR: Player not found.")
 
 func _on_quit_to_main():
 	is_paused = false
 	get_tree().paused = false
+	QuestManager.hide_quest_ui()
 	get_tree().reload_current_scene()

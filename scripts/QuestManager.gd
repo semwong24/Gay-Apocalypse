@@ -27,7 +27,7 @@ func _on_timeline_started():
 		last_timeline = Dialogic.current_timeline.resource_path
 
 func _on_timeline_ended():
-	if "opening" in last_timeline:
+	if last_timeline != "" and "opening" in last_timeline:
 		start_custom_quest(
 			"Objectives:",
 			["Find flashlight", "Grab hatchet"],
@@ -35,6 +35,12 @@ func _on_timeline_ended():
 			"Front door unlocked.",
 			3.0
 		)
+	# Clean up any lingering Dialogic layers
+	await get_tree().process_frame
+	await get_tree().process_frame
+	for child in get_tree().root.get_children():
+		if child is CanvasLayer and child.name.begins_with("Dialogic"):
+			child.queue_free()
 	last_timeline = ""
 
 func is_quest_active(title: String) -> bool:
@@ -111,6 +117,11 @@ func _check_all_complete():
 	active_quest_title = ""
 	completed_quests.append(current_quest_title)
 	quest_completed.emit()
+	
+	if current_quest_title != "Find parts to start the car:":
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			SaveManager.save_game(player)
 
 	if next_quest_data != null:
 		var data = next_quest_data

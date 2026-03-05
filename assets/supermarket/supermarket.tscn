@@ -1481,7 +1481,7 @@ shape = SubResource("BoxShape3D_uqlds")
 [node name="Survival" type="Node3D" parent="." index="45"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4363604, 0, -19.2875)
 
-[node name="SleepingBag" type="StaticBody3D" parent="Survival" index="0"]
+[node name="SleepingBag" type="StaticBody3D" parent="Survival" index="0" groups=["interactable"]]
 transform = Transform3D(-4.9990087, -4.3520627e-09, -0.09956373, 6.8432364e-15, 5, -2.1855699e-07, 0.09956373, -2.1851365e-07, -4.9990087, 1.4274669, 0.46272486, 16.085836)
 script = ExtResource("2_43cjk")
 prompt_message = "Sleeping Bag"
@@ -1507,7 +1507,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.020000521, -5.9327543e-16, -1.2514647e-09, 4.597017e-16, 0.02, -2.220446e-16, 1.2514647e-09, 4.1633363e-14, 0.020000521, 0.007691264, 0.0058251917, -0.002246201)
 shape = SubResource("BoxShape3D_wc58k")
 
-[node name="CannedFood1" type="StaticBody3D" parent="Survival" index="1"]
+[node name="CannedFood1" type="StaticBody3D" parent="Survival" index="1" groups=["interactable"]]
 transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -1.3684533, 0.45205122, 17.018848)
 script = ExtResource("2_43cjk")
 prompt_message = "Canned Food"
@@ -1533,7 +1533,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 1.110223e-16, 0, -1.110223e-16, 0.02, 0.001332432, -0.0022355318, 0.006551519)
 shape = SubResource("BoxShape3D_ggthe")
 
-[node name="Matchbox" type="StaticBody3D" parent="Survival" index="2"]
+[node name="Matchbox" type="StaticBody3D" parent="Survival" index="2" groups=["interactable"]]
 transform = Transform3D(1.4167043, -1.4117185, -6.170817e-08, 0, -8.742278e-08, 2, -1.4117185, -1.4167043, -6.192611e-08, -5.2966504, 0.42942765, 13.232294)
 script = ExtResource("2_43cjk")
 prompt_message = "Matchbox"
@@ -1559,7 +1559,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.013842869, -0.0144352075, -6.3098277e-10, 0.0144352075, 0.013842869, -2.69137e-10, 6.310107e-10, -2.6913669e-10, 0.02, 0.0057940483, -0.003850937, 0.015204474)
 shape = SubResource("BoxShape3D_mthht")
 
-[node name="Flare" type="StaticBody3D" parent="Survival" index="3"]
+[node name="Flare" type="StaticBody3D" parent="Survival" index="3" groups=["interactable"]]
 transform = Transform3D(3, 0, 0, 0, 2.9999695, 0.0135089895, 0, -0.0135089895, 2.9999695, 2.9448953, 0.43099773, 23.064013)
 script = ExtResource("2_43cjk")
 prompt_message = "Flare"
@@ -1584,7 +1584,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.02, 0, 0, 0, 0.020001438, -7.275958e-12, 0, 7.275958e-12, 0.020001438, 0.003983617, 0.0073909312, 0.0038735867)
 shape = SubResource("BoxShape3D_yefhy")
 
-[node name="Backpack" type="StaticBody3D" parent="Survival" index="4"]
+[node name="Backpack" type="StaticBody3D" parent="Survival" index="4" groups=["interactable"]]
 transform = Transform3D(1.5549241, 33.967346, 8.294676, -0.37930804, -8.285999, 34.00292, 34.963387, -1.6005197, -3.625718e-07, -7.234367, 0.14468427, 11.616789)
 script = ExtResource("2_43cjk")
 prompt_message = "Backpack"
@@ -1610,7 +1610,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.009999998, 1.7695129e-08, -3.8914094e-10, 2.910383e-11, 0.010000004, 4.8913723e-10, 8.039014e-12, 4.702892e-10, 0.01, -8.948147e-05, -0.00084849447, -0.000783395)
 shape = SubResource("BoxShape3D_8m2pq")
 
-[node name="Soda" type="StaticBody3D" parent="Survival" index="5"]
+[node name="Soda" type="StaticBody3D" parent="Survival" index="5" groups=["interactable"]]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, -5.2739544, 0.44703645, 25.063126)
 script = ExtResource("2_43cjk")
 prompt_message = "Soda"
@@ -1635,7 +1635,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.003215909, 0.0010197163, 0.011734009)
 shape = SubResource("BoxShape3D_7bqxw")
 
-[node name="Antiseptic" type="StaticBody3D" parent="Survival" index="6"]
+[node name="Antiseptic" type="StaticBody3D" parent="Survival" index="6" groups=["interactable"]]
 transform = Transform3D(-11.671464, -2.7887177, -1.2189867e-07, 1.1723825e-15, -5.245366e-07, 12, -2.7887177, 11.671464, 5.101759e-07, 5.533889, 0.61815363, 23.731432)
 script = ExtResource("2_43cjk")
 prompt_message = "Antiseptic"
@@ -1664,7 +1664,7 @@ shape = SubResource("BoxShape3D_e0m26")
 [node name="TrashAndDebrisPreview" type="Node3D" parent="." index="46"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0828457, 0, -29.753021)
 
-[node name="CannedFood2" type="StaticBody3D" parent="TrashAndDebrisPreview" index="0"]
+[node name="CannedFood2" type="StaticBody3D" parent="TrashAndDebrisPreview" index="0" groups=["interactable"]]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, -1.3113417e-08, 0, 1.3113417e-08, 0.3, 4.7806225, 0.45058274, 31.138401)
 script = ExtResource("2_43cjk")
 prompt_message = "Canned Food"
@@ -1775,7 +1775,7 @@ transform = Transform3D(0.12817894, -0.27123818, 1.1856197e-08, 0.27123818, 0.12
 mesh = SubResource("ArrayMesh_cj7s1")
 skeleton = NodePath("")
 
-[node name="CannedFood3" type="StaticBody3D" parent="TrashAndDebrisPreview" index="18"]
+[node name="CannedFood3" type="StaticBody3D" parent="TrashAndDebrisPreview" index="18" groups=["interactable"]]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, -1.3113417e-08, 0, 1.3113417e-08, 0.3, 0.8016149, 0.6048034, 25.648214)
 script = ExtResource("2_43cjk")
 prompt_message = "Canned Food"
@@ -1801,7 +1801,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 1.5063506e-12, 0, -1.5063506e-12, 0.99999976, 9.121982, 0.16335058, -2.3310099)
 shape = SubResource("BoxShape3D_so6pu")
 
-[node name="CannedFood4" type="StaticBody3D" parent="TrashAndDebrisPreview" index="19"]
+[node name="CannedFood4" type="StaticBody3D" parent="TrashAndDebrisPreview" index="19" groups=["interactable"]]
 transform = Transform3D(0.19772616, 1.3145204e-09, 0.030072723, 0, 0.2, -8.742278e-09, -0.030072723, 8.642885e-09, 0.19772616, 0.68395877, 0.43029445, 34.476677)
 script = ExtResource("2_43cjk")
 prompt_message = "Canned Food"
@@ -1827,7 +1827,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.9900555, -6.1489254e-09, -0.14067657, 6.1491763e-09, 0.99995, -4.3468162e-10, 0.14067657, -4.3320725e-10, 0.9900555, 8.968298, 0.16186666, -3.0823154)
 shape = SubResource("BoxShape3D_ib48l")
 
-[node name="Water" type="StaticBody3D" parent="TrashAndDebrisPreview" index="20"]
+[node name="Water" type="StaticBody3D" parent="TrashAndDebrisPreview" index="20" groups=["interactable"]]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, -8.742278e-09, 0, 8.742278e-09, 0.2, -3.9756703, 0.6440086, 36.03199)
 script = ExtResource("2_43cjk")
 prompt_message = "Water"

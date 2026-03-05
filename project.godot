@@ -28,6 +28,7 @@ DialogueScroll="*res://scripts/player/dialogue_scroll.gd"
 PickupMessageManager="*res://scripts/pickup_message_manager.gd"
 QuestManager="*res://scripts/QuestManager.gd"
 SceneTransition="*res://scripts/SceneTransition.gd"
+SaveManager="*res://scripts/SaveManager.gd"
 
 [debug]
 
@@ -133,6 +134,10 @@ project/assembly_name="Gay Apocalypse"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+
+[global_group]
+
+interactable=""
 
 [input]
 
