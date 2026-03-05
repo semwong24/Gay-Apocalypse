@@ -33,7 +33,7 @@ volume_db = 11.0
 
 [node name="FootstepPlayerIndoors" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_tyepa")
-volume_db = 6.0
+volume_db = -22.357
 max_polyphony = 4
 
 [node name="FootstepPlayerConcrete" type="AudioStreamPlayer3D" parent="."]

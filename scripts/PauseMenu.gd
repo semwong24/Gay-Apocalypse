@@ -23,6 +23,8 @@ func _input(event):
 	if event.is_action_pressed("menu"):
 		if is_instance_valid(main_menu) and main_menu.visible:
 			return
+		if GameState.comic_playing:
+			return
 		if is_paused:
 			_on_resume()
 		else:
