@@ -23,7 +23,9 @@ func _on_sprint_started():
 
 func _on_sprint_stopped():
 	if not currently_holding_radio:
-		play("speak down", -1, 100)
+		var anim_length = get_animation("speak down").length
+		play("speak down")
+		seek(anim_length * 0.7)
 			
 func _on_text_about_to_show(info: Dictionary):
 	var current_time = Time.get_ticks_msec() / 1000.0

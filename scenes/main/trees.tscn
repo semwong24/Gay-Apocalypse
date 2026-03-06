@@ -9034,3 +9034,45 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Object_73/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_fpt65")
+
+[node name="tree84" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.89582294, 0, 0.21965705, 0, 3.1877048, 0, -0.22904189, 0, -0.85911655, -641.2757, 10.222317, 86.692825)
+mesh = SubResource("ArrayMesh_nm4xm")
+skeleton = NodePath("")
+
+[node name="tree branch" type="MeshInstance3D" parent="tree84"]
+mesh = SubResource("ArrayMesh_63j1r")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tree84"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree84/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_52200")
+
+[node name="tree85" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.89582294, 0, 0.21965705, 0, 3.1877048, 0, -0.22904189, 0, -0.85911655, -665.1275, 10.222317, 54.6195)
+mesh = SubResource("ArrayMesh_nm4xm")
+skeleton = NodePath("")
+
+[node name="tree branch" type="MeshInstance3D" parent="tree85"]
+mesh = SubResource("ArrayMesh_63j1r")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tree85"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree85/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_52200")
+
+[node name="tree86" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.89582294, 0, 0.21965705, 0, 3.1877048, 0, -0.22904189, 0, -0.85911655, -670.425, 10.222317, 87.8863)
+mesh = SubResource("ArrayMesh_nm4xm")
+skeleton = NodePath("")
+
+[node name="tree branch" type="MeshInstance3D" parent="tree86"]
+mesh = SubResource("ArrayMesh_63j1r")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tree86"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree86/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_52200")
