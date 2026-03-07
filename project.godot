@@ -45,10 +45,21 @@ directories/dch_directory={
 "anon_rose": "res://anon_rose.dch"
 }
 directories/dtl_directory={
+"buildingtrust": "res://docs/dialogic/buildingtrust.dtl",
 "carbattery": "res://docs/dialogic/carbattery.dtl",
 "contrastingpersonalities": "res://docs/dialogic/contrastingpersonalities.dtl",
 "earlyongettingtoknow": "res://docs/dialogic/earlyongettingtoknow.dtl",
 "endofep": "res://docs/dialogic/endofep.dtl",
+"exchange10thenamebloom": "res://docs/dialogic/exchange10thenamebloom.dtl",
+"exchange1music": "res://docs/dialogic/exchange1music.dtl",
+"exchange2preapocalypselife": "res://docs/dialogic/exchange2preapocalypselife.dtl",
+"exchange3survivalhumor": "res://docs/dialogic/exchange3survivalhumor.dtl",
+"exchange4firstweek": "res://docs/dialogic/exchange4firstweek.dtl",
+"exchange5flirting": "res://docs/dialogic/exchange5flirting.dtl",
+"exchange6vulnerability": "res://docs/dialogic/exchange6vulnerability.dtl",
+"exchange7nighttimeambience": "res://docs/dialogic/exchange7nighttimeambience.dtl",
+"exchange8labcoarcallback": "res://docs/dialogic/exchange8labcoarcallback.dtl",
+"exchange9foodcravings": "res://docs/dialogic/exchange9foodcravings.dtl",
 "firstinfectioncase": "res://docs/dialogic/firstinfectioncase.dtl",
 "firstinfectioncases": "res://docs/dialogic/firstinfectioncases.dtl",
 "flashlightexplain": "res://docs/dialogic/flashlightexplain.dtl",
