@@ -46,14 +46,36 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "carbattery": "res://docs/dialogic/carbattery.dtl",
+"contrastingpersonalities": "res://docs/dialogic/contrastingpersonalities.dtl",
+"earlyongettingtoknow": "res://docs/dialogic/earlyongettingtoknow.dtl",
+"endofep": "res://docs/dialogic/endofep.dtl",
+"firstinfectioncase": "res://docs/dialogic/firstinfectioncase.dtl",
+"firstinfectioncases": "res://docs/dialogic/firstinfectioncases.dtl",
+"flashlightexplain": "res://docs/dialogic/flashlightexplain.dtl",
+"flashlightvsai": "res://docs/dialogic/flashlightvsai.dtl",
 "gas": "res://docs/dialogic/gas.dtl",
+"gasstationarrival": "res://docs/dialogic/gasstationarrival.dtl",
+"gasstationleadin": "res://docs/dialogic/gasstationleadin.dtl",
+"heightjoke": "res://docs/dialogic/heightjoke.dtl",
 "houseinteriorfinished": "res://docs/dialogic/houseinteriorfinished.dtl",
 "keyfob": "res://docs/dialogic/keyfob.dtl",
+"leavinghouse": "res://docs/dialogic/leavinghouse.dtl",
+"lightmovement": "res://docs/dialogic/lightmovement.dtl",
+"liquorstorechkpt1": "res://docs/dialogic/liquorstorechkpt1.dtl",
 "liquorstorefinished": "res://docs/dialogic/liquorstorefinished.dtl",
+"liquorstoretosupermrkt": "res://docs/dialogic/liquorstoretosupermrkt.dtl",
+"lostconnections": "res://docs/dialogic/lostconnections.dtl",
 "opening": "res://docs/dialogic/opening.dtl",
+"rosemaplogic": "res://docs/dialogic/rosemaplogic.dtl",
+"roseresearchbg": "res://docs/dialogic/roseresearchbg.dtl",
+"seeingthecity": "res://docs/dialogic/seeingthecity.dtl",
+"stealthprompt": "res://docs/dialogic/stealthprompt.dtl",
+"suburbconnection": "res://docs/dialogic/suburbconnection.dtl",
 "supermarketfinished": "res://docs/dialogic/supermarketfinished.dtl",
 "test_timeline": "res://docs/dialogic/test_timeline.dtl",
-"tires": "res://docs/dialogic/tires.dtl"
+"tires": "res://docs/dialogic/tires.dtl",
+"towardliquorstore": "res://docs/dialogic/towardliquorstore.dtl",
+"virusnamedrop": "res://docs/dialogic/virusnamedrop.dtl"
 }
 layout/style_directory={
 "DialogueStyle": "res://DialogueStyle.tres"
