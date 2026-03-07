@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://v2ialfvgbe1s"]
+[gd_scene load_steps=7 format=3 uid="uid://v2ialfvgbe1s"]
 
 [ext_resource type="Script" uid="uid://7s5p5gdaass8" path="res://scripts/enemy/ai/zombie_ai.gd" id="1_bjack"]
 [ext_resource type="Material" uid="uid://fkhkir6t1hml" path="res://demo/assets/materials/M_crystal_blue.tres" id="2_28wsj"]
@@ -9,6 +9,9 @@ material = ExtResource("2_28wsj")
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y6qv5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjack"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_28wsj"]
+size = Vector3(1, 2, 1)
 
 [node name="Zombie" type="CharacterBody3D"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -38,3 +41,10 @@ shape = SubResource("CapsuleShape3D_bjack")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.15
 path_max_distance = 14.01
+
+[node name="hitbox" type="Area3D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.092687, 0)
+shape = SubResource("BoxShape3D_28wsj")

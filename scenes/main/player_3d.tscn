@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=19 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
@@ -24,6 +24,9 @@ points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4
 cell_size = 3.0
 agent_max_climb = 5.0
 agent_max_slope = 90.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0lje7"]
+size = Vector3(1, 2, 1)
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("cam", "flashlight")]
 script = ExtResource("1_nohna")
@@ -54,6 +57,7 @@ mesh = SubResource("CapsuleMesh_jkn4j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("ConvexPolygonShape3D_sibu1")
+debug_color = Color(0.85936475, 0.8625945, 0.89294976, 0.41960785)
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0233057, 0)
@@ -119,5 +123,16 @@ volume_db = 6.0
 script = ExtResource("14_0lje7")
 template = SubResource("NavigationMesh_v0m78")
 player = NodePath("..")
+
+[node name="hitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_0lje7")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 
 [editable path="Head/arms walkie talkie rig"]
