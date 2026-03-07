@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4v4p6umgb8vg"
+path="res://.godot/imported/jessie_intro_choice3_option2_8.ogg-64dd3988857f111b8ec209c4ade9d1e2.oggvorbisstr"
+
+[deps]
+
+source_file="res://VOICE/Jessie Voicelines/Opening/f - CHOICE 3/jessie_intro_choice3_option2_8.ogg"
+dest_files=["res://.godot/imported/jessie_intro_choice3_option2_8.ogg-64dd3988857f111b8ec209c4ade9d1e2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
