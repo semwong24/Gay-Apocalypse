@@ -88,6 +88,8 @@ func _input(event):
 	
 	# Only process mouse look when cursor is captured
 	if event is InputEventMouseMotion:
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			return
 			
 		rotate_y(-event.relative.x * mouse_sensitivity / 100.0)
 		$Head.rotate_x(-event.relative.y * mouse_sensitivity / 100.0)
@@ -142,7 +144,7 @@ func _physics_process(delta):
 		direction += transform.basis.x
 	
 	if not is_on_floor():
-		velocity.y = 0#velocity.y -= gravity * delta
+		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
 		
