@@ -45,11 +45,14 @@ directories/dch_directory={
 "anon_rose": "res://anon_rose.dch"
 }
 directories/dtl_directory={
+"bloomstages": "res://docs/dialogic/bloomstages.dtl",
 "buildingtrust": "res://docs/dialogic/buildingtrust.dtl",
 "carbattery": "res://docs/dialogic/carbattery.dtl",
+"centerofcityissafe": "res://docs/dialogic/centerofcityissafe.dtl",
 "contrastingpersonalities": "res://docs/dialogic/contrastingpersonalities.dtl",
 "earlyongettingtoknow": "res://docs/dialogic/earlyongettingtoknow.dtl",
 "endofep": "res://docs/dialogic/endofep.dtl",
+"evacuationnowork": "res://docs/dialogic/evacuationnowork.dtl",
 "exchange10thenamebloom": "res://docs/dialogic/exchange10thenamebloom.dtl",
 "exchange1music": "res://docs/dialogic/exchange1music.dtl",
 "exchange2preapocalypselife": "res://docs/dialogic/exchange2preapocalypselife.dtl",
@@ -69,6 +72,10 @@ directories/dtl_directory={
 "gasstationleadin": "res://docs/dialogic/gasstationleadin.dtl",
 "heightjoke": "res://docs/dialogic/heightjoke.dtl",
 "houseinteriorfinished": "res://docs/dialogic/houseinteriorfinished.dtl",
+"howinfectinspread": "res://docs/dialogic/howinfectinspread.dtl",
+"infecteddontdie": "res://docs/dialogic/infecteddontdie.dtl",
+"jessefirefightertraining": "res://docs/dialogic/jessefirefightertraining.dtl",
+"jessieneighborhood": "res://docs/dialogic/jessieneighborhood.dtl",
 "keyfob": "res://docs/dialogic/keyfob.dtl",
 "leavinghouse": "res://docs/dialogic/leavinghouse.dtl",
 "lightmovement": "res://docs/dialogic/lightmovement.dtl",
@@ -76,17 +83,26 @@ directories/dtl_directory={
 "liquorstorefinished": "res://docs/dialogic/liquorstorefinished.dtl",
 "liquorstoretosupermrkt": "res://docs/dialogic/liquorstoretosupermrkt.dtl",
 "lostconnections": "res://docs/dialogic/lostconnections.dtl",
+"nighttravelsafer": "res://docs/dialogic/nighttravelsafer.dtl",
+"noonesawitcoming": "res://docs/dialogic/noonesawitcoming.dtl",
 "opening": "res://docs/dialogic/opening.dtl",
+"rosealmostleft": "res://docs/dialogic/rosealmostleft.dtl",
 "rosemaplogic": "res://docs/dialogic/rosemaplogic.dtl",
 "roseresearchbg": "res://docs/dialogic/roseresearchbg.dtl",
+"roseuniveristylab": "res://docs/dialogic/roseuniveristylab.dtl",
 "seeingthecity": "res://docs/dialogic/seeingthecity.dtl",
+"smellofinfected": "res://docs/dialogic/smellofinfected.dtl",
 "stealthprompt": "res://docs/dialogic/stealthprompt.dtl",
 "suburbconnection": "res://docs/dialogic/suburbconnection.dtl",
 "supermarketfinished": "res://docs/dialogic/supermarketfinished.dtl",
 "test_timeline": "res://docs/dialogic/test_timeline.dtl",
+"timelinevague": "res://docs/dialogic/timelinevague.dtl",
 "tires": "res://docs/dialogic/tires.dtl",
 "towardliquorstore": "res://docs/dialogic/towardliquorstore.dtl",
-"virusnamedrop": "res://docs/dialogic/virusnamedrop.dtl"
+"virusnamedrop": "res://docs/dialogic/virusnamedrop.dtl",
+"wahtrosemisses": "res://docs/dialogic/wahtrosemisses.dtl",
+"waterproblem": "res://docs/dialogic/waterproblem.dtl",
+"whymilitaryfailed": "res://docs/dialogic/whymilitaryfailed.dtl"
 }
 layout/style_directory={
 "DialogueStyle": "res://DialogueStyle.tres"
