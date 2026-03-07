@@ -13,7 +13,6 @@ material = ExtResource("2_28wsj")
 [node name="Zombie" type="CharacterBody3D"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_bjack")
-player_dist_max = 50.0
 
 [node name="Place Model Here" type="Node3D" parent="."]
 
