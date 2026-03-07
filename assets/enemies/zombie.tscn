@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://v2ialfvgbe1s"]
+[gd_scene load_steps=6 format=3 uid="uid://v2ialfvgbe1s"]
 
-[ext_resource type="Script" uid="uid://7s5p5gdaass8" path="res://assets/enemies/zombie_ai.gd" id="1_bjack"]
+[ext_resource type="Script" uid="uid://7s5p5gdaass8" path="res://scripts/enemy/ai/zombie_ai.gd" id="1_bjack"]
+[ext_resource type="Material" uid="uid://fkhkir6t1hml" path="res://demo/assets/materials/M_crystal_blue.tres" id="2_28wsj"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_y6qv5"]
+material = ExtResource("2_28wsj")
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y6qv5"]
 
@@ -11,6 +13,7 @@
 [node name="Zombie" type="CharacterBody3D"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_bjack")
+player_dist_max = 50.0
 
 [node name="Place Model Here" type="Node3D" parent="."]
 
