@@ -32,8 +32,9 @@ func spawn_zombie():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if len(zombies) < 3:
-		spawn_zombie()
+	pass
+	#if len(zombies) < 3:
+		#spawn_zombie()
 
 
 func _on_player_3d_player_death() -> void:
