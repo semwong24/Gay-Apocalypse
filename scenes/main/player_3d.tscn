@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=20 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://8k48nhvkmgmc" path="res://assets/sfx/ambient_wind_noise.mp3" id="11_lif8p"]
 [ext_resource type="AudioStream" uid="uid://gtib5po5v7hw" path="res://assets/sfx/cricket_ambient.ogg" id="12_lif8p"]
 [ext_resource type="Script" uid="uid://b0dxs7t236lpg" path="res://scripts/player/runtime_bake.gd" id="14_0lje7"]
+[ext_resource type="Texture2D" uid="uid://baltplqyg6kqp" path="res://assets/tire/tire_vw logo alpha.jpg" id="15_v0m78"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -132,6 +133,12 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_0lje7")
+
+[node name="deathshow" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.56152344, 0.3154297)
+texture = ExtResource("15_v0m78")
+centered = false
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 
