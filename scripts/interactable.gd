@@ -50,9 +50,14 @@ signal interacted(body)
 @export var target_scene: String = ""
 
 var is_interacting = false
+var interior_env_resource: Environment
 
 func _ready():
 	interacted.connect(_on_interacted)
+	# Save the interior environment resource at startup
+	var interior_world_env = get_tree().get_first_node_in_group("interior_world_env")
+	if interior_world_env:
+		interior_env_resource = interior_world_env.environment
 
 func get_prompt():
 	if requires_dialogue_finished:
@@ -178,6 +183,13 @@ func teleport_player(body):
 	if body.is_in_group("player") or body.has_method("teleport"):
 		var destination = teleport_marker.global_position if teleport_marker else teleport_position
 		body.global_position = destination
+
+		# Swap environments when teleporting to overworld
+		var interior_we = get_tree().get_first_node_in_group("interior_world_env")
+		var overworld_we = get_tree().get_first_node_in_group("overworld_world_env")
+		if interior_we and overworld_we:
+			interior_we.environment = null
+			overworld_we.environment = interior_env_resource
 
 func _on_interacted(_body):
 	if item_name == "doorknob":
