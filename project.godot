@@ -139,6 +139,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/terr
 
 interactable=""
 concrete_area=""
+player=""
 
 [input]
 
