@@ -12,6 +12,7 @@ var origin: Vector3
 var rng = RandomNumberGenerator.new()
 var randomtick = 0
 var randompick = 0
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	player = get_node(player_path)
 	origin = self.global_position
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y -= gravity * delta
 	var next_nav_point = nav_agent.get_next_path_position()
 	velocity = (next_nav_point - global_transform.origin).normalized()*spd
 	if false:
