@@ -4,6 +4,7 @@ var player = null
 @export var player_path : NodePath
 @onready var nav_agent = $NavigationAgent3D
 @onready var audio_player = $groaner
+@onready var anim = $"zomb walk/AnimationPlayer"
 @export var player_dist_max := 50
 @export_group("zombie traits")
 @export var origin_dist_max := 20
@@ -14,6 +15,7 @@ var rng = RandomNumberGenerator.new()
 var randomtick = 0
 var randompick = 0
 var sureok = false
+var walkanimfin = false
 var sounds = []
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
@@ -24,6 +26,7 @@ func _ready():
 	sounds.append(preload("res://assets/sfx/adjustedvolume/zombie-groan-2.wav"))
 	audio_player.stream=sounds.front()
 	audio_player.play()
+	anim.play("walk")
 
 func _physics_process(delta: float) -> void:
 	randomtick += delta
@@ -59,6 +62,8 @@ func _physics_process(delta: float) -> void:
 
 	
 	move_and_slide()
+	look_at(global_position + velocity, Vector3.UP)
+	anim.speed_scale = spd/SPEED
 func randomize_sounds(s:Array) -> void:
 	s.shuffle()
 	audio_player.stream = sounds.front()
@@ -71,3 +76,10 @@ func _on_groaner_finished() -> void:
 	sureok = true
 	#randomize_sounds(sounds)
 	
+
+
+func _on_walk_animation_finished(anim_name: StringName) -> void:
+	walkanimfin = true
+	anim.play("walk")
+	walkanimfin = false
+	pass # Replace with function body.

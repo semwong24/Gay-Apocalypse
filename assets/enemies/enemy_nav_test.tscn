@@ -356,12 +356,35 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConcavePolygonShape3D_g4hrc")
 
 [node name="Zombie" parent="." instance=ExtResource("1_tvvyv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.9970503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.913853)
 player_path = NodePath("../CharacterBody3D")
 player_dist_max = 100
 
-[node name="MeshInstance3D" parent="Zombie/Place Model Here" index="0"]
-gi_lightmap_texel_scale = 1.115
+[node name="Skeleton3D" parent="Zombie/zomb walk/Armature_002" index="0"]
+bones/1/rotation = Quaternion(-0.055998094, 0.03206495, -0.037040345, 0.99722826)
+bones/2/rotation = Quaternion(0.19722186, 0.07405604, -0.06700801, 0.9752586)
+bones/3/rotation = Quaternion(0.25491428, 0.055754054, -0.08424093, 0.96167237)
+bones/4/rotation = Quaternion(0.0486257, 0.023583429, 0.007977331, 0.9985068)
+bones/5/rotation = Quaternion(0.1777588, 0.023031434, 0.009453397, 0.98375916)
+bones/6/rotation = Quaternion(0.37997925, 0.69040585, 0.43736643, -0.4332047)
+bones/7/rotation = Quaternion(-0.27863914, -0.60087776, -0.2859066, 0.69250536)
+bones/8/rotation = Quaternion(-0.07156646, -0.010698137, -0.124959044, 0.9895196)
+bones/9/rotation = Quaternion(0.0056524943, -0.061361063, 0.031246264, 0.9976105)
+bones/25/rotation = Quaternion(-0.523416, 0.5711423, 0.44601476, 0.448222)
+bones/26/rotation = Quaternion(-0.3466655, 0.57395726, 0.52872527, 0.5204284)
+bones/27/rotation = Quaternion(-0.06946603, 0.012889754, 0.1521442, 0.9858299)
+bones/28/rotation = Quaternion(-0.060843572, -0.029693192, 0.033385947, 0.9971468)
+bones/44/rotation = Quaternion(0.735127, 0.26960078, 0.5991666, 0.16704232)
+bones/45/rotation = Quaternion(0.073983476, -0.058805127, 0.5252085, 0.8457094)
+bones/46/rotation = Quaternion(0.0026664287, -0.12891614, -0.7028735, 0.6995301)
+bones/47/rotation = Quaternion(5.8036418e-05, -3.9597357e-08, -0.10877116, 0.99406683)
+bones/48/rotation = Quaternion(-0.7781174, 0.04836738, 0.6261939, -0.0086745275)
+bones/49/rotation = Quaternion(0.04013878, 0.09331745, -0.34762505, 0.9321146)
+bones/50/rotation = Quaternion(0.20187633, 0.18737878, 0.5609982, 0.78065115)
+bones/51/rotation = Quaternion(0.00010303633, 3.2761182e-07, 0.19293554, 0.9812114)
+
+[node name="head" parent="Zombie/zomb walk/Armature_002/Skeleton3D" index="0"]
+transform = Transform3D(0.89381355, 0.44477838, -0.057181843, -0.1762084, 0.23108885, -0.956843, -0.41236904, 0.8653151, 0.28492412, 0.10559237, 1.377135, 0.12093021)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_10fbw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.4541, 2.7703137, -83.9006)
@@ -374,6 +397,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0223446, -0.46729684, 0)
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2.0233057, 0)
 
 [editable path="Zombie"]
-[editable path="Zombie/gay zombie with armature"]
+[editable path="Zombie/zomb walk"]
 [editable path="CharacterBody3D"]
 [editable path="CharacterBody3D/Head/arms walkie talkie rig"]
