@@ -65,3 +65,15 @@ func _on_dialog_started():
 		return
 	last_speak_time = 0.0
 	currently_holding_radio = false
+
+
+func reset():
+	stop()
+	last_speak_time = 0.0
+	currently_holding_radio = false
+	if player:
+		player.rotation.y = 0.0
+		var head = player.get_node_or_null("Head")
+		if head:
+			head.rotation.x = 0.0
+			head.rotation.z = 0.0

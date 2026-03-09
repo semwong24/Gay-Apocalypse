@@ -3,15 +3,15 @@ extends Node
 signal quest_started(title)
 signal quest_completed
 
-var quest_ui: CanvasLayer
-var quest_container: QuestDisplay
+var quest_ui: CanvasLayer = null
+var quest_container: QuestDisplay = null
 var current_quest_objectives = []
 var current_quest_optional_objectives = []
 var on_complete_message = ""
 var on_complete_duration = 3.0
 var current_quest_title = ""
 var current_optional_title = ""
-var complete_message_canvas: CanvasLayer
+var complete_message_canvas: CanvasLayer = null
 var quest_complete = false
 var active_quest_title = ""
 var completed_quests: Array = []
@@ -19,9 +19,19 @@ var next_quest_data = null
 var current_complete_timeline: DialogicTimeline = null
 
 func _ready():
+	print("=== QuestManager _ready fired ===")
+	quest_ui = null
+	quest_container = null
+	complete_message_canvas = null
 	DialogueQueue.timeline_ended_for_opening.connect(_on_opening_finished)
 
 func _on_opening_finished():
+	print("=== _on_opening_finished FIRED ===")
+	print("is_new_game: ", GameState.is_new_game)
+	if not GameState.is_new_game:
+		print("Skipping — not a new game")
+		return
+	GameState.is_new_game = false
 	start_custom_quest(
 		"Objectives:",
 		["Find flashlight", "Grab hatchet"],
@@ -37,7 +47,7 @@ func is_quest_complete(title: String) -> bool:
 	return title in completed_quests
 
 func hide_quest_ui():
-	if quest_ui:
+	if quest_ui and is_instance_valid(quest_ui):
 		quest_ui.visible = false
 
 func queue_next_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = [], complete_timeline: DialogicTimeline = null):
@@ -54,6 +64,7 @@ func queue_next_quest(title: String, objectives: Array, keys: Array, complete_me
 	}
 
 func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = [], complete_timeline: DialogicTimeline = null):
+	print("=== start_custom_quest called: ", title, " ===")
 	current_quest_title = title
 	active_quest_title = title
 	current_quest_objectives = []
@@ -69,11 +80,11 @@ func start_custom_quest(title: String, objectives: Array, keys: Array, complete_
 	for i in range(optional_objectives.size()):
 		var key = optional_keys[i] if i < optional_keys.size() else ""
 		current_quest_optional_objectives.append({"text": optional_objectives[i], "complete": false, "key": key})
-	if not quest_ui:
+	if not quest_ui or not is_instance_valid(quest_ui):
 		await _build_ui()
 	else:
 		quest_ui.visible = true
-	_update_ui()
+		quest_container.set_objectives(current_quest_title, current_quest_objectives, current_optional_title, current_quest_optional_objectives)
 	quest_started.emit(title)
 
 func notify_item_collected(item_name: String):
@@ -92,7 +103,7 @@ func notify_item_collected(item_name: String):
 	_check_all_complete()
 
 func hide_complete_message():
-	if complete_message_canvas:
+	if complete_message_canvas and is_instance_valid(complete_message_canvas):
 		complete_message_canvas.queue_free()
 		complete_message_canvas = null
 
@@ -135,13 +146,11 @@ func _check_all_complete():
 		await get_tree().create_timer(3).timeout
 		if not quest_complete:
 			return
-
 		var viewport_size = get_viewport().get_visible_rect().size
 		var viewport = get_tree().root
 		complete_message_canvas = CanvasLayer.new()
 		complete_message_canvas.layer = 100
 		viewport.add_child(complete_message_canvas)
-
 		var label = Label.new()
 		label.text = on_complete_message
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -153,7 +162,6 @@ func _check_all_complete():
 		label.position = Vector2(0, viewport_size.y - 150)
 		label.size = Vector2(viewport_size.x, 100)
 		complete_message_canvas.add_child(label)
-
 		var timer = Timer.new()
 		timer.one_shot = true
 		timer.timeout.connect(func(): hide_complete_message())
@@ -161,24 +169,45 @@ func _check_all_complete():
 		timer.start(on_complete_duration)
 
 func _build_ui():
-	if quest_ui:
+	if quest_ui and is_instance_valid(quest_ui):
 		quest_ui.queue_free()
-
+	quest_ui = null
+	quest_container = null
 	await get_tree().process_frame
-
 	quest_ui = CanvasLayer.new()
 	quest_ui.layer = 50
 	get_tree().root.add_child(quest_ui)
-
 	quest_container = QuestDisplay.new()
 	quest_container.position = Vector2(20, 20)
 	quest_container.size = Vector2(300, 400)
 	quest_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	quest_ui.add_child(quest_container)
+	quest_container.set_objectives(current_quest_title, current_quest_objectives, current_optional_title, current_quest_optional_objectives)
 
 func _update_ui():
-	if not quest_container:
-		return
-	if Dialogic.current_timeline != null:
+	if not quest_container or not is_instance_valid(quest_container):
 		return
 	quest_container.set_objectives(current_quest_title, current_quest_objectives, current_optional_title, current_quest_optional_objectives)
+
+func reset():
+	print("=== QuestManager reset called ===")
+	if DialogueQueue.timeline_ended_for_opening.is_connected(_on_opening_finished):
+		DialogueQueue.timeline_ended_for_opening.disconnect(_on_opening_finished)
+	current_quest_objectives = []
+	current_quest_optional_objectives = []
+	on_complete_message = ""
+	on_complete_duration = 3.0
+	current_quest_title = ""
+	current_optional_title = ""
+	quest_complete = false
+	active_quest_title = ""
+	completed_quests = []
+	next_quest_data = null
+	current_complete_timeline = null
+	if quest_ui and is_instance_valid(quest_ui):
+		quest_ui.queue_free()
+	quest_ui = null
+	quest_container = null
+	if complete_message_canvas and is_instance_valid(complete_message_canvas):
+		complete_message_canvas.queue_free()
+	complete_message_canvas = null
