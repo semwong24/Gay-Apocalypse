@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://coykx8w6ol25f"]
+[gd_scene load_steps=21 format=3 uid="uid://coykx8w6ol25f"]
 
 [ext_resource type="Script" uid="uid://ekyfbhx4r3oo" path="res://scripts/player/new_player_controller.gd" id="1_nohna"]
 [ext_resource type="Script" uid="uid://btko8st28lvow" path="res://scripts/asset-specific-scripts/interactRay.gd" id="2_jkn4j"]
@@ -14,7 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://8k48nhvkmgmc" path="res://assets/sfx/ambient_wind_noise.mp3" id="11_lif8p"]
 [ext_resource type="AudioStream" uid="uid://gtib5po5v7hw" path="res://assets/sfx/cricket_ambient.ogg" id="12_lif8p"]
 [ext_resource type="Script" uid="uid://b0dxs7t236lpg" path="res://scripts/player/runtime_bake.gd" id="14_0lje7"]
-[ext_resource type="Texture2D" uid="uid://baltplqyg6kqp" path="res://assets/tire/tire_vw logo alpha.jpg" id="15_v0m78"]
+[ext_resource type="Texture2D" uid="uid://bjo0uf47ytqs7" path="res://assets/UI Assets/gameover.png" id="15_77bur"]
+[ext_resource type="Script" uid="uid://b33jb8g2bfu1w" path="res://scenes/main/deathshow.gd" id="16_77bur"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
 
@@ -134,11 +135,27 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_0lje7")
 
-[node name="deathshow" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.56152344, 0.3154297)
-texture = ExtResource("15_v0m78")
-centered = false
+[node name="deathshow" type="CanvasLayer" parent="."]
+scale = Vector2(0.29549998, 0.29333335)
+transform = Transform2D(0.29549998, 0, 0, 0.29333335, 0, 0)
+script = ExtResource("16_77bur")
+
+[node name="TextureRect" type="TextureRect" parent="deathshow"]
+offset_right = 4000.0
+offset_bottom = 2250.0
+texture = ExtResource("15_77bur")
+
+[node name="LoadButton" type="Button" parent="deathshow"]
+offset_left = 1671.7429
+offset_top = 1210.2273
+offset_right = 2324.873
+offset_bottom = 1302.2727
+
+[node name="QuitButton" type="Button" parent="deathshow"]
+offset_left = 1641.2861
+offset_top = 1309.0908
+offset_right = 2362.0981
+offset_bottom = 1401.1364
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 

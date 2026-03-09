@@ -11,7 +11,7 @@ var alive:=true
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
 
-@onready var deathscreen: Sprite2D = $deathshow
+@onready var deathscreen: CanvasLayer = $deathshow
 
 @export_group("Stamina")
 @export var max_stamina := 100.0
@@ -297,7 +297,7 @@ func _on_ok_button_pressed() -> void:
 func die():
 	print("player exploded unlucky")
 	set_process_input(false)
-	deathscreen.visible = true
+	deathscreen.show_death_screen()
 	player_death.emit()
 	
 func _on_hitbox_body_entered(body):

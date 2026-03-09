@@ -16,7 +16,6 @@ const MAX_NORMAL_QUEUE_SIZE = 1
 
 func add_area_dialogue(timeline: DialogicTimeline):
 	if timeline == null:
-		push_error("DialogueQueue: tried to queue a null area timeline")
 		return
 	if timeline.resource_path in completed_timelines:
 		print("Skipping already-completed timeline: ", timeline.resource_path)
@@ -42,7 +41,6 @@ func add_area_dialogue(timeline: DialogicTimeline):
 
 func add_quest_dialogue(timeline: DialogicTimeline):
 	if timeline == null:
-		push_error("DialogueQueue: tried to queue a null quest timeline")
 		return
 	priority_queue.push_front({"timeline": timeline, "interactable": false})
 	print("Quest dialogue queued. Priority queue size: ", priority_queue.size())
@@ -50,10 +48,8 @@ func add_quest_dialogue(timeline: DialogicTimeline):
 
 func add_interactable_dialogue(timeline: DialogicTimeline):
 	if timeline == null:
-		push_error("DialogueQueue: tried to queue a null interactable timeline")
 		return
 	priority_queue.push_front({"timeline": timeline, "interactable": true})
-	print("Interactable dialogue queued. Priority queue size: ", priority_queue.size())
 	_try_play_next()
 
 func skip_current():
@@ -76,7 +72,6 @@ func _try_play_next():
 		print("Playing quest/interactable dialogue")
 	elif not normal_queue.is_empty():
 		next_timeline = normal_queue.pop_front()
-		print("Playing area dialogue")
 	else:
 		print("Queue empty, nothing to play")
 		return
@@ -92,7 +87,6 @@ func _try_play_next():
 
 func _on_timeline_ended():
 	if not is_playing:
-		print("DialogueQueue: timeline_ended fired but we weren't playing, ignoring")
 		return
 	print("Timeline ended: ", current_timeline_path)
 	if current_timeline_path != "" and "opening" not in current_timeline_path:

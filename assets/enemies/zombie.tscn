@@ -18,6 +18,9 @@ size = Vector3(1.5, 2.5, 1.5)
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 collision_layer = 5
 script = ExtResource("1_bjack")
+player_dist_max = 20
+origin_dist_max = 10
+SPEED = 2.0
 
 [node name="gay zombie with armature" parent="." instance=ExtResource("2_k7rum")]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, -0.23540132, 0)

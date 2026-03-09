@@ -18,7 +18,7 @@ func _ready():
 		page.hide()
 	GameState.ui_open = true
 
-	var start_button = $subustart/newgamebutton
+	var start_button = $sbustart/newgamebutton
 	if is_instance_valid(start_button):
 		start_button.pressed.connect(_on_newgamebutton_pressed)
 	else:
@@ -96,7 +96,6 @@ func _on_newgamebutton_pressed():
 	GameState.is_new_game = true
 	print("is_new_game set to: ", GameState.is_new_game)
 
-	# Reconnect signal that reset() disconnected
 	if not DialogueQueue.timeline_ended_for_opening.is_connected(QuestManager._on_opening_finished):
 		DialogueQueue.timeline_ended_for_opening.connect(QuestManager._on_opening_finished)
 
@@ -152,7 +151,6 @@ func _show_load_confirmation():
 	hbox.add_child(cancel_btn)
 
 func _on_confirm_load():
-	print("=== LOAD FILE CONFIRMED ===")
 	GameState.is_new_game = false
 	_close_load_confirmation()
 	hide()
@@ -169,7 +167,7 @@ func _on_confirm_load():
 		await get_tree().process_frame
 		await get_tree().process_frame
 		for node in get_tree().get_nodes_in_group("interactable"):
-			if node.item_name != "" and PlayerInventory.has_item(node.item_name):
+			if node.item_name != "" and node.disappears_on_pickup and PlayerInventory.has_item(node.item_name):
 				node.visible = false
 				node.process_mode = Node.PROCESS_MODE_DISABLED
 		if PlayerInventory.has_flashlight:

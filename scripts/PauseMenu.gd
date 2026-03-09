@@ -107,6 +107,7 @@ func _on_resume():
 	is_paused = false
 	get_tree().paused = false
 	hide()
+	PickupMessageManager._hide_message()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GameState.ui_open = false
 

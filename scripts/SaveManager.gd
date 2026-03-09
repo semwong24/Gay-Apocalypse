@@ -4,7 +4,7 @@ const SAVE_PATH = "user://savegame.json"
 
 func save_game(player: CharacterBody3D):
 	if GameState.is_new_game:
-		print("Save blocked — new game not finished yet")
+		PickupMessageManager.show_message("[Wait for opening dialogue to finish.]", 3.0, 310)
 		return
 	if QuestManager.completed_quests.is_empty() and QuestManager.active_quest_title == "":
 		print("Save blocked — no quest state yet")
@@ -41,14 +41,22 @@ func save_game(player: CharacterBody3D):
 	data["dialogic_vars"] = {
 		"opening_finished": true
 	}
+
 	var timeline_to_save = ""
 	var current_path = DialogueQueue.current_timeline_path
 	if current_path != "" and "opening" not in current_path:
 		timeline_to_save = current_path
+
+	var completed_to_save = DialogueQueue.completed_timelines.duplicate()
+	var dropped_to_save = DialogueQueue.dropped_timelines.duplicate()
+	if DialogueQueue.current_timeline_path != "":
+		completed_to_save.erase(DialogueQueue.current_timeline_path)
+		dropped_to_save.erase(DialogueQueue.current_timeline_path)
+
 	data["dialogue"] = {
 		"current_timeline_path": timeline_to_save,
-		"completed_timelines": DialogueQueue.completed_timelines,
-		"dropped_timelines": DialogueQueue.dropped_timelines
+		"completed_timelines": completed_to_save,
+		"dropped_timelines": dropped_to_save
 	}
 	data["quest"] = {
 		"completed_quests": QuestManager.completed_quests,
@@ -94,6 +102,8 @@ func load_game(player: CharacterBody3D):
 		return false
 
 	Dialogic.VAR.set("opening_finished", true)
+	if Dialogic.current_timeline != null:
+		Dialogic.end_timeline()
 
 	var pos = data["player_position"]
 	player.global_position = Vector3(pos["x"], pos["y"], pos["z"])
@@ -128,12 +138,8 @@ func load_game(player: CharacterBody3D):
 	QuestManager.current_optional_title = quest["optional_title"]
 	QuestManager.on_complete_message = quest.get("on_complete_message", "")
 	QuestManager.on_complete_duration = quest.get("on_complete_duration", 3.0)
-	print("Quest state loaded - active: ", QuestManager.active_quest_title)
-	print("Quest current_quest_title: ", QuestManager.current_quest_title)
-	print("Quest completed_quests: ", QuestManager.completed_quests)
 
 	if QuestManager.current_quest_title != "":
-		print("Rebuilding quest UI for: ", QuestManager.current_quest_title)
 		await QuestManager._build_ui()
 
 	if data.has("dialogue"):
@@ -153,6 +159,9 @@ func load_game(player: CharacterBody3D):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), audio["master_volume"])
 
 	print("Game loaded.")
+	for area in get_tree().get_nodes_in_group("dialogue_area"):
+		if area.has_method("_on_load_reset"):
+			area._on_load_reset()
 	return true
 
 func has_save() -> bool:

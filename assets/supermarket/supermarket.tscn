@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=4 uid="uid://bery8p6q8hp8l"]
+[gd_scene load_steps=132 format=4 uid="uid://bery8p6q8hp8l"]
 
 [ext_resource type="PackedScene" uid="uid://dy1mal4j56i6" path="res://assets/supermarket/supermarket.glb" id="1_42p1p"]
 [ext_resource type="Script" uid="uid://sih6s1jsk7cj" path="res://scripts/interactable.gd" id="2_43cjk"]
@@ -40,7 +40,7 @@ size = Vector3(0.08203125, 2.366211, 8.170227)
 size = Vector3(6.211792, 2.3300781, 0.09020996)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_edmuk"]
-size = Vector3(0.09741211, 2.3442383, 11.041504)
+size = Vector3(0.09741211, 2.3442383, 6.877075)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwa03"]
 size = Vector3(17.813232, 2.3477173, 0.07324219)
@@ -56,6 +56,9 @@ size = Vector3(0.2401123, 2.28479, 1.1739502)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g12al"]
 size = Vector3(0.12780762, 2.3171387, 3.3466797)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j5snp"]
+size = Vector3(0.05883789, 2.283081, 3.3920898)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixm28"]
 size = Vector3(17.45732, 0.018066406, 22.625488)
@@ -1230,7 +1233,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.399666, -0.41284943, -2.97
 shape = SubResource("BoxShape3D_8uvq0")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="building/StaticBody3D2" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.507006, -0.41628456, 2.5098844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.507006, -0.41628456, 4.5920987)
 shape = SubResource("BoxShape3D_edmuk")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="building/StaticBody3D2" index="7"]
@@ -1252,6 +1255,10 @@ shape = SubResource("BoxShape3D_hvrch")
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="building/StaticBody3D2" index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.278621, -0.42370605, -9.483736)
 shape = SubResource("BoxShape3D_g12al")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="building/StaticBody3D2" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.488117, -0.42504442, -1.3003203)
+shape = SubResource("BoxShape3D_j5snp")
 
 [node name="concrete" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7489386, 0.058904152, -0.7736838)

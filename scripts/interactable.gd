@@ -104,6 +104,8 @@ func interact(body):
 
 	if requires_items and not has_all_required_items():
 		print("Need items: ", required_item_names)
+		for item in required_item_names:
+			print("has ", item, ": ", PlayerInventory.has_item(item))
 		is_interacting = false
 		return
 

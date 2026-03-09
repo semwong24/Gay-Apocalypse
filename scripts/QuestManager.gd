@@ -19,14 +19,12 @@ var next_quest_data = null
 var current_complete_timeline: DialogicTimeline = null
 
 func _ready():
-	print("=== QuestManager _ready fired ===")
 	quest_ui = null
 	quest_container = null
 	complete_message_canvas = null
 	DialogueQueue.timeline_ended_for_opening.connect(_on_opening_finished)
 
 func _on_opening_finished():
-	print("=== _on_opening_finished FIRED ===")
 	print("is_new_game: ", GameState.is_new_game)
 	if not GameState.is_new_game:
 		print("Skipping — not a new game")
@@ -64,7 +62,6 @@ func queue_next_quest(title: String, objectives: Array, keys: Array, complete_me
 	}
 
 func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = [], complete_timeline: DialogicTimeline = null):
-	print("=== start_custom_quest called: ", title, " ===")
 	current_quest_title = title
 	active_quest_title = title
 	current_quest_objectives = []
@@ -190,7 +187,6 @@ func _update_ui():
 	quest_container.set_objectives(current_quest_title, current_quest_objectives, current_optional_title, current_quest_optional_objectives)
 
 func reset():
-	print("=== QuestManager reset called ===")
 	if DialogueQueue.timeline_ended_for_opening.is_connected(_on_opening_finished):
 		DialogueQueue.timeline_ended_for_opening.disconnect(_on_opening_finished)
 	current_quest_objectives = []
