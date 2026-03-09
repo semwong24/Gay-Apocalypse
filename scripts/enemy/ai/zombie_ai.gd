@@ -9,7 +9,7 @@ var player = null
 @export_group("zombie traits")
 @export var origin_dist_max := 20
 var origin: Vector3
-@export var SPEED := 3.0
+@export var SPEED := 1.5
 @export var JUMP_VELOCITY := 4.5
 var rng = RandomNumberGenerator.new()
 var randomtick = 0
@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	look_at(global_position + velocity, Vector3.UP)
-	anim.speed_scale = spd/SPEED
+	anim.speed_scale = velocity.length()/SPEED
 func randomize_sounds(s:Array) -> void:
 	s.shuffle()
 	audio_player.stream = sounds.front()
