@@ -6,9 +6,12 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var cam: Camera3D
 @export var flashlight: SpotLight3D
+var alive:=true
 @export_group("headbob")
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
+
+@onready var deathscreen: Sprite2D = $deathshow
 
 @export_group("Stamina")
 @export var max_stamina := 100.0
@@ -22,6 +25,7 @@ var cooldown_timer := 0.0
 
 signal sprint_started
 signal sprint_stopped
+signal player_death
 
 @onready var footstep_player_indoor: AudioStreamPlayer3D = $FootstepPlayerIndoors
 @onready var footstep_player_concrete: AudioStreamPlayer3D = $FootstepPlayerConcrete
@@ -289,3 +293,12 @@ func _on_area_3d_area_entered(_area: Area3D) -> void:
 
 func _on_ok_button_pressed() -> void:
 	pass
+	
+func die():
+	print("player exploded unlucky")
+	set_process_input(false)
+	deathscreen.visible = true
+	player_death.emit()
+	
+func _on_hitbox_body_entered(body):
+	die()

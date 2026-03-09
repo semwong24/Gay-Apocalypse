@@ -1,18 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://v2ialfvgbe1s"]
+[gd_scene load_steps=8 format=3 uid="uid://v2ialfvgbe1s"]
 
-[ext_resource type="Script" uid="uid://7s5p5gdaass8" path="res://assets/enemies/zombie_ai.gd" id="1_bjack"]
+[ext_resource type="Script" uid="uid://vo5lo1mlpd5j" path="res://scripts/enemy/ai/zombie_ai.gd" id="1_bjack"]
+[ext_resource type="Material" uid="uid://fkhkir6t1hml" path="res://demo/assets/materials/M_crystal_blue.tres" id="2_28wsj"]
+[ext_resource type="PackedScene" uid="uid://dxfwgk8tk5juh" path="res://assets/enemies/model/gay zombie with armature.glb" id="2_k7rum"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_y6qv5"]
+material = ExtResource("2_28wsj")
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y6qv5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjack"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_28wsj"]
+size = Vector3(1.5, 2.5, 1.5)
+
 [node name="Zombie" type="CharacterBody3D"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+collision_layer = 5
 script = ExtResource("1_bjack")
 
+[node name="gay zombie with armature" parent="." instance=ExtResource("2_k7rum")]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, -0.23540132, 0)
+
 [node name="Place Model Here" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Place Model Here"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.97875047, 0)
@@ -30,9 +41,26 @@ tree_root = SubResource("AnimationNodeStateMachine_y6qv5")
 anim_player = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97875047, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7465213, 0)
 shape = SubResource("CapsuleShape3D_bjack")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.15
 path_max_distance = 14.01
+
+[node name="hitbox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6197927, 0)
+shape = SubResource("BoxShape3D_28wsj")
+
+[node name="groaner" type="AudioStreamPlayer3D" parent="."]
+volume_db = 21.052
+autoplay = true
+max_distance = 50.0
+
+[connection signal="finished" from="groaner" to="." method="_on_groaner_finished"]
+
+[editable path="gay zombie with armature"]

@@ -357,6 +357,8 @@ shape = SubResource("ConcavePolygonShape3D_g4hrc")
 
 [node name="Zombie" parent="." instance=ExtResource("1_tvvyv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.9970503)
+player_path = NodePath("../CharacterBody3D")
+player_dist_max = 100
 
 [node name="MeshInstance3D" parent="Zombie/Place Model Here" index="0"]
 gi_lightmap_texel_scale = 1.115
@@ -367,11 +369,11 @@ script = ExtResource("3_pneuf")
 
 [node name="CollisionShape3D" parent="CharacterBody3D" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0223446, -0.46729684, 0)
-debug_color = Color(0.85936475, 0.8625945, 0.89294976, 0.41960785)
 
 [node name="Head" parent="CharacterBody3D" index="5"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2.0233057, 0)
 
 [editable path="Zombie"]
+[editable path="Zombie/gay zombie with armature"]
 [editable path="CharacterBody3D"]
 [editable path="CharacterBody3D/Head/arms walkie talkie rig"]
