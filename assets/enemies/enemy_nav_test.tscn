@@ -358,6 +358,7 @@ shape = SubResource("ConcavePolygonShape3D_g4hrc")
 [node name="Zombie" parent="." instance=ExtResource("1_tvvyv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.9970503)
 player_path = NodePath("../CharacterBody3D")
+player_dist_max = 100
 
 [node name="MeshInstance3D" parent="Zombie/Place Model Here" index="0"]
 gi_lightmap_texel_scale = 1.115
