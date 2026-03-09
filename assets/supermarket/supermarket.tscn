@@ -1,9 +1,10 @@
-[gd_scene load_steps=130 format=4 uid="uid://bery8p6q8hp8l"]
+[gd_scene load_steps=131 format=4 uid="uid://bery8p6q8hp8l"]
 
 [ext_resource type="PackedScene" uid="uid://dy1mal4j56i6" path="res://assets/supermarket/supermarket.glb" id="1_42p1p"]
 [ext_resource type="Script" uid="uid://sih6s1jsk7cj" path="res://scripts/interactable.gd" id="2_43cjk"]
 [ext_resource type="Texture2D" uid="uid://cas83lpv0hhq0" path="res://assets/collection items/Survival/Textures/Can.png" id="2_okd82"]
 [ext_resource type="Texture2D" uid="uid://di6dw6jth2h8x" path="res://assets/collection items/Survival/Textures/match.png" id="3_ggthe"]
+[ext_resource type="Resource" uid="uid://iiiwbri1eakk" path="res://docs/dialogic/supermarketfinished.dtl" id="3_y5i57"]
 [ext_resource type="Texture2D" uid="uid://bcvjvyr8x70by" path="res://assets/collection items/Survival/Textures/sleeping_bag_01.png" id="4_mthht"]
 [ext_resource type="Texture2D" uid="uid://cht2sk4o8c5wl" path="res://assets/collection items/Survival/Textures/Bengal.png" id="5_wc58k"]
 [ext_resource type="Texture2D" uid="uid://cmbrqqa3pgysf" path="res://assets/collection items/Survival/Textures/Backpack.png" id="6_yefhy"]
@@ -1495,7 +1496,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="sleeping_bag_01" type="MeshInstance3D" parent="Survival/SleepingBag" index="0"]
@@ -1521,7 +1522,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="Can" type="MeshInstance3D" parent="Survival/CannedFood1" index="0"]
@@ -1547,7 +1548,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="match" type="MeshInstance3D" parent="Survival/Matchbox" index="0"]
@@ -1573,7 +1574,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="bengal" type="MeshInstance3D" parent="Survival/Flare" index="0"]
@@ -1598,7 +1599,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="Backpack_001" type="MeshInstance3D" parent="Survival/Backpack" index="0"]
@@ -1624,7 +1625,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="Can_Soda" type="MeshInstance3D" parent="Survival/Soda" index="0"]
@@ -1649,7 +1650,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="Antiseptic" type="MeshInstance3D" parent="Survival/Antiseptic" index="0"]
@@ -1678,7 +1679,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="Can_2" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood2" index="0"]
@@ -1789,7 +1790,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="Tin_1" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood3" index="0"]
@@ -1815,7 +1816,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="Tin_3" type="MeshInstance3D" parent="TrashAndDebrisPreview/CannedFood4" index="0"]
@@ -1841,7 +1842,7 @@ auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
 plays_dialogue = true
-dialogue_timeline = "supermarketfinished"
+dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
 [node name="WaterBottle" type="MeshInstance3D" parent="TrashAndDebrisPreview/Water" index="0"]

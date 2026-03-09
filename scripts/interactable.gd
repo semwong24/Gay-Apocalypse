@@ -42,7 +42,7 @@ signal interacted(body)
 
 @export_group("Dialogue")
 @export var plays_dialogue = false
-@export var dialogue_timeline = ""
+@export var dialogue_timeline: DialogicTimeline = null
 @export var dialogue_duration = 0.0
 
 @export_group("Scene Change")
@@ -66,20 +66,19 @@ func get_prompt():
 
 	if requires_items and not has_all_required_items():
 		return locked_message
-		
+
 	var key_name = ""
 	if prompt_input != null and prompt_input != "" and InputMap.has_action(prompt_input):
 		for action in InputMap.action_get_events(prompt_input):
 			if action is InputEventKey:
 				key_name = action.as_text_physical_keycode()
 				break
-			
+
 	return prompt_message + "\n[" + key_name + "]"
 
 func has_all_required_items() -> bool:
 	if required_item_names.is_empty():
 		return true
-		
 	for item in required_item_names:
 		if not PlayerInventory.has_item(item):
 			return false
@@ -158,17 +157,13 @@ func interact(body):
 				quest_optional_keys
 			)
 
-	if plays_dialogue and dialogue_timeline != "":
+	if plays_dialogue and dialogue_timeline != null:
 		await get_tree().process_frame
 		await get_tree().process_frame
 		if plays_dialogue_on_quest_start:
 			if not QuestManager.is_quest_active(quest_title):
 				await QuestManager.quest_started
-		Dialogic.start(dialogue_timeline)
-
-	if plays_dialogue and dialogue_duration > 0.0:
-		await get_tree().create_timer(dialogue_duration).timeout
-		Dialogic.end_timeline()
+		DialogueQueue.add_interactable_dialogue(dialogue_timeline)
 
 	interacted.emit(body)
 	await get_tree().process_frame

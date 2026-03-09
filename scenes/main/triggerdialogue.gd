@@ -1,31 +1,26 @@
 extends Area3D
-
 @export var timeline: DialogicTimeline
-
+@export var wait_for_opening: bool = false
 var has_triggered: bool = false
 
 func _ready():
 	body_entered.connect(_on_body_entered)
+	if wait_for_opening:
+		await DialogueQueue.timeline_ended_for_opening
+	await get_tree().process_frame
+	for body in get_overlapping_bodies():
+		if body.is_in_group("player"):
+			_on_body_entered(body)
+			break
 
 func _on_body_entered(body: Node3D):
 	if not body.is_in_group("player"):
 		return
 	if has_triggered:
 		return
-		
+	if timeline == null:
+		push_error(name + ": timeline is not assigned in the inspector!")
+		return
 	has_triggered = true
-	print("Timeline started") # confirm this only prints once
-	Dialogic.start(timeline)
-
-	has_triggered = true
-	_start_timeline()
-
-func _start_timeline():
-	var dialogic_node = Dialogic.start(timeline)
-	# If something stops the timeline externally, this won't re-trigger
-	# because has_triggered is already true
-	dialogic_node.connect("timeline_ended", _on_timeline_ended)
-
-func _on_timeline_ended():
-	pass  # Timeline finished naturally — do nothing, or reset has_triggered here
-		  # if you want it to be re-triggerable
+	print(name + ": queuing area dialogue")
+	DialogueQueue.add_area_dialogue(timeline)

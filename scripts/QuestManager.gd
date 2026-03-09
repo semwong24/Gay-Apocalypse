@@ -13,35 +13,22 @@ var current_quest_title = ""
 var current_optional_title = ""
 var complete_message_canvas: CanvasLayer
 var quest_complete = false
-var last_timeline = ""
 var active_quest_title = ""
 var completed_quests: Array = []
 var next_quest_data = null
+var current_complete_timeline: DialogicTimeline = null
 
 func _ready():
-	Dialogic.timeline_ended.connect(_on_timeline_ended)
-	Dialogic.timeline_started.connect(_on_timeline_started)
+	DialogueQueue.timeline_ended_for_opening.connect(_on_opening_finished)
 
-func _on_timeline_started():
-	if Dialogic.current_timeline != null:
-		last_timeline = Dialogic.current_timeline.resource_path
-
-func _on_timeline_ended():
-	if last_timeline != "" and "opening" in last_timeline:
-		start_custom_quest(
-			"Objectives:",
-			["Find flashlight", "Grab hatchet"],
-			["flashlight", "hatchet"],
-			"Front door unlocked.",
-			3.0
-		)
-	# Clean up any lingering Dialogic layers
-	await get_tree().process_frame
-	await get_tree().process_frame
-	for child in get_tree().root.get_children():
-		if child is CanvasLayer and child.name.begins_with("Dialogic"):
-			child.queue_free()
-	last_timeline = ""
+func _on_opening_finished():
+	start_custom_quest(
+		"Objectives:",
+		["Find flashlight", "Grab hatchet"],
+		["flashlight", "hatchet"],
+		"Front door unlocked.",
+		3.0
+	)
 
 func is_quest_active(title: String) -> bool:
 	return active_quest_title == title
@@ -53,7 +40,7 @@ func hide_quest_ui():
 	if quest_ui:
 		quest_ui.visible = false
 
-func queue_next_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = []):
+func queue_next_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = [], complete_timeline: DialogicTimeline = null):
 	next_quest_data = {
 		"title": title,
 		"objectives": objectives,
@@ -62,10 +49,11 @@ func queue_next_quest(title: String, objectives: Array, keys: Array, complete_me
 		"complete_duration": complete_duration,
 		"optional_title": optional_title,
 		"optional_objectives": optional_objectives,
-		"optional_keys": optional_keys
+		"optional_keys": optional_keys,
+		"complete_timeline": complete_timeline
 	}
 
-func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = []):
+func start_custom_quest(title: String, objectives: Array, keys: Array, complete_message: String, complete_duration: float, optional_title: String = "", optional_objectives: Array = [], optional_keys: Array = [], complete_timeline: DialogicTimeline = null):
 	current_quest_title = title
 	active_quest_title = title
 	current_quest_objectives = []
@@ -74,6 +62,7 @@ func start_custom_quest(title: String, objectives: Array, keys: Array, complete_
 	on_complete_message = complete_message
 	on_complete_duration = complete_duration
 	quest_complete = false
+	current_complete_timeline = complete_timeline
 	for i in range(objectives.size()):
 		var key = keys[i] if i < keys.size() else ""
 		current_quest_objectives.append({"text": objectives[i], "complete": false, "key": key})
@@ -117,7 +106,11 @@ func _check_all_complete():
 	active_quest_title = ""
 	completed_quests.append(current_quest_title)
 	quest_completed.emit()
-	
+
+	if current_complete_timeline != null:
+		DialogueQueue.add_quest_dialogue(current_complete_timeline)
+		current_complete_timeline = null
+
 	if current_quest_title != "Find parts to start the car:":
 		var player = get_tree().get_first_node_in_group("player")
 		if player:
@@ -126,7 +119,6 @@ func _check_all_complete():
 	if next_quest_data != null:
 		var data = next_quest_data
 		next_quest_data = null
-		await get_tree().create_timer(0.5).timeout
 		start_custom_quest(
 			data["title"],
 			data["objectives"],
@@ -135,20 +127,21 @@ func _check_all_complete():
 			data["complete_duration"],
 			data["optional_title"],
 			data["optional_objectives"],
-			data["optional_keys"]
+			data["optional_keys"],
+			data.get("complete_timeline", null)
 		)
 
 	if on_complete_message != "":
 		await get_tree().create_timer(3).timeout
 		if not quest_complete:
 			return
-		
+
 		var viewport_size = get_viewport().get_visible_rect().size
 		var viewport = get_tree().root
 		complete_message_canvas = CanvasLayer.new()
 		complete_message_canvas.layer = 100
 		viewport.add_child(complete_message_canvas)
-		
+
 		var label = Label.new()
 		label.text = on_complete_message
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -160,7 +153,7 @@ func _check_all_complete():
 		label.position = Vector2(0, viewport_size.y - 150)
 		label.size = Vector2(viewport_size.x, 100)
 		complete_message_canvas.add_child(label)
-		
+
 		var timer = Timer.new()
 		timer.one_shot = true
 		timer.timeout.connect(func(): hide_complete_message())

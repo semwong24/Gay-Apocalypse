@@ -95,7 +95,7 @@ func _input(event):
 
 	if event.is_action_pressed("skip_dialogue") and Dialogic.current_timeline != null:
 		Dialogic.VAR.set("opening_finished", true)
-		Dialogic.end_timeline()
+		DialogueQueue.skip_current()
 			
 	if event.is_action_pressed("toggle_mouse"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -170,7 +170,7 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.get_normal().y < 0.5 and collision.get_normal().y > -0.1:
 			if velocity.length() > 0.1:
-				velocity.y = 6.0
+				velocity.y = 2.0
 
 	headbob_time += delta * velocity.length() * float(is_on_floor())
 	cam.transform.origin = headbob(headbob_time)

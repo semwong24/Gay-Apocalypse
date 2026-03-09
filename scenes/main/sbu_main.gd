@@ -218,7 +218,8 @@ func _input(event):
 			match overlay_mode:
 				"volume_warning":
 					_hide_overlay()
-					Dialogic.start("opening")
+					var opening_timeline = load("res://docs/dialogic/opening.dtl")
+					DialogueQueue.add_quest_dialogue(opening_timeline)
 					if click_to_continue_label:
 						click_to_continue_label.visible = true
 						waiting_for_click = true

@@ -9,10 +9,9 @@ var currently_holding_radio = false
 
 func _ready():
 	Dialogic.timeline_started.connect(_on_dialog_started)
-	Dialogic.timeline_ended.connect(_on_dialog_ended)
 	Dialogic.Text.about_to_show_text.connect(_on_text_about_to_show)
-	
-	
+	Dialogic.Text.animation_textbox_hide.connect(_on_textbox_hide)
+
 	if player:
 		player.sprint_started.connect(_on_sprint_started)
 		player.sprint_stopped.connect(_on_sprint_stopped)
@@ -26,7 +25,15 @@ func _on_sprint_stopped():
 		var anim_length = get_animation("speak down").length
 		play("speak down")
 		seek(anim_length * 0.7)
-			
+
+func _on_textbox_hide():
+	if DialogueQueue.is_interactable_dialogue:
+		return
+	if currently_holding_radio:
+		play("speak down")
+		radio_click.play()
+		currently_holding_radio = false
+
 func _on_text_about_to_show(info: Dictionary):
 	var current_time = Time.get_ticks_msec() / 1000.0
 	
@@ -36,6 +43,8 @@ func _on_text_about_to_show(info: Dictionary):
 		
 		if speaker_name == character_name:
 			if not currently_holding_radio:
+				if DialogueQueue.is_interactable_dialogue:
+					return
 				play("speak")
 				walkie_beep.play()
 				currently_holding_radio = true
@@ -52,11 +61,7 @@ func _on_text_about_to_show(info: Dictionary):
 			currently_holding_radio = false
 
 func _on_dialog_started():
+	if DialogueQueue.is_interactable_dialogue:
+		return
 	last_speak_time = 0.0
-	currently_holding_radio = false
-	
-func _on_dialog_ended():
-	if currently_holding_radio:
-		play("speak down")
-		radio_click.play()  
 	currently_holding_radio = false
