@@ -96,17 +96,13 @@ func open() -> void:
 	set_process(true)
 	show()
 	text.enabled = true
-	var open_tween := create_tween().set_parallel(true)
-	open_tween.tween_property(self, "scale", Vector2.ONE, 0.1).from(Vector2.ZERO)
-	open_tween.tween_property(self, "modulate:a", 1.0, 0.1).from(0.0)
-
+	scale = Vector2.ONE
+	modulate.a = 1.0
 
 func close() -> void:
 	text.enabled = false
-	var close_tween := create_tween().set_parallel(true)
-	close_tween.tween_property(self, "scale", Vector2.ONE * 0.8, 0.2)
-	close_tween.tween_property(self, "modulate:a", 0.0, 0.2)
-	await close_tween.finished
+	scale = Vector2.ONE
+	modulate.a = 0.0
 	hide()
 	set_process(false)
 

@@ -58,8 +58,8 @@ enum AnimationsNewText {NONE, WIGGLE}
 @export var box_margin_bottom: int = 15
 
 @export_subgroup("Animation")
-@export var box_animation_in: AnimationsIn = AnimationsIn.FADE_UP
-@export var box_animation_out: AnimationsOut = AnimationsOut.FADE_DOWN
+@export var box_animation_in: AnimationsIn = AnimationsIn.NONE
+@export var box_animation_out: AnimationsOut = AnimationsOut.NONE
 @export var box_animation_new_text: AnimationsNewText = AnimationsNewText.NONE
 
 
@@ -106,7 +106,10 @@ enum AnimationsNewText {NONE, WIGGLE}
 func _apply_export_overrides() -> void:
 	if !is_inside_tree():
 		await ready
-
+	
+	var dialog_text_panel: PanelContainer = %DialogTextPanel
+	dialog_text_panel.visible = false
+	
 	## FONT SETTINGS
 	_apply_text_settings()
 
@@ -122,7 +125,10 @@ func _apply_export_overrides() -> void:
 
 	## NEXT INDICATOR SETTINGS
 	_apply_indicator_settings()
-
+	
+	
+	dialog_text_panel.visible = true
+	
 	## OTHER
 	var progress_bar: ProgressBar = %AutoAdvanceProgressbar
 	progress_bar.set(&'enabled', autoadvance_progressbar)
@@ -240,3 +246,4 @@ func _apply_indicator_settings() -> void:
 		next_indicator.show_on_autoadvance = next_indicator_show_on_autoadvance
 		next_indicator.texture_size = next_indicator_size
 		next_indicator.indicator_offset = next_indicator_position_offset
+		

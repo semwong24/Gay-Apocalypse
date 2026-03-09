@@ -6,9 +6,12 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var cam: Camera3D
 @export var flashlight: SpotLight3D
+var alive:=true
 @export_group("headbob")
 @export var headbob_freq := 2.0
 @export var headbob_amplitude := 0.04
+
+@onready var deathscreen: CanvasLayer = $deathshow
 
 @export_group("Stamina")
 @export var max_stamina := 100.0
@@ -22,6 +25,7 @@ var cooldown_timer := 0.0
 
 signal sprint_started
 signal sprint_stopped
+signal player_death
 
 @onready var footstep_player_indoor: AudioStreamPlayer3D = $FootstepPlayerIndoors
 @onready var footstep_player_concrete: AudioStreamPlayer3D = $FootstepPlayerConcrete
@@ -50,7 +54,7 @@ func _ready():
 	current_stamina = max_stamina
 	floor_snap_length = 0.5
 	floor_max_angle = deg_to_rad(60)
-	
+
 	floor_raycast = RayCast3D.new()
 	floor_raycast.target_position = Vector3(0, -1.05, 0)
 	floor_raycast.enabled = true
@@ -67,8 +71,18 @@ func _ready():
 	terrain_check_raycast.collide_with_bodies = true
 	terrain_check_raycast.set_collision_mask_value(1, true)
 	add_child(terrain_check_raycast)
-	
+
 	call_deferred("_connect_to_outdoor_area")
+
+	# Force rotation reset at end of frame if returning from main menu
+	await get_tree().process_frame
+	await get_tree().process_frame
+	if GameState.reset_player_rotation:
+		rotation.y = 0.0
+		$Head.rotation.x = 0.0
+		$Head.rotation.y = 0.0
+		$Head.rotation.z = 0.0
+		GameState.reset_player_rotation = false
 
 func _connect_to_outdoor_area():
 	var outdoor_area = get_tree().get_first_node_in_group("outdoor_area")
@@ -89,20 +103,20 @@ func _on_outdoor_exited(body):
 func _input(event):
 	if GameState.comic_playing or GameState.ui_open:
 		return
-	
+
 	if get_tree().paused:
 		return
 
 	if event.is_action_pressed("skip_dialogue") and Dialogic.current_timeline != null:
 		Dialogic.VAR.set("opening_finished", true)
-		Dialogic.end_timeline()
-			
+		DialogueQueue.skip_current()
+
 	if event.is_action_pressed("toggle_mouse"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			return
@@ -114,7 +128,7 @@ func _input(event):
 func _physics_process(delta):
 	if GameState.comic_playing or GameState.ui_open:
 		return
-		
+
 	if Input.is_action_just_pressed("toggle_flashlight") and PlayerInventory.has_flashlight:
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
@@ -123,13 +137,13 @@ func _physics_process(delta):
 		cooldown_timer -= delta
 		if cooldown_timer <= 0:
 			is_on_sprint_cooldown = false
-	
+
 	handle_stamina(delta)
-	
+
 	var was_sprinting = is_sprinting
 	var wants_to_sprint = Input.is_action_pressed("sprint")
 	var can_sprint = wants_to_sprint and current_stamina >= stamina_required_to_sprint and not is_on_sprint_cooldown
-	
+
 	if is_sprinting:
 		if current_stamina < stamina_required_to_sprint or not wants_to_sprint:
 			is_sprinting = false
@@ -139,12 +153,12 @@ func _physics_process(delta):
 	else:
 		if can_sprint:
 			is_sprinting = true
-	
+
 	if is_sprinting and not was_sprinting:
 		sprint_started.emit()
 	elif not is_sprinting and was_sprinting:
 		sprint_stopped.emit()
-	
+
 	var current_speed = sprint_speed if is_sprinting else speed
 
 	var direction = Vector3.ZERO
@@ -156,12 +170,12 @@ func _physics_process(delta):
 		direction -= transform.basis.x
 	if Input.is_action_pressed("move_right"):
 		direction += transform.basis.x
-	
+
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
-		
+
 	velocity.x = direction.x * current_speed
 	velocity.z = direction.z * current_speed
 	move_and_slide()
@@ -170,11 +184,11 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.get_normal().y < 0.5 and collision.get_normal().y > -0.1:
 			if velocity.length() > 0.1:
-				velocity.y = 6.0
+				velocity.y = 2.0
 
 	headbob_time += delta * velocity.length() * float(is_on_floor())
 	cam.transform.origin = headbob(headbob_time)
-	
+
 	handle_footsteps(delta)
 	handle_ambient_sound()
 
@@ -203,9 +217,9 @@ func handle_footsteps(delta):
 	if GameState.comic_playing:
 		_stop_all_footsteps()
 		return
-	
+
 	var is_moving = velocity.length() > 0.1
-	
+
 	if is_moving:
 		var desired_pitch = 1.3 if is_sprinting else 1.0
 		var new_floor = ""
@@ -229,7 +243,6 @@ func handle_footsteps(delta):
 			else:
 				new_floor = "terrain"
 
-		# Only switch if same type detected for 10 consecutive frames
 		if new_floor == pending_floor_type:
 			floor_type_counter += 1
 			if floor_type_counter >= 10:
@@ -280,3 +293,12 @@ func _on_area_3d_area_entered(_area: Area3D) -> void:
 
 func _on_ok_button_pressed() -> void:
 	pass
+	
+func die():
+	print("player exploded unlucky")
+	set_process_input(false)
+	deathscreen.show_death_screen()
+	player_death.emit()
+	
+func _on_hitbox_body_entered(body):
+	die()

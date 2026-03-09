@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Gay Apocalypse"
-run/main_scene="uid://cid2pxxqmnfx2"
+run/main_scene="uid://b3k03yeo277a4"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -29,6 +29,7 @@ PickupMessageManager="*res://scripts/pickup_message_manager.gd"
 QuestManager="*res://scripts/QuestManager.gd"
 SceneTransition="*res://scripts/SceneTransition.gd"
 SaveManager="*res://scripts/SaveManager.gd"
+DialogueQueue="*res://scripts/DialogueQueue.gd"
 
 [debug]
 
@@ -45,15 +46,64 @@ directories/dch_directory={
 "anon_rose": "res://anon_rose.dch"
 }
 directories/dtl_directory={
+"bloomstages": "res://docs/dialogic/bloomstages.dtl",
+"buildingtrust": "res://docs/dialogic/buildingtrust.dtl",
 "carbattery": "res://docs/dialogic/carbattery.dtl",
+"centerofcityissafe": "res://docs/dialogic/centerofcityissafe.dtl",
+"contrastingpersonalities": "res://docs/dialogic/contrastingpersonalities.dtl",
+"earlyongettingtoknow": "res://docs/dialogic/earlyongettingtoknow.dtl",
+"endofep": "res://docs/dialogic/endofep.dtl",
+"evacuationnowork": "res://docs/dialogic/evacuationnowork.dtl",
+"exchange10thenamebloom": "res://docs/dialogic/exchange10thenamebloom.dtl",
+"exchange1music": "res://docs/dialogic/exchange1music.dtl",
+"exchange2preapocalypselife": "res://docs/dialogic/exchange2preapocalypselife.dtl",
+"exchange3survivalhumor": "res://docs/dialogic/exchange3survivalhumor.dtl",
+"exchange4firstweek": "res://docs/dialogic/exchange4firstweek.dtl",
+"exchange5flirting": "res://docs/dialogic/exchange5flirting.dtl",
+"exchange6vulnerability": "res://docs/dialogic/exchange6vulnerability.dtl",
+"exchange7nighttimeambience": "res://docs/dialogic/exchange7nighttimeambience.dtl",
+"exchange8labcoarcallback": "res://docs/dialogic/exchange8labcoarcallback.dtl",
+"exchange9foodcravings": "res://docs/dialogic/exchange9foodcravings.dtl",
+"firstinfectioncase": "res://docs/dialogic/firstinfectioncase.dtl",
+"firstinfectioncases": "res://docs/dialogic/firstinfectioncases.dtl",
+"flashlightexplain": "res://docs/dialogic/flashlightexplain.dtl",
+"flashlightvsai": "res://docs/dialogic/flashlightvsai.dtl",
 "gas": "res://docs/dialogic/gas.dtl",
+"gasstationarrival": "res://docs/dialogic/gasstationarrival.dtl",
+"gasstationleadin": "res://docs/dialogic/gasstationleadin.dtl",
+"heightjoke": "res://docs/dialogic/heightjoke.dtl",
 "houseinteriorfinished": "res://docs/dialogic/houseinteriorfinished.dtl",
+"howinfectinspread": "res://docs/dialogic/howinfectinspread.dtl",
+"infecteddontdie": "res://docs/dialogic/infecteddontdie.dtl",
+"jessefirefightertraining": "res://docs/dialogic/jessefirefightertraining.dtl",
+"jessieneighborhood": "res://docs/dialogic/jessieneighborhood.dtl",
 "keyfob": "res://docs/dialogic/keyfob.dtl",
+"leavinghouse": "res://docs/dialogic/leavinghouse.dtl",
+"lightmovement": "res://docs/dialogic/lightmovement.dtl",
+"liquorstorechkpt1": "res://docs/dialogic/liquorstorechkpt1.dtl",
 "liquorstorefinished": "res://docs/dialogic/liquorstorefinished.dtl",
+"liquorstoretosupermrkt": "res://docs/dialogic/liquorstoretosupermrkt.dtl",
+"lostconnections": "res://docs/dialogic/lostconnections.dtl",
+"nighttravelsafer": "res://docs/dialogic/nighttravelsafer.dtl",
+"noonesawitcoming": "res://docs/dialogic/noonesawitcoming.dtl",
 "opening": "res://docs/dialogic/opening.dtl",
+"rosealmostleft": "res://docs/dialogic/rosealmostleft.dtl",
+"rosemaplogic": "res://docs/dialogic/rosemaplogic.dtl",
+"roseresearchbg": "res://docs/dialogic/roseresearchbg.dtl",
+"roseuniveristylab": "res://docs/dialogic/roseuniveristylab.dtl",
+"seeingthecity": "res://docs/dialogic/seeingthecity.dtl",
+"smellofinfected": "res://docs/dialogic/smellofinfected.dtl",
+"stealthprompt": "res://docs/dialogic/stealthprompt.dtl",
+"suburbconnection": "res://docs/dialogic/suburbconnection.dtl",
 "supermarketfinished": "res://docs/dialogic/supermarketfinished.dtl",
 "test_timeline": "res://docs/dialogic/test_timeline.dtl",
-"tires": "res://docs/dialogic/tires.dtl"
+"timelinevague": "res://docs/dialogic/timelinevague.dtl",
+"tires": "res://docs/dialogic/tires.dtl",
+"towardliquorstore": "res://docs/dialogic/towardliquorstore.dtl",
+"virusnamedrop": "res://docs/dialogic/virusnamedrop.dtl",
+"wahtrosemisses": "res://docs/dialogic/wahtrosemisses.dtl",
+"waterproblem": "res://docs/dialogic/waterproblem.dtl",
+"whymilitaryfailed": "res://docs/dialogic/whymilitaryfailed.dtl"
 }
 layout/style_directory={
 "DialogueStyle": "res://DialogueStyle.tres"
@@ -139,6 +189,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/terr
 
 interactable=""
 concrete_area=""
+player=""
 
 [input]
 

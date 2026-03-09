@@ -9,21 +9,18 @@ var click_to_continue_label: Label
 var click_canvas_layer: CanvasLayer
 var waiting_for_click = false
 
-# --- Fullscreen overlay system ---
 var overlay_canvas_layer: CanvasLayer
 var overlay_texture_rect: TextureRect
-var overlay_mode: String = ""  # "volume_warning" or "credits"
+var overlay_mode: String = ""
 
 func _ready():
 	for page in all_pages:
 		page.hide()
-
 	GameState.ui_open = true
 
-	var start_button = $subustart/newgamebutton
+	var start_button = $sbustart/newgamebutton
 	if is_instance_valid(start_button):
 		start_button.pressed.connect(_on_newgamebutton_pressed)
-		print("New Game button signal connected.")
 	else:
 		print("ERROR: newgamebutton not found. Check node path.")
 
@@ -36,7 +33,6 @@ func _setup_overlay():
 	overlay_canvas_layer.layer = 200
 	overlay_canvas_layer.name = "OverlayLayer"
 	get_tree().root.add_child(overlay_canvas_layer)
-
 	overlay_texture_rect = TextureRect.new()
 	overlay_texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	overlay_texture_rect.stretch_mode = TextureRect.STRETCH_SCALE
@@ -51,7 +47,6 @@ func _setup_overlay():
 	overlay_texture_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	overlay_texture_rect.visible = false
 	overlay_texture_rect.name = "OverlayImage"
-
 	overlay_canvas_layer.add_child(overlay_texture_rect)
 
 func _show_overlay(image_path: String, mode: String):
@@ -73,12 +68,10 @@ func _hide_overlay():
 
 func _setup_click_text():
 	var viewport_size = get_viewport().get_visible_rect().size
-
 	click_canvas_layer = CanvasLayer.new()
 	click_canvas_layer.layer = 100
 	click_canvas_layer.name = "ClickToContinueLayer"
 	get_tree().root.add_child(click_canvas_layer)
-
 	click_to_continue_label = Label.new()
 	click_to_continue_label.text = "[Click to cycle through comic]"
 	click_to_continue_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -86,19 +79,26 @@ func _setup_click_text():
 	click_to_continue_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	click_to_continue_label.visible = false
 	click_to_continue_label.name = "ClickToContinueLabel"
-
 	click_to_continue_label.position = Vector2.ZERO
 	click_to_continue_label.size = viewport_size
-
 	click_to_continue_label.add_theme_font_size_override("font_size", 25)
 	click_to_continue_label.add_theme_color_override("font_color", Color.WHITE)
 	click_to_continue_label.add_theme_constant_override("line_spacing", -50)
-
 	click_canvas_layer.add_child(click_to_continue_label)
 
-# ---- Button handlers ----
-
 func _on_newgamebutton_pressed():
+	print("=== NEW GAME PRESSED ===")
+	DialogueQueue.reset()
+	QuestManager.reset()
+	PlayerInventory.reset()
+	GameState.reset()
+	Dialogic.VAR.set("opening_finished", false)
+	GameState.is_new_game = true
+	print("is_new_game set to: ", GameState.is_new_game)
+
+	if not DialogueQueue.timeline_ended_for_opening.is_connected(QuestManager._on_opening_finished):
+		DialogueQueue.timeline_ended_for_opening.connect(QuestManager._on_opening_finished)
+
 	GameState.ui_open = false
 	hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -115,43 +115,35 @@ func _on_loadfilebutton_pressed():
 
 func _show_load_confirmation():
 	var vp = get_viewport().get_visible_rect().size
-
 	confirm_canvas = CanvasLayer.new()
 	confirm_canvas.layer = 150
 	get_tree().root.add_child(confirm_canvas)
-
 	var bg = ColorRect.new()
 	bg.color = Color(0, 0, 0, 0.7)
 	bg.position = Vector2.ZERO
 	bg.size = vp
 	confirm_canvas.add_child(bg)
-
 	var box = PanelContainer.new()
 	box.size = Vector2(400, 180)
 	box.position = (vp / 2) - (box.size / 2)
 	confirm_canvas.add_child(box)
-
 	var vbox = VBoxContainer.new()
 	vbox.add_theme_constant_override("separation", 20)
 	box.add_child(vbox)
-
 	var label = Label.new()
 	label.text = "Load saved game?\nUnsaved progress will be lost."
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.add_theme_font_size_override("font_size", 18)
 	vbox.add_child(label)
-
 	var hbox = HBoxContainer.new()
 	hbox.alignment = BoxContainer.ALIGNMENT_CENTER
 	hbox.add_theme_constant_override("separation", 20)
 	vbox.add_child(hbox)
-
 	var load_btn = Button.new()
 	load_btn.text = "Load Game"
 	load_btn.custom_minimum_size = Vector2(120, 40)
 	load_btn.pressed.connect(_on_confirm_load)
 	hbox.add_child(load_btn)
-
 	var cancel_btn = Button.new()
 	cancel_btn.text = "Cancel"
 	cancel_btn.custom_minimum_size = Vector2(120, 40)
@@ -159,6 +151,7 @@ func _show_load_confirmation():
 	hbox.add_child(cancel_btn)
 
 func _on_confirm_load():
+	GameState.is_new_game = false
 	_close_load_confirmation()
 	hide()
 	GameState.ui_open = false
@@ -171,15 +164,12 @@ func _on_confirm_load():
 		var anim = player.get_node_or_null("Head/arms walkie talkie rig/AnimationPlayer")
 		if anim:
 			anim.play("speak down")
-
 		await get_tree().process_frame
 		await get_tree().process_frame
-
 		for node in get_tree().get_nodes_in_group("interactable"):
-			if node.item_name != "" and PlayerInventory.has_item(node.item_name):
+			if node.item_name != "" and node.disappears_on_pickup and PlayerInventory.has_item(node.item_name):
 				node.visible = false
 				node.process_mode = Node.PROCESS_MODE_DISABLED
-
 		if PlayerInventory.has_flashlight:
 			var flashlight_node = get_tree().root.find_child("Flashlight", true, false)
 			if flashlight_node:
@@ -206,19 +196,16 @@ func _show_page(target_page):
 		page.visible = (page == target_page)
 
 func _start_game():
-	print("Click detected. Comic will continue playing.")
-
-# ---- Input handling ----
+	pass
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-
-		# Handle overlay clicks first (highest priority)
 		if overlay_texture_rect != null and overlay_texture_rect.visible:
 			match overlay_mode:
 				"volume_warning":
 					_hide_overlay()
-					Dialogic.start("opening")
+					var opening_timeline = load("res://docs/dialogic/opening.dtl")
+					DialogueQueue.add_quest_dialogue(opening_timeline)
 					if click_to_continue_label:
 						click_to_continue_label.visible = true
 						waiting_for_click = true
@@ -229,15 +216,11 @@ func _input(event):
 					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			get_viewport().set_input_as_handled()
 			return
-
-		# Handle click-to-continue for comic
 		if waiting_for_click:
 			waiting_for_click = false
 			click_to_continue_label.visible = false
 			_start_game()
 			return
-
-		# Dismiss sub-pages if clicking outside them
 		for page in all_pages:
 			if page.visible:
 				var rect = page.get_global_rect()

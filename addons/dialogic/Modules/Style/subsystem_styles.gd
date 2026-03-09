@@ -48,6 +48,9 @@ func change_style(style_name := "", is_base_style := true) -> Node:
 ## [br] If [param state_reload] is true, the current state will be loaded into a new layout scenes nodes.
 ## That should not be done before calling start() or load() as it would be unnecessary or cause double-loading.
 func load_style(style_name := "", parent: Node = null, is_base_style := true, state_reload := false) -> Node:
+	if style_name == "" and has_active_layout_node():
+		return get_layout_node()
+	
 	var style_resource := DialogicStylesUtil.get_style(style_name)
 
 	var signal_info := {'style':style_name}
@@ -81,7 +84,6 @@ func load_style(style_name := "", parent: Node = null, is_base_style := true, st
 
 		else:
 			parent = previous_layout.get_parent()
-
 			previous_layout.get_parent().remove_child(previous_layout)
 			previous_layout.queue_free()
 
@@ -102,7 +104,6 @@ func load_style(style_name := "", parent: Node = null, is_base_style := true, st
 ## Method that adds a layout scene with all the necessary layers.
 ## The layout scene will be added to the tree root and returned.
 func create_layout(style_resource: DialogicStyle, parent: Node = null) -> DialogicLayoutBase:
-
 	# Load base scene
 	var base_scene: DialogicLayoutBase
 	var base_layer_info := style_resource.get_layer_inherited_info("")
@@ -110,7 +111,7 @@ func create_layout(style_resource: DialogicStyle, parent: Node = null) -> Dialog
 		base_scene = DialogicStylesUtil.get_default_layout_base().instantiate()
 	else:
 		base_scene = load(base_layer_info.path).instantiate()
-
+		
 	base_scene.name = "DialogicLayout_"+style_resource.name.to_pascal_case()
 
 	# Apply base scene overrides
@@ -122,14 +123,11 @@ func create_layout(style_resource: DialogicStyle, parent: Node = null) -> Dialog
 
 		if not ResourceLoader.exists(layer.path):
 			continue
-
 		var layer_scene: DialogicLayoutLayer = null
-
 		if ResourceLoader.load_threaded_get_status(layer.path) == ResourceLoader.THREAD_LOAD_LOADED:
 			layer_scene = ResourceLoader.load_threaded_get(layer.path).instantiate()
 		else:
 			layer_scene = load(layer.path).instantiate()
-
 		base_scene.add_layer(layer_scene)
 
 		# Apply layer overrides
@@ -144,7 +142,6 @@ func create_layout(style_resource: DialogicStyle, parent: Node = null) -> Dialog
 	dialogic.get_tree().set_meta('dialogic_layout_node', base_scene)
 
 	return base_scene
-
 
 ## When changing to a different layout scene,
 ## we have to reload all info into the nodes of the new layout.

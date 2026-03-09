@@ -20,9 +20,7 @@ func _setup_message_display():
 	message_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	message_label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
 	message_label.add_theme_font_size_override("font_size", 24)
-	
 	message_label.add_theme_color_override("font_color", Color(0.704, 0.704, 0.704, 1.0))
-	
 	message_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	message_label.add_theme_constant_override("outline_size", 2)
 	message_label.visible = false
@@ -38,14 +36,13 @@ func _setup_message_display():
 	message_timer.timeout.connect(_hide_message)
 	canvas_layer.add_child(message_timer)
 
-func show_message(text: String, duration: float):
+func show_message(text: String, duration: float, layer: int = 100):
 	if message_label:
+		canvas_layer.layer = layer
 		message_label.text = text
 		message_label.visible = true
 		message_timer.start(duration)
-		print("Showing message: ", text, " for ", duration, " seconds")
 
 func _hide_message():
 	if message_label:
 		message_label.visible = false
-		print("Message hidden")
