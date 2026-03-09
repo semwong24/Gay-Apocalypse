@@ -2,6 +2,7 @@ extends Node3D
 
 @export_group("zombie")
 @export var spawnable: PackedScene
+@export var spawn_count := 1
 @export var spawn_radius:= 5
 @export var speed:= 3
 @export var player_dist_max := 50
@@ -14,7 +15,8 @@ var zombies = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node(player_path)
-	spawn_zombie()
+	for i in spawn_count:
+		spawn_zombie()
 
 func spawn_zombie():
 	var newzombie = spawnable.instantiate()
