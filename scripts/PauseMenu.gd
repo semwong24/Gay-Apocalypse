@@ -122,6 +122,8 @@ func _on_quit_to_main():
 	is_paused = false
 	get_tree().paused = false
 	GameState.reset_player_rotation = true
+	for spawner in get_tree().get_nodes_in_group("zombie_spawner"):
+		spawner.reset()
 	DialogueQueue.reset()
 	QuestManager.reset()
 	PlayerInventory.reset()

@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Gay Apocalypse"
-run/main_scene="uid://b3k03yeo277a4"
+run/main_scene="uid://cid2pxxqmnfx2"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -80,6 +80,7 @@ directories/dtl_directory={
 "keyfob": "res://docs/dialogic/keyfob.dtl",
 "leavinghouse": "res://docs/dialogic/leavinghouse.dtl",
 "lightmovement": "res://docs/dialogic/lightmovement.dtl",
+"liquorstoreNOTfinished": "res://docs/dialogic/liquorstoreNOTfinished.dtl",
 "liquorstorechkpt1": "res://docs/dialogic/liquorstorechkpt1.dtl",
 "liquorstorefinished": "res://docs/dialogic/liquorstorefinished.dtl",
 "liquorstoretosupermrkt": "res://docs/dialogic/liquorstoretosupermrkt.dtl",
@@ -95,6 +96,7 @@ directories/dtl_directory={
 "smellofinfected": "res://docs/dialogic/smellofinfected.dtl",
 "stealthprompt": "res://docs/dialogic/stealthprompt.dtl",
 "suburbconnection": "res://docs/dialogic/suburbconnection.dtl",
+"supermarketNOTfinished": "res://docs/dialogic/supermarketNOTfinished.dtl",
 "supermarketfinished": "res://docs/dialogic/supermarketfinished.dtl",
 "test_timeline": "res://docs/dialogic/test_timeline.dtl",
 "timelinevague": "res://docs/dialogic/timelinevague.dtl",

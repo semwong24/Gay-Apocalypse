@@ -103,6 +103,9 @@ func _on_load():
 	GameState.ui_open = false
 	GameState.is_new_game = false
 	visible = false
+	
+	for spawner in get_tree().get_nodes_in_group("zombie_spawner"):
+		spawner.reset()
 
 	DialogueQueue.priority_queue.clear()
 	DialogueQueue.normal_queue.clear()

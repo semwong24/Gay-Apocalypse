@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://8k48nhvkmgmc" path="res://assets/sfx/ambient_wind_noise.mp3" id="11_lif8p"]
 [ext_resource type="AudioStream" uid="uid://gtib5po5v7hw" path="res://assets/sfx/cricket_ambient.ogg" id="12_lif8p"]
 [ext_resource type="Script" uid="uid://b0dxs7t236lpg" path="res://scripts/player/runtime_bake.gd" id="14_0lje7"]
-[ext_resource type="Texture2D" uid="uid://bjo0uf47ytqs7" path="res://assets/UI Assets/gameover.png" id="15_77bur"]
+[ext_resource type="Texture2D" uid="uid://dmfna6se2xiwg" path="res://assets/UI Assets/gameover.png" id="15_77bur"]
 [ext_resource type="Script" uid="uid://b33jb8g2bfu1w" path="res://scenes/main/deathshow.gd" id="16_77bur"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkn4j"]
@@ -146,16 +146,16 @@ offset_bottom = 2250.0
 texture = ExtResource("15_77bur")
 
 [node name="LoadButton" type="Button" parent="deathshow"]
-offset_left = 1671.7429
-offset_top = 1210.2273
-offset_right = 2324.873
-offset_bottom = 1302.2727
+offset_left = 1681.8953
+offset_top = 1193.1818
+offset_right = 2335.0254
+offset_bottom = 1285.2272
 
 [node name="QuitButton" type="Button" parent="deathshow"]
-offset_left = 1641.2861
-offset_top = 1309.0908
-offset_right = 2362.0981
-offset_bottom = 1401.1364
+offset_left = 1641.286
+offset_top = 1292.0454
+offset_right = 2351.9458
+offset_bottom = 1384.091
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 

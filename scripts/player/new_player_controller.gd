@@ -297,8 +297,27 @@ func _on_ok_button_pressed() -> void:
 func die():
 	print("player exploded unlucky")
 	set_process_input(false)
+	var anim_player = get_node("Head/arms walkie talkie rig/AnimationPlayer")
+	if anim_player:
+		anim_player.play("death")
+		await get_tree().create_timer(anim_player.get_animation("death").length).timeout
+	
+	# Fade to black
+	var canvas = CanvasLayer.new()
+	canvas.layer = 100
+	get_tree().root.add_child(canvas)
+	var rect = ColorRect.new()
+	rect.color = Color(0, 0, 0, 0)
+	rect.anchor_right = 1.0
+	rect.anchor_bottom = 1.0
+	canvas.add_child(rect)
+	var tween = canvas.create_tween()
+	tween.tween_property(rect, "color", Color(0, 0, 0, 1), 1.0)
+	await tween.finished
+	
 	deathscreen.show_death_screen()
 	player_death.emit()
+	canvas.queue_free()
 	
 func _on_hitbox_body_entered(body):
 	die()
