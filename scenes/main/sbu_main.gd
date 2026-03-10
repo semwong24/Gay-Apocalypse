@@ -180,6 +180,8 @@ func _on_confirm_load():
 			if hatchet_node:
 				hatchet_node.visible = false
 				hatchet_node.process_mode = Node.PROCESS_MODE_DISABLED
+		for spawner in get_tree().get_nodes_in_group("zombie_spawner"):
+			spawner.reset()
 	else:
 		print("ERROR: Player not found for loading.")
 
