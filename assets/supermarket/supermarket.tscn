@@ -1528,7 +1528,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1554,7 +1553,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1580,7 +1578,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1605,7 +1602,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1631,7 +1627,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1656,7 +1651,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1685,7 +1679,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1796,7 +1789,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1822,7 +1814,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 
@@ -1848,7 +1839,6 @@ starts_quest = true
 auto_start_on_quest_complete = true
 quest_title = "Locate the gas station."
 plays_dialogue_on_quest_start = true
-plays_dialogue = true
 dialogue_timeline = ExtResource("3_y5i57")
 dialogue_duration = 5.0
 

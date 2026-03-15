@@ -1,7 +1,6 @@
 extends Area3D
 @export var timeline: DialogicTimeline
 @export var wait_for_opening: bool = false
-
 @export_group("Quest Requirement")
 @export var requires_quest_complete: bool = false
 @export var required_quests: Array[String] = []
@@ -9,9 +8,11 @@ extends Area3D
 @export var incomplete_quest_timeline: DialogicTimeline = null
 
 var has_triggered: bool = false
+var incomplete_on_cooldown: bool = false  # NEW
 
 func _on_load_reset():
 	has_triggered = false
+	incomplete_on_cooldown = false  # NEW
 
 func _ready():
 	add_to_group("dialogue_area")
@@ -26,13 +27,11 @@ func _ready():
 
 func _quests_satisfied() -> bool:
 	if quest_check_mode == 0:
-		# All must be complete
 		for quest in required_quests:
 			if not QuestManager.is_quest_complete(quest):
 				return false
 		return true
 	else:
-		# Any must be complete
 		for quest in required_quests:
 			if QuestManager.is_quest_complete(quest):
 				return true
@@ -46,9 +45,18 @@ func _on_body_entered(body: Node3D):
 		return
 	if requires_quest_complete:
 		if not _quests_satisfied():
-			if incomplete_quest_timeline != null:
-				# Don't set has_triggered so it can recheck when player re-enters
+			if incomplete_quest_timeline != null and not incomplete_on_cooldown:
+				# Check if this timeline already played or is queued
+				var path = incomplete_quest_timeline.resource_path
+				if path in DialogueQueue.completed_timelines:
+					return
+				if path in DialogueQueue.dropped_timelines:
+					return
+				incomplete_on_cooldown = true
 				DialogueQueue.add_area_dialogue(incomplete_quest_timeline)
+				# Reset cooldown after a delay so re-entry works eventually
+				await get_tree().create_timer(5.0).timeout
+				incomplete_on_cooldown = false
 			return
 	if timeline == null:
 		push_error(name + ": timeline is not assigned in the inspector!")

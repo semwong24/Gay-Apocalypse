@@ -116,7 +116,11 @@ func _check_all_complete():
 	quest_completed.emit()
 
 	if current_complete_timeline != null:
-		DialogueQueue.add_quest_dialogue(current_complete_timeline)
+		var path = current_complete_timeline.resource_path
+		if path not in DialogueQueue.completed_timelines:
+			DialogueQueue.add_quest_dialogue(current_complete_timeline)
+		else:
+			print("Skipping complete timeline — already played: ", path)
 		current_complete_timeline = null
 
 	if current_quest_title != "Find parts to start the car:":
